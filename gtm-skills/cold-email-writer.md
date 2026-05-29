@@ -4,25 +4,30 @@
 
 **Context:** Harry manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows company/voice.md. PRR is the only metric that matters.
 
-**Read before writing — primary:**
-- `company/offer.md` — what they sell, proof points, differentiators
-- `company/icp.md` — who to target, decision-maker profiles
-- `company/voice.md` — tone rules, approved claims, words to avoid
-- `company/decision-log.md` — past decision rationale (why prior choices were made)
-- `wiki/copy-library.md` — past top-performing variants for this client
-- `wiki/copywriting-101.md` — Refine Flow hard rules, formula, frameworks
+---
 
-**Read before writing — extended (ColdIQ knowledge):**
-- `wiki/copywriting-frameworks.md` — 13 named frameworks + ColdIQ 250K-email playbook + Josh Braun principles
-- `wiki/subject-lines.md` — 4 subject line formulas and A/B testing rules
-- `wiki/atl-btl-messaging.md` — register-appropriate copy for VP vs IC
-- `wiki/personalization-at-scale.md` — 6 buckets, hooks, AI prompts
-- `wiki/signal-sourcing.md` — to map signal → copy angle
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
+- `company/copy-library.md` — past top-performing variants for this client
+- `wiki/copywriting-101.md` — canonical rules, 4-part formula
+
+**READ IF CONDITION:**
+- `company/decision-log.md` — if optimising or building on a prior decision
+- `wiki/atl-btl-messaging.md` — if recipient register (ATL vs BTL) is unclear
+- `wiki/personalization-at-scale.md` — if personalisation tier needs to be decided
+- `wiki/signal-sourcing.md` — if mapping a signal to a copy angle
+
+**REFERENCE (consult when needed):**
+- `wiki/copywriting-frameworks.md` — 13 named frameworks for when the default formula has plateaued
+- `wiki/subject-lines.md` — 4 subject line formulas
 - `wiki/email-benchmarks.md` — what good looks like
-
-**Skills to invoke first if needed:**
-- `gtm-skills/personalization-strategist.md` — to decide personalisation tier and write Clay prompts
-- `gtm-skills/signal-sourcer.md` — to identify the right signal angle
+- `gtm-skills/personalization-strategist.md` — full personalisation flow
+- `gtm-skills/signal-sourcer.md` — full signal analysis
 
 ---
 
@@ -42,7 +47,7 @@ If Instantly MCP is unavailable, ask Harry to paste the metrics before continuin
 
 ### Step 2 — Surface winning copy
 
-Read `wiki/copy-library.md`. Find entries matching:
+Read `company/copy-library.md`. Find entries matching:
 - Same signal type
 - Same sequence step (Email 1, 2, or 3)
 - PRR above 1.5%
@@ -52,7 +57,7 @@ If no match exists: state you are starting fresh.
 
 ### Step 3 — Check the graveyard
 
-Read the Graveyard section in `wiki/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
+Read the Graveyard section in `company/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
 
 ### Step 4 — Decide register (ATL vs BTL)
 
@@ -81,13 +86,38 @@ Confirm these inputs. Ask if not already provided:
 2. **Target** — who is the recipient? Title, company type, size
 3. **Sequence step** — Email 1, 2, or 3?
 4. **Goal of this email** — which value prop to lead with? (make money / save time / save money)
-5. **Framework** — default to Refine Flow 4-part formula. Use a named framework from `wiki/copywriting-frameworks.md` if the default is not landing.
+
+---
+
+## FRAMEWORK DECISION TREE (F5)
+
+```
+Email 1 of new campaign + no past data
+  → Default: 4-part formula (wiki/copywriting-101.md)
+
+Default formula tested + PRR < 1.5% after 600+ sends
+  → Switch to named framework (wiki/copywriting-frameworks.md)
+  → Pick by signal type below
+
+Specific signal warrants specific framework:
+  Hiring signal              → Do the Math
+  Pricing page visit         → HOT Outreach
+  Job change                 → Pattern Interrupt
+  Industry-wide pain         → Challenge of Similar Companies
+  Lead-magnet engager        → Leverage Content in Outbound
+  Re-engagement              → Manual Email Style (Josh Braun)
+  Executive (C-level)        → ATL formula (wiki/atl-btl-messaging.md)
+  Champion job change        → Not Too Different Persona
+
+Default formula tested + PRR >= 1.5%
+  → Do not switch. Iterate on sub-variables only (offer phrasing, CTA wording).
+```
 
 ---
 
 ## HARD RULES
 
-- **Word count:** ATL (VP/C-Level) max 60. BTL (Manager/IC) max 90. Default 75 target, 100 ceiling. See wiki/copywriting-101.md (canonical).
+- **Word count:** ATL (VP/C-Level) max 60. BTL (Manager/IC) max 90. Default 75 target, 100 ceiling. See `wiki/copywriting-101.md` (canonical).
 - No question marks except the CTA.
 - Subject line: 2-4 words, lowercase, no spam triggers.
 - No links in the body.
@@ -120,15 +150,6 @@ Frame as giving, not selling. Specific outcome + timeframe + risk reversal.
 **Part 4 — CTA (One binary yes/no question)**
 Prospect replies in 5 words or less.
 
-### Alternative frameworks
-
-When the default formula is not landing, switch to one of the 13 named frameworks in `wiki/copywriting-frameworks.md`:
-- **Do the Math** — when ROI is quantifiable
-- **Pattern Interrupt / Ask Before Pitch** — leading with a question
-- **Upfront Value** — value-first, no pitch
-- **Challenge of Similar Companies** — industry-wide pain
-- **HOT Outreach** — peak interest → value → CTA
-
 ---
 
 ## SEQUENCE STRUCTURE
@@ -148,7 +169,7 @@ Rotate across the 3 value props (make money / save time / save money). Never rep
 
 Before outputting any copy, check every item:
 
-- [ ] Under 100 words? (BTL: under 90, ATL: under 60)
+- [ ] Within word count limits (ATL 60 / BTL 90 / default 75-100)?
 - [ ] Passes the bar test?
 - [ ] Part 1 specific to the signal — not generic?
 - [ ] Part 2 uses "I" with a specific number?
