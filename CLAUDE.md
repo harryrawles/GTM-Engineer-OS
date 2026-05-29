@@ -77,6 +77,7 @@ GTM Engineer at Instantly.ai managing this account. Responsibilities:
 
 | User Intent | Skill | Description |
 |-------------|-------|-------------|
+| "Onboard a new client" / "Set up the OS" | gtm-skills/client-onboarder.md | Conversational flow that fills all company/*.md files |
 | "Write a cold email sequence" | gtm-skills/cold-email-writer.md | Emails using client offer, ICP, and voice |
 | "Diagnose / optimise a campaign" | gtm-skills/campaign-optimiser.md | Diagnose underperformance, recommend fixes |
 | "Design a signal-based campaign" | gtm-skills/signal-sourcer.md | Pick and score signals, design plays |
@@ -120,7 +121,9 @@ client-os/
 │   ├── email-benchmarks.md           # Industry benchmarks
 │   ├── copy-library.md               # This client winning copy + graveyard
 │   └── test-log.md                   # Test history and roadmap
+├── BOOTSTRAP.md           # Setup instructions (delete after onboarding)
 ├── gtm-skills/            # AI skill definitions
+│   ├── client-onboarder.md     # RUN THIS FIRST on a fresh clone
 │   ├── cold-email-writer.md
 │   ├── campaign-optimiser.md
 │   ├── signal-sourcer.md
@@ -149,14 +152,26 @@ All API keys stored in 1Password. Never commit credentials to this repo.
 
 ## Setup Checklist (complete on clone)
 
-- [ ] Replace all {{PLACEHOLDER}} values in CLAUDE.md
-- [ ] Fill in company/overview.md from onboarding intake
-- [ ] Fill in company/icp.md from onboarding intake
-- [ ] Fill in company/offer.md from onboarding intake or offer-framework session
-- [ ] Fill in company/voice.md from client brand guidelines or call notes
-- [ ] Set up company/campaign-state.md once first campaigns are live
+**Do not fill in files manually.** Run the onboarder:
+
+```
+Run client onboarder for {{CLIENT_NAME}}
+```
+
+Claude will ask questions in 5 phases (~50 minutes total) and write directly to:
+- CLAUDE.md (placeholder replacement)
+- company/overview.md
+- company/offer.md
+- company/icp.md
+- company/voice.md
+- company/campaign-state.md
+
+See BOOTSTRAP.md for detail. The onboarder is resumable — pause and continue across sessions.
+
+After onboarding:
 - [ ] Connect Instantly MCP to this client's workspace
-- [ ] Update INDEX.md with client name
+- [ ] Update INDEX.md with client name (the onboarder does this automatically)
+- [ ] Delete BOOTSTRAP.md from the repo once setup is complete
 
 ---
 
