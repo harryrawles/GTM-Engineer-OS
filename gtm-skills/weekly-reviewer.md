@@ -169,6 +169,28 @@ Format the entry as:
 - **Emerging:** 4-5 data points across 2+ weeks. Test a default change.
 - **Confirmed:** 6+ data points across 3+ weeks. Adopt as new default.
 
+
+### Sub-Agent — Optional Research Lookup
+
+If during synthesis the pattern is unclear (e.g. "PRR dropped — is this industry-wide or just us?"), spawn a general-purpose sub-agent for external research. See `wiki/_subagent-patterns.md` Pattern 2.
+
+Example prompt:
+```
+Look up recent (last 30-60 days) industry reports or articles about cold email reply rate trends in the B2B {{vertical}} space. Specifically: are reply rates declining industry-wide, or are observed declines client-specific?
+
+Sources: industry blog posts (ColdIQ, SmartLead, Instantly blog), recent Reddit r/Emailmarketing threads, recent LinkedIn posts from known practitioners.
+
+Return:
+1. Are there reports of industry-wide PRR decline in this vertical?
+2. What time period?
+3. What's the proposed root cause (if any)?
+4. Suggested adaptations
+
+Cite sources.
+```
+
+Use sub-agent here only when the synthesis genuinely requires external context. Most weeks the pattern is internal and the sub-agent isn't needed.
+
 **Skip rule:** if no pattern emerged this week, write to decision-log: `### {{date}} — No emergent pattern this week — continue current defaults`. Do NOT invent patterns from noise.
 
 This is the compounding step. Skipping it means individual entries pile up without ever connecting into insight.
