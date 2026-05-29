@@ -222,7 +222,7 @@ Suggested next step: "Build the first lead list for {{client_name}}"
 - **If Harry says "I don't know yet"** — mark as `{{TO CONFIRM}}` and move on. Do not stall.
 - **If Harry pastes a brief or call notes** — extract answers from it, then ask only what is missing.
 - **Push back on vague answers.** Specificity is the whole point. "Faster hiring" is not an outcome. "92% of roles filled in 21 days" is.
-- **No corporate filler in your questions.** Match the Refine Flow / Instantly voice — direct, concise.
+- **No corporate filler in your questions.** Direct, concise, no fluff.
 - **At the end of each phase** — write the file, confirm, and ask permission to proceed.
 
 ---
