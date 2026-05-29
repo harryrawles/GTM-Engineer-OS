@@ -78,6 +78,7 @@ GTM Engineer at Instantly.ai managing this account. Responsibilities:
 | User Intent | Skill | Description |
 |-------------|-------|-------------|
 | "Onboard a new client" / "Set up the OS" | gtm-skills/client-onboarder.md | Conversational flow that fills all company/*.md files |
+| "Run weekly review" / "Friday review" | gtm-skills/weekly-reviewer.md | Logs winners + losers, captures decision rationale, chains into report. **Run every Friday.** |
 | "Write a cold email sequence" | gtm-skills/cold-email-writer.md | Emails using client offer, ICP, and voice |
 | "Diagnose / optimise a campaign" | gtm-skills/campaign-optimiser.md | Diagnose underperformance, recommend fixes |
 | "Design a signal-based campaign" | gtm-skills/signal-sourcer.md | Pick and score signals, design plays |
@@ -104,7 +105,8 @@ client-os/
 │   ├── icp.md             # Who to target, signals, avoid list
 │   ├── offer.md           # What they sell, proof points, differentiators
 │   ├── voice.md           # How to write for this client
-│   └── campaign-state.md  # Live campaign status and infrastructure
+│   ├── campaign-state.md  # Live campaign status and infrastructure
+│   └── decision-log.md    # WHY decisions were made (updated by weekly-reviewer)
 ├── wiki/                  # Knowledge base
 │   ├── copywriting-101.md            # Refine Flow primary copywriting guide
 │   ├── copywriting-frameworks.md     # 13 named frameworks + ColdIQ playbook
@@ -124,6 +126,7 @@ client-os/
 ├── BOOTSTRAP.md           # Setup instructions (delete after onboarding)
 ├── gtm-skills/            # AI skill definitions
 │   ├── client-onboarder.md     # RUN THIS FIRST on a fresh clone
+│   ├── weekly-reviewer.md      # RUN EVERY FRIDAY — the compounding loop
 │   ├── cold-email-writer.md
 │   ├── campaign-optimiser.md
 │   ├── signal-sourcer.md
