@@ -14,6 +14,24 @@ Live status of all outbound campaigns. Update this file when campaigns launch, p
 
 ---
 
+## Tools & Tech Stack (W4)
+
+Tracks what tooling is configured for this client. Affects which signals can be detected and which workflows can run.
+
+| Tool | Connected | Notes |
+|------|-----------|-------|
+| Instantly | {{Yes/No}} | Primary sender |
+| Clay | {{Yes/No}} | If used for enrichment |
+| RB2B | {{Yes/No}} | Website visitor detection |
+| LoneScale / Champify | {{Yes/No}} | Champion job change detection |
+| Findymail | {{Yes/No}} | Email verification |
+| Apollo | {{Yes/No}} | Lead database |
+| HeyReach | {{Yes/No}} | LinkedIn (if multichannel) |
+| Slack | {{Yes/No}} | Reply alerts |
+| Notion | {{Yes/No}} | Client comms / context |
+
+---
+
 ## Campaign Detail
 
 ### {{Campaign Name 1}}
