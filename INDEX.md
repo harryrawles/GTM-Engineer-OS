@@ -13,6 +13,7 @@
 | File | What it contains |
 |------|----------------|
 | company/_config.md | Central config — referenced by other files |
+| company/MEMORY.md | Always-loaded scratchpad — current focus, watch-outs, client preferences |
 | company/overview.md | Identity, contract, SLA, success criteria |
 | company/icp.md | Target ICP, signal priority, lead filters, avoid list, DM mapping |
 | company/offer.md | What they sell, proof points, differentiators, approved claims |
@@ -47,6 +48,7 @@
 | wiki/list-building.md | ICP scoring (100-pt), ABM tiers, validation |
 | wiki/personalization-at-scale.md | 6 buckets, hooks, AI prompts |
 | wiki/industry-vernacular.md | Language guides per industry |
+| wiki/inbound-orchestration.md | Detecting and activating inbound signals before cold outreach |
 
 ## Shared Knowledge — Operations and Reference
 
@@ -56,6 +58,7 @@
 | wiki/email-benchmarks.md | Industry benchmarks |
 | wiki/glossary.md | All acronyms defined |
 | wiki/diagrams.md | Mermaid flowcharts of OS workflows |
+| wiki/_subagent-patterns.md | When and how skills spawn isolated sub-agents |
 
 ## Skills — Setup and Cadence
 
@@ -93,6 +96,8 @@
 | gtm-skills/client-request-handler.md | Mid-week client requests |
 | gtm-skills/deliverability-doctor.md | Diagnosing and recovering deliverability |
 | gtm-skills/incident-responder.md | Critical incidents (blacklist, outage, breach) |
+| gtm-skills/inbound-activator.md | Detect inbound signal → enrich → qualify → activate outbound |
+| gtm-skills/fresh-eyes-reviewer.md | Spawn independent sub-agent for unbiased QA on any artefact |
 
 ## Skills — Reporting and Relationship
 
