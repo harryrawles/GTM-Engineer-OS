@@ -10,8 +10,8 @@
 - `company/offer.md` — offer and proof point check
 - `wiki/scientific-method.md` — test methodology
 - `wiki/copywriting-101.md` — copy hard rules and formula
-- `wiki/copy-library.md` — winning variants and graveyard
-- `wiki/test-log.md` — what has already been tested
+- `company/copy-library.md` — winning variants and graveyard
+- `company/test-log.md` — what has already been tested
 
 **Read before diagnosing — extended:**
 - `wiki/email-benchmarks.md` — symptom-to-cause diagnostic table and benchmark calibration
@@ -139,7 +139,7 @@ Priority order (from `wiki/scientific-method.md`):
 4. CTA phrasing
 5. Subject line
 
-Check `wiki/test-log.md` before recommending — do not re-test what has already been learned.
+Check `company/test-log.md` before recommending — do not re-test what has already been learned.
 
 If the default formula has plateaued: recommend switching to a named framework from `wiki/copywriting-frameworks.md` (Do the Math, Pattern Interrupt, Upfront Value).
 
@@ -152,4 +152,4 @@ If the default formula has plateaued: recommend switching to a named framework f
 - Bounce rate is always the first check — deliverability beats copy.
 - If PRR is above 1.5%, do not change copy. Scale instead.
 - If PRR is close to KPI (within 1%), consider scaling rather than iterating.
-- Log every test result in `wiki/test-log.md` after completion.
+- Log every test result in `company/test-log.md` after completion.
