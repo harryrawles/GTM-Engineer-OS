@@ -376,3 +376,40 @@ Client notification draft:
 
 Confirm Harry to proceed with each step.
 ```
+---
+
+## SUB-AGENT USAGE
+
+For Protocols A (blacklist) and D (platform outage), spawn a general-purpose sub-agent for external fact lookups. See wiki/_subagent-patterns.md Pattern 2.
+
+### Protocol A — blacklist lookup
+
+Spawn sub-agent with prompt:
+```
+Look up current status of {{domain}} on the following blacklists: Spamhaus ZEN, Spamhaus DBL, Barracuda BRBL, SpamCop, SORBS, URIBL.
+
+For each: report listing status (LISTED / CLEAN) and, if listed, the exact removal procedure and expected timeline.
+
+Use public lookup tools (MXToolbox blacklist check, MultiRBL, individual blacklist sites). Do NOT submit removal requests — just gather information.
+
+Return as a table.
+```
+
+### Protocol D — platform outage
+
+Spawn sub-agent with prompt:
+```
+Check current status of Instantly platform via: status.instantly.ai, Instantly Twitter / X account, Reddit r/Instantly, recent outage reports.
+
+Return:
+1. Current status (UP / DEGRADED / DOWN)
+2. If DOWN/DEGRADED: estimated resolution time per their communications
+3. Affected functionality scope
+4. Any workarounds being communicated
+
+Use only verified public sources. Do not infer status from absence of information.
+```
+
+### Why this matters
+
+External fact lookups during incidents need to be FAST and AUTHORITATIVE. The main thread shouldn't pause incident handling to fetch status pages. Sub-agent runs in parallel; main thread continues protocol execution.
