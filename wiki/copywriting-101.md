@@ -7,7 +7,11 @@ Core principles for signal-based cold email. Read this before writing any copy.
 ## Hard Rules
 
 - **Offer is king** — biggest lever on performance, always test this first
-- **50-100 words per email** — every word earns its place
+- **Word count (canonical — referenced by all other files):**
+  - ATL (VP / C-Level / Director): **max 60 words**
+  - BTL (Manager / IC): **max 90 words**
+  - Default cold: **75 words target, 100 hard ceiling**
+  - Every word earns its place
 - **Subject lines: 2-4 words** — curiosity-led, not descriptive
 - **No vanity personalisation** — "saw you hired 3 SDRs" not "I admire your passion for revolutionising the industry"
 - **Split test ONE variable at a time** — scientific method only (see wiki/scientific-method.md)
