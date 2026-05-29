@@ -1,5 +1,7 @@
 # ATL vs BTL Messaging
 
+> **PRR conversion:** Where ColdIQ data appears in this file (e.g. "35% reply rate"), our PRR equivalent is approximately `reply rate × 30-50%`. So "35% reply rate" ≈ "10-17% PRR."
+
 Above-the-Line (executives) and Below-the-Line (managers / ICs) need totally different copy. Using ATL language with an IC fails because it is too abstract. Using BTL language with a VP fails because they delegate it. Choose the right register before writing.
 
 ---
