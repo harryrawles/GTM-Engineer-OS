@@ -1,5 +1,7 @@
 # Copywriting Frameworks
 
+> **File boundary:** this file contains **alternative frameworks only**. For canonical rules, the 4-part formula, sequence structure, and word counts → see [wiki/copywriting-101.md](./copywriting-101.md). Use this file when the default formula has plateaued and you need a different angle.
+
 13 named cold email frameworks, the ColdIQ playbook from 250K+ emails, Josh Braun principles, and 3 value-prop styles.
 
 **When to read this:** When the offer or structure for an email is not landing and you need a different angle. Each framework solves a different problem.
