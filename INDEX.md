@@ -10,14 +10,38 @@
 | company/voice.md | Brand voice, tone rules, words to avoid, writing guidelines |
 | company/campaign-state.md | Live campaigns, infrastructure, health status |
 
-## Knowledge Base
+## Knowledge Base — Copywriting
 
 | File | What it contains |
 |------|----------------|
 | wiki/copywriting-101.md | Hard rules, formula, TIPS, 5 Cs, sequence structure, value props |
+| wiki/copywriting-frameworks.md | 13 named frameworks + ColdIQ 250K-email playbook + Josh Braun |
 | wiki/offer-framework.md | 12-step offer building process |
 | wiki/psychological-principles.md | Cognitive biases and Morgan heuristics for copy |
 | wiki/scientific-method.md | Split test methodology, sample sizes, iteration framework |
+| wiki/subject-lines.md | 4 subject line formulas + A/B testing rules |
+| wiki/atl-btl-messaging.md | VP/C-Level (ATL) vs Manager/IC (BTL) messaging |
+
+## Knowledge Base — Strategy and Sourcing
+
+| File | What it contains |
+|------|----------------|
+| wiki/signal-sourcing.md | 6 core signals, scoring framework, 11 GTM plays |
+| wiki/buying-triggers.md | 137-trigger taxonomy (inbound, postbound, bridgebound, outbound) |
+| wiki/list-building.md | ICP scoring (100-pt), ABM tiers, contact mapping, validation |
+| wiki/personalization-at-scale.md | 6 buckets, hooks, AI prompts, automation playbooks |
+
+## Knowledge Base — Operations
+
+| File | What it contains |
+|------|----------------|
+| wiki/deliverability.md | DNS, warmup, infrastructure, bounce management, recovery |
+| wiki/email-benchmarks.md | Industry benchmarks for calibrating expectations |
+
+## Client-Specific Logs
+
+| File | What it contains |
+|------|----------------|
 | wiki/copy-library.md | Top-performing copy + graveyard for this client |
 | wiki/test-log.md | Test history and testing roadmap |
 
@@ -27,6 +51,10 @@
 |------|------------|
 | gtm-skills/cold-email-writer.md | Writing new email sequences |
 | gtm-skills/campaign-optimiser.md | Diagnosing and fixing underperforming campaigns |
+| gtm-skills/signal-sourcer.md | Designing signal-based campaigns and scoring |
+| gtm-skills/personalization-strategist.md | Picking buckets, building AI prompts at scale |
+| gtm-skills/list-builder.md | ICP scoring, ABM tier assignment, list hygiene |
+| gtm-skills/deliverability-doctor.md | Diagnosing and recovering deliverability issues |
 | gtm-skills/client-report-writer.md | Weekly client performance reports |
 | gtm-skills/icp-builder.md | Building or refining ICP and lead criteria |
 | gtm-skills/campaign-analyst.md | Analysing data and making strategic recommendations |
