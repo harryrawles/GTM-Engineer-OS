@@ -25,6 +25,7 @@ This is the GTM Client OS for **{{CLIENT_NAME}}**. It gives Claude full context 
 ## Behaviour Rules
 
 - Direct, data-led, no fluff. Match the client's voice in `company/voice.md`.
+- **Always load `company/MEMORY.md` first** — this is the active scratchpad for current focus, watch-outs, and client preferences.
 - Always load context from `wiki/_skill-context.md` before acting.
 - PRR is the primary KPI for all copy decisions.
 - Never write from memory. Check `company/copy-library.md` first, every time.
