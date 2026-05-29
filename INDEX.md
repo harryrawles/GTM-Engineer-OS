@@ -43,8 +43,8 @@
 
 | File | What it contains |
 |------|----------------|
-| wiki/copy-library.md | Top-performing copy + graveyard for this client |
-| wiki/test-log.md | Test history and testing roadmap |
+| company/copy-library.md | Top-performing copy + graveyard for this client |
+| company/test-log.md | Test history and testing roadmap |
 
 ## Skills
 
