@@ -1,0 +1,123 @@
+# Skill: Deliverability Doctor
+
+**Trigger:** "My emails are going to spam", "bounce rate is climbing", "open rate dropped", "domain is blacklisted", "deliverability issue", "DNS not working", "warmup is failing", "red flame in Instantly"
+
+**Context:** Deliverability is upstream of every metric. If emails are not landing, nothing else matters. This skill diagnoses and recovers deliverability problems before they kill a campaign.
+
+**Read before diagnosing:**
+- `wiki/deliverability.md` — infrastructure, DNS, warmup, monitoring, troubleshooting
+- `wiki/email-benchmarks.md` — what deliverability metrics should look like
+- `company/campaign-state.md` — current infrastructure status
+
+---
+
+## TRIAGE — Run This First
+
+Pull from Instantly MCP:
+- Current bounce rate (last 7 days)
+- Spam complaint rate
+- Open rate trend (last 30 days vs prior 30)
+- Reply rate trend
+- Warmup status (red / amber / green per mailbox)
+
+Ask Harry to paste if MCP unavailable.
+
+### Severity assessment
+
+| Severity | Trigger | Action |
+|----------|--------|--------|
+| **Critical** | Bounce over 5%, warmup disabled, blacklisted | Pause campaigns immediately. Recover before resuming. |
+| **High** | Bounce 3-5%, complaint over 0.3%, open rate fell over 20% | Pause, run diagnostics, fix before next send. |
+| **Medium** | Bounce 2-3%, complaint 0.1-0.3% | Investigate this week, monitor daily. |
+| **Low** | All metrics within target, occasional bounce spike | Monitor, no action. |
+
+---
+
+## DIAGNOSIS DECISION TREE
+
+### Step 1 — Is it infrastructure?
+
+Check:
+- DNS records: SPF, DKIM, DMARC (use mail-tester.com)
+- Domain age and warmup status
+- Custom tracking domain (CNAME pointing correctly)
+- Blacklists (MXToolbox, MultiRBL)
+
+If any fail → fix infrastructure first.
+
+### Step 2 — Is it list quality?
+
+Check:
+- When was the list last verified?
+- Bounce rate breakdown (which campaign / mailbox is bouncing?)
+- Catch-all percentage
+- Role-based addresses present
+
+If list is older than 30 days → re-verify before any more sends.
+
+### Step 3 — Is it volume / pacing?
+
+Check:
+- Sends per mailbox per day (over 50 = risk)
+- Number of active campaigns per mailbox
+- Warmup running alongside?
+
+If pushing volume too hard → throttle to 30-40/day and reactivate warmup.
+
+### Step 4 — Is it content?
+
+Check:
+- Plain text only? (HTML triggers spam filters)
+- Links in body? (Should be zero in cold email)
+- Spam trigger words in subject?
+- Reply rate (over 5% protects deliverability)
+
+---
+
+## RECOVERY PROTOCOLS
+
+### Protocol A — Domain blacklisted
+
+1. Identify which blacklist (MXToolbox shows all)
+2. Submit removal request per blacklist (see `wiki/deliverability.md`)
+3. Pause campaigns from that domain
+4. Run warmup only for 7 days minimum
+5. Resume at 5-10 cold per mailbox per day
+6. Build back up over 2-3 weeks
+
+### Protocol B — Bounce rate over 5%
+
+1. Pause all campaigns from affected mailboxes immediately
+2. Re-verify remaining list with ZeroBounce or NeverBounce
+3. Identify list source — flag for review or remove entirely
+4. Pause new sends for 7 days, warmup only at 10-20/day
+5. Resume slowly at 5-10 cold per mailbox per day
+6. Monitor daily until back under 1%
+
+### Protocol C — Warmup disabled (red flame in Instantly)
+
+1. Run "Test domain setup" in Instantly — fix any red items
+2. Verify SPF, DKIM, DMARC correctly configured
+3. Check domain against blacklists
+4. Click red flame → request reactivation code
+5. Enter code → warmup re-enables
+6. Run warmup-only for 7 days before resuming cold
+
+### Protocol D — Open rate dropped sharply
+
+1. Check sender reputation (Google Postmaster Tools, Microsoft SNDS)
+2. Check subject lines for spam triggers
+3. Check whether tracking pixel is causing issues (try disabling for a test batch)
+4. A/B test plain text vs minimal HTML
+5. Verify custom tracking domain is healthy
+
+---
+
+## RULES
+
+- **Always check deliverability before touching copy.** Bad deliverability looks identical to bad copy.
+- **Bounce rate first.** Over 4% = stop the campaign now.
+- **Plain text only.** Always. No HTML for cold outreach. Ever.
+- **Never stop warmup.** 10-20/day per mailbox even during active campaigns.
+- **Re-verify lists every 30 days.** Email decays 2.1% per month.
+- **Document infrastructure changes** in `company/campaign-state.md` so future-Harry knows what changed.
