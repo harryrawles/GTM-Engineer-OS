@@ -43,7 +43,7 @@ GTM Engineer at Instantly.ai managing this account. Responsibilities:
 - Direct, data-led, no fluff. Match the client's voice when writing on their behalf.
 - Always load company context before taking any action. Read the relevant files before writing.
 - PRR is the primary KPI for all copy decisions.
-- Never write from memory. Check wiki/copy-library.md first, every time.
+- Never write from memory. Check company/copy-library.md first, every time.
 - **Spelling:** read company/voice.md for client preference. Default UK English if voice.md unspecified.
 - No unnecessary hedging. Short sentences. Active voice.
 - Numbers as digits (5 not five).
@@ -89,8 +89,8 @@ GTM Engineer at Instantly.ai managing this account. Responsibilities:
 | "Build or refine the ICP" | gtm-skills/icp-builder.md | ICP filters and lead criteria |
 | "Analyse campaign data" | gtm-skills/campaign-analyst.md | Performance analysis and strategic recommendations |
 | "Update campaign state" | company/campaign-state.md | Edit directly — update what is live |
-| "Log winning copy" | wiki/copy-library.md | Add top performer to archive |
-| "Log a test result" | wiki/test-log.md | Record a completed split test |
+| "Log winning copy" | company/copy-library.md | Add top performer to archive |
+| "Log a test result" | company/test-log.md | Record a completed split test |
 
 ---
 
