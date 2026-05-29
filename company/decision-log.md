@@ -45,8 +45,8 @@ Each entry has 4 parts:
 {{What is client-specific and should not be templated — e.g. "The $100k saved figure is Recruitcha-only."}}
 
 **Linked entries:**
-- `wiki/copy-library.md` → {{variant name}}
-- `wiki/test-log.md` → {{test ID if relevant}}
+- `company/copy-library.md` → {{variant name}}
+- `company/test-log.md` → {{test ID if relevant}}
 
 **Outcome (to update later):**
 {{Filled in after the decision plays out. E.g. "Promoted to default. Tested on Client B 2 weeks later — also 2.1% PRR. Pattern confirmed."}}
