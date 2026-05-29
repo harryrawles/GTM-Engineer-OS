@@ -15,11 +15,11 @@ Industry benchmarks for calibrating expectations, setting KPIs, and diagnosing p
 | Champion job change | 20-25% |
 | Signal + ABM multi-touch | 36% meeting rate |
 
-> Note: ColdIQ measures "reply rate" broadly. Refine Flow's primary KPI is **Positive Reply Rate (PRR)** — replies expressing interest, excluding negatives and OOOs. PRR runs roughly 30-50% of the reply rate above. So 18-22% reply rate = ~6-11% PRR.
+> Note: ColdIQ measures "reply rate" broadly. Our primary KPI is **Positive Reply Rate (PRR)** — replies expressing interest, excluding negatives and OOOs. PRR runs roughly 30-50% of the reply rate above. So 18-22% reply rate = ~6-11% PRR.
 
 ---
 
-## PRR Benchmarks (Refine Flow Standard)
+## PRR Benchmarks (Primary KPI)
 
 | Tier | PRR | Status |
 |------|-----|--------|
@@ -69,7 +69,7 @@ Industry benchmarks for calibrating expectations, setting KPIs, and diagnosing p
 |--------|--------------|-----------|
 | ATL (VPs, C-Level, Directors) | 2-3 | 60 |
 | BTL (Managers, ICs) | 3-4 | 90 |
-| Refine Flow standard | 4 (per formula) | 50-100 |
+| Canonical standard | 4 (per formula) | ATL 60 / BTL 90 / default 75 |
 
 ---
 
