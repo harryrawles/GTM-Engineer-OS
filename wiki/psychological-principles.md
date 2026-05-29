@@ -1,5 +1,12 @@
 # Psychological Principles
 
+> **Applicability note (W2):** the principles below are drawn from a broad behavioural-science curation. Most apply to B2B cold outreach, but tag in your own mind:
+> - **Highest applicability:** offer framing, CTA design, follow-up sequencing — these are where the biases bite hardest
+> - **Lower applicability:** UK-cultural-specific biases (politeness norms) — adjust for US clients
+> - **Worst applicability:** principles that require deep contact familiarity (sunk cost, in-group bias) — not relevant in first-touch cold
+>
+> When in doubt, ask: would this bias plausibly fire in a 75-word email read in 4 seconds? If yes, use. If no, skip.
+
 Cognitive biases and heuristics that drive prospect behaviour. Use these to inform offer framing, copy angles, CTA design, and sequence structure. Understanding why people act is more powerful than optimising how you ask.
 
 Read wiki/copywriting-101.md alongside this file.
