@@ -7,7 +7,7 @@
 **Read before writing:**
 - `company/overview.md` — client name and reporting day
 - `company/campaign-state.md` — active campaigns and benchmarks
-- `wiki/test-log.md` — what is currently being tested (to include in "what is next")
+- `company/test-log.md` — what is currently being tested (to include in "what is next")
 
 ---
 
