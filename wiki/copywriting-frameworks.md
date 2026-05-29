@@ -8,6 +8,8 @@
 
 ---
 
+> **PRR conversion:** ColdIQ measures `reply rate` (broad — includes negatives and OOOs). Our primary KPI is **PRR** (positive reply rate, excluding negatives and OOOs). Rough conversion: `reply rate × 30-50% ≈ PRR`. Apply when comparing to our targets.
+
 ## Framework Quick Reference
 
 | Framework | Best for | Creator |
@@ -349,7 +351,7 @@ Make sense to see what {{company}} qualifies for?
 | Metric | Target |
 |--------|--------|
 | Open rate | 50%+ |
-| Positive reply rate | 5-8% |
+| Positive reply rate | 5-8% (PRR — directly applicable) |
 | Meeting book rate | 2-4% |
 | Emails per inbox/day | 50-100 max |
 
