@@ -8,6 +8,7 @@
 - `company/offer.md` — what they sell, proof points, differentiators
 - `company/icp.md` — who to target, decision-maker profiles
 - `company/voice.md` — tone rules, approved claims, words to avoid
+- `company/decision-log.md` — past decision rationale (why prior choices were made)
 - `wiki/copy-library.md` — past top-performing variants for this client
 - `wiki/copywriting-101.md` — Refine Flow hard rules, formula, frameworks
 
