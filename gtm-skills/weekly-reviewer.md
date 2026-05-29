@@ -161,11 +161,24 @@ If yes → invoke `gtm-skills/client-report-writer.md` using the data just analy
 
 ---
 
-## BATCH MODE — Portfolio Sweep
+## BATCH MODE — Portfolio Sweep (v2 — requires meta-OS)
 
 Triggered by "Run weekly review for all clients" or "Weekly portfolio sweep."
 
-**This mode requires the meta-OS** (separate repo listing all client repos). If it does not exist, ask Harry to list the active client OS repos and proceed.
+**STATUS: deferred until meta-OS exists** (build when Harry has 3-5 active clients).
+
+**Workaround for now:**
+- Harry runs single-client mode sequentially: `Run weekly review for {{client}}` for each active client
+- Outputs a manual portfolio summary at the end by aggregating individual reviews
+- Total time: 15 min per client × n clients
+
+**When meta-OS is built (planned):**
+- A `harryrawles/gtm-meta-os` repo lists active client repos
+- Batch mode iterates: pull data, surface health one-liner per client, drill into flagged accounts
+- Auto-aggregates portfolio summary at end
+- Cross-client patterns surfaced (winning Email 1 framework working across 3 clients, etc.)
+
+The flow below describes batch mode for when meta-OS is built. For now, refer to single-client mode (Step 1-7 above).
 
 ### Batch flow
 
