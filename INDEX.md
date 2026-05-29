@@ -49,6 +49,7 @@
 
 | File | When to use |
 |------|------------|
+| gtm-skills/client-onboarder.md | **Setting up a new client OS.** Run first on a fresh clone. |
 | gtm-skills/cold-email-writer.md | Writing new email sequences |
 | gtm-skills/campaign-optimiser.md | Diagnosing and fixing underperforming campaigns |
 | gtm-skills/signal-sourcer.md | Designing signal-based campaigns and scoring |
