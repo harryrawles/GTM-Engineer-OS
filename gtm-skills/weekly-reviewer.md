@@ -2,7 +2,7 @@
 
 **Trigger:** "Run weekly review for {{client}}", "Weekly sweep", "Run weekly review for all clients", "End of week review", "Friday review"
 
-**Context:** The compounding loop of the OS. Without this skill running consistently, `wiki/copy-library.md`, `wiki/test-log.md`, and `company/decision-log.md` stay empty — meaning every campaign starts from scratch. **This is the single most important recurring skill in the OS.**
+**Context:** The compounding loop of the OS. Without this skill running consistently, `company/copy-library.md`, `company/test-log.md`, and `company/decision-log.md` stay empty — meaning every campaign starts from scratch. **This is the single most important recurring skill in the OS.**
 
 **Cadence:** every Friday afternoon (or first thing Monday). Skipping a week is fine. Skipping a month means the compounding effect is dead.
 
@@ -17,18 +17,18 @@
 - Instantly MCP — last 7 days per campaign per client
 - `company/campaign-state.md` — current campaign list and health
 - `company/icp.md` — to check signal alignment
-- `wiki/copy-library.md` — prior winners (do not re-log)
-- `wiki/test-log.md` — currently running tests
+- `company/copy-library.md` — prior winners (do not re-log)
+- `company/test-log.md` — currently running tests
 - `wiki/signal-sourcing.md` — signal performance benchmarks
 - `wiki/email-benchmarks.md` — what good looks like
 - `company/decision-log.md` — prior decision rationale (read for context)
 
 ## WRITES
 
-- `wiki/copy-library.md` — new winners (with why-it-worked notes)
-- `wiki/copy-library.md` graveyard section — new losers
+- `company/copy-library.md` — new winners (with why-it-worked notes)
+- `company/copy-library.md` graveyard section — new losers
 - `company/decision-log.md` — rationale for every winner logged
-- `wiki/test-log.md` — completed test results, next test queued
+- `company/test-log.md` — completed test results, next test queued
 - `company/campaign-state.md` — refreshed health rating per campaign
 
 ---
@@ -66,7 +66,7 @@ If a signal is flagged: recommend either pause + iterate, or rotate in a new sig
 
 ### Step 3 — Identify winners (PRR ≥ 1.5%, sample ≥ 300 sends)
 
-For each campaign / variant hitting the winner threshold AND not already in `wiki/copy-library.md`:
+For each campaign / variant hitting the winner threshold AND not already in `company/copy-library.md`:
 
 1. Output the candidate winner:
 ```
@@ -90,7 +90,7 @@ Subject: {{subject}}
    - **What is the most stealable element?** (the pattern to replicate)
    - **Anything you would NOT carry over to another client?**
 
-4. **Write to `wiki/copy-library.md`** in the Top Performers section using the existing template (client, date, signal, target ICP, sequence step, metrics, full copy, why it worked, what to steal).
+4. **Write to `company/copy-library.md`** in the Top Performers section using the existing template (client, date, signal, target ICP, sequence step, metrics, full copy, why it worked, what to steal).
 
 5. **Write to `company/decision-log.md`** with the rationale (see decision-log template below).
 
@@ -102,10 +102,10 @@ For each campaign / variant hitting the loser threshold AND not already in the g
 
 1. Output the candidate loser with metrics and copy.
 2. Ask: **"Log this to the graveyard? What was the root cause?"**
-3. Write to `wiki/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
+3. Write to `company/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
 4. Write to `company/decision-log.md` capturing the lesson.
 
-### Step 5 — Update completed tests in `wiki/test-log.md`
+### Step 5 — Update completed tests in `company/test-log.md`
 
 For each test currently in "Running" status:
 - Has it hit sample size (300 sends per variant)?
@@ -122,14 +122,14 @@ Winner: {{Control / Variant / Inconclusive}}
 
 2. Ask: **"Confirm result? Conclusion?"**
 
-3. Write the result to `wiki/test-log.md` Completed Tests section.
+3. Write the result to `company/test-log.md` Completed Tests section.
 
 4. Apply scientific method (`wiki/scientific-method.md`):
    - If variant won → promote variant to new control. Recommend next test from priority order.
    - If control won → return to control. Pick a different needle-mover variable.
    - If inconclusive → recommend re-test with refined hypothesis.
 
-5. Queue the recommended next test in `wiki/test-log.md` testing roadmap.
+5. Queue the recommended next test in `company/test-log.md` testing roadmap.
 
 ### Step 6 — Update campaign health in `company/campaign-state.md`
 
@@ -269,7 +269,7 @@ Anything you would NOT carry over to another client?
 Harry: The dollar figure is Recruitcha-specific. Other clients need their own proof number.
 
 Claude:
-Writing to wiki/copy-library.md... done.
+Writing to company/copy-library.md... done.
 Writing to company/decision-log.md... done.
 
 Next: loser candidates.
