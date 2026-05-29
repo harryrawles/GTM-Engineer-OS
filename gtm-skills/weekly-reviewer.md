@@ -140,7 +140,41 @@ For each active campaign, set health:
 
 Update the "current metrics" and "health" fields per campaign. Add a state note if anything changed materially.
 
-### Step 7 — Hand off to client-report-writer
+### Step 7 — Synthesise the Week's Insight
+
+After all individual winners, losers, and tests are logged, zoom out and capture the meta-takeaway.
+
+Ask Harry one question:
+> "What pattern emerged this week? What did this week tell us that the individual entries don't?"
+
+Then classify the pattern type:
+
+- **Copy pattern** (a specific phrasing, hook, CTA, framework, sequence step is working/failing repeatedly) → write to `company/copy-library.md` **Cross-Campaign Patterns** table
+- **Strategic pattern** (signal health, ICP fit, offer framing, sequence structure, persona register) → write to `company/decision-log.md` **Recurring Patterns** section
+
+Format the entry as:
+
+```
+### {{date}} — {{Pattern name in 6 words}}
+
+**Observed:** {{What happened — specific data points across multiple entries}}
+**Sample size:** {{n campaigns / n decisions / n weeks supporting this}}
+**Implication:** {{What this tells us}}
+**Action:** {{What we change because of this}}
+**Confidence:** {{Tentative / Emerging / Confirmed}}
+```
+
+**Confidence rules:**
+- **Tentative:** 2-3 data points. Worth watching, do not change defaults yet.
+- **Emerging:** 4-5 data points across 2+ weeks. Test a default change.
+- **Confirmed:** 6+ data points across 3+ weeks. Adopt as new default.
+
+**Skip rule:** if no pattern emerged this week, write to decision-log: `### {{date}} — No emergent pattern this week — continue current defaults`. Do NOT invent patterns from noise.
+
+This is the compounding step. Skipping it means individual entries pile up without ever connecting into insight.
+
+---
+### Step 8 — Hand off to client-report-writer
 
 Once all writes are confirmed, output:
 
