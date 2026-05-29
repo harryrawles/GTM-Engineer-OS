@@ -11,6 +11,7 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 | File | Why |
 |------|-----|
 | `company/_config.md` | Client name, industry, Instantly workspace |
+| `company/MEMORY.md` | **Always-loaded scratchpad — current focus, watch-outs, client preferences, recent learnings** |
 | `company/overview.md` | What the client does, SLA, success criteria |
 | `company/voice.md` | Tone, spelling default, banned words, approved claims |
 | `company/icp.md` | Who we target |
