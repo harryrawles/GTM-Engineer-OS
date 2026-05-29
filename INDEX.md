@@ -9,6 +9,7 @@
 | company/offer.md | What they sell, proof points, differentiators, positioning |
 | company/voice.md | Brand voice, tone rules, words to avoid, writing guidelines |
 | company/campaign-state.md | Live campaigns, infrastructure, health status |
+| company/decision-log.md | Why decisions were made. Updated automatically by weekly-reviewer. |
 
 ## Knowledge Base — Copywriting
 
@@ -50,6 +51,7 @@
 | File | When to use |
 |------|------------|
 | gtm-skills/client-onboarder.md | **Setting up a new client OS.** Run first on a fresh clone. |
+| gtm-skills/weekly-reviewer.md | **The compounding loop.** Run every Friday. Logs winners, captures why, chains into report. |
 | gtm-skills/cold-email-writer.md | Writing new email sequences |
 | gtm-skills/campaign-optimiser.md | Diagnosing and fixing underperforming campaigns |
 | gtm-skills/signal-sourcer.md | Designing signal-based campaigns and scoring |
