@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env / credentials (never commit)
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temp files
+*.tmp
+*.bak
+*~
+*.log
+
+# Node (in case any tooling lands here)
+node_modules/
+
+# Python (in case scripts)
+__pycache__/
+*.pyc
+.venv/
+venv/
