@@ -87,7 +87,7 @@ Confirm these inputs. Ask if not already provided:
 
 ## HARD RULES
 
-- 50-100 words per email. Every word earns its place.
+- **Word count:** ATL (VP/C-Level) max 60. BTL (Manager/IC) max 90. Default 75 target, 100 ceiling. See wiki/copywriting-101.md (canonical).
 - No question marks except the CTA.
 - Subject line: 2-4 words, lowercase, no spam triggers.
 - No links in the body.
