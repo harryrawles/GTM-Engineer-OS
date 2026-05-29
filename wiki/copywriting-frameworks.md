@@ -335,7 +335,7 @@ Make sense to see what {{company}} qualifies for?
 ### ColdIQ Principles (from 250K+ emails)
 
 1. **Write for the 97%.** Optimise for the majority who will not reply, not the 3% who will.
-2. **70-90 words optimal.** Keep it tight.
+2. **Keep it tight.** See wiki/copywriting-101.md for canonical word count (ATL 60 / BTL 90 / default 75).
 3. **2-step sequences work best.** Do not over-sequence.
 4. **13x gap** between worst and best email variants — testing matters enormously.
 5. **Subject + preview = complete thought.** They work together.
