@@ -7,7 +7,7 @@
 **Read before analysing:**
 - `company/campaign-state.md` — current benchmarks and infrastructure
 - `company/icp.md` — ICP to sanity-check list quality
-- `wiki/test-log.md` — what has been tested and what is currently running
+- `company/test-log.md` — what has been tested and what is currently running
 
 ---
 
