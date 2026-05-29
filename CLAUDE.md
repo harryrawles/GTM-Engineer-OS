@@ -44,7 +44,7 @@ GTM Engineer at Instantly.ai managing this account. Responsibilities:
 - Always load company context before taking any action. Read the relevant files before writing.
 - PRR is the primary KPI for all copy decisions.
 - Never write from memory. Check wiki/copy-library.md first, every time.
-- British spelling throughout.
+- **Spelling:** read company/voice.md for client preference. Default UK English if voice.md unspecified.
 - No unnecessary hedging. Short sentences. Active voice.
 - Numbers as digits (5 not five).
 - Never use: "leverage", "synergy", "game-changer", "revolutionary", "cutting-edge", "hope this helps".
@@ -108,7 +108,7 @@ client-os/
 │   ├── campaign-state.md  # Live campaign status and infrastructure
 │   └── decision-log.md    # WHY decisions were made (updated by weekly-reviewer)
 ├── wiki/                  # Knowledge base
-│   ├── copywriting-101.md            # Refine Flow primary copywriting guide
+│   ├── copywriting-101.md            # Canonical copywriting rules and 4-part formula
 │   ├── copywriting-frameworks.md     # 13 named frameworks + ColdIQ playbook
 │   ├── offer-framework.md            # 12-step offer building
 │   ├── psychological-principles.md   # Cognitive biases for copy
@@ -181,7 +181,7 @@ After onboarding:
 ## Source Knowledge
 
 This OS combines two source libraries:
-- **Refine Flow methodology** — primary copywriting principles, scientific method, offer framework
+- **Primary methodology** — copywriting principles, scientific method, offer framework (curated by Harry)
 - **ColdIQ GTM Skills** — signal sourcing, personalisation at scale, ATL/BTL, deliverability, frameworks library
 
-Refine Flow material is the primary source of truth. ColdIQ material extends it with deeper frameworks, signal taxonomy, and AI prompt libraries.
+Primary methodology is the source of truth. ColdIQ material extends it with deeper frameworks, signal taxonomy, and AI prompt libraries.
