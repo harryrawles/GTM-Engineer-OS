@@ -61,7 +61,7 @@ For a client with multiple signals firing per lead:
    - 50-99 = automated nurture, monitor
    - Under 50 = monitor only
 
-Output: a scoring rubric in `wiki/test-log.md` or as a Clay formula.
+Output: a scoring rubric in `company/test-log.md` or as a Clay formula.
 
 ---
 
@@ -87,4 +87,4 @@ Use the 11 plug-and-play plays in `wiki/signal-sourcing.md` as starting points.
 - **Act fast.** Hot signals expire in 3-7 days. Stale signals revert to cold.
 - **Stack signals for heat scoring.** 3+ signals firing = reach out same day.
 - **Use 0-credit detection first** (Serper, Claygent). Only spend enrichment credits on accounts that pass qualification.
-- **Log every signal experiment** in `wiki/test-log.md`. Signal sourcing is iterative.
+- **Log every signal experiment** in `company/test-log.md`. Signal sourcing is iterative.
