@@ -1,6 +1,8 @@
 # Signal Sourcing
 
-Signal-based outbound is the highest lever on PRR. Cold lists hit 6-8% reply rate. Single-signal hits 18-22%. Multi-signal (3+) hits 35-40%.
+Signal-based outbound is the highest lever on PRR. Cold lists hit 6-8% reply rate (~2-3% PRR). Single-signal hits 18-22% reply rate (~6-11% PRR). Multi-signal (3+) hits 35-40% reply rate (~12-20% PRR).
+
+> **PRR conversion:** ColdIQ benchmarks use `reply rate` (broad — includes negatives and OOOs). Our primary KPI is **PRR** (positive reply rate). Rough conversion: `reply rate × 30-50% ≈ PRR`. Apply this when comparing to our targets.
 
 Use this file to:
 1. Decide which signals to target for a client
@@ -14,9 +16,9 @@ Use this file to:
 
 | Approach | Reply rate | Contract value |
 |----------|-----------|----------------|
-| Cold outreach (no signal) | 6-8% | Baseline |
-| Single signal-based | 18-22% | 2-3x baseline |
-| Multi-signal stacked (3+) | 35-40% | 3-4x baseline |
+| Cold outreach (no signal) | 6-8% (~2-3% PRR) | Baseline |
+| Single signal-based | 18-22% (~6-11% PRR) | 2-3x baseline |
+| Multi-signal stacked (3+) | 35-40% (~12-20% PRR) | 3-4x baseline |
 | Signal + ABM multi-touch | 36% meeting rate | Highest |
 
 ---
