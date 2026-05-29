@@ -167,7 +167,24 @@ Rotate across the 3 value props (make money / save time / save money). Never rep
 
 ## QA CHECKLIST
 
-Before outputting any copy, check every item:
+Before outputting any copy, run two passes:
+
+### Pass 1 — Self-check (main thread)
+Check every item below. Catches obvious issues.
+
+### Pass 2 — Fresh-eyes review (sub-agent, when output matters)
+
+For any of these conditions, spawn an `Explore` sub-agent for independent QA before output:
+- High-stakes campaign launch (first email to a Tier 1 / A-tier prospect)
+- New variant being tested (T-XXX entering test-log as Running)
+- Copy on a sensitive topic (after a recent objection pattern, after an incident, after client pushback)
+- Any time Harry has explicitly asked for a thorough check
+
+**Sub-agent invocation:** see `wiki/_subagent-patterns.md` Pattern 1 (Read-only research) and `gtm-skills/fresh-eyes-reviewer.md` for the template prompt.
+
+Skip Pass 2 for: routine sequence variants, Email 2/3 follow-ups when Email 1 already passed, low-stakes copy.
+
+### QA Checklist Items:
 
 - [ ] Within word count limits (ATL 60 / BTL 90 / default 75-100)?
 - [ ] Passes the bar test?
