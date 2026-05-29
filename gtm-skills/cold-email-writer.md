@@ -104,7 +104,7 @@ Confirm these inputs. Ask if not already provided:
 
 ---
 
-## THE FORMULA (Refine Flow default)
+## THE FORMULA (canonical default)
 
 Every email follows this structure. No exceptions unless a named framework is being tested.
 
