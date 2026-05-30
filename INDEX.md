@@ -1,4 +1,12 @@
-# Index — {{CLIENT_NAME}} | GTM Client OS
+﻿# Index — {{CLIENT_NAME}} | GTM Client OS
+
+## Multi-Skill Chains (start here for common workflows)
+
+| File | When to use |
+|------|------------|
+| gtm-skills/chain-build-campaign.md | "Build a campaign" — smart-routes through 4-7 skills with conditional skipping |
+| gtm-skills/chain-diagnose-campaign.md | "Diagnose [campaign]" — primary diagnostic + routes to right specialist |
+| gtm-skills/chain-weekly-review-full.md | "Friday review for [client]" — end-to-end weekly compounding loop |
 
 ## Quick Links
 
@@ -74,11 +82,13 @@
 
 | File | When to use |
 |------|------------|
-| gtm-skills/cold-email-writer.md | Writing new email sequences |
-| gtm-skills/campaign-launcher.md | Pre-flight checklist before launch |
-| gtm-skills/campaign-optimiser.md | Diagnose underperforming campaigns |
+| gtm-skills/chain-build-campaign.md | **Use this for full-cycle campaign builds** — smart-routes through up to 7 skills |
+| gtm-skills/chain-diagnose-campaign.md | **Use this for performance diagnostics** — routes to right specialist |
+| gtm-skills/cold-email-writer.md | Writing new email sequences (invoked inside chain-build-campaign) |
+| gtm-skills/campaign-launcher.md | Pre-flight checklist before launch (invoked inside chain-build-campaign) |
+| gtm-skills/campaign-optimiser.md | Diagnose underperforming campaigns (invoked inside chain-diagnose-campaign) |
 | gtm-skills/campaign-analyst.md | Performance analysis |
-| gtm-skills/test-launcher.md | Fire the next queued split test |
+| gtm-skills/test-launcher.md | Fire the next queued split test (invoked inside chains) |
 
 ## Skills — Strategy and Sourcing
 
