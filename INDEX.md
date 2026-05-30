@@ -68,6 +68,7 @@
 | gtm-skills/weekly-reviewer.md | **Run every Friday.** Compounding loop. |
 | gtm-skills/client-health-scorer.md | Monday portfolio health check + at-risk flagging |
 | gtm-skills/pre-launch-check.md | Gate against unresolved placeholders |
+| gtm-skills/test-readiness-check.md | Pre-test gate — validates a Queued test against Step 1 of the scientific method before launching |
 
 ## Skills — Copy and Campaigns
 
