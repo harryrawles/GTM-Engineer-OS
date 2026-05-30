@@ -8,6 +8,8 @@ The 15 most common objections in B2B cold email, with pattern recognition, respo
 
 ---
 
+> **Bias annotations added in v1.2.0.** Each response template below now shows which biases from `wiki/psychological-principles.md` it leverages. Use this to understand WHY each response works — and to compose your own when an objection does not match the pre-built patterns.
+
 ## How to Use
 
 1. **Identify the objection type** — match the reply to one of the 15 patterns below
@@ -39,6 +41,8 @@ Harry
 
 **When to use:** prospect names budget as the blocker.
 
+**Biases leveraged:** Disarming honesty (acknowledging the truth), Graduality tendency (future budget cycle), Reciprocation (free resource), Availability mis-weighing (staying available for the next cycle).
+
 **Escalation:** if 4+ "no budget" replies on same campaign → ICP may be wrong (targeting unfunded). Flag in weekly-reviewer.
 
 ---
@@ -61,6 +65,8 @@ Harry
 ```
 
 **When to use:** prospect names a competitor.
+
+**Biases leveraged:** Disarming honesty ('[competitor] is solid'), Frame-based misreaction (do not enter their loyalty frame), Curiosity tendency (the ceiling hook), Differentiation (one specific wedge).
 
 **Escalation:** if specific competitor named 3+ times → log to `company/competitive-intel.md` and build a battle card.
 
@@ -85,6 +91,8 @@ Harry
 
 **When to use:** prospect asks for materials before committing.
 
+**Biases leveraged:** Pattern break (decks are expected — Loom is not), Disarming honesty (decks are pages of skim), Curiosity tendency (2-min Loom), Effort perception bias (Loom feels custom).
+
 **Escalation:** if Loom is the recurring ask → consider productising a templated Loom in `assets/`.
 
 ---
@@ -105,6 +113,8 @@ Harry
 ```
 
 **When to use:** prospect names a future date.
+
+**Biases leveraged:** Inconsistency avoidance (committing to a date), Reason-respecting (asking what would need to be true), Subjective validation (acknowledging their timeline is real).
 
 **Action:**
 - Schedule follow-up reminder for the date
@@ -132,6 +142,8 @@ Harry
 
 **When to use:** prospect names someone else.
 
+**Biases leveraged:** Politeness bias (appreciation), Reciprocation (giving them credit for the redirect), Ben Franklin effect (the small favour of an intro).
+
 **Action:**
 - Source the named contact's email
 - Add to Instantly with "warm intro from [originalName]" angle
@@ -158,6 +170,8 @@ Harry
 
 **When to use:** prospect says no without naming a reason.
 
+**Biases leveraged:** Disarming honesty (taking the no at face value), Availability mis-weighing (staying available), Familiarity bias (planting the seed for later).
+
 **Action:** suppress in Instantly.
 
 **Escalation:** if Email 1 generates >20% "not interested" replies → copy is off. Audit Part 1 / offer framing.
@@ -181,6 +195,8 @@ Harry
 
 **When to use:** prospect asks about data source.
 
+**Biases leveraged:** Disarming honesty (lead with the truth — never lie about data source), Justification bias (clear reason for the outreach), Politeness.
+
 **Rules:**
 - Never lie about data source
 - Never name third-party tools (RB2B, Trigify, etc.) — sounds invasive
@@ -200,6 +216,8 @@ Harry
 - Add to Instantly suppression list IMMEDIATELY
 - Add to global suppression in `company/_config.md` if hostile
 - Mark contact as opted-out in any CRM
+
+**Biases (anti-pattern check):** if you are getting unsubscribes >0.5%, you have likely triggered Click-whirr conditioning (the pattern of a typical cold email is loud), or Disliking / hating tendency (something in the copy felt slimy).
 
 **Escalation:** if >0.5% of campaign generates unsubscribe → copy is wrong audience or too aggressive. Pause and audit.
 
@@ -225,6 +243,8 @@ Harry
 ```
 
 **When to use:** prospect asks price directly.
+
+**Biases leveraged:** Anchoring (range before specific number), Permission-based mis-influence ('quickest path is...'), Cognitive closure (offering a path that resolves their uncertainty), Justification (price depends on X).
 
 **Rules:**
 - Never quote a precise number in email
@@ -254,6 +274,8 @@ Harry
 
 **When to use:** prospect asks for case study.
 
+**Biases leveraged:** Social proof (the named case), Quantitative specificity bias (the specific result), Subjective validation (matched to their parallel situation), Reciprocation (free content).
+
 **Action:**
 - Match case study by industry, size, or use case
 - Use the specific named case from `company/offer.md`
@@ -279,6 +301,8 @@ Harry
 ```
 
 **When to use:** prospect references prior failed attempt.
+
+**Biases leveraged:** Disarming honesty (acknowledging the prior failure), Understanding bias (showing you know why most fail), Excessive self-regard handled gently (not blaming them), Curiosity tendency (the question reframes them as expert).
 
 **Action:**
 - Get them talking about the specific failure point
@@ -308,6 +332,8 @@ Harry
 
 **When to use:** prospect names internal capability.
 
+**Biases leveraged:** Status quo bias respected (you are not asking them to replace), Disarming honesty (in-house IS good), Curiosity tendency (the ceiling hook), Availability mis-weighing (staying top of mind for when ceiling hits).
+
 **Action:** position as "augmentation, not replacement." Stay top-of-mind for when they hit the ceiling.
 
 **Escalation:** if 4+ "in-house" replies on same campaign → ICP may be too senior (large teams = in-house). Move down market.
@@ -330,6 +356,8 @@ Harry
 ```
 
 **When to use:** prospect names a budget planning window.
+
+**Biases leveraged:** Inconsistency avoidance (committed to a date), Curiosity tendency (the change question), Subjective validation (treating their timing as real).
 
 **Action:**
 - Schedule precise follow-up date
@@ -356,6 +384,8 @@ Harry
 ```
 
 **When to use:** prospect suggests LinkedIn.
+
+**Biases leveraged:** Reciprocation (responding to their preference), Familiarity bias (LinkedIn = lower-pressure ongoing exposure), Effort perception (custom note).
 
 **Action:**
 - Send LinkedIn connection request from Harry's account
