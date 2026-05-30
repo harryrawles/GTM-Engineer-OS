@@ -15,6 +15,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 **MUST READ (every time):**
 - `company/copy-library.md` — past top-performing variants for this client
 - `wiki/copywriting-101.md` — canonical rules, 4-part formula
+- `wiki/psychological-principles.md` — bias mapping per copy stage (which to leverage, which to avoid)
 
 **READ IF CONDITION:**
 - `company/decision-log.md` — if optimising or building on a prior decision
@@ -75,6 +76,28 @@ Use the matrix in `wiki/personalization-at-scale.md`:
 
 Before writing, output one line:
 "Starting point: [building from X / starting fresh — reason]. Register: [ATL/BTL]. Personalisation: [strong hook / lite hook / none]."
+
+### Step 7 — Map biases per part of the formula
+
+Read `wiki/psychological-principles.md` — specifically the "Biases by Copy Stage" table. For each of the 4 parts of the email, decide:
+
+- **Which 2-3 biases to deliberately leverage** (based on signal × persona × offer context)
+- **Which 1-2 biases to avoid triggering** (especially Click-whirr conditioning and Egocentric bias)
+
+Output as a planning block before writing:
+
+```
+Bias plan:
+- Subject: [leverage X, Y | avoid Z]
+- Part 1 (Personalisation): [leverage X, Y | avoid Z]
+- Part 2 (Who am I): [leverage X, Y | avoid Z]
+- Part 3 (Offer): [leverage X, Y, Z | avoid Z]
+- Part 4 (CTA): [leverage X, Y | avoid Z]
+```
+
+This planning step keeps bias application intentional. Without it, copy tends to default to whatever bias the writer is most familiar with (usually social proof + scarcity) rather than the optimal combination for the specific context.
+
+**The hard rule — Overdone-It bias:** pick at most 12-15 total biases across the whole email. More than that = manipulative. Less than 6 = bland and forgettable.
 
 ---
 
