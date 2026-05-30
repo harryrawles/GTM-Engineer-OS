@@ -1,8 +1,43 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to the GTM Client OS template.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses semantic versioning.
+
+---
+
+## [1.3.0] â€” 2026-05-30
+
+### Added â€” Multi-skill chains (intelligent skill composition)
+
+Three new "chain" skills that compose existing skills end-to-end with smart routing (only invoke what is actually needed for the context) and operator pause-points between stages. Synthesised from the multi-agent slash command pattern in `janskuba/go-to-market-orchestrator`, adapted to our markdown-native architecture.
+
+- `gtm-skills/chain-build-campaign.md` â€” full campaign creation chain. Assesses state first, then conditionally invokes icp-builder, list-builder, signal-sourcer, personalization-strategist (skipped when not needed), then always runs cold-email-writer, pre-launch-check, campaign-launcher. Iterating a winner runs ~3 steps in 25 min vs running each of 7 skills individually for ~90 min.
+- `gtm-skills/chain-diagnose-campaign.md` â€” performance diagnostic chain. Always runs campaign-optimiser to categorise root cause, then routes to the right specialist (deliverability-doctor / list-builder / signal-sourcer / cold-email-writer for variant), optionally queuing a corrective test via test-readiness-check + test-launcher.
+- `gtm-skills/chain-weekly-review-full.md` â€” Friday compounding loop. End-to-end: client-health-scorer â†’ weekly-reviewer (full 8 steps including synthesis) â†’ conditional test promotion via test-readiness-check + test-launcher â†’ client-report-writer. The single command for the most important recurring activity in the OS.
+
+### Updated
+
+- `CLAUDE.md` â€” new "Multi-skill chains (recommended entry points for common workflows)" section in the routing table, placed above setup/operating-rhythm. Existing skill entries updated to note which chain invokes them.
+- `INDEX.md` â€” new "Multi-Skill Chains (start here for common workflows)" section at the top. Existing skill rows annotated with chain context.
+
+### Why this design
+
+The user explicitly chose chains over lifecycle hooks (which were the bigger architectural addition from janskuba's repo). Reasoning: chains keep operator visibility (you see every step, can pause and edit) while hooks would silently auto-fire on Claude Code lifecycle events. For a solo operator managing client work, visibility beats automation.
+
+Chains use **smart routing** â€” they assess state in Step 0 and only invoke sub-skills that are actually needed. Skip conditions are explicit and transparent (every skip is logged with a reason). This was the user's explicit constraint: "use only the specific skills you need."
+
+### Deferred from janskuba analysis (not added)
+
+- Lifecycle hooks (Stop, SessionEnd, PostToolUse, SessionStart) â€” user chose to stay fully Harry-triggered
+- 17 GTM content prompts (sales decks, case studies, one-pagers, LinkedIn carousels, proposals) â€” user chose to stay cold-email-only
+- Python orchestrator + REST API handlers (17 platforms) â€” we use MCP-based integration
+- Executable tests + DRY_RUN + installer/validator scripts â€” user chose to stay markdown-only
+- Role-based starter packs (founder/sales/marketing/ops/design) â€” we have one client OS template by design
+
+### Source material
+
+Synthesised from `janskuba/go-to-market-orchestrator` â€” specifically the `/outbound-pipeline` slash command pattern that chains 5 subagents via CSV checkpoint files. We adapted the chaining pattern to our markdown-native architecture (markdown checkpoints in `company/decision-log.md` rather than CSV files; existing skill invocations rather than separate subagent definitions).
 
 ---
 
