@@ -157,21 +157,9 @@ Default formula tested + PRR >= 1.5%
 
 ---
 
-## THE FORMULA (canonical default)
+## THE FORMULA
 
-Every email follows this structure. No exceptions unless a named framework is being tested.
-
-**Part 1 — Personalisation (Why you, why now)**
-One sentence proving you looked at them. Must not signal a pitch is coming.
-
-**Part 2 — Who Am I (Social proof first, then what you do)**
-Use "I" not "we". Specific numbers and named logos.
-
-**Part 3 — The Offer (Most important part)**
-Frame as giving, not selling. Specific outcome + timeframe + risk reversal.
-
-**Part 4 — CTA (One binary yes/no question)**
-Prospect replies in 5 words or less.
+Default: the 4-part formula (Personalisation → Who Am I → The Offer → CTA). See `wiki/copywriting-101.md` → The Formula section for the canonical structure with bias-tagging per part. Use a named framework from `wiki/copywriting-frameworks.md` only when the framework decision tree below indicates a switch.
 
 ---
 
