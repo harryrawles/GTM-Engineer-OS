@@ -1,4 +1,4 @@
-﻿# Index — {{CLIENT_NAME}} | GTM Client OS
+# Index — {{CLIENT_NAME}} | GTM Client OS
 
 ## Multi-Skill Chains (start here for common workflows)
 
