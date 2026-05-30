@@ -1,4 +1,4 @@
-﻿# CLAUDE.md — {{CLIENT_NAME}} | GTM Client OS
+# CLAUDE.md — {{CLIENT_NAME}} | GTM Client OS
 
 ## What This Is
 
