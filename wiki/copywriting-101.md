@@ -27,6 +27,17 @@ Core principles for signal-based cold email. Read this before writing any copy.
 
 ---
 
+
+---
+
+## Bias Application
+
+Every piece of copy can leverage cognitive biases. The structured mapping lives in `wiki/psychological-principles.md` — see the "Biases by Copy Stage" table.
+
+**The rule:** pick 3-5 biases per email to deliberately leverage. Leave the rest. Overloading triggers Overdone-It bias — copy reads as manipulative, rejection rises.
+
+When in doubt: which 3 biases are most relevant to this specific signal × persona × offer combination? Lead with those.
+
 ## The Complete Chain
 
 Every email must trigger this sequence in order. If any step fails, the chain breaks.
@@ -59,26 +70,36 @@ Every email must trigger this sequence in order. If any step fails, the chain br
 
 Every email follows this structure. No exceptions.
 
-**Part 1 - Personalization (Why you, why now)**
+For each part, deliberately leverage 2-3 biases from `wiki/psychological-principles.md` and avoid triggering 1-2.
+
+**Part 1 — Personalization (Why you, why now)**
 One sentence proving you looked at them. Must NOT signal a pitch is coming.
 - "Saw you just hired 3 SDRs" — good
 - "I admire your passion for revolutionising the industry" — delete
 
-**Part 2 - Who Am I (Social proof first, then what you do)**
+*Biases to leverage:* Subjective validation (their exact problem), Relatability, Understanding bias, Familiarity (in follow-ups). *Avoid triggering:* Egocentric bias, Excessive self-regard (do not compliment vaguely).
+
+**Part 2 — Who Am I (Social proof first, then what you do)**
 "I run outbound for 3 SaaS teams, one just hit $200K pipeline last month."
 - Use "I" not "we"
 - Specific numbers, named logos where possible
 
-**Part 3 - The Offer (Most important part)**
+*Biases to leverage:* Authority misinfluence, Social proof, Show-and-tell, Quantitative specificity bias, Conviction, Casual bias. *Avoid triggering:* Excessive self-regard (do not oversell yourself), Click-whirr conditioning.
+
+**Part 3 — The Offer (Most important part)**
 Frame as giving, not selling. Use "X in Y or Z" where possible: specific outcome, timeframe, guarantee.
 Lead with a give-first element: audit, teardown, sample, insight.
 - Observation about their situation + outcome + risk reversal
 - Make saying no feel irrational
 
-**Part 4 - CTA (One binary yes/no question)**
+*Biases to leverage:* Reward super-response (the incentive), Deprival super-reaction (loss aversion if they do not act), Punishment super-response addressed via risk reversal, Anchoring (number before pricing), Contrast misreaction, Justification (because…), Disqualified identity (who this is NOT for), One-of-a-kind, Removed self-concerns, Hyperbolic discounting (immediate win), Tried-and-tested OR Novelty (pick one — not both). *Avoid triggering:* Ambiguity effect, Cognitive dissonance head-on.
+
+**Part 4 — CTA (One binary yes/no question)**
 Prospect should be able to reply in 5 words or less.
 - "Want me to send it over?" — good
 - "Feel free to reach out at your earliest convenience" — delete
+
+*Biases to leverage:* Action bias, Reason-respecting tendency ("because…"), Permission-based mis-influence ("mind if…"), Lil' bonus, Instruction clarity, Curiosity tendency. *Avoid triggering:* Ambiguity effect, Cognitive closure (do not close the loop for them).
 
 ---
 
