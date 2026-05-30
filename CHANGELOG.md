@@ -1,4 +1,4 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to the GTM Client OS template.
 
