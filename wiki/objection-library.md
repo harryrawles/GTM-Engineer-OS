@@ -416,6 +416,8 @@ Harry
 
 **When to use:** prospect says they're too small/big.
 
+**Biases leveraged:** Disqualified identity bias (acknowledging the disqualification but reframing), Anchoring (smaller AND bigger examples to bracket their position), Reason-respecting (specific stage-appropriate problem).
+
 **Action:**
 - If self-disqualifying wrongly → push back with case study
 - If correctly disqualifying → respect it, suppress, move on
