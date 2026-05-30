@@ -33,12 +33,28 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `company/test-log.md` — testing roadmap
+- `wiki/scientific-method.md` — the canonical 4-step framework (READ FIRST every time)
+- `gtm-skills/test-readiness-check.md` — invoked as a hard gate before launch
+- `company/test-log.md` — testing roadmap (Queued tests at the top)
 - `company/copy-library.md` — current control (the existing winner)
-- `company/campaign-state.md` — which campaigns are eligible
-- `wiki/scientific-method.md` — test methodology
+- `company/campaign-state.md` — which campaigns are eligible, active-test flags
 
 ---
+
+## STEP 0 — Run Test Readiness Check (MANDATORY)
+
+Before proceeding with any test launch, invoke `gtm-skills/test-readiness-check.md` on the candidate test in `company/test-log.md`.
+
+```
+Run test-readiness check on T-{{XXX}}
+```
+
+Verdict rules:
+- **READY** → proceed to Step 1 below
+- **READY WITH WARNINGS** → require Harry to explicitly say "proceed with warnings"; log warnings to `company/decision-log.md`
+- **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct Harry to fix `company/test-log.md` for that test.
+
+**No exceptions.** The OS does not launch tests that fail this gate. Skipping it means tests get launched with vague hypotheses, drifting constants, and no backtrack plan — the result is unattributable data.
 
 ## STEP 1 — Identify Next Test
 
@@ -164,12 +180,15 @@ After Harry confirms the test is live in Instantly:
 
 1. **Update `company/test-log.md`:**
    - Move T-{{ID}} from Queued to Running
+   - Preserve the FULL Step 1 block (genotype, KPIs, sample, latency, airtight check, variant config, constants, stop conditions, backtrack plan)
    - Record launch date
-   - Note current sample count: 0
+   - Initialise the "Running data" table for daily logging
    - Note expected completion date
 
 2. **Update `company/campaign-state.md`:**
-   - Add note to the campaign: "T-{{ID}} active — testing {{variable}}"
+   - Add note to the campaign: **"TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED."**
+   - This flag is the trigger for strict-block guards in cold-email-writer, client-request-handler, and campaign-optimiser.
+   - Any skill attempting to modify constants of this campaign during the test will refuse without explicit override.
 
 3. **Write to `company/decision-log.md`:**
 ```
