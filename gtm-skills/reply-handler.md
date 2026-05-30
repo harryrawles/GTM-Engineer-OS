@@ -34,7 +34,8 @@ See `wiki/_skill-context.md`.
 ## SKILL-SPECIFIC READS
 
 **MUST READ:**
-- `wiki/objection-library.md` — for any reply containing an objection
+- `wiki/objection-library.md` — for any reply containing an objection (now bias-annotated per response)
+- `wiki/psychological-principles.md` — bias-by-stage table; use the Objection Handling row to pick biases for the response
 - `company/comms-log.md` — for prior context with this prospect
 - `company/copy-library.md` — for winning response patterns
 
@@ -250,10 +251,13 @@ Harry
 
 **Process:**
 1. Identify the objection type (no budget, wrong time, use competitor, tried before, etc.)
-2. Read the response template from objection-library
-3. Customise with proof points from `company/offer.md`
-4. Send response
-5. If they respond again → escalate to Harry directly (Claude does not handle 2+ objection cycles automatically)
+2. Read the response template from objection-library — each is now annotated with the biases it leverages
+3. Verify the response biases are right for THIS prospect (e.g. ATL register vs BTL — adjust tone accordingly)
+4. Customise with proof points from `company/offer.md`
+5. Send response
+6. If they respond again → escalate to Harry directly (Claude does not handle 2+ objection cycles automatically)
+
+**Bias check before sending:** confirm the response leverages the right biases for objection handling per `wiki/psychological-principles.md` "Biases by Copy Stage" table — primarily Disarming honesty, Frame-based misreaction (hold your frame), Understanding bias, Relatability, Reason-respecting, Polite bias. Avoid triggering Egocentric bias (do not attack their idea directly).
 
 **Log:** `company/comms-log.md` + which objection was raised. If 3+ same objection across campaign → log to `company/decision-log.md` as a pattern requiring offer adjustment.
 
