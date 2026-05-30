@@ -23,7 +23,9 @@
 - `wiki/email-benchmarks.md` — what good looks like
 - `company/decision-log.md` — prior decision rationale (read for context)
 
-## WRITES
+## WRITES (now includes the canonical scientific-method discipline)
+
+
 
 - `company/copy-library.md` — new winners (with why-it-worked notes)
 - `company/copy-library.md` graveyard section — new losers
@@ -105,7 +107,51 @@ For each campaign / variant hitting the loser threshold AND not already in the g
 3. Write to `company/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
 4. Write to `company/decision-log.md` capturing the lesson.
 
-### Step 5 — Update completed tests in `company/test-log.md`
+### Step 5 — Update completed tests in `company/test-log.md` (apply scientific method)
+
+For each test currently in "Running" status, run the **six-rule completion check** from `wiki/scientific-method.md` Step 3:
+
+| # | Rule | Verify |
+|---|------|--------|
+| 1 | Sample size hit | Compare actual sends to 1.3 target |
+| 2 | Latency window elapsed | Compare today to launch date + send window + 7 days |
+| 3 | Test was airtight | Confirm 1.5 checks held throughout |
+| 4 | Constants unchanged | Verify no skill modified anything locked in 1.7 |
+| 5 | No changes during test | Verify do-nothing rule held |
+| 6 | Daily logging complete | Verify Running data table has full daily entries |
+
+If any rule failed → mark test INVALID, do not draw conclusions, restart with a clean version.
+
+If all 6 pass → proceed to the **5-question tree** (Step 3.2):
+
+1. **Q1:** What was the conversion rate for primary (PRR) and secondary (ABR)?
+2. **Q2:** Was secondary (ABR) at or above KPI? If YES → change nothing, scale. Stop.
+3. **Q3:** Was primary (PRR) at or above KPI? If YES → copy is working, look downstream of PRR.
+4. **Q4:** Is primary way below KPI? If YES → iterate (Step 4 of scientific method).
+5. **Q5:** Is the result scalable with volume even if below KPI? (calibration question)
+
+#### Regression check (the Managing Future Experiments rule)
+
+If the completed variant V(n+1) was an iteration of V(n), compare PRR head-to-head:
+
+- **V(n+1) regressed from V(n) by more than the backtrack threshold defined in test-log** → recommend **REVERT** to V(n) and iterate a DIFFERENT needle-mover next. Log the regression as a learning in `company/decision-log.md` under "What we tried + what failed" and in `company/test-log.md` Reverted Tests section.
+- **V(n+1) improved over V(n)** → promote V(n+1) as the new control. Update `company/copy-library.md` if PRR ≥ 1.5%. Queue next test (different needle-mover, OR same needle-mover at a different modification level, OR same modification on a different variable per the priority order in `wiki/scientific-method.md` Step 4.2).
+- **V(n+1) inconclusive (within margin of V(n))** → re-test with a moderate modification of the same needle-mover.
+
+Output the regression verdict explicitly:
+```
+T-{{ID}} regression check: V(2) vs V(1)
+- V(1) PRR: 1.8%
+- V(2) PRR: 0.5%
+- Backtrack threshold: V(2) <50% of V(1) PRR
+- VERDICT: REGRESSED — recommend revert to V(1), iterate CTA next instead of Content
+```
+
+#### Active-test awareness
+
+If a test is **still Running** (sample not hit OR latency window not elapsed), do NOT analyse it as if complete. Note it as in progress and skip the variant analysis until next week.
+
+Use Step 4 of `wiki/scientific-method.md` to queue the next test in the testing roadmap.
 
 For each test currently in "Running" status:
 - Has it hit sample size (300 sends per variant)?
