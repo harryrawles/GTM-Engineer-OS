@@ -1,4 +1,4 @@
-# CLAUDE.md — {{CLIENT_NAME}} | GTM Client OS
+﻿# CLAUDE.md — {{CLIENT_NAME}} | GTM Client OS
 
 ## What This Is
 
@@ -51,14 +51,23 @@ This is the GTM Client OS for **{{CLIENT_NAME}}**. It gives Claude full context 
 
 ## Skill Routing Table
 
+### Multi-skill chains (recommended entry points for common workflows)
+
+| User intent | Chain | What it does |
+|-------------|-------|--------------|
+| "Build a campaign" / "Build [client] [signal] campaign" | gtm-skills/chain-build-campaign.md | Smart-routes through icp-builder, list-builder, signal-sourcer, personalization-strategist, cold-email-writer, pre-launch-check, campaign-launcher. Skips skills not needed for the context. |
+| "Diagnose [campaign]" / "Why is [campaign] underperforming" | gtm-skills/chain-diagnose-campaign.md | Runs campaign-optimiser, then routes to the right specialist (deliverability-doctor / list-builder / signal-sourcer / cold-email-writer). Optionally queues a corrective test. |
+| "Friday review for [client]" / "Full weekly review" | gtm-skills/chain-weekly-review-full.md | End-to-end Friday loop: client-health-scorer → weekly-reviewer (full 8 steps) → conditional test launches → client-report-writer. The single command for the most important recurring activity. |
+
 ### Setup and operating rhythm
 
 | User intent | Skill | When |
 |-------------|-------|------|
 | "Onboard new client" / "Set up the OS" | gtm-skills/client-onboarder.md | First time on a fresh clone |
-| "Run weekly review" / "Friday review" | gtm-skills/weekly-reviewer.md | **Every Friday** — compounding loop |
-| "Score health" / "Portfolio health" | gtm-skills/client-health-scorer.md | Mondays + at risk-flag |
-| "Run pre-launch check" | gtm-skills/pre-launch-check.md | Before any campaign goes live |
+| "Run weekly review" / "Friday review" | gtm-skills/weekly-reviewer.md | The deep-review skill (called by chain-weekly-review-full). For the full Friday flow, use the chain instead. |
+| "Score health" / "Portfolio health" | gtm-skills/client-health-scorer.md | Mondays + at risk-flag (called by chain-weekly-review-full) |
+| "Run pre-launch check" | gtm-skills/pre-launch-check.md | Before any campaign goes live (called by chain-build-campaign) |
+| "Run test-readiness check on T-XXX" | gtm-skills/test-readiness-check.md | Pre-test gate (called by chain-build-campaign + chain-diagnose-campaign + chain-weekly-review-full) |
 
 ### Copy and campaigns
 
