@@ -6,6 +6,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.2.0] — 2026-05-30
+
+### Added — Cognitive bias system for copywriting
+- `wiki/psychological-principles.md` — full rewrite. 55+ foundational cognitive biases (each with cold-outreach examples) + 32 Morgan's Heuristics (practitioner observations) + `Biases by Copy Stage` quick-reference table mapping each part of the email (Subject, Part 1-4, Follow-ups, Objection handling, Re-engagement) to which biases to leverage and which to avoid + Overdone-It bias warning to prevent over-application.
+- `wiki/copywriting-101.md` — each Part of the 4-part formula now lists biases to leverage and biases to avoid. Added `Bias Application` section explaining the 3-5 biases per email rule.
+- `gtm-skills/cold-email-writer.md` — added **Step 7 — Map biases per part of the formula** in pre-write protocol. Forces explicit bias planning before writing.
+- `wiki/objection-library.md` — all 14 objection response templates annotated with the biases each leverages. Pattern: shows WHY each response works, not just the script.
+- `gtm-skills/reply-handler.md` — Step 2G (objection routing) now references the bias-annotated objection-library and includes a bias check before sending.
+
+### Added — Scientific method iteration framework
+- `wiki/scientific-method.md` — canonical rewrite. Genotype/fitness terminology, Polaris (secondary metric upstream of primary), full 4-step framework (Formulate → Test → Observe → Iterate), explicit modification levels (Slight/Moderate/Complete) tied to KPI distance, 5-question success determination tree, `Managing Future Experiments` regression check, 10 common failure modes documented.
+- `company/test-log.md` — full template restructure. Every test entry now forces explicit Step 1 fields: genotype (V-numbered variables), primary + secondary KPIs with target values, sample size, latency window, airtight check (5-item checklist), variant configuration with V-numbers, constants (locked during run), stop conditions, backtrack plan. Completed tests must capture Step 3 (six-rule check + verified data + 5-question tree) and Step 4 (iteration decision). New `Reverted Tests` section.
+- `gtm-skills/test-readiness-check.md` (new skill) — pre-test gate mirroring pre-launch-check. Validates a Queued test in test-log against all Step 1 sub-steps + stop conditions + backtrack plan. Returns READY / READY WITH WARNINGS / NOT READY. Blocks test-launcher if NOT READY.
+- `gtm-skills/test-launcher.md` — added mandatory **Step 0** invoking test-readiness-check before any test launches. Updated Step 5 to mark campaign as `TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED.` in campaign-state.md (the trigger for strict-block guards).
+- `gtm-skills/weekly-reviewer.md` — Step 5 expanded with six-rule completion check, 5-question success tree, regression check (`Managing Future Experiments` rule from scientific-method.md), and active-test awareness (skip variant analysis if not at sample / latency yet).
+- `gtm-skills/cold-email-writer.md`, `gtm-skills/client-request-handler.md`, `gtm-skills/campaign-optimiser.md` — all three now include the **Active-Test Strict Block** section. Skills refuse to modify constants of a campaign with TEST ACTIVE flag. Operator override available with explicit `Override active test T-{{ID}}` command, which moves test to Reverted, logs to decision-log, and removes the flag.
+
+### Why this matters
+
+The bias system makes copywriting deliberate, not intuitive — every email has 3-5 biases consciously leveraged for the specific signal x persona x offer combination. The scientific method enforcement (test-readiness-check + strict-block guards) makes iteration compound — without Ceteris Paribus enforcement, mid-test changes silently invalidate data and the OS stops learning. With both: copy is psychologically calibrated AND test results are trustworthy.
+
+### Source material
+
+- Cognitive Bias Codex (Wikimedia Commons) + Morgan's Heuristics (Harry's practitioner observations from ~1,000 client signings)
+- Scientific method content from Harry's iteration process documentation
+- Cross-references added to all related skills
+
+---
 ## [1.1.0] — 2026-05-29
 
 ### Added — Inbound orchestration
