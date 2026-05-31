@@ -47,3 +47,20 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 - **Always show writes before confirming.** Diff or preview before overwriting.
 - **PRR is the primary KPI.** Not reply rate, not open rate, unless explicitly noted otherwise.
 - **British spelling default; override via `company/voice.md` if client is US-based.**
+---
+
+## Session-Log Write (mandatory for every skill)
+
+Every skill MUST append a row to `company/session-log.md` Active Log at the START of its execution. This is what powers `gtm-skills/pattern-detector.md`. Without consistent log writes, pattern detection breaks.
+
+### Format
+
+| YYYY-MM-DD HH:MM | Prompt summary (~60 chars) | This skill name | Output / outcome (1 line) |
+
+### Rules
+- **Write at the START, not the end.** If a skill fails mid-execution, the log still captures that it was attempted.
+- **Paraphrase the prompt.** Do not include verbatim sensitive data (prospect names, emails). Summarise the intent.
+- **One row per skill invocation.** If a chain invokes 5 sub-skills, each sub-skill writes its own row.
+- **The pattern-detector is NOT exempt** — it writes its own row too. Recursion is fine; the detector knows to recognise its own entries and not re-detect on itself.
+
+---
