@@ -6,6 +6,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.5.0] — 2026-05-31
+
+### Added — Two-tier Friday review (triage + full review on flagged clients only)
+
+Running full reviews on all 20 clients every Friday took 5-6 hours — the original "3-4 hours" estimate required a batch mode that did not exist. This release closes that gap.
+
+#### `gtm-skills/weekly-reviewer.md`
+- **New section: TWO-TIER MODE SELECTION** — documents when to use quick-review vs full review
+- **New section: QUICK-REVIEW MODE — Triage Pass** — 2-minute triage check per client. Runs four gates (G1 winner candidate, G2 loser candidate, G3 test completing, G4 signal declining). Green-pass clients get a one-line health stamp and move on; flagged clients escalate to full review. Writes a session-log row per client. Does not log winners, diagnose losers, or analyse tests — it only checks whether those things need doing.
+
+#### `gtm-skills/chain-weekly-review-full.md`
+- **New section: PORTFOLIO TRIAGE MODE** — Friday portfolio entrypoint for 20 clients. Sweeps all clients via quick-review triage (~40 min total), outputs a portfolio table, then runs single-client full review only on flagged clients. Honest time estimate embedded: 2.5-4 hours depending on how many clients are flagged.
+- **Updated trigger list** — added "Friday portfolio triage", "Run triage for all clients", "Portfolio sweep"
+- **Updated RULES** — replaced deferred batch-mode note with instruction to use Portfolio Triage Mode
+
+#### `OPERATING-RHYTHM.md`
+- **Friday section rewritten** — three-step flow: (1) portfolio triage ~40 min, (2) full review on flagged clients only ~15-20 min each, (3) reports ~45 min. Time estimate updated to 2.5-4 hours.
+- **Total weekly time estimate** updated from ~28 hours to ~20-25 hours.
+
+### Why this matters
+
+The math discrepancy was: operating rhythm claimed 3-4 hours for 20 clients on Friday; weekly-reviewer stated 15-20 min per client in single mode (= 5-6 hours). The batch mode that would have bridged this was marked "deferred until meta-OS exists". This release solves the problem within the existing per-client structure by adding a triage gate — most clients in a stable portfolio need only a 2-minute health stamp on any given Friday. No meta-OS required.
+
+Typical distribution: 5-8 clients flagged per Friday out of 20. The rest are a 2-minute Green pass.
+
+### Planned — v1.6.0
+
+**Meta-OS (`harryrawles/gtm-meta-os`)** — a portfolio-level repo that formalises the clients list (replacing the verbal list in Portfolio Triage Mode), enables cross-client pattern surfacing (winning frameworks replicating across clients), and provides a single view of portfolio health. Build after 4-6 real Friday reviews — triage data will reveal which clients cluster as perennially flagged vs perennially green, shaping the meta-OS architecture.
+
+---
+
 ## [1.4.2] — 2026-05-31
 
 ### Removed — Recruitcha example client
