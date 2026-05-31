@@ -30,3 +30,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# Claude Code session logs (local audit trail — do not commit)
+.claude/sessions/
