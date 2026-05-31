@@ -22,6 +22,25 @@ This is the GTM Client OS for **{{CLIENT_NAME}}**. It gives Claude full context 
 
 ---
 
+
+## Session Start Protocol (mandatory)
+
+**EVERY Claude session for this client begins by invoking `gtm-skills/pattern-detector.md` FIRST.** No exceptions.
+
+The pattern detector:
+1. Reads `company/session-log.md` (last 90 days of invocations)
+2. Compares the current user prompt against historical prompts by abstract intent
+3. If 3+ matches found AND the pattern is not in "Rejected pattern suggestions" → surfaces a one-line note proposing to forge a new skill via `gtm-skills/skill-forge.md`
+4. Writes a session-log entry for the current invocation
+5. Hands off to whatever skill should handle the actual user request
+
+This is the auto-improvement mechanism. The OS gets faster and more tailored to your usage patterns with every session.
+
+**What "forge it" means:** when pattern-detector surfaces a detection, reply "forge it" to invoke `gtm-skills/skill-forge.md`. Skill-forge drafts a new skill from the pattern, saves it with a `forged-` prefix (e.g. `forged-quick-diagnose.md`), and surfaces it for your review. You promote it later by renaming (drop the prefix) and adding to the routing table.
+
+**What "skip this" means:** reply "skip this" to add the pattern's signature to `Rejected pattern suggestions`. The detector will never re-suggest it.
+
+---
 ## Behaviour Rules
 
 - Direct, data-led, no fluff. Match the client's voice in `company/voice.md`.
@@ -63,6 +82,8 @@ This is the GTM Client OS for **{{CLIENT_NAME}}**. It gives Claude full context 
 
 | User intent | Skill | When |
 |-------------|-------|------|
+| (automatic — every session) | gtm-skills/pattern-detector.md | **Runs FIRST every session.** Detects repeating prompts, surfaces skill-forge proposals. |
+| "forge it" / "Create a skill that automates {{X}}" | gtm-skills/skill-forge.md | Auto-creates a new skill from a detected pattern. Triggered by pattern-detector or directly. |
 | "Onboard new client" / "Set up the OS" | gtm-skills/client-onboarder.md | First time on a fresh clone |
 | "Run weekly review" / "Friday review" | gtm-skills/weekly-reviewer.md | The deep-review skill (called by chain-weekly-review-full). For the full Friday flow, use the chain instead. |
 | "Score health" / "Portfolio health" | gtm-skills/client-health-scorer.md | Mondays + at risk-flag (called by chain-weekly-review-full) |
