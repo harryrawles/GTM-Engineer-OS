@@ -6,6 +6,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.6.0] — 2026-05-31
+
+### Added — Lifecycle hooks + /gtm:compound win-capture command
+
+#### Hooks (`.claude/hooks/` + `.claude/settings.json`)
+
+Three hooks that fire unconditionally via the OS lifecycle — they cannot be skipped by a skill, unlike CLAUDE.md instructions.
+
+- **`.claude/hooks/safety-guard.sh`** (PreToolUse) — physically blocks dangerous tool calls before execution (exit code 2). Scoped to: Instantly campaign mutations (activate, pause, delete, update sequence, delete leads, suppress contacts, modify email accounts), external messaging (Gmail, Slack), financial operations (Stripe), destructive data operations, and dangerous bash patterns (git push --force, rm -rf, DROP TABLE, curl|sh). The prior CLAUDE.md Safety Guard was instructions to Claude. This is a hard block at the OS level.
+- **`.claude/hooks/session-logger.sh`** (UserPromptSubmit, PreToolUse, PostToolUse, PostToolUseFailure, Stop, PreCompact, SessionEnd) — logs every event to `.claude/sessions/<session_id>.jsonl`. Distinct from `company/session-log.md` (the per-client AI-readable skill invocation log). The JSONL files are gitignored and stay local.
+- **`.claude/hooks/notify.sh`** (Stop, PermissionRequest, SessionStart, SessionEnd, SubagentStop, Notification) — cross-platform desktop notifications. macOS (osascript), Linux (notify-send), Windows (PowerShell toast).
+- **`.claude/settings.json`** — wires all three hooks to 11 lifecycle events.
+
+#### Slash command (`.claude/commands/compound.md`)
+
+- **`/gtm:compound`** — real-time win capture. Auto-triggers on "that worked" / "huge win" / "this is a playbook". Uses four parallel subagents (Metrics Extractor, Copy Extractor, Why-It-Worked Analyst, Replication Strategist), then assembles and writes to `company/copy-library.md` Top Performers + `company/decision-log.md`. Complements weekly-reviewer: compound captures in the moment, weekly-reviewer confirms on Friday after sample size is validated.
+
+#### Supporting files
+
+- **`HOOKS-SETUP.md`** — installation guide (chmod, jq, Instantly tool name verification, troubleshooting).
+- **`.gitignore`** — added `.claude/sessions/` to exclude JSONL audit logs from commits.
+
+### Why this matters
+
+The prior Safety Guard was markdown instructions. The safety-guard.sh hook is the difference between "Claude is told not to do this" and "Claude physically cannot do this" — enforced on every tool call regardless of which skill is running.
+
+The /gtm:compound command closes the time gap between when a win happens and when it gets logged. Without it, wins are reconstructed from memory on Friday. With it, the full copy, metrics, and why-it-worked are captured in the session where the result landed.
+
+---
+
 ## [1.5.0] — 2026-05-31
 
 ### Added — Two-tier Friday review (triage + full review on flagged clients only)
