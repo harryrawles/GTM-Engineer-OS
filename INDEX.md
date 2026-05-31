@@ -22,6 +22,7 @@
 |------|----------------|
 | company/_config.md | Central config — referenced by other files |
 | company/MEMORY.md | Always-loaded scratchpad — current focus, watch-outs, client preferences |
+| company/session-log.md | Per-client invocation log. Powers pattern-detector. Auto-written by every skill. |
 | company/overview.md | Identity, contract, SLA, success criteria |
 | company/icp.md | Target ICP, signal priority, lead filters, avoid list, DM mapping |
 | company/offer.md | What they sell, proof points, differentiators, approved claims |
@@ -72,6 +73,8 @@
 
 | File | When to use |
 |------|------------|
+| gtm-skills/pattern-detector.md | **Runs FIRST every session.** Detects repeating prompts, proposes skill-forge. The auto-improvement loop. |
+| gtm-skills/skill-forge.md | Triggered by "forge it" reply or direct call. Drafts new skills from detected patterns. |
 | gtm-skills/client-onboarder.md | **Run first on a fresh clone.** Conversational OS setup. |
 | gtm-skills/weekly-reviewer.md | **Run every Friday.** Compounding loop. |
 | gtm-skills/client-health-scorer.md | Monday portfolio health check + at-risk flagging |
