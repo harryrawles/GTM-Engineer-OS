@@ -45,7 +45,9 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Confirm Client + Pull Data (always)
 
-Verify:
+**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-weekly-review-full | (filled at end) |`. Sub-skills invoked later will write their own rows.
+
+Then verify:
 - Client name confirmed (`company/_config.md` matches the trigger)
 - This is the Friday routine for THIS client (not a portfolio sweep — that is `weekly-reviewer.md` batch mode, deferred until meta-OS exists)
 - Last weekly review date (per `company/_config.md` `last_review_date`) — flag if more than 14 days ago (skipped weeks compound problems)

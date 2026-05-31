@@ -46,6 +46,24 @@ See `wiki/_skill-context.md`.
 
 ---
 
+## STEP 0 — Log Invocation (mandatory)
+
+Before any other step, append one row to `company/session-log.md` Active Log table:
+
+```
+| YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
+```
+
+Rules (per `wiki/_skill-context.md` "Session-Log Write"):
+- Write at START, not end — captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Skill name only (no path)
+- Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
+
+Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts and the auto-improvement loop breaks.
+
+---
+
 ## STEP 1 — Classify the Reply
 
 Paste the reply. Identify the type:

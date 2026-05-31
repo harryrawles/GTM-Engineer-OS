@@ -42,7 +42,9 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Pull Metrics (always)
 
-Read:
+**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-diagnose-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows.
+
+Then read:
 - `company/campaign-state.md` — which campaign, what is the recent trend
 - `company/MEMORY.md` — any prior watch-outs on this campaign
 - Pull from Instantly MCP: last 14 days metrics per campaign

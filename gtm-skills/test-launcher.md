@@ -43,6 +43,8 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Run Test Readiness Check (MANDATORY)
 
+**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | test-launcher | (filled at end) |`. Then proceed with the readiness check below.
+
 Before proceeding with any test launch, invoke `gtm-skills/test-readiness-check.md` on the candidate test in `company/test-log.md`.
 
 ```

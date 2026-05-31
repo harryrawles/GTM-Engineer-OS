@@ -6,6 +6,36 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.4.1] — 2026-05-31
+
+### Fixed — Session-log writes now implemented across all skills
+
+The v1.4.0 auto-improvement loop was non-functional: the mandate in `wiki/_skill-context.md` said every skill must write to `company/session-log.md` at the START of execution, but only 2 of 28 skills (pattern-detector, skill-forge) actually did so. Pattern-detector had no data to detect from. This release closes that gap.
+
+- **26 skills updated** with a new `## STEP 0 — Log Invocation (mandatory)` section that appends a row to `company/session-log.md` Active Log before any other work. Format and rules cite `wiki/_skill-context.md` to keep the canonical source single.
+- **4 skills already had a STEP 0** (chains + test-launcher) — those received an inline "**Log this invocation first.**" directive at the top of their existing STEP 0 to add the log-write without renumbering downstream steps.
+- **`CLAUDE.md` Session Start Protocol strengthened** with explicit "Every skill writes its own session-log row" paragraph. Chains write their own row in addition to the sub-skill rows.
+
+### Fixed — Orphaned skill `inbound-activator.md` now routed
+
+`gtm-skills/inbound-activator.md` existed but was missing from the CLAUDE.md routing table — invisible to users despite being a substantive 11KB skill covering signal capture → enrichment → qualification → tier-routed outbound activation. Now wired in under "Operations and crises".
+
+### Updated — CLAUDE.md
+
+- Routing table: added `inbound-activator` (4 trigger phrases) and a new "Helper skills" subsection documenting `fresh-eyes-reviewer` as a sub-agent invoked by other skills (not user-facing).
+- File Structure block refreshed to list all 28 skills (was 20), and `company/` directory now shows `MEMORY.md` and `session-log.md`.
+- Clarified `forged-quick-diagnose.md` example in pattern-detector docs as illustrative-only (file does not exist in template).
+
+### Why this matters
+
+Without per-skill session-log writes, the pattern-detector cannot find repeating prompts and the OS cannot auto-improve. v1.4.0 advertised "exponential improvement" but shipped without the data producers. v1.4.1 is the release that actually makes the loop work.
+
+### Verification
+
+After cloning v1.4.1 for a new client, invoke any 3 skills in sequence. `company/session-log.md` Active Log should show 3+ rows, one per invocation, written at START of each skill (so even a mid-execution failure leaves an audit trail).
+
+---
+
 ## [1.4.0] â€” 2026-05-31
 
 ### Added â€” Auto-improvement loop (the exponential mechanism)

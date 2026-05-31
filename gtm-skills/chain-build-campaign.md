@@ -43,7 +43,9 @@ See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
 ## STEP 0 — Assess State (always)
 
-Read the following and produce an assessment:
+**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-build-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows. Without this step, `gtm-skills/pattern-detector.md` cannot find repeating prompts.
+
+Then read the following and produce an assessment:
 
 - `company/_config.md` — client identity
 - `company/MEMORY.md` — current focus, active inbound, watch-outs

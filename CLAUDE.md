@@ -36,7 +36,9 @@ The pattern detector:
 
 This is the auto-improvement mechanism. The OS gets faster and more tailored to your usage patterns with every session.
 
-**What "forge it" means:** when pattern-detector surfaces a detection, reply "forge it" to invoke `gtm-skills/skill-forge.md`. Skill-forge drafts a new skill from the pattern, saves it with a `forged-` prefix (e.g. `forged-quick-diagnose.md`), and surfaces it for your review. You promote it later by renaming (drop the prefix) and adding to the routing table.
+**Every skill writes its own session-log row.** Pattern-detector runs first and writes the first row, then hands off. Every skill invoked after pattern-detector MUST also write a row at its STEP 0 (per `wiki/_skill-context.md` "Session-Log Write" mandate, enforced by a STEP 0 block in every skill file). Without per-skill rows, the log is sparse and pattern-detection breaks. If a chain invokes 5 sub-skills, the log gets 6 rows (chain + 5 sub-skills).
+
+**What "forge it" means:** when pattern-detector surfaces a detection, reply "forge it" to invoke `gtm-skills/skill-forge.md`. Skill-forge drafts a new skill from the pattern, saves it with a `forged-` prefix (e.g. `forged-quick-diagnose.md` — illustrative example, file does not exist in template), and surfaces it for your review. You promote it later by renaming (drop the prefix) and adding to the routing table.
 
 **What "skip this" means:** reply "skip this" to add the pattern's signature to `Rejected pattern suggestions`. The detector will never re-suggest it.
 
@@ -115,8 +117,15 @@ This is the auto-improvement mechanism. The OS gets faster and more tailored to 
 |-------------|-------|------|
 | "Handle this reply" | gtm-skills/reply-handler.md | Any inbound reply |
 | "Handle client request" | gtm-skills/client-request-handler.md | Mid-week client ask |
+| "Inbound signal: [X]" / "RB2B picked up [company]" / "[company] raised funding" / "Champion moved to [company]" | gtm-skills/inbound-activator.md | Inbound signal → outbound activation within SLA (distinct from reply-handler which handles inbound REPLIES after outreach) |
 | "Diagnose deliverability" | gtm-skills/deliverability-doctor.md | Bounces, spam, blacklists |
 | "Incident" / "Domain blacklisted" / "Bounce spike" | gtm-skills/incident-responder.md | Critical/high severity issue |
+
+### Helper skills (invoked by other skills, not by user)
+
+| Skill | Invoked by |
+|-------|-----------|
+| gtm-skills/fresh-eyes-reviewer.md | Pass 2 review for cold-email-writer and chain-build-campaign — sub-agent that critiques copy with fresh context |
 
 ### Reporting and relationship
 
@@ -153,8 +162,10 @@ client-os/
 │   ├── decision-log.md    # Why decisions were made
 │   ├── competitive-intel.md
 │   ├── comms-log.md       # Client communications
-│   ├── copy-library.md    # Top performers + graveyard (moved from wiki/)
-│   └── test-log.md        # Split test history (moved from wiki/)
+│   ├── copy-library.md    # Top performers + graveyard
+│   ├── test-log.md        # Split test history
+│   ├── MEMORY.md          # Always-loaded scratchpad: focus, watch-outs
+│   └── session-log.md     # Per-invocation log (powers pattern-detector)
 │
 ├── wiki/                  # Shared knowledge — same across all clients
 │   ├── _skill-context.md  # Standard skill preamble (every skill loads this)
@@ -177,6 +188,11 @@ client-os/
 │   └── diagrams.md
 │
 ├── gtm-skills/            # AI skill definitions (frontmatter + content)
+│   ├── pattern-detector.md         # RUNS FIRST EVERY SESSION — auto-improvement loop
+│   ├── skill-forge.md              # Auto-creates skills from detected patterns
+│   ├── chain-build-campaign.md     # End-to-end campaign build chain
+│   ├── chain-diagnose-campaign.md  # End-to-end diagnostic chain
+│   ├── chain-weekly-review-full.md # End-to-end Friday review chain
 │   ├── client-onboarder.md         # RUN FIRST on a fresh clone
 │   ├── weekly-reviewer.md          # RUN EVERY FRIDAY — compounding loop
 │   ├── pre-launch-check.md         # Gate for placeholder validation
@@ -184,8 +200,10 @@ client-os/
 │   ├── campaign-launcher.md
 │   ├── campaign-optimiser.md
 │   ├── reply-handler.md
+│   ├── inbound-activator.md        # Inbound signal → outbound activation within SLA
 │   ├── client-request-handler.md
 │   ├── test-launcher.md
+│   ├── test-readiness-check.md     # Pre-test gate
 │   ├── client-health-scorer.md
 │   ├── client-report-writer.md
 │   ├── client-offboarder.md
@@ -196,7 +214,8 @@ client-os/
 │   ├── list-builder.md
 │   ├── deliverability-doctor.md
 │   ├── campaign-analyst.md
-│   └── icp-builder.md
+│   ├── icp-builder.md
+│   └── fresh-eyes-reviewer.md      # Helper sub-agent (invoked by other skills)
 │
 ├── examples/              # Reference examples
 │   ├── recruitcha-completed-os/   # Fully-filled OS as quality bar
