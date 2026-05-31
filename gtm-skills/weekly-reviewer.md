@@ -51,6 +51,75 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
+
+---
+
+## TWO-TIER MODE SELECTION
+
+Before running any review, determine which mode applies:
+
+**Quick-review (default — Friday triage pass):**
+- Use when: routine Friday sweep across all clients
+- Time: ~2 min per client
+- Escalates automatically to full review if any triage gate fires
+
+**Full review (deep review):**
+- Use when: triage flagged this client, OR Harry explicitly invokes full review, OR client is Red/Critical
+- Time: 15-20 min per client
+
+The portfolio triage pattern: run quick-review on every client first, collect the flagged list, then run full review only on flagged clients. See `gtm-skills/chain-weekly-review-full.md` Portfolio Triage Mode.
+
+---
+
+## QUICK-REVIEW MODE — Triage Pass
+
+**Trigger:** "Quick review for {{client}}", "Triage {{client}}", or called from portfolio triage in `gtm-skills/chain-weekly-review-full.md`
+
+**Purpose:** 2-minute health stamp. Determines whether this client needs a full review this Friday. Does not log winners, diagnose losers, or analyse tests — it only checks whether those things need doing.
+
+### Pull data
+
+Pull last 7 days from Instantly MCP. If MCP unavailable, read `company/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
+
+### Four triage gates
+
+| Gate | Check | Flag if... |
+|------|-------|------------|
+| G1 — Winner candidate | Any campaign PRR ≥ 1.5% with ≥ 300 sends | NOT already in `company/copy-library.md` Top Performers |
+| G2 — Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `company/copy-library.md` Graveyard |
+| G3 — Test completing | Any Running test in `company/test-log.md` | Sample size hit AND latency window elapsed this week |
+| G4 — Signal declining | Any signal in `company/icp.md` signal table | PRR down 30%+ week-over-week |
+
+### Output and routing
+
+**All four gates NO:**
+```
+{{client_name}} — Green pass. PRR {{x}}%, {{n}} meetings. No action this Friday.
+```
+- Update health to Green in `company/campaign-state.md` (or preserve current rating if already higher)
+- Update `company/_config.md` `last_review_date` to today
+- Write session-log row (see below)
+- Done — move to next client
+
+**Any gate YES:**
+```
+{{client_name}} — Flagged for full review.
+G1 Winner: [YES/NO] — [campaign name if yes]
+G2 Loser:  [YES/NO] — [campaign name if yes]
+G3 Test:   [YES/NO] — [T-ID if yes]
+G4 Signal: [YES/NO] — [signal name if yes]
+```
+Escalate to SINGLE-CLIENT MODE — Full Flow below.
+
+### Session-log entry
+
+Write one row to `company/session-log.md` Active Log:
+```
+| YYYY-MM-DD HH:MM | Quick-review triage | weekly-reviewer | Green pass / Flagged: [gates fired] |
+```
+
+---
+
 ## SINGLE-CLIENT MODE — Full Flow
 
 ### Step 1 — Pull data from Instantly
