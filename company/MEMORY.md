@@ -82,6 +82,26 @@ Insights that have emerged but are not yet promoted to permanent files. Promote 
 - {{e.g. "The 'sample shortlist' CTA pattern may work across multiple clients — observed lifting reply rate on Recruitcha. Try on Client B's next campaign."}}
 - {{e.g. "Negative replies cluster around 'we use Greenhouse' objection — may need to refine ICP to exclude companies with active Greenhouse subscriptions"}}
 
+
+---
+
+## Forged Skills (pending review)
+
+Skills auto-created by `gtm-skills/skill-forge.md` from detected patterns. Each forged skill lives at `gtm-skills/forged-{name}.md` until promoted.
+
+**Promotion steps:**
+1. Review the forged skill file
+2. Refine content if needed (it is a draft)
+3. Rename the file to drop the `forged-` prefix
+4. Add a row to `CLAUDE.md` routing table
+5. Move the entry from this section to a permanent record
+
+**Deletion:** just delete the file. The pattern signature is preserved in `company/session-log.md` Forged skills table so it will not be re-suggested.
+
+| Forged skill | Pattern intent | Date forged | Status |
+|-------------|----------------|-------------|--------|
+| (none yet) | | | |
+
 ---
 
 ## Archive
