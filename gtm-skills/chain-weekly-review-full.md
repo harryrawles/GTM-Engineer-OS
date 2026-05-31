@@ -7,6 +7,9 @@ triggers:
   - "Full weekly review for [client]"
   - "Compound the OS for [client]"
   - "End of week sweep for [client]"
+  - "Friday portfolio triage"
+  - "Run triage for all clients"
+  - "Portfolio sweep"
 reads:
   - "wiki/_skill-context.md"
   - "company/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md, comms-log.md, overview.md"
@@ -185,9 +188,63 @@ Outstanding: [any client-side actions Harry needs to take this week]
 
 ---
 
+## PORTFOLIO TRIAGE MODE
+
+**Trigger:** "Friday portfolio triage", "Run triage for all clients", "Portfolio sweep"
+
+**Purpose:** Sweep all 20 clients in under 45 minutes and identify which ones need a full review this Friday. Run this first, every Friday. Then run single-client mode (Steps 0-5) only on flagged clients.
+
+**Prerequisites:** Harry supplies the client list at invocation: "Portfolio triage for: [Client A, Client B, ...]". A formal `clients.md` index will be added in v1.5.0 meta-OS. Until then, the list is the source of truth.
+
+### Phase 1 — Triage Sweep (~2 min per client)
+
+For each client in the list, invoke `gtm-skills/weekly-reviewer.md` in quick-review mode.
+
+Output a running portfolio table as each client completes:
+
+```
+=== Portfolio Triage — Friday [date] ===
+
+| Client       | PRR   | Meetings | G1 Winner | G2 Loser | G3 Test | G4 Signal | Action       |
+|--------------|-------|----------|-----------|----------|---------|-----------|--------------|
+| Client A     | 2.1%  | 3        | NO        | NO       | NO      | NO        | Green pass   |
+| Client B     | 0.4%  | 0        | NO        | YES      | NO      | YES       | Full review  |
+| Client C     | 1.8%  | 5        | YES       | NO       | YES     | NO        | Full review  |
+| ...          |       |          |           |          |         |           |              |
+
+Clients needing full review: [n] of 20
+Estimated Friday time remaining: [n × 15 min] + ~[20 × 3 min] reports
+```
+
+**After table:** "Run full reviews now? (Y — I'll work through flagged clients in priority order / tell me the order)"
+
+### Phase 2 — Full Reviews (flagged clients only)
+
+For each flagged client, run this chain (Steps 0-5) in single-client mode.
+
+Priority order: Red/Critical first → Amber → Green (if flagged).
+
+### Phase 3 — Reports (all 20 clients)
+
+After all full reviews complete, generate reports for flagged clients via `gtm-skills/client-report-writer.md`. Green-pass clients get a 3-line status update (PRR, meetings, no action) rather than a full report — saves ~30 min across the portfolio.
+
+### Honest time estimate
+
+| Activity | Time |
+|----------|------|
+| Triage: 20 clients × 2 min | ~40 min |
+| Full reviews: typically 5-8 flagged × 15-20 min | 75-160 min |
+| Reports: flagged clients full + green-pass status updates | ~45 min |
+| **Total** | **2.5-4 hours** |
+
+This compares to 5-6 hours running full reviews on every client. The efficiency gain comes entirely from skipping full reviews on green-pass clients.
+
+
+---
+
 ## RULES
 
-- **Single client per chain run.** Portfolio batch mode is deferred to meta-OS (per the weekly-reviewer.md note). For multiple clients, run this chain once per client in priority order (Red → Amber → Green).
+- **Use Portfolio Triage Mode for 20 clients.** Run quick-review triage on all clients first (see Portfolio Triage Mode above), then run single-client mode only on flagged clients. Do not run full review on all 20 clients sequentially — that is 5-6 hours, not 2.5-4 hours.
 - **Never skip Step 2.** The deep review IS the compounding loop. If you skip it, the OS does not learn anything from this week.
 - **Always run the synthesis step.** That is weekly-reviewer Step 7 — the meta-takeaway that turns individual entries into compounding patterns. Without it, the entries pile up without ever connecting.
 - **Pause at every meaningful checkpoint.** This chain is decision support — Harry confirms winners, losers, test launches, and the report before send.
