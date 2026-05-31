@@ -2,7 +2,7 @@
 
 The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Following this rhythm is what separates "good operator" from "world class."
 
-**Total time investment for 20 clients:** ~25-30 hours per week.
+**Total time investment for 20 clients:** ~20-25 hours per week (with triage-first Friday review).
 
 ---
 
@@ -63,31 +63,49 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 ---
 
-## Friday — Weekly Review Sweep (3-4 hours for 20 clients)
+## Friday — Weekly Review Sweep (2.5-4 hours for 20 clients)
 
 **When:** Friday afternoon (default). Or Monday morning if Friday is impossible.
 
 **The single most important recurring activity.** Without this, the OS does not compound.
 
+**Two-tier approach — triage first, full review only for flagged clients.**
+
+Running full reviews on all 20 clients every Friday takes 5-6 hours. The triage approach cuts this to 2.5-4 hours by skipping full reviews on clients where nothing actionable happened that week.
+
 **What:**
-1. Run `gtm-skills/weekly-reviewer.md` in batch mode: `Run weekly review for all clients`
-2. For each client, the reviewer surfaces:
-   - Winners to log (PRR ≥ 1.5%) → confirm "why it worked" → write to copy-library + decision-log
-   - Losers to log (PRR < 0.5%) → confirm root cause → write to graveyard
-   - Completed tests → confirm result → write to test-log → queue next test
-   - Signal trends → flag declining signals → recommend pivots
-   - Health rating → update campaign-state.md
-3. After all clients reviewed → run `gtm-skills/client-report-writer.md` for each client to generate weekly reports
-4. Review reports before sending (do not auto-send)
-5. Send reports to clients via Slack / email per `company/overview.md` SLA
+
+### Step 1 — Portfolio triage (~40 min)
+Run `gtm-skills/chain-weekly-review-full.md` in Portfolio Triage Mode:
+```
+Friday portfolio triage for: [list all 20 clients]
+```
+This runs a 2-minute triage pass on each client via `gtm-skills/weekly-reviewer.md` quick-review mode. Each client gets four gates checked: winner candidate, loser candidate, test completing, signal declining. Output: a portfolio table showing which clients are Green pass vs flagged.
+
+**Typical outcome:** 5-8 clients flagged, 12-15 Green pass.
+
+### Step 2 — Full reviews (flagged clients only, ~15-20 min each)
+For each flagged client, run full single-client review (chain-weekly-review-full Steps 1-5):
+- Winners to log (PRR ≥ 1.5%) → confirm "why it worked" → write to copy-library + decision-log
+- Losers to log (PRR < 0.5%) → confirm root cause → write to graveyard
+- Completed tests → confirm result → write to test-log → queue next test
+- Signal trends → diagnose decline → recommend pivots
+
+Priority order: Red/Critical first → Amber → Green (if flagged).
+
+### Step 3 — Reports (~45 min across all 20)
+- Flagged clients → full weekly report via `gtm-skills/client-report-writer.md`
+- Green-pass clients → 3-line status update (PRR, meetings, no action)
+- Review before sending (never auto-send)
+- Send via Slack / email per `company/overview.md` SLA
 
 **Output:**
-- Every client has logged learnings
+- Every client has a logged review (full or triage stamp)
+- Flagged clients have fresh learnings in copy-library + decision-log
 - Every active test has progressed or completed
-- Every client has a fresh weekly report
-- Decision log is fresh
+- Every client has a report or status update
 
-**If skipped:** flag in Monday review. Skipping 2 weeks = OS stops compounding for that client.
+**If skipped:** flag in Monday review. Skipping 2 weeks = OS stops compounding for that client. The triage stamp counts — even a Green pass is better than no review.
 
 ---
 
@@ -166,11 +184,11 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 | Daily morning | 10 min | Manual + reply-handler |
 | Daily evening | 5 min | Manual logging |
 | Monday | 1 hour | client-health-scorer (portfolio) |
-| Friday | 3-4 hours | weekly-reviewer (batch) + client-report-writer |
+| Friday | 2.5-4 hours | weekly-reviewer (triage + full on flagged) + client-report-writer |
 | Monthly (per client) | 30 min | Manual review of icp.md, offer.md, test-log.md |
 | Quarterly (per client) | 2 hours | qbr-writer |
 
-**Total weekly time for 20 clients:** ~28 hours.
+**Total weekly time for 20 clients:** ~20-25 hours (triage-first Friday).
 **Plus monthly:** ~10 hours.
 **Plus quarterly:** ~40 hours (spread across the quarter).
 
