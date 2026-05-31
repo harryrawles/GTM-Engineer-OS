@@ -6,6 +6,46 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.4.0] â€” 2026-05-31
+
+### Added â€” Auto-improvement loop (the exponential mechanism)
+
+The OS now detects repeating patterns in how Harry uses it and auto-creates skills to automate them. Every Claude Code session runs pattern detection FIRST.
+
+- `gtm-skills/pattern-detector.md` â€” new skill. Runs at the start of every Claude session per the new CLAUDE.md Session Start Protocol. Reads `company/session-log.md` (last 90 days), compares the current prompt against historical prompts by abstract intent, surfaces a one-line note when 3+ matches found. Never blocks work â€” surfaces and proceeds. Respects "Rejected pattern suggestions" so dismissed patterns stay dismissed.
+- `gtm-skills/skill-forge.md` â€” new skill. Invoked when Harry replies "forge it" to a pattern detection. Drafts a new skill following OS conventions and saves to `gtm-skills/forged-{name}.md` with mandatory `forged-` prefix. Never auto-promotes â€” Harry reviews and renames to canonical once vetted in real use.
+- `company/session-log.md` â€” new per-client invocation log. Every skill writes a row at the START of execution. Three sections: Active Log (last 90 days), Pattern Detection State (Rejected pattern suggestions + Forged skills), Archive (older than 90 days). This is the substrate that makes the OS exponentially improving.
+
+### Updated
+
+- `CLAUDE.md` â€” new "Session Start Protocol (mandatory)" section. Mandates pattern-detector runs FIRST every session. Routing table now includes pattern-detector (automatic trigger) and skill-forge (triggered by "forge it" response or direct invocation).
+- `wiki/_skill-context.md` â€” `company/session-log.md` added to Standard Reads. New "Session-Log Write (mandatory for every skill)" section requires every skill to append a session-log row at the START of execution.
+- `company/MEMORY.md` template â€” new "Forged Skills (pending review)" section between Recent Learnings and Archive. Lists auto-forged skills awaiting Harry's review/promotion. "How Skills Update This File" updated to include pattern-detector and skill-forge.
+
+### How "exponential" works
+
+- Session 1-10: log accumulates, no patterns yet.
+- Session ~15: pattern-detector notices you've asked variants of "diagnose X campaign metrics" 4 times in 30 days â†’ surfaces tentative pattern.
+- Session ~20: pattern hits 5+ matches â†’ confirmed detection. Harry replies "forge it" â†’ skill-forge drafts `gtm-skills/forged-quick-diagnose.md` for review.
+- Session ~22: Harry reviews, refines, renames to drop `forged-` prefix, adds to CLAUDE.md routing. Future similar prompts auto-route to the new skill in 1 step instead of 5.
+- After 6 months: ~10-20 custom skills tailored specifically to YOUR usage patterns, all automated.
+
+The OS gets demonstrably faster with use. That is the exponential part.
+
+### Safety rails
+
+- Pattern detection NEVER auto-forges. Always requires Harry's explicit "forge it" reply.
+- Forged skills carry the `forged-` prefix until Harry manually promotes (rename + add to routing). Forged skills are NOT in the canonical routing table.
+- Rejected patterns are permanently sticky â€” once Harry says "skip this", the pattern signature lives in `company/session-log.md` Rejected pattern suggestions and never re-surfaces.
+- Session log is per-client (in `company/`), so no cross-client data leakage.
+- Pattern-detector writes its own session-log entry; recursion is fine because the detector recognises its own entries and skips them.
+
+### Architectural note
+
+User declined lifecycle hooks earlier (SessionStart, SessionEnd, etc.). This implementation achieves "constant pattern watching" without hooks by mandating that pattern-detector runs first at EVERY user-initiated session. "Constant" from the user's perspective = "every time the OS is active." True background detection between sessions would require revisiting the hooks decision.
+
+---
+
 ## [1.3.0] â€” 2026-05-30
 
 ### Added â€” Multi-skill chains (intelligent skill composition)
