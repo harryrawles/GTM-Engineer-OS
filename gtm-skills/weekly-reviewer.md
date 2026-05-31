@@ -347,10 +347,10 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 ## OUTPUT EXAMPLE — Single Client
 
 ```
-Harry: Run weekly review for Recruitcha
+Harry: Run weekly review for {{CLIENT_NAME}}
 
 Claude:
-=== Weekly Review — Recruitcha — Week ending 2026-05-29 ===
+=== Weekly Review — {{CLIENT_NAME}} — Week ending 2026-05-29 ===
 
 Pulling Instantly data... done.
 
@@ -377,7 +377,7 @@ WINNER CANDIDATE — Hiring Signal v4 / Email 1
 Copy:
 Subject: hiring speed
 Saw you posted 5 senior eng roles in the last 30 days.
-I run engineering placement for 3 VC-backed SaaS teams — last quarter we got TurboTenant fully staffed in 18 days and saved them $100k vs in-house recruiting.
+I run engineering placement for 3 VC-backed SaaS teams — last quarter we got {{NAMED_PROOF_COMPANY}} fully staffed in 18 days and saved them $100k vs in-house recruiting.
 Want me to send a sample shortlist?
 
 Log this as a winner?
@@ -397,7 +397,7 @@ Harry: The "specific signal number + named client + dollar saved" structure for 
 Claude:
 Anything you would NOT carry over to another client?
 
-Harry: The dollar figure is Recruitcha-specific. Other clients need their own proof number.
+Harry: The dollar figure is {{CLIENT_NAME}}-specific. Other clients need their own proof number.
 
 Claude:
 Writing to company/copy-library.md... done.

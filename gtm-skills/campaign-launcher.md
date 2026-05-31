@@ -228,12 +228,12 @@ Launched after pre-flight check (all 10 categories passed).
 ### Example — failed launch (placeholder remaining)
 
 ```
-Harry: Launch the hiring campaign for Recruitcha
+Harry: Launch the hiring campaign for {{CLIENT_NAME}}
 
 Claude:
 Running pre-flight check...
 
-=== Campaign Launch Check — Recruitcha Hiring v1 — 2026-05-29 ===
+=== Campaign Launch Check — {{CLIENT_NAME}} Hiring v1 — 2026-05-29 ===
 
 1. OS Setup Validation        | FAIL — company/voice.md line 22 has unresolved {{Tone}}
 2. Copy Approval              | PASS

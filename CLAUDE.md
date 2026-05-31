@@ -218,7 +218,6 @@ client-os/
 │   └── fresh-eyes-reviewer.md      # Helper sub-agent (invoked by other skills)
 │
 ├── examples/              # Reference examples
-│   ├── recruitcha-completed-os/   # Fully-filled OS as quality bar
 │   ├── sample-weekly-review.md    # What a Friday review looks like
 │   ├── sample-client-report.md    # What a weekly report looks like
 │   └── sample-decision-log-entries.md

@@ -25,7 +25,7 @@ If something belongs in one of the other files, write it there. Only use MEMORY 
 What is currently top of mind for this account. Update when priorities shift.
 
 - {{e.g. "Funding v2 PRR declining — running T-006 reframe test this week"}}
-- {{e.g. "Renewal in 47 days — need a strong week to set up Drew's confidence"}}
+- {{e.g. "Renewal in 47 days — need a strong week to set up {{PRIMARY_CONTACT}}'s confidence"}}
 - {{e.g. "Client just hired a new VP Marketing — may want to brief them on outbound approach"}}
 
 ---
@@ -49,8 +49,8 @@ Cleared from this section when:
 
 Things the client mentioned that should shape how we operate but are not formal SLAs. Lighter than overview.md SLA section.
 
-- {{e.g. "Drew prefers async Slack updates over scheduled calls"}}
-- {{e.g. "Drew dislikes when reports lead with bad news — frame issues with the fix attached"}}
+- {{e.g. "{{PRIMARY_CONTACT}} prefers async Slack updates over scheduled calls"}}
+- {{e.g. "{{PRIMARY_CONTACT}} dislikes when reports lead with bad news — frame issues with the fix attached"}}
 - {{e.g. "Harrison is the data person — copy him on any number-heavy update"}}
 
 ---
@@ -59,8 +59,8 @@ Things the client mentioned that should shape how we operate but are not formal 
 
 Things to remember when working on this account. Patterns that surprised us, edge cases, sensitivities.
 
-- {{e.g. "Drew is sensitive about 'agency churn' framing — many of his prospects have been burned by recruiters before"}}
-- {{e.g. "Avoid 'cold' language — Drew wants outbound positioned as warm and signal-driven"}}
+- {{e.g. "{{PRIMARY_CONTACT}} is sensitive about 'agency churn' framing — many of his prospects have been burned by recruiters before"}}
+- {{e.g. "Avoid 'cold' language — {{PRIMARY_CONTACT}} wants outbound positioned as warm and signal-driven"}}
 - {{e.g. "Crypto industries are off limits — they had two payment disputes in 2025"}}
 
 ---
@@ -69,7 +69,7 @@ Things to remember when working on this account. Patterns that surprised us, edg
 
 Things waiting on the client, on Harry, or on a future event.
 
-- [ ] {{e.g. "Waiting on Drew to approve T-006 variant copy by Monday"}}
+- [ ] {{e.g. "Waiting on {{PRIMARY_CONTACT}} to approve T-006 variant copy by Monday"}}
 - [ ] {{e.g. "Renewal discussion scheduled for 2026-07-01"}}
 - [ ] {{e.g. "Reviewing new champion job change source — Champify vs LoneScale, decision by Friday"}}
 
@@ -79,7 +79,7 @@ Things waiting on the client, on Harry, or on a future event.
 
 Insights that have emerged but are not yet promoted to permanent files. Promote to decision-log or copy-library when confidence increases.
 
-- {{e.g. "The 'sample shortlist' CTA pattern may work across multiple clients — observed lifting reply rate on Recruitcha. Try on Client B's next campaign."}}
+- {{e.g. "The 'sample shortlist' CTA pattern may work across multiple clients — observed lifting reply rate on {{CLIENT_NAME}}. Try on Client B's next campaign."}}
 - {{e.g. "Negative replies cluster around 'we use Greenhouse' objection — may need to refine ICP to exclude companies with active Greenhouse subscriptions"}}
 
 

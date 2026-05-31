@@ -2,12 +2,12 @@
 
 ## Scenario
 
-Generate Email 1 for Recruitcha's hiring signal campaign targeting VP Engineering. The OS has the Recruitcha example data loaded.
+Generate Email 1 for {{CLIENT_NAME}}'s hiring signal campaign targeting VP Engineering. The OS has the {{CLIENT_NAME}} example data loaded.
 
 ## Input
 
 ```
-Write a cold email for Recruitcha. Email 1 of a new sequence. Signal: company posted 3+ engineering roles in 30 days. Target: VP Engineering at Series A-C SaaS.
+Write a cold email for {{CLIENT_NAME}}. Email 1 of a new sequence. Signal: company posted 3+ engineering roles in 30 days. Target: VP Engineering at Series A-C SaaS.
 ```
 
 ## Expected Output
@@ -27,7 +27,7 @@ Claude should:
 - Under 60 words (ATL ceiling)
 - No question marks except CTA
 - Subject 2-4 words, lowercase
-- Use approved claims from company/offer.md only (TurboTenant $100k, 72-hour shortlist, etc.)
+- Use approved claims from company/offer.md only ({{NAMED_PROOF_COMPANY}} $100k, 72-hour shortlist, etc.)
 - Match voice (American English, direct, data-led, no fluff)
 - Do NOT mention the signal directly ("saw you posted 3 roles")
 
@@ -46,7 +46,7 @@ Subject: hiring speed
 
 Part 1 (personalisation): References the implication of hiring posts, not the posts themselves
 Part 2 (who am I): Uses "I" + specific number + named client
-Part 3 (offer): TurboTenant case study + specific dollar figure + 72-hour shortlist
+Part 3 (offer): {{NAMED_PROOF_COMPANY}} case study + specific dollar figure + 72-hour shortlist
 Part 4 (CTA): Binary question, 5-word reply or less
 
 [Total: 45-55 words]

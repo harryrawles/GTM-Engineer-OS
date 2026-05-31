@@ -273,7 +273,7 @@ Detected contact: Jordan Kim — VP Engineering (verified via LinkedIn)
 
 Enrichment status: Clay connected — running...
 - Industry: Health Tech SaaS (matches ICP)
-- Size: 47 employees (matches sweet spot for Recruitcha)
+- Size: 47 employees (matches sweet spot for {{CLIENT_NAME}})
 - Funding: Series A $8M, 4 months ago
 - Tech stack: AWS, GitHub, Slack (modern eng team)
 
@@ -302,5 +302,5 @@ Logs:
 
 Follow-up: re-check 2026-05-31 (48h)
 
-Recommend: send the generated email to Drew (Recruitcha) for visibility — this is the kind of warm conversion he'll want to know about regardless of outcome.
+Recommend: send the generated email to {{PRIMARY_CONTACT}} ({{CLIENT_NAME}}) for visibility — this is the kind of warm conversion he'll want to know about regardless of outcome.
 ```

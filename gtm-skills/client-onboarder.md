@@ -249,7 +249,7 @@ Suggested next step: "Build the first lead list for {{client_name}}"
 
 ### Example startup
 ```
-Harry: Run client onboarder for Recruitcha
+Harry: Run client onboarder for {{CLIENT_NAME}}
 
 Claude:
 OS State Report — 2026-05-29
@@ -274,12 +274,12 @@ Claude:
 - Specific timeframe: "within 21 days" / "within 72 hours"
 - Comparative: "3x faster than in-house" / "50% faster than agencies"
 
-Which one fits Recruitcha? Or do you have a specific stat?
+Which one fits {{CLIENT_NAME}}? Or do you have a specific stat?
 ```
 
 ### Example resume
 ```
-Harry: Continue onboarding Recruitcha.
+Harry: Continue onboarding {{CLIENT_NAME}}.
 
 Claude:
 OS State Report — 2026-06-02

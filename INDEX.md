@@ -125,7 +125,6 @@
 
 | File | What it shows |
 |------|--------------|
-| examples/recruitcha-completed-os/ | Fully-filled OS as quality bar reference |
 | examples/sample-weekly-review.md | What a Friday review session produces |
 | examples/sample-client-report.md | What a sent weekly report looks like |
 | examples/sample-decision-log-entries.md | What good decision log entries look like |

@@ -6,6 +6,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [1.4.2] — 2026-05-31
+
+### Removed — Recruitcha example client
+
+The OS shipped with a fully-filled `examples/recruitcha-completed-os/` directory plus inline "Recruitcha / Drew / TurboTenant / HealthNote" worked examples scattered across skills and sample files. This release scrubs all named-client references in favour of the template's `{{PLACEHOLDER}}` convention.
+
+- **Deleted** `examples/recruitcha-completed-os/` (7 files: README + 6 filled company/*.md).
+- **Scrubbed** 16 files across `gtm-skills/`, `examples/sample-*.md`, `tests/`, `company/`, and `wiki/inbound-orchestration.md`. Replacements: `Recruitcha` → `{{CLIENT_NAME}}`, `Drew` / `Drew Ryan` → `{{PRIMARY_CONTACT}}`, `TurboTenant` → `{{NAMED_PROOF_COMPANY}}`, `HealthNote` → `{{NAMED_PROOF_COMPANY_2}}`, `getrecruitcha.com` → `{{SENDING_DOMAIN}}`.
+- **Updated** `CLAUDE.md` File Structure block and `INDEX.md` Examples table to drop the deleted directory.
+
+### Why this matters
+
+Cloning the template to 20 clients meant each client OS shipped with a named competitor's worked-example data embedded throughout. Cleaner template, no risk of accidental cross-client name leakage in copy/QBR outputs that get reviewed inattentively.
+
+### Verification
+
+`grep -ri "recruitcha\|drew ryan\|turbotenant\|healthnote" .` returns zero matches across the repo.
+
+---
+
 ## [1.4.1] — 2026-05-31
 
 ### Fixed — Session-log writes now implemented across all skills

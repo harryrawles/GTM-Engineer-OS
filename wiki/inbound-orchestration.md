@@ -191,7 +191,7 @@ To convert an MQL to an Opportunity, gather on the call:
 Use `gtm-skills/inbound-activator.md` when:
 
 - An inbound signal lands (website visitor identified, RB2B alert fires, funding news breaks)
-- A client request mentions an inbound trigger ("Drew said RB2B picked up someone from {{company}}")
+- A client request mentions an inbound trigger ("{{PRIMARY_CONTACT}} said RB2B picked up someone from {{company}}")
 - Weekly review surfaces an unconverted inbound signal that was missed
 - A reply mentions "I was just looking at your page" or similar inbound context
 

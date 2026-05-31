@@ -5,7 +5,7 @@ Example of what `gtm-skills/client-report-writer.md` produces. Sent to client vi
 ---
 
 **Week ending:** 2026-05-29
-**Client:** Recruitcha
+**Client:** {{CLIENT_NAME}}
 
 ---
 
@@ -33,7 +33,7 @@ Example of what `gtm-skills/client-report-writer.md` produces. Sent to client vi
 
 **What is working**
 
-- Hiring v4 Email 1 has now hit 2.4% PRR consistently for 4 weeks across 5,800+ sends — logged as canonical winner. The "specific eng count + TurboTenant proof + sample shortlist CTA" pattern is the format we'll keep building on.
+- Hiring v4 Email 1 has now hit 2.4% PRR consistently for 4 weeks across 5,800+ sends — logged as canonical winner. The "specific eng count + {{NAMED_PROOF_POINT}} + sample shortlist CTA" pattern is the format we'll keep building on.
 - Champion job change campaign continues to outperform (11.2% PRR) but is volume-constrained. Looking at whether we can expand the champion pool to scale this.
 
 ---

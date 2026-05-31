@@ -242,18 +242,18 @@ Update comms-log entry with outcome.
 
 ```
 Harry: Handle client request:
-"Drew said the Email 2 isn't landing for him. He wants something more about the candidate quality story, not the timeline."
+"{{PRIMARY_CONTACT}} said the Email 2 isn't landing for him. He wants something more about the candidate quality story, not the timeline."
 
 Claude:
 === Client Request Captured ===
 
-From: Drew Ryan (Recruitcha)
+From: {{PRIMARY_CONTACT}} ({{CLIENT_NAME}})
 Channel: Slack
 Type: C — Change to copy
 Classification confidence: High
 
 Acknowledgement draft (sending now):
-"Drew — on it. Reframing Email 2 around candidate quality. Will have a draft for you by EOD tomorrow. — Harry"
+"{{PRIMARY_CONTACT}} — on it. Reframing Email 2 around candidate quality. Will have a draft for you by EOD tomorrow. — Harry"
 
 Routing to cold-email-writer for Email 2 of Hiring Signal v4.
 Reading company/copy-library.md (current Email 2)...
@@ -263,8 +263,8 @@ Reading company/offer.md (proof points around candidate provenance)...
 [Shows side-by-side: current Email 2 vs new variant]
 
 After Harry approves:
-- Reply to Drew with the new copy for sign-off
-- Once approved by Drew → run campaign-launcher pre-flight
+- Reply to {{PRIMARY_CONTACT}} with the new copy for sign-off
+- Once approved by {{PRIMARY_CONTACT}} → run campaign-launcher pre-flight
 - Update in Instantly
 - Update company/campaign-state.md with new Email 2 in sequence
 - Log to comms-log + decision-log

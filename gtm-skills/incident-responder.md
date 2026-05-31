@@ -366,16 +366,16 @@ Use this when the type doesn't match A-E. Template:
 ### Example — domain blacklisted
 
 ```
-Harry: Incident: getrecruitcha.com just appeared on Spamhaus
+Harry: Incident: {{SENDING_DOMAIN}} just appeared on Spamhaus
 
 Claude:
 === INCIDENT — Severity Critical ===
 Protocol A activated.
 
 Immediate actions taken:
-- Paused Hiring Signal v4 (uses getrecruitcha.com)
-- Paused Funding v2 (uses getrecruitcha.com)
-- Scope: Recruitcha only
+- Paused Hiring Signal v4 (uses {{SENDING_DOMAIN}})
+- Paused Funding v2 (uses {{SENDING_DOMAIN}})
+- Scope: {{CLIENT_NAME}} only
 - Spamhaus listing confirmed: SBL-CSS reason "low complaint volume but high bounce"
 
 Diagnosis (preliminary):
@@ -386,7 +386,7 @@ Diagnosis (preliminary):
 Next actions:
 1. Submit Spamhaus removal request (you confirm)
 2. Re-verify the May 27 list with ZeroBounce
-3. Notify Drew at Recruitcha (draft below)
+3. Notify {{PRIMARY_CONTACT}} at {{CLIENT_NAME}} (draft below)
 4. Investigate enrichment source change
 
 Client notification draft:

@@ -50,10 +50,10 @@ Examples of intent categorisation:
 
 | Verbatim prompt | Abstract intent |
 |----------------|----------------|
-| "Diagnose Recruitcha's hiring campaign" | `diagnose-campaign-performance` |
+| "Diagnose {{CLIENT_NAME}}'s hiring campaign" | `diagnose-campaign-performance` |
 | "Why is Vector Health's funding sequence underperforming?" | `diagnose-campaign-performance` |
 | "Show me the metrics on Acme's launch campaign" | `diagnose-campaign-performance` |
-| "Build a new campaign for Recruitcha" | `build-campaign-new` |
+| "Build a new campaign for {{CLIENT_NAME}}" | `build-campaign-new` |
 | "Handle this reply: [paste]" | `handle-inbound-reply` |
 
 The intent should be **abstract enough** that variations of the same underlying request map to the same intent. Not so abstract that everything maps to one category.
@@ -127,7 +127,7 @@ Pattern-detector NEVER takes over the user's actual request. After surfacing det
 
 Example flow:
 ```
-User: "Diagnose Recruitcha's hiring campaign"
+User: "Diagnose {{CLIENT_NAME}}'s hiring campaign"
 
 Pattern-detector runs first:
   → Detects 5 similar prompts in 30 days
@@ -159,7 +159,7 @@ User then sees:
 ### Example — Pattern detected, surfaced, Harry forges
 
 ```
-Harry: Diagnose Recruitcha's hiring campaign
+Harry: Diagnose {{CLIENT_NAME}}'s hiring campaign
 
 [pattern-detector runs first]
 
@@ -186,7 +186,7 @@ Harry: forge it
 ### Example — No pattern, just logs
 
 ```
-Harry: Run pre-launch check for Recruitcha hiring v5
+Harry: Run pre-launch check for {{CLIENT_NAME}} hiring v5
 
 [pattern-detector runs first]
 [scans session-log: 0 matches for "pre-launch-check" intent in 30 days]

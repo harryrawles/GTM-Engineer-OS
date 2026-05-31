@@ -20,14 +20,14 @@ Promoted Email 1 of Hiring v4 to canonical Email 1 pattern. Will adopt the struc
 **Why:**
 - "Saw the senior eng hires coming in" feels personalised without naming specific roles (lighter touch, less creepy)
 - Part 2 leads with daily pain ("10-15 hrs/week interviewing low-signal candidates") — recognised immediately by VP Eng audience
-- Part 3 names TurboTenant + $100k saved + 4 hires in 14 days — specific, verifiable, comparable
+- Part 3 names {{NAMED_PROOF_COMPANY}} + $100k saved + 4 hires in 14 days — specific, verifiable, comparable
 - CTA "Want a sample shortlist?" — zero commitment, lower friction than "15-min call?"
 
 **Most stealable element:**
 The "sample shortlist" CTA pattern (or its equivalent — sample audit, sample analysis, sample list). Beats time-asks for first-touch outbound where prospect has no relationship yet.
 
 **Do NOT carry over to other clients:**
-- The $100k TurboTenant figure is Recruitcha-specific
+- The $100k {{NAMED_PROOF_COMPANY}} figure is {{CLIENT_NAME}}-specific
 - The "10-15 hrs/week" number is engineering-recruiting-specific
 
 **Linked entries:**
@@ -82,8 +82,8 @@ Pausing Funding v2 Email 1. Replacing via test T-006 with reframed offer.
 Updated `company/icp.md` lead filter: maxHeadcount changed from 500 to 200.
 
 **Why:**
-- Recruitcha's wedge (sourcing from VC-backed product companies) matters more to smaller, faster-moving teams
-- 200+ companies typically have established internal recruiting + ATS (Greenhouse, Lever) and use Recruitcha only for specific senior roles — too narrow to scale
+- {{CLIENT_NAME}}'s wedge (sourcing from VC-backed product companies) matters more to smaller, faster-moving teams
+- 200+ companies typically have established internal recruiting + ATS (Greenhouse, Lever) and use {{CLIENT_NAME}} only for specific senior roles — too narrow to scale
 - Sourcing cost-per-meeting on 200+ was 3.2x higher than 1-200 segment
 
 **Alternatives considered:**
@@ -103,23 +103,23 @@ After 30 days post-change: PRR up 0.6% across portfolio. Meetings up 28%. Decisi
 
 ## Sample Client Request Decision
 
-### 2026-05-12 — Client requested change to Email 2 copy (Recruitcha)
+### 2026-05-12 — Client requested change to Email 2 copy ({{CLIENT_NAME}})
 
 **Context:**
-- Drew (Recruitcha) Slacked: "Email 2 isn't landing for me. Wants something more about the candidate quality story, not the timeline."
+- {{PRIMARY_CONTACT}} ({{CLIENT_NAME}}) Slacked: "Email 2 isn't landing for me. Wants something more about the candidate quality story, not the timeline."
 - Email 2 at the time was leading with "21-day close rate" timeline angle
 - Email 2 PRR: 0.4% (Email 1 was 2.4%)
 
 **Decision:**
-Reframed Email 2 to lead with candidate provenance ("only VC-backed product companies, no outsourcing firms"). Drew approved within 4 hours. Replaced in Instantly same day.
+Reframed Email 2 to lead with candidate provenance ("only VC-backed product companies, no outsourcing firms"). {{PRIMARY_CONTACT}} approved within 4 hours. Replaced in Instantly same day.
 
 **Why:**
-- Drew's instinct aligned with the data — Email 2 was the weak link in sequence
-- Candidate quality is the most differentiated thing about Recruitcha vs other agencies (sourcing pool)
+- {{PRIMARY_CONTACT}}'s instinct aligned with the data — Email 2 was the weak link in sequence
+- Candidate quality is the most differentiated thing about {{CLIENT_NAME}} vs other agencies (sourcing pool)
 - Email 1 already covers timeline ("72-hour shortlist") so Email 2 doesn't need to repeat
 
 **Outcome (updated 2026-05-26):**
-Email 2 PRR went from 0.4% to 0.9% (2 weeks data). Still below Email 1 but materially better. Drew confirmed he likes the new version. Pattern: client instinct on "what's not working" is often correct — act fast.
+Email 2 PRR went from 0.4% to 0.9% (2 weeks data). Still below Email 1 but materially better. {{PRIMARY_CONTACT}} confirmed he likes the new version. Pattern: client instinct on "what's not working" is often correct — act fast.
 
 ---
 

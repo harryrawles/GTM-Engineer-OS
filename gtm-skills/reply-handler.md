@@ -389,7 +389,7 @@ Notes:
 
 ## EXAMPLES
 
-### Example 1 — Positive reply on Recruitcha hiring campaign
+### Example 1 — Positive reply on {{CLIENT_NAME}} hiring campaign
 
 ```
 Harry: Handle this reply:

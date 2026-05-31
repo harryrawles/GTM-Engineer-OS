@@ -163,7 +163,7 @@ last_pre_launch_check: {{YYYY-MM-DD}}
 Harry: Run pre-launch check before launching the hiring campaign
 
 Claude:
-=== Pre-Launch Check — Recruitcha — 2026-05-29 ===
+=== Pre-Launch Check — {{CLIENT_NAME}} — 2026-05-29 ===
 
 BLOCKING ISSUES: 1
 [X] No unresolved {{PLACEHOLDER}} strings  | Found: company/voice.md:14 "{{Tone}}"

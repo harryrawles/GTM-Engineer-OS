@@ -35,7 +35,7 @@ Numbers and named logos beat vague claims. Use these in copy.
 
 | Proof type | Detail |
 |-----------|--------|
-| Case study 1 | {{Client name + specific result. e.g. "Saved TurboTenant $100k in hiring costs"}} |
+| Case study 1 | {{Client name + specific result. e.g. "Saved AcmeCo $100k in hiring costs"}} |
 | Case study 2 | {{Client name + result}} |
 | Case study 3 | {{Client name + result}} |
 | Aggregate stat | {{e.g. "92% of roles filled within 21 days"}} |

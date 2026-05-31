@@ -18,7 +18,7 @@ Before writing any new copy:
 
 ## Top Performers
 
-### {{Variant name — e.g. "Recruitcha Email 1 v3 — Hiring Signal"}}
+### {{Variant name — e.g. "{{CLIENT_NAME}} Email 1 v3 — Hiring Signal"}}
 
 | Field | Detail |
 |-------|--------|

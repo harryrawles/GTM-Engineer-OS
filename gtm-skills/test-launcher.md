@@ -249,7 +249,7 @@ Run weekly review for {{client}} — focus on tests
 ### Example — launching next queued test
 
 ```
-Harry: Launch the next test for Recruitcha
+Harry: Launch the next test for {{CLIENT_NAME}}
 
 Claude:
 === Next Test Candidate — T-006 ===
@@ -279,7 +279,7 @@ Generating variant via cold-email-writer...
 
 CONTROL (current Email 1):
 Subject: runway math
-Saw you raised your Series B in March. Most VPs of Eng I talk to at this stage are mapping out a 30-50% headcount increase over 12 months — but the math gets ugly fast. We helped HealthNote close 4 senior eng roles in 14 days, saved $80k vs in-house. Worth a quick chat on the hiring strategy?
+Saw you raised your Series B in March. Most VPs of Eng I talk to at this stage are mapping out a 30-50% headcount increase over 12 months — but the math gets ugly fast. We helped {{NAMED_PROOF_COMPANY_2}} close 4 senior eng roles in 14 days, saved $80k vs in-house. Worth a quick chat on the hiring strategy?
 
 VARIANT (T-006):
 Subject: scale without headcount

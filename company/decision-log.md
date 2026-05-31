@@ -42,7 +42,7 @@ Each entry has 4 parts:
 {{The single pattern to replicate elsewhere — e.g. "Specific signal number + named client + dollar saved" structure for Part 1 and 2.}}
 
 **Do NOT carry over:**
-{{What is client-specific and should not be templated — e.g. "The $100k saved figure is Recruitcha-only."}}
+{{What is client-specific and should not be templated — e.g. "The $100k saved figure is {{CLIENT_NAME}}-only."}}
 
 **Linked entries:**
 - `company/copy-library.md` → {{variant name}}

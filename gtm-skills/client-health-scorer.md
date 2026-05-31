@@ -191,7 +191,7 @@ Last status: {{previous score}} → Change: {{+/- n}}
 
 | Client      | Score | Band  | Top risk                              | Action |
 |-------------|-------|-------|---------------------------------------|--------|
-| Recruitcha  | 78    | Green-Amber | PRR trending down 2 weeks       | Run optimiser |
+| {{CLIENT_NAME}}  | 78    | Green-Amber | PRR trending down 2 weeks       | Run optimiser |
 | {{B}}       | 92    | Green | None                                  | Maintain |
 | {{C}}       | 41    | Amber | Client requested 2 changes unanswered | Address requests TODAY |
 | {{D}}       | 18    | Critical | Renewal in 14 days, no movement    | ESCALATE — direct call |
@@ -228,10 +228,10 @@ Suggested order of attention:
 ### Example — single client (Amber)
 
 ```
-Harry: Score Recruitcha health
+Harry: Score {{CLIENT_NAME}} health
 
 Claude:
-=== Client Health Score — Recruitcha — 2026-05-29 ===
+=== Client Health Score — {{CLIENT_NAME}} — 2026-05-29 ===
 
 OVERALL: 52/100 → Amber
 
