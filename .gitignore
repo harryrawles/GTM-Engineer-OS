@@ -5,10 +5,18 @@ desktop.ini
 
 # Env / credentials (never commit)
 .env
+**/.env
 .env.*
 *.pem
 *.key
 credentials.json
+
+# Multi-client — per-client secrets are NEVER committed
+# (only templates/client-template/secrets/credentials.template.md — the shape — is tracked)
+clients/*/secrets/
+
+# Local session state — the active-client pointer is machine-local, not shared
+_state/active-client
 
 # Editor
 .idea/
