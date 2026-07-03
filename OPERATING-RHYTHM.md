@@ -31,9 +31,9 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 **When:** Before logging off.
 
 **What:**
-1. Log any client comms sent today to `company/comms-log.md` (per client)
+1. Log any client comms sent today to `clients/{slug}/comms-log.md` (per client)
 2. Update any decision log entries if a decision was made
-3. Push commits to client repos if files changed
+3. Commit changes if any client files changed (one repo holds every client)
 
 **Why:** prevents drift. Future-Harry remembers what happened today only if today-Harry writes it down.
 
@@ -97,7 +97,7 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 - Flagged clients → full weekly report via `gtm-skills/client-report-writer.md`
 - Green-pass clients → 3-line status update (PRR, meetings, no action)
 - Review before sending (never auto-send)
-- Send via Slack / email per `company/overview.md` SLA
+- Send via Slack / email per `clients/{slug}/overview.md` SLA
 
 **Output:**
 - Every client has a logged review (full or triage stamp)
@@ -114,18 +114,18 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 **When:** First Monday of the month.
 
 **What (per client):**
-1. Review `company/icp.md` against last 30 days of campaign data:
+1. Review `clients/{slug}/icp.md` against last 30 days of campaign data:
    - Are positive replies coming from the expected titles? (If not → ICP drift)
    - Are negative replies from titles we should exclude? (If yes → tighten avoid list)
    - Has signal performance shifted? (Rotate underperformers)
-2. Review `company/offer.md` against client outcomes:
+2. Review `clients/{slug}/offer.md` against client outcomes:
    - Are the case studies still relevant?
    - Have new client wins been added that could be used?
    - Is the risk reversal still credible?
-3. Review `company/test-log.md`:
+3. Review `clients/{slug}/test-log.md`:
    - Are tests progressing? Any stuck?
    - Is the testing roadmap fresh?
-4. Update files where needed → log changes to `company/decision-log.md`
+4. Update files where needed → log changes to `clients/{slug}/decision-log.md`
 
 **Output:** ICP and offer stay current. Test roadmap stays moving.
 
@@ -144,9 +144,9 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
    - Next quarter strategy (signal pivots, new tests, scale plan)
    - Renewal / expansion discussion
 3. Schedule QBR call with client (~45 min)
-4. Run the call, capture feedback to `company/comms-log.md`
-5. Log strategic decisions to `company/decision-log.md`
-6. Update `company/overview.md` Success Criteria for next quarter
+4. Run the call, capture feedback to `clients/{slug}/comms-log.md`
+5. Log strategic decisions to `clients/{slug}/decision-log.md`
+6. Update `clients/{slug}/overview.md` Success Criteria for next quarter
 
 **Output:** strategic alignment for next 90 days. Renewal momentum.
 

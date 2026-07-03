@@ -12,7 +12,7 @@ Three production-ready Claude Code hooks and one slash command ship with this OS
 | `session-logger.sh` | Every event | Logs tool calls, prompts, failures, compaction snapshots, and session summaries to `.claude/sessions/<session_id>.jsonl`. Unconditional — cannot be skipped by a skill. |
 | `notify.sh` | Stop, PermissionRequest, SessionStart, SessionEnd | Desktop notification when Claude finishes or needs approval. macOS, Linux, and Windows. |
 
-**Distinction from session-log.md:** `company/session-log.md` is the per-client AI-readable skill invocation log (read by pattern-detector). `.claude/sessions/` JSONL files are the raw system audit trail. Both run in parallel. The JSONL files are gitignored — they stay local.
+**Distinction from session-log.md:** `clients/{slug}/session-log.md` is the per-client AI-readable skill invocation log (read by pattern-detector). `.claude/sessions/` JSONL files are the raw system audit trail. Both run in parallel. The JSONL files are gitignored — they stay local.
 
 ---
 
@@ -20,18 +20,15 @@ Three production-ready Claude Code hooks and one slash command ship with this OS
 
 | Command | Trigger | What it does |
 |---------|---------|-------------|
-| `/gtm:compound` | "that worked" / "huge win" / manual | Captures a GTM win to `company/copy-library.md` and `company/decision-log.md` immediately using parallel subagents, while the context is fresh. Complements weekly-reviewer (which captures on Fridays). |
+| `/gtm:compound` | "that worked" / "huge win" / manual | Captures a GTM win to `clients/{slug}/copy-library.md` and `clients/{slug}/decision-log.md` immediately using parallel subagents, while the context is fresh. Complements weekly-reviewer (which captures on Fridays). |
 
 ---
 
-## Installation (per client repo)
+## Installation
 
-The `.claude/` folder is included in the template clone. No copy needed for new repos.
-
-**For existing repos:**
-```bash
-cp -r .claude/ /path/to/client-repo/.claude/
-```
+The `.claude/` folder lives once at the repo root and is **shared across every client** — there is one
+repo for the whole portfolio, so the hooks and the `/gtm:compound` command apply to whichever client is
+active. Nothing to copy per client.
 
 ### Step 1 — Make hooks executable
 ```bash

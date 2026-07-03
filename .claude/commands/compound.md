@@ -25,7 +25,9 @@ Manual: `/gtm:compound [optional context]`
 
 ---
 
-## STEP 0 — Log invocation
+## STEP 0 — Resolve active client, then log invocation
+
+Resolve `{slug}` first (per `wiki/_skill-context.md` → *Resolve the Active Client*): read `_state/active-client`, or honour an inline "for [client]" in the win context. If no client is active and none is named, ask before writing anything. All writes below go only to the resolved client's folder.
 
 Append to `clients/{slug}/session-log.md` Active Log:
 ```

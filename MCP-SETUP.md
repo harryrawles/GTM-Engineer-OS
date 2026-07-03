@@ -1,9 +1,11 @@
 # MCP Setup
 
-Step-by-step guide for connecting the MCPs required to operate this client OS.
+Step-by-step guide for connecting the MCPs required to operate the OS. This is a **multi-client** OS: each
+client has its **own** Instantly workspace + API key. When a client is active, always target **that
+client's** workspace (from `clients/{slug}/secrets/credentials.md`). Never share one API key across clients.
 
 **Required MCPs:**
-- Instantly (this client's workspace)
+- Instantly (the active client's workspace — one connection per client)
 - Notion (Harry's personal workspace)
 
 **Optional MCPs:**
@@ -22,15 +24,17 @@ The most important connection. Without it, the weekly-reviewer and report-writer
    - Log in to the client's Instantly workspace
    - Settings → API Keys
    - Generate a new key labelled "Claude Code MCP — {{CLIENT_NAME}}"
-   - **Copy to 1Password** under "Instantly — {{CLIENT_NAME}}"
-   - **Never commit to the repo**
+   - Store it in **`clients/{slug}/secrets/credentials.md`** (git-ignored — see `.gitignore` →
+     `clients/*/secrets/`). Optionally mirror to 1Password under "Instantly — {{CLIENT_NAME}}".
+   - **Never commit the key.** Never paste it into `_config.md` or any tracked file. Never print the full
+     key in chat.
 
 2. **Add the MCP to Claude Code:**
    - Open Claude Code settings
-   - Add MCP server: `instantly`
+   - Add MCP server: `instantly` (a distinct connection per client)
    - Type: HTTP
-   - Workspace URL: see `company/_config.md → instantly_workspace_url`
-   - API key: paste from 1Password
+   - Workspace URL: see `clients/{slug}/_config.md → instantly_workspace_url`
+   - API key: paste from `clients/{slug}/secrets/credentials.md`
 
 3. **Verify the connection:**
    ```
@@ -38,7 +42,7 @@ The most important connection. Without it, the weekly-reviewer and report-writer
    ```
    Expected: a list of campaigns with names, sends, reply rates. If error → check API key and workspace URL.
 
-4. **Update `company/_config.md`:**
+4. **Update `clients/{slug}/_config.md`:**
    - Set `mcp_connected: true`
    - Set `instantly_workspace_id: [paste from URL]`
 
@@ -68,7 +72,7 @@ For client briefs, call notes, and context.
    ```
    Expected: returns Harry's client page in Notion.
 
-3. **Optional — pin the client's Notion page URL** in `company/overview.md` under "External resources."
+3. **Optional — pin the client's Notion page URL** in `clients/{slug}/overview.md` under "External resources."
 
 ---
 
@@ -81,7 +85,7 @@ Only if Clay is used for enrichment on this client.
 1. Get Clay API key from Clay settings
 2. Store in 1Password under "Clay — {{CLIENT_NAME}}"
 3. Add `clay` MCP in Claude Code settings
-4. Update `company/campaign-state.md` "Tools & Tech Stack" section to mark Clay as connected
+4. Update `clients/{slug}/campaign-state.md` "Tools & Tech Stack" section to mark Clay as connected
 
 ### What this enables
 
@@ -98,7 +102,7 @@ Only if Harry uses Slack for client comms or alerts.
 
 1. Add Slack app to Harry's workspace (or the client's, if shared)
 2. Authorise via OAuth in Claude Code
-3. Configure alert channels in `company/overview.md`
+3. Configure alert channels in `clients/{slug}/overview.md`
 
 ---
 
@@ -117,14 +121,16 @@ Only if Harry uses Slack for client comms or alerts.
 
 ### Multiple clients confused (data crossover)
 - Each client should have its own Instantly MCP connection. Do NOT share a single API key across clients.
-- Use the workspace URL in `company/_config.md` to verify which client Claude is working on.
+- Use the workspace URL in `clients/{slug}/_config.md` to verify which client Claude is working on.
 
 ---
 
 ## Security
 
-- **All API keys in 1Password.** Never paste into the repo, not even in comments.
-- **One Instantly MCP connection per client.** No shared credentials.
+- **API keys live only in `clients/{slug}/secrets/credentials.md`** (git-ignored) — never in any tracked
+  file or comment. Mirror to 1Password if you like. The only tracked secrets file is the shape-only
+  `templates/client-template/secrets/credentials.template.md`.
+- **One Instantly MCP connection per client.** No shared credentials, ever.
 - **Rotate API keys quarterly** or after any team change.
 - **Review MCP access list monthly** — remove any no-longer-needed connections.
 
