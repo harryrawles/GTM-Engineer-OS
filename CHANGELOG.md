@@ -1,8 +1,47 @@
 # Changelog
 
-All notable changes to the GTM Client OS template.
+All notable changes to the GTM Engineer OS.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses semantic versioning.
+
+---
+
+## [2.0.0] — 2026-07-03
+
+### Changed — BREAKING: single-client OS → multi-client GTM Engineer OS
+
+Restructured the repo in place from a single-client template (one `company/` folder, `{{CLIENT_NAME}}` in
+the root files) into a multi-client OS: one shared layer plus a fully isolated `clients/{slug}/` folder per
+client, one active client per session. No client data ships in the repo — this migration produces the
+reusable template framework only.
+
+#### Added
+- **`clients/`** — one isolated folder per client (git-tracked except `secrets/`). Starts empty.
+- **`_state/active-client`** — git-ignored pointer to the current active client slug (the active-client model).
+- **Shared-layer folders** `frameworks/`, `sops/`, `best-practices/` — each with a README; content uploaded later.
+- **`templates/client-template/secrets/credentials.template.md`** — shape-only credentials file (no real keys).
+- **Active-client resolution (STEP 0)** in `wiki/_skill-context.md`, `pattern-detector.md`, and `/gtm:compound`;
+  portfolio-mode enumeration of `clients/` (skips `_`/`.`-prefixed folders like `clients/_archived/`).
+
+#### Changed
+- Root **`CLAUDE.md`** replaced with the multi-client hub (active-client model, isolation golden rules, safety guard, routing).
+- **`company/` → `templates/client-template/`** via `git mv` (history preserved); added `slug` + `tier` to `_config.md`;
+  `template_version` now sourced from `VERSION`.
+- All shared-layer `company/` path references rewritten to `clients/{slug}/` (gtm-skills, wiki, examples, tests,
+  issue templates, `/gtm:compound`, hook comment).
+- **`client-onboarder`** now creates `clients/{slug}/` from the template + sets the active client + writes the
+  git-ignored `credentials.md`; no longer edits shared `CLAUDE.md`/`INDEX.md`.
+- **`client-offboarder`** promotes ABSTRACTED learnings to the shared layer (no raw client data) and archives the
+  client *folder* (`git mv` to `clients/_archived/`) instead of a per-client repo.
+- **`weekly-reviewer` / `chain-weekly-review-full`** portfolio mode now enumerates `clients/` directly — the
+  anticipated "meta-OS" is this repo (removed "deferred until meta-OS exists" / manual client list).
+- Guides rewritten for multi-client flow: `README.md`, `BOOTSTRAP.md`, `OPERATING-RHYTHM.md`, `MCP-SETUP.md`,
+  `HOOKS-SETUP.md`, `INDEX.md`.
+- **`.gitignore`** now ignores `clients/*/secrets/`, `_state/active-client`, and `**/.env`.
+
+#### Preserved (unchanged content)
+- All GTM skill logic and knowledge in `gtm-skills/`, `wiki/`, `examples/`, `tests/`, `assets/`, `raw/`, `.github/`
+  (only `company/` path references and single-client framing updated).
 
 ---
 

@@ -1,4 +1,6 @@
-# Index — {{CLIENT_NAME}} | GTM Client OS
+# Index — GTM Engineer OS (Multi-Client)
+
+Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); this is the map.
 
 ## Multi-Skill Chains (start here for common workflows)
 
@@ -10,35 +12,58 @@
 
 ## Quick Links
 
-- **Setting up:** [BOOTSTRAP.md](./BOOTSTRAP.md)
-- **Daily operations:** [OPERATING-RHYTHM.md](./OPERATING-RHYTHM.md)
-- **MCP connections:** [MCP-SETUP.md](./MCP-SETUP.md)
+- **The hub / rules / routing:** [CLAUDE.md](./CLAUDE.md)
+- **Add a new client:** [BOOTSTRAP.md](./BOOTSTRAP.md)
+- **Daily operations & switching clients:** [OPERATING-RHYTHM.md](./OPERATING-RHYTHM.md)
+- **MCP connections (per-client Instantly):** [MCP-SETUP.md](./MCP-SETUP.md)
+- **Hooks + /gtm:compound:** [HOOKS-SETUP.md](./HOOKS-SETUP.md)
 - **Acronyms:** [wiki/glossary.md](./wiki/glossary.md)
 - **Diagrams:** [wiki/diagrams.md](./wiki/diagrams.md)
 
-## Per-Client Context
+## Clients & State
+
+| Path | What it contains |
+|------|----------------|
+| clients/{slug}/ | One isolated folder per client (created from the template). Git-tracked EXCEPT `secrets/`. |
+| clients/{slug}/secrets/ | GIT-IGNORED — this client's Instantly API key, workspace id/url. Never committed. |
+| clients/_archived/ | Offboarded clients (skipped by portfolio sweeps). |
+| _state/active-client | Git-ignored pointer to the current active client slug. |
+| templates/client-template/ | The skeleton every new client is copied from (run `client-onboarder`). |
+
+## Per-Client Context — files inside each `clients/{slug}/`
 
 | File | What it contains |
 |------|----------------|
-| company/_config.md | Central config — referenced by other files |
-| company/MEMORY.md | Always-loaded scratchpad — current focus, watch-outs, client preferences |
-| company/session-log.md | Per-client invocation log. Powers pattern-detector. Auto-written by every skill. |
-| company/overview.md | Identity, contract, SLA, success criteria |
-| company/icp.md | Target ICP, signal priority, lead filters, avoid list, DM mapping |
-| company/offer.md | What they sell, proof points, differentiators, approved claims |
-| company/voice.md | Brand voice, tone rules, banned words, spelling default |
-| company/campaign-state.md | Live campaigns, infrastructure, tools/tech stack |
-| company/decision-log.md | Why decisions were made (updated by weekly-reviewer) |
-| company/comms-log.md | Client communications log |
-| company/competitive-intel.md | Competing offers, battle cards |
-| company/copy-library.md | Top performers + graveyard for this client |
-| company/test-log.md | Split test history |
+| _config.md | Central config (slug, tier, industry, Instantly workspace) — referenced by other files |
+| MEMORY.md | Always-loaded scratchpad — current focus, watch-outs, client preferences |
+| session-log.md | Per-client invocation log. Powers pattern-detector. Auto-written by every skill. |
+| overview.md | Identity, contract, SLA, success criteria |
+| icp.md | Target ICP, signal priority, lead filters, avoid list, DM mapping |
+| offer.md | What they sell, proof points, differentiators, approved claims |
+| voice.md | Brand voice, tone rules, banned words, spelling default |
+| campaign-state.md | Live campaigns, infrastructure, tools/tech stack |
+| decision-log.md | Why decisions were made (updated by weekly-reviewer) |
+| comms-log.md | Client communications log |
+| competitive-intel.md | Competing offers, battle cards |
+| copy-library.md | Top performers + graveyard for this client |
+| test-log.md | Split test history |
+
+## Shared Layer — folders available to every client
+
+| Path | What it contains |
+|------|----------------|
+| gtm-skills/ | Skill + chain definitions, pattern-detector, skill-forge |
+| wiki/ | Shared knowledge base (see below) |
+| frameworks/ | Strategic frameworks & mental models (uploaded later) |
+| sops/ | Standard operating procedures (uploaded later) |
+| best-practices/ | Best-practice references & checklists (uploaded later) |
+| templates/ | Reusable output templates + `client-template/` skeleton |
 
 ## Shared Knowledge — Copywriting
 
 | File | What it contains |
 |------|----------------|
-| wiki/_skill-context.md | Standard skill preamble (every skill loads this) |
+| wiki/_skill-context.md | Standard skill preamble (every skill loads this — includes active-client resolution) |
 | wiki/copywriting-101.md | Canonical rules + 4-part formula + sequence structure |
 | wiki/copywriting-frameworks.md | 13 alternative named frameworks + ColdIQ playbook |
 | wiki/offer-framework.md | 12-step offer building |
@@ -75,8 +100,8 @@
 |------|------------|
 | gtm-skills/pattern-detector.md | **Runs FIRST every session.** Detects repeating prompts, proposes skill-forge. The auto-improvement loop. |
 | gtm-skills/skill-forge.md | Triggered by "forge it" reply or direct call. Drafts new skills from detected patterns. |
-| gtm-skills/client-onboarder.md | **Run first on a fresh clone.** Conversational OS setup. |
-| gtm-skills/weekly-reviewer.md | **Run every Friday.** Compounding loop. |
+| gtm-skills/client-onboarder.md | **Run to add a new client.** Copies the template to `clients/{slug}/`, sets it active, conversational setup. |
+| gtm-skills/weekly-reviewer.md | **Run every Friday** (per client or portfolio). Compounding loop. |
 | gtm-skills/client-health-scorer.md | Monday portfolio health check + at-risk flagging |
 | gtm-skills/pre-launch-check.md | Gate against unresolved placeholders |
 | gtm-skills/test-readiness-check.md | Pre-test gate — validates a Queued test against Step 1 of the scientific method before launching |
@@ -119,7 +144,7 @@
 |------|------------|
 | gtm-skills/client-report-writer.md | Weekly client performance reports |
 | gtm-skills/qbr-writer.md | Quarterly Business Reviews |
-| gtm-skills/client-offboarder.md | End-of-engagement workflow |
+| gtm-skills/client-offboarder.md | End-of-engagement workflow (archives the client folder, promotes abstracted learnings) |
 
 ## Examples
 
