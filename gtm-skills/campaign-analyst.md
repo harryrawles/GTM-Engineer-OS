@@ -5,15 +5,15 @@
 **Context:** Pulling campaign data from Instantly, structuring it, identifying what is working, what is not, and making strategic recommendations. The goal is a clear view of performance and a prioritised action list.
 
 **Read before analysing:**
-- `company/campaign-state.md` — current benchmarks and infrastructure
-- `company/icp.md` — ICP to sanity-check list quality
-- `company/test-log.md` — what has been tested and what is currently running
+- `clients/{slug}/campaign-state.md` — current benchmarks and infrastructure
+- `clients/{slug}/icp.md` — ICP to sanity-check list quality
+- `clients/{slug}/test-log.md` — what has been tested and what is currently running
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |

@@ -7,8 +7,8 @@
 **Read before responding:**
 - `wiki/signal-sourcing.md` — the 6 core signals, scoring framework, freshness rules, 11 GTM plays
 - `wiki/buying-triggers.md` — 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
-- `company/icp.md` — client ICP to filter which signals apply
-- `company/offer.md` — what the client sells to map signal → angle
+- `clients/{slug}/icp.md` — client ICP to filter which signals apply
+- `clients/{slug}/offer.md` — what the client sells to map signal → angle
 - `wiki/email-benchmarks.md` — response time SLAs and performance benchmarks
 
 ---
@@ -27,7 +27,7 @@
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -47,8 +47,8 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 For a new campaign, work through this:
 
-1. **What does the client sell?** Read `company/offer.md`.
-2. **Who buys it?** Read `company/icp.md`.
+1. **What does the client sell?** Read `clients/{slug}/offer.md`.
+2. **Who buys it?** Read `clients/{slug}/icp.md`.
 3. **What changes in the prospect's world right before they buy?** That is the signal.
 4. **Cross-reference** with the 6 core signals in `wiki/signal-sourcing.md`:
    - Former customers and alumni users
@@ -79,7 +79,7 @@ For a client with multiple signals firing per lead:
    - 50-99 = automated nurture, monitor
    - Under 50 = monitor only
 
-Output: a scoring rubric in `company/test-log.md` or as a Clay formula.
+Output: a scoring rubric in `clients/{slug}/test-log.md` or as a Clay formula.
 
 ---
 
@@ -88,7 +88,7 @@ Output: a scoring rubric in `company/test-log.md` or as a Clay formula.
 For each signal, design a play with these 7 components:
 
 1. **Trigger** — exactly what fires it
-2. **Qualification** — does the account match `company/icp.md`?
+2. **Qualification** — does the account match `clients/{slug}/icp.md`?
 3. **Timing** — response SLA (see `wiki/email-benchmarks.md`)
 4. **Sequence** — channel and step count
 5. **Messaging template** — angle tied to the signal (not the signal itself)
@@ -105,4 +105,4 @@ Use the 11 plug-and-play plays in `wiki/signal-sourcing.md` as starting points.
 - **Act fast.** Hot signals expire in 3-7 days. Stale signals revert to cold.
 - **Stack signals for heat scoring.** 3+ signals firing = reach out same day.
 - **Use 0-credit detection first** (Serper, Claygent). Only spend enrichment credits on accounts that pass qualification.
-- **Log every signal experiment** in `company/test-log.md`. Signal sourcing is iterative.
+- **Log every signal experiment** in `clients/{slug}/test-log.md`. Signal sourcing is iterative.

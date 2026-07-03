@@ -13,9 +13,9 @@ The 15 most common objections in B2B cold email, with pattern recognition, respo
 ## How to Use
 
 1. **Identify the objection type** — match the reply to one of the 15 patterns below
-2. **Customise the response template** — pull proof points from `company/offer.md`, voice from `company/voice.md`
+2. **Customise the response template** — pull proof points from `clients/{slug}/offer.md`, voice from `clients/{slug}/voice.md`
 3. **Send the response** — always show Harry the draft first
-4. **Log** to `company/comms-log.md` and (if patterned) to `company/decision-log.md`
+4. **Log** to `clients/{slug}/comms-log.md` and (if patterned) to `clients/{slug}/decision-log.md`
 5. **Escalate** per the rules below
 
 ---
@@ -68,7 +68,7 @@ Harry
 
 **Biases leveraged:** Disarming honesty ('[competitor] is solid'), Frame-based misreaction (do not enter their loyalty frame), Curiosity tendency (the ceiling hook), Differentiation (one specific wedge).
 
-**Escalation:** if specific competitor named 3+ times → log to `company/competitive-intel.md` and build a battle card.
+**Escalation:** if specific competitor named 3+ times → log to `clients/{slug}/competitive-intel.md` and build a battle card.
 
 ---
 
@@ -149,7 +149,7 @@ Harry
 - Add to Instantly with "warm intro from [originalName]" angle
 - Start a new sequence with referral angle
 
-**Escalation:** if same DM name passes back to same other person 3+ times → that other person is the real ICP DM. Update `company/icp.md`.
+**Escalation:** if same DM name passes back to same other person 3+ times → that other person is the real ICP DM. Update `clients/{slug}/icp.md`.
 
 ---
 
@@ -214,7 +214,7 @@ Harry
 
 **Action:**
 - Add to Instantly suppression list IMMEDIATELY
-- Add to global suppression in `company/_config.md` if hostile
+- Add to global suppression in `clients/{slug}/_config.md` if hostile
 - Mark contact as opted-out in any CRM
 
 **Biases (anti-pattern check):** if you are getting unsubscribes >0.5%, you have likely triggered Click-whirr conditioning (the pattern of a typical cold email is loud), or Disliking / hating tendency (something in the copy felt slimy).
@@ -249,7 +249,7 @@ Harry
 **Rules:**
 - Never quote a precise number in email
 - Always offer a range OR a call
-- Match the price anchor to client's pricing in `company/offer.md`
+- Match the price anchor to client's pricing in `clients/{slug}/offer.md`
 
 **Escalation:** if price question is followed by silence → they price-shopped against a competitor. Follow up in 3 days with a different angle.
 
@@ -263,7 +263,7 @@ Harry
 ```
 {{firstName}},
 
-Closest fit: [client name from company/offer.md case studies] — [specific result + timeframe].
+Closest fit: [client name from clients/{slug}/offer.md case studies] — [specific result + timeframe].
 
 Two-page write-up here: [link]
 
@@ -278,7 +278,7 @@ Harry
 
 **Action:**
 - Match case study by industry, size, or use case
-- Use the specific named case from `company/offer.md`
+- Use the specific named case from `clients/{slug}/offer.md`
 - Set 7-day follow-up reminder
 
 **Escalation:** if case study sent generates no response in 7 days → ghost likely. Move to nurture or drop.
@@ -393,7 +393,7 @@ Harry
 - Continue email sequence in parallel but lower frequency
 - Use LinkedIn for value-add posts and engagement
 
-**Escalation:** if multi-touch (email + LinkedIn) converts well → log pattern to `company/decision-log.md` and consider as default for similar prospects.
+**Escalation:** if multi-touch (email + LinkedIn) converts well → log pattern to `clients/{slug}/decision-log.md` and consider as default for similar prospects.
 
 ---
 
@@ -422,18 +422,18 @@ Harry
 - If self-disqualifying wrongly → push back with case study
 - If correctly disqualifying → respect it, suppress, move on
 
-**Escalation:** if size-based no is recurring → ICP filter in `company/icp.md` is too broad. Tighten size criteria.
+**Escalation:** if size-based no is recurring → ICP filter in `clients/{slug}/icp.md` is too broad. Tighten size criteria.
 
 ---
 
 ## Cross-Cutting Rules
 
 ### Always
-- Match voice in `company/voice.md`
-- Use proof points from `company/offer.md` only — never invent
+- Match voice in `clients/{slug}/voice.md`
+- Use proof points from `clients/{slug}/offer.md` only — never invent
 - Keep response under 75 words (default), 60 for ATL
 - One CTA per response
-- Log to `company/comms-log.md`
+- Log to `clients/{slug}/comms-log.md`
 
 ### Never
 - Argue with the prospect
@@ -451,7 +451,7 @@ Harry
 
 ## Pattern Tracking
 
-When the same objection appears 3+ times on the same campaign, log to `company/decision-log.md`:
+When the same objection appears 3+ times on the same campaign, log to `clients/{slug}/decision-log.md`:
 
 ```
 ### {{date}} — Pattern: {{objection type}} recurring on {{campaign}}

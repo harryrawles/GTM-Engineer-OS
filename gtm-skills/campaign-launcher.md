@@ -8,11 +8,11 @@ triggers:
   - "Final check before going live"
 reads:
   - "wiki/_skill-context.md"
-  - "company/campaign-state.md"
+  - "clients/{slug}/campaign-state.md"
   - "gtm-skills/pre-launch-check.md"
 writes:
-  - "company/campaign-state.md (marks campaign Active)"
-  - "company/decision-log.md (logs launch decision)"
+  - "clients/{slug}/campaign-state.md (marks campaign Active)"
+  - "clients/{slug}/decision-log.md (logs launch decision)"
 ---
 
 # Skill: Campaign Launcher
@@ -29,14 +29,14 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `company/campaign-state.md` — current infrastructure
+- `clients/{slug}/campaign-state.md` — current infrastructure
 - `gtm-skills/pre-launch-check.md` — placeholder validation (invoked as sub-step)
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -61,7 +61,7 @@ Run every item. Each must pass before launch.
 **Invoke `gtm-skills/pre-launch-check.md`.**
 - Verdict must be `READY` (no blocking issues)
 - All `{{PLACEHOLDER}}` resolved
-- `company/_config.md` complete
+- `clients/{slug}/_config.md` complete
 
 **If FAIL:** stop. Output the pre-launch-check error report. Do not proceed.
 
@@ -69,7 +69,7 @@ Run every item. Each must pass before launch.
 
 - [ ] Client has reviewed Email 1, 2, 3 (and 4 if applicable)
 - [ ] Approval logged with: who approved, when, link to approval (email / Slack / Notion)
-- [ ] Copy stored in `company/campaign-state.md` under the campaign's "Sequence" table
+- [ ] Copy stored in `clients/{slug}/campaign-state.md` under the campaign's "Sequence" table
 - [ ] No `[TBD]` or open questions remain in the copy
 
 **Ask Harry:** paste the approval link or confirmation message.
@@ -88,7 +88,7 @@ Run every item. Each must pass before launch.
 
 ### 4. Sending Infrastructure
 
-From `company/campaign-state.md` and Instantly MCP:
+From `clients/{slug}/campaign-state.md` and Instantly MCP:
 - [ ] Sending domains assigned to campaign
 - [ ] Mailboxes warmed (warmup status green per mailbox)
 - [ ] Send volume per mailbox <50/day
@@ -101,7 +101,7 @@ From `company/campaign-state.md` and Instantly MCP:
 - [ ] Bounce rate baseline < 2% (from verification report)
 - [ ] List size appropriate for sequence capacity (sends/mailbox/day × duration)
 - [ ] No duplicates against prior campaigns or suppression list
-- [ ] ICP-fit check: spot-check 5 random leads — do they match `company/icp.md`?
+- [ ] ICP-fit check: spot-check 5 random leads — do they match `clients/{slug}/icp.md`?
 
 ### 6. Send Schedule
 
@@ -133,7 +133,7 @@ Define BEFORE launch — not in the heat of the moment.
 - [ ] Negative reply threshold: pause if > 20% of replies (audit copy)
 - [ ] Other client-specific conditions: {{list}}
 
-Write these explicitly into `company/campaign-state.md` under the campaign entry.
+Write these explicitly into `clients/{slug}/campaign-state.md` under the campaign entry.
 
 ### 10. Communication and Sign-off
 
@@ -170,19 +170,19 @@ If NOT READY:
 
 If READY:
 - Click launch in Instantly
-- I'll log to company/decision-log.md and update campaign-state.md
+- I'll log to clients/{slug}/decision-log.md and update campaign-state.md
 ```
 
 ---
 
 ## ON LAUNCH (after Harry clicks)
 
-1. Update `company/campaign-state.md`:
+1. Update `clients/{slug}/campaign-state.md`:
    - Set status to "Active"
    - Set launch date
    - Set initial health to "Green (new — monitoring)"
 
-2. Write to `company/decision-log.md`:
+2. Write to `clients/{slug}/decision-log.md`:
 ```
 ### {{date}} — Launched campaign: {{campaign_name}}
 
@@ -235,7 +235,7 @@ Running pre-flight check...
 
 === Campaign Launch Check — {{CLIENT_NAME}} Hiring v1 — 2026-05-29 ===
 
-1. OS Setup Validation        | FAIL — company/voice.md line 22 has unresolved {{Tone}}
+1. OS Setup Validation        | FAIL — clients/{slug}/voice.md line 22 has unresolved {{Tone}}
 2. Copy Approval              | PASS
 3. Sequence Configuration     | PASS
 4. Sending Infrastructure     | PASS
@@ -249,8 +249,8 @@ Running pre-flight check...
 OVERALL: NOT READY
 
 Fix needed:
-1. Resolve {{Tone}} in company/voice.md (run client-onboarder Phase 4)
-2. Define stop conditions for this campaign in company/campaign-state.md
+1. Resolve {{Tone}} in clients/{slug}/voice.md (run client-onboarder Phase 4)
+2. Define stop conditions for this campaign in clients/{slug}/campaign-state.md
 3. Recommend: re-verify lead list (just over 30 day threshold)
 
 After fixes, re-run "Launch the hiring campaign" and I'll re-check.

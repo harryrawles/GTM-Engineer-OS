@@ -1,6 +1,6 @@
 ---
 name: test-launcher
-description: Reads the testing roadmap from company/test-log.md, picks the next priority test, generates the variant via cold-email-writer, updates campaign-state, and outputs Instantly setup instructions. Closes the loop from "what to test next" to "test running."
+description: Reads the testing roadmap from clients/{slug}/test-log.md, picks the next priority test, generates the variant via cold-email-writer, updates campaign-state, and outputs Instantly setup instructions. Closes the loop from "what to test next" to "test running."
 triggers:
   - "Launch the next test"
   - "What should I test next"
@@ -9,14 +9,14 @@ triggers:
   - "Promote the queued test to live"
 reads:
   - "wiki/_skill-context.md"
-  - "company/test-log.md"
-  - "company/copy-library.md"
-  - "company/campaign-state.md"
+  - "clients/{slug}/test-log.md"
+  - "clients/{slug}/copy-library.md"
+  - "clients/{slug}/campaign-state.md"
   - "wiki/scientific-method.md"
 writes:
-  - "company/test-log.md (move test from queued to running)"
-  - "company/campaign-state.md (note active test)"
-  - "company/decision-log.md (test launch rationale)"
+  - "clients/{slug}/test-log.md (move test from queued to running)"
+  - "clients/{slug}/campaign-state.md (note active test)"
+  - "clients/{slug}/decision-log.md (test launch rationale)"
 ---
 
 # Skill: Test Launcher
@@ -35,17 +35,17 @@ See `wiki/_skill-context.md`.
 
 - `wiki/scientific-method.md` — the canonical 4-step framework (READ FIRST every time)
 - `gtm-skills/test-readiness-check.md` — invoked as a hard gate before launch
-- `company/test-log.md` — testing roadmap (Queued tests at the top)
-- `company/copy-library.md` — current control (the existing winner)
-- `company/campaign-state.md` — which campaigns are eligible, active-test flags
+- `clients/{slug}/test-log.md` — testing roadmap (Queued tests at the top)
+- `clients/{slug}/copy-library.md` — current control (the existing winner)
+- `clients/{slug}/campaign-state.md` — which campaigns are eligible, active-test flags
 
 ---
 
 ## STEP 0 — Run Test Readiness Check (MANDATORY)
 
-**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | test-launcher | (filled at end) |`. Then proceed with the readiness check below.
+**Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | test-launcher | (filled at end) |`. Then proceed with the readiness check below.
 
-Before proceeding with any test launch, invoke `gtm-skills/test-readiness-check.md` on the candidate test in `company/test-log.md`.
+Before proceeding with any test launch, invoke `gtm-skills/test-readiness-check.md` on the candidate test in `clients/{slug}/test-log.md`.
 
 ```
 Run test-readiness check on T-{{XXX}}
@@ -53,14 +53,14 @@ Run test-readiness check on T-{{XXX}}
 
 Verdict rules:
 - **READY** → proceed to Step 1 below
-- **READY WITH WARNINGS** → require Harry to explicitly say "proceed with warnings"; log warnings to `company/decision-log.md`
-- **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct Harry to fix `company/test-log.md` for that test.
+- **READY WITH WARNINGS** → require Harry to explicitly say "proceed with warnings"; log warnings to `clients/{slug}/decision-log.md`
+- **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct Harry to fix `clients/{slug}/test-log.md` for that test.
 
 **No exceptions.** The OS does not launch tests that fail this gate. Skipping it means tests get launched with vague hypotheses, drifting constants, and no backtrack plan — the result is unattributable data.
 
 ## STEP 1 — Identify Next Test
 
-Read `company/test-log.md` testing roadmap. Filter to:
+Read `clients/{slug}/test-log.md` testing roadmap. Filter to:
 - Status: "Queued"
 - Not blocked (no upstream dependency)
 - Campaign has capacity (active and not at stop-condition risk)
@@ -136,8 +136,8 @@ Before queuing in Instantly:
 - [ ] Variant passes QA checklist
 - [ ] Constants verified (lead source, ICP, sending domain, time of day, follow-up sequence — all unchanged)
 - [ ] Sample size and timing realistic (test will hit 300 sends within stated timeframe)
-- [ ] Stop conditions defined and recorded in `company/campaign-state.md`
-- [ ] Client approval if required (some clients want sign-off on test variants — check `company/overview.md` SLA section)
+- [ ] Stop conditions defined and recorded in `clients/{slug}/campaign-state.md`
+- [ ] Client approval if required (some clients want sign-off on test variants — check `clients/{slug}/overview.md` SLA section)
 
 If anything fails → fix before proceeding.
 
@@ -180,19 +180,19 @@ Harry actions this manually in Instantly. The skill does not have write access t
 
 After Harry confirms the test is live in Instantly:
 
-1. **Update `company/test-log.md`:**
+1. **Update `clients/{slug}/test-log.md`:**
    - Move T-{{ID}} from Queued to Running
    - Preserve the FULL Step 1 block (genotype, KPIs, sample, latency, airtight check, variant config, constants, stop conditions, backtrack plan)
    - Record launch date
    - Initialise the "Running data" table for daily logging
    - Note expected completion date
 
-2. **Update `company/campaign-state.md`:**
+2. **Update `clients/{slug}/campaign-state.md`:**
    - Add note to the campaign: **"TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED."**
    - This flag is the trigger for strict-block guards in cold-email-writer, client-request-handler, and campaign-optimiser.
    - Any skill attempting to modify constants of this campaign during the test will refuse without explicit override.
 
-3. **Write to `company/decision-log.md`:**
+3. **Write to `clients/{slug}/decision-log.md`:**
 ```
 ### {{date}} — Launched test T-{{ID}}: {{variable}}
 

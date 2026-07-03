@@ -2,15 +2,33 @@
 
 **Trigger:** "Onboard new client", "Set up the OS for {{client}}", "Let's fill in the OS", "Run client onboarder", "New client just signed", "Onboard {{client_name}}"
 
-**Context:** This skill runs the full conversational onboarding flow for a freshly cloned client OS. It asks Harry questions phase by phase, writes the answers directly to the right files, and verifies the OS is ready to launch.
+**Context:** This skill spins up a new client inside the multi-client OS, then runs the full conversational onboarding flow. It creates the client's folder from the template, asks Harry questions phase by phase, writes the answers directly to that client's files, and verifies the client is ready to launch.
 
 **The conversation IS the intake.** Harry should not fill the intake form manually. This skill replaces that workflow.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 — Create / Resolve the Client Folder (do this FIRST)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+A new client is a folder under `clients/`, created by copying the template. Before anything else:
+
+1. **Derive the slug** from the client name: lowercase-kebab (e.g. "Acme Corp" → `acme-corp`).
+2. **If `clients/{slug}/` does not exist yet**, create it from the template:
+   `cp -r templates/client-template/ clients/{slug}/` (this brings the full file set, including
+   `secrets/credentials.template.md`).
+3. **Create the real secrets file:** copy `clients/{slug}/secrets/credentials.template.md` →
+   `clients/{slug}/secrets/credentials.md` (git-ignored). Leave keys blank until Phase 5. **Never** put a
+   real API key in the committed `.template.md`.
+4. **Set the active client:** write the slug to `_state/active-client` and confirm: "Active client: {Name}."
+5. `{slug}` in every path below now resolves to this client's folder.
+
+If `clients/{slug}/` already exists, skip creation and treat this as a resume (see STARTUP below).
+
+---
+
+## STEP 0.1 — Log Invocation (mandatory)
+
+Once the folder exists, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -31,7 +49,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 1. **Run in 5 phases.** Do not jump ahead. Each phase has a clear write target.
 2. **Ask one question at a time.** Wait for the answer. Do not batch unless Harry says "batch the rest."
 3. **Write files as you go.** After each phase, write to the corresponding file. Confirm the write to Harry before moving on.
-4. **Resumable.** At session start, read all `company/*.md` and `CLAUDE.md` files. Identify which sections are filled and which still have `{{PLACEHOLDER}}` or blank values. Resume from the first unfilled phase.
+4. **Resumable.** At session start, read all `clients/{slug}/*.md` files. Identify which sections are filled and which still have `{{PLACEHOLDER}}` or blank values. Resume from the first unfilled phase. (Never edit root `CLAUDE.md` — it is the shared, client-agnostic hub.)
 5. **Never invent data.** If Harry does not know an answer, mark it `{{TO CONFIRM}}` and add to the final completeness report.
 6. **Use British spelling by default**, override if client is US-based and prefers American.
 
@@ -39,20 +57,18 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## STARTUP — Detect Current State
 
-Before asking the first question:
+Before asking the first question (after STEP 0 has created/resolved the folder):
 
-1. Read `CLAUDE.md`. Check how many `{{PLACEHOLDER}}` values remain.
-2. Read each `company/*.md` file. Check which sections are filled.
-3. Output a state report:
+1. Read each `clients/{slug}/*.md` file. Check which sections are filled vs still `{{PLACEHOLDER}}`/blank.
+2. Output a state report:
 
 ```
-OS State Report — {{date}}
-- CLAUDE.md: {{n}} placeholders remaining
-- company/overview.md: [filled / partial / blank]
-- company/icp.md: [filled / partial / blank]
-- company/offer.md: [filled / partial / blank]
-- company/voice.md: [filled / partial / blank]
-- company/campaign-state.md: [filled / partial / blank]
+Client Setup State — {{slug}} — {{date}}
+- clients/{slug}/overview.md: [filled / partial / blank]
+- clients/{slug}/icp.md: [filled / partial / blank]
+- clients/{slug}/offer.md: [filled / partial / blank]
+- clients/{slug}/voice.md: [filled / partial / blank]
+- clients/{slug}/campaign-state.md: [filled / partial / blank]
 
 Resuming from: Phase {{n}} — {{phase_name}}
 ```
@@ -64,7 +80,7 @@ If some phases are complete → resume at the first incomplete one and offer to 
 
 ## PHASE 1 — Identity (5 minutes)
 
-**Target files:** `CLAUDE.md` (placeholder replacement) + `company/overview.md`
+**Target files:** `clients/{slug}/overview.md` + `clients/{slug}/_config.md`
 
 Ask in this order:
 
@@ -80,16 +96,16 @@ Ask in this order:
 10. Anything else relevant — quirks, sensitivities, preferences, things they care about beyond metrics?
 
 **After Phase 1:**
-- Write `company/overview.md` with all answers
-- Update `CLAUDE.md` placeholders: `{{CLIENT_NAME}}`, `{{INDUSTRY}}`, `{{ONE_LINE_DESCRIPTION}}`, `{{GEOGRAPHY}}`, `{{REASON_FOR_HIRING}}`, contact rows
-- Update `INDEX.md`: replace `{{CLIENT_NAME}}` in headers
+- Write `clients/{slug}/overview.md` with all answers
+- Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier`, `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `service_type`, `start_date`, `reporting_day`; set `template_version` from the repo root `VERSION`
+- Do **not** touch root `CLAUDE.md` or `INDEX.md` — they are shared and client-agnostic
 - Confirm to Harry: "Phase 1 complete. Identity locked in. Ready for Phase 2 — Offer?"
 
 ---
 
 ## PHASE 2 — Offer (15 minutes)
 
-**Target file:** `company/offer.md`
+**Target file:** `clients/{slug}/offer.md`
 
 Ask in this order:
 
@@ -109,14 +125,14 @@ Ask in this order:
 **Push back if answers are vague.** Specifics beat clichés. "Significant cost savings" is not approved — "40-70% cost saving vs local US hires" is.
 
 **After Phase 2:**
-- Write `company/offer.md`
+- Write `clients/{slug}/offer.md`
 - Confirm: "Phase 2 complete. Offer captured. Ready for Phase 3 — ICP?"
 
 ---
 
 ## PHASE 3 — ICP (15 minutes)
 
-**Target file:** `company/icp.md`
+**Target file:** `clients/{slug}/icp.md`
 
 Read `wiki/list-building.md` before starting — apply the 3-layer framework.
 
@@ -146,14 +162,14 @@ Ask in this order:
 13. Output a ready-to-use lead filter spec (size, industry, title include/exclude, geography, funding, tech).
 
 **After Phase 3:**
-- Write `company/icp.md`
+- Write `clients/{slug}/icp.md`
 - Confirm: "Phase 3 complete. ICP defined and signals ranked. Ready for Phase 4 — Voice?"
 
 ---
 
 ## PHASE 4 — Voice (10 minutes)
 
-**Target file:** `company/voice.md`
+**Target file:** `clients/{slug}/voice.md`
 
 Ask in this order:
 
@@ -170,14 +186,14 @@ Ask in this order:
 11. **Anything else** about the voice — founder preferences, emoji rules, signature conventions.
 
 **After Phase 4:**
-- Write `company/voice.md`
+- Write `clients/{slug}/voice.md`
 - Confirm: "Phase 4 complete. Voice locked in. Ready for Phase 5 — Infrastructure?"
 
 ---
 
 ## PHASE 5 — Infrastructure (5 minutes)
 
-**Target file:** `company/campaign-state.md`
+**Target file:** `clients/{slug}/campaign-state.md`
 
 Ask in this order:
 
@@ -191,7 +207,9 @@ Ask in this order:
 8. **First campaign:** what is the first signal / sequence to be launched?
 
 **After Phase 5:**
-- Seed `company/campaign-state.md` with infrastructure detail
+- Seed `clients/{slug}/campaign-state.md` with infrastructure detail
+- Write the Instantly workspace URL/ID and `mcp_connected` into `clients/{slug}/_config.md`
+- Write the Instantly **API key** into `clients/{slug}/secrets/credentials.md` only (git-ignored) — never into `_config.md` or any committed file. Never print the full key in chat.
 - Leave campaign performance metrics blank — populate after first campaign runs
 - Confirm: "Phase 5 complete. Infrastructure captured."
 
@@ -201,23 +219,24 @@ Ask in this order:
 
 After all phases, run a final check:
 
-1. Verify NO `{{PLACEHOLDER}}` values remain in CLAUDE.md or any company/*.md file
+1. Verify NO `{{PLACEHOLDER}}` values remain in any `clients/{slug}/*.md` file (root `CLAUDE.md`/`INDEX.md` are shared and are not touched)
 2. Verify no `{{TO CONFIRM}}` entries remain — or list them as outstanding
-3. Verify all 5 company/*.md files have non-empty content in every section
+3. Verify all `clients/{slug}/*.md` files have non-empty content in every section
+4. Verify `_state/active-client` points to this slug, and `clients/{slug}/secrets/credentials.md` exists (git-ignored)
 
 Output:
 
 ```
-=== Onboarding Complete: {{client_name}} ===
+=== Onboarding Complete: {{client_name}} ({{slug}}) ===
 
-Files updated:
-- CLAUDE.md (placeholders replaced)
-- INDEX.md (client name set)
-- company/overview.md (filled)
-- company/icp.md (filled)
-- company/offer.md (filled)
-- company/voice.md (filled)
-- company/campaign-state.md (infrastructure seeded)
+Files created / updated:
+- clients/{slug}/_config.md (identity + Instantly filled)
+- clients/{slug}/secrets/credentials.md (API key — local only, git-ignored)
+- clients/{slug}/overview.md (filled)
+- clients/{slug}/icp.md (filled)
+- clients/{slug}/offer.md (filled)
+- clients/{slug}/voice.md (filled)
+- clients/{slug}/campaign-state.md (infrastructure seeded)
 
 Outstanding items to resolve before first campaign:
 - [list any {{TO CONFIRM}} entries]
@@ -252,13 +271,14 @@ Suggested next step: "Build the first lead list for {{client_name}}"
 Harry: Run client onboarder for {{CLIENT_NAME}}
 
 Claude:
-OS State Report — 2026-05-29
-- CLAUDE.md: 8 placeholders remaining
-- company/overview.md: blank
-- company/icp.md: blank
-- company/offer.md: blank
-- company/voice.md: blank
-- company/campaign-state.md: blank
+Created clients/{slug}/ from templates/client-template/. Active client: {{CLIENT_NAME}}.
+
+Client Setup State — {{slug}} — 2026-05-29
+- clients/{slug}/overview.md: blank
+- clients/{slug}/icp.md: blank
+- clients/{slug}/offer.md: blank
+- clients/{slug}/voice.md: blank
+- clients/{slug}/campaign-state.md: blank
 
 Starting Phase 1 — Identity.
 

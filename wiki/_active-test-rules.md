@@ -10,7 +10,7 @@ Canonical rules for handling changes to a campaign that has an **active test** r
 
 ## When to check this file
 
-Before making any change to a campaign or its sequence, **read `company/campaign-state.md`** and check whether the campaign has a `TEST ACTIVE` flag.
+Before making any change to a campaign or its sequence, **read `clients/{slug}/campaign-state.md`** and check whether the campaign has a `TEST ACTIVE` flag.
 
 If `TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED.` is present, apply the rules below.
 
@@ -20,7 +20,7 @@ If no `TEST ACTIVE` flag is present, proceed normally — these rules do not app
 
 ## The Rules
 
-1. **Read `company/test-log.md` → T-{{ID}} → Section 1.7 Constants list.**
+1. **Read `clients/{slug}/test-log.md` → T-{{ID}} → Section 1.7 Constants list.**
 
 2. **Compare the requested change to the locked constants:**
    - If the change touches a **constant** (lead source, ICP, sending domain, mailbox, send time, follow-up sequence, daily volume, any non-needle-mover variable with locked V-number) → **REFUSE**.
@@ -49,9 +49,9 @@ This will:
 ```
 
 4. **If Harry overrides:**
-   - Move the test from Running to Reverted in `company/test-log.md` with reason "manually invalidated mid-test by override"
-   - Log the override to `company/decision-log.md` with context (why the change could not wait)
-   - Remove the `TEST ACTIVE` flag from `company/campaign-state.md`
+   - Move the test from Running to Reverted in `clients/{slug}/test-log.md` with reason "manually invalidated mid-test by override"
+   - Log the override to `clients/{slug}/decision-log.md` with context (why the change could not wait)
+   - Remove the `TEST ACTIVE` flag from `clients/{slug}/campaign-state.md`
    - Then proceed with the requested change
 
 ---

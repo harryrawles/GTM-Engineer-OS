@@ -10,13 +10,13 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/objection-library.md"
-  - "company/copy-library.md"
-  - "company/comms-log.md"
+  - "clients/{slug}/copy-library.md"
+  - "clients/{slug}/comms-log.md"
 writes:
-  - "company/comms-log.md"
-  - "company/copy-library.md (winners)"
-  - "company/copy-library.md (graveyard)"
-  - "company/decision-log.md (if novel response)"
+  - "clients/{slug}/comms-log.md"
+  - "clients/{slug}/copy-library.md (winners)"
+  - "clients/{slug}/copy-library.md (graveyard)"
+  - "clients/{slug}/decision-log.md (if novel response)"
 ---
 
 # Skill: Reply Handler
@@ -36,19 +36,19 @@ See `wiki/_skill-context.md`.
 **MUST READ:**
 - `wiki/objection-library.md` — for any reply containing an objection (now bias-annotated per response)
 - `wiki/psychological-principles.md` — bias-by-stage table; use the Objection Handling row to pick biases for the response
-- `company/comms-log.md` — for prior context with this prospect
-- `company/copy-library.md` — for winning response patterns
+- `clients/{slug}/comms-log.md` — for prior context with this prospect
+- `clients/{slug}/copy-library.md` — for winning response patterns
 
 **READ IF CONDITION:**
-- `company/voice.md` — to match brand voice in the response
-- `company/offer.md` — for proof points to deploy
+- `clients/{slug}/voice.md` — to match brand voice in the response
+- `clients/{slug}/offer.md` — for proof points to deploy
 - `gtm-skills/campaign-analyst.md` — if reply contains performance feedback worth logging
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -113,8 +113,8 @@ Harry
 - If they replied with "send a time" → send 3 specific slots
 
 **Log:**
-- `company/comms-log.md` — entry with date, channel, summary
-- `company/decision-log.md` — if this is the first positive from a new variant
+- `clients/{slug}/comms-log.md` — entry with date, channel, summary
+- `clients/{slug}/decision-log.md` — if this is the first positive from a new variant
 - Flag the source campaign / email for **winner consideration** in next weekly-reviewer
 
 **Stop conditions:**
@@ -151,7 +151,7 @@ Harry
 ```
 
 **Log:**
-- `company/comms-log.md`
+- `clients/{slug}/comms-log.md`
 - Suppress in Instantly (no further emails to this contact)
 - If 3+ similar "we're happy with [competitor]" replies → flag in weekly-reviewer; consider competitor switch angle
 
@@ -163,12 +163,12 @@ Harry
 
 **Steps:**
 1. Add to Instantly suppression list immediately
-2. Add to client's global do-not-contact in `company/_config.md` if requested
+2. Add to client's global do-not-contact in `clients/{slug}/_config.md` if requested
 3. Do NOT reply — escalates risk
 4. If hostile and threatens action (lawyer, complaint) → flag to Harry immediately, do not auto-respond
 
 **Log:**
-- `company/comms-log.md` — flag as "hostile" if relevant
+- `clients/{slug}/comms-log.md` — flag as "hostile" if relevant
 - If language suggests GDPR / CAN-SPAM concern → check `wiki/deliverability.md` compliance section
 - Cluster pattern: if >3 hostile replies on same campaign → pause and audit copy
 
@@ -227,7 +227,7 @@ Harry
 - Add to Instantly with "warm intro" tag
 - Start a new sequence with the referral angle ("[firstName] suggested I reach out")
 
-**Log:** `company/comms-log.md` + add new contact + decision-log if pattern (e.g. "Champions consistently point to Head of X — refine ICP DM list").
+**Log:** `clients/{slug}/comms-log.md` + add new contact + decision-log if pattern (e.g. "Champions consistently point to Head of X — refine ICP DM list").
 
 ---
 
@@ -237,7 +237,7 @@ Harry
 
 **Decision tree:**
 - "Send a deck" → send the 1-pager (not full deck — friction)
-- "Send a case study" → match closest case study from `company/offer.md` to their context
+- "Send a case study" → match closest case study from `clients/{slug}/offer.md` to their context
 - "Email me Q3" / "Circle back" → schedule follow-up in calendar for that date, mark sequence as paused
 
 **Template (deck/case study send):**
@@ -259,7 +259,7 @@ Harry
 - Set 7-day follow-up reminder
 - If no engagement after 7 days → send Email 3 of sequence or move to nurture
 
-**Log:** `company/comms-log.md` + asset sent + follow-up date
+**Log:** `clients/{slug}/comms-log.md` + asset sent + follow-up date
 
 ---
 
@@ -271,13 +271,13 @@ Harry
 1. Identify the objection type (no budget, wrong time, use competitor, tried before, etc.)
 2. Read the response template from objection-library — each is now annotated with the biases it leverages
 3. Verify the response biases are right for THIS prospect (e.g. ATL register vs BTL — adjust tone accordingly)
-4. Customise with proof points from `company/offer.md`
+4. Customise with proof points from `clients/{slug}/offer.md`
 5. Send response
 6. If they respond again → escalate to Harry directly (Claude does not handle 2+ objection cycles automatically)
 
 **Bias check before sending:** confirm the response leverages the right biases for objection handling per `wiki/psychological-principles.md` "Biases by Copy Stage" table — primarily Disarming honesty, Frame-based misreaction (hold your frame), Understanding bias, Relatability, Reason-respecting, Polite bias. Avoid triggering Egocentric bias (do not attack their idea directly).
 
-**Log:** `company/comms-log.md` + which objection was raised. If 3+ same objection across campaign → log to `company/decision-log.md` as a pattern requiring offer adjustment.
+**Log:** `clients/{slug}/comms-log.md` + which objection was raised. If 3+ same objection across campaign → log to `clients/{slug}/decision-log.md` as a pattern requiring offer adjustment.
 
 ---
 
@@ -328,9 +328,9 @@ Harry
 
 **Then:**
 - Add `{{newName}}` to Instantly (do not double-email)
-- Update `company/_config.md` if they're a new key contact
+- Update `clients/{slug}/_config.md` if they're a new key contact
 
-**Log:** `company/comms-log.md` + add `{{newName}}` to known contacts.
+**Log:** `clients/{slug}/comms-log.md` + add `{{newName}}` to known contacts.
 
 ---
 
@@ -362,9 +362,9 @@ Response:
 [paste the response that will be sent]
 
 Logs updated:
-- company/comms-log.md
-- company/copy-library.md (if winner pattern emerging)
-- company/decision-log.md (if novel pattern)
+- clients/{slug}/comms-log.md
+- clients/{slug}/copy-library.md (if winner pattern emerging)
+- clients/{slug}/decision-log.md (if novel pattern)
 
 Next action:
 - {{What Harry needs to do — send manually / approve / book meeting}}
@@ -378,11 +378,11 @@ Notes:
 ## RULES
 
 - **Never send the response automatically.** Always show Harry the draft for approval.
-- **Always log to `company/comms-log.md`.** Every reply, every type.
+- **Always log to `clients/{slug}/comms-log.md`.** Every reply, every type.
 - **Pattern recognition is key.** If you see the same objection 3+ times, flag it. The OS should adapt.
 - **Hostile replies → no response, immediate suppression.** Escalate to Harry.
 - **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to Harry.
-- **Match the voice** in `company/voice.md`. Do not improvise tone.
+- **Match the voice** in `clients/{slug}/voice.md`. Do not improvise tone.
 - **Track winner patterns.** If a specific response template converts at unusual rate, log it as a candidate winner for the next weekly review.
 
 ---
@@ -421,7 +421,7 @@ Or grab any time here: [calendar link]
 Harry
 
 Logs updated:
-- company/comms-log.md: positive reply from Jordan Kim, Vector Health, hiring campaign Email 2
+- clients/{slug}/comms-log.md: positive reply from Jordan Kim, Vector Health, hiring campaign Email 2
 - Flagged for weekly-reviewer: hiring Email 2 has now produced 4 positive replies in 7 days
 
 Next action:

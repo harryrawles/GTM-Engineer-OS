@@ -8,11 +8,11 @@ triggers:
   - "Process this request from {{client}}"
 reads:
   - "wiki/_skill-context.md"
-  - "company/comms-log.md"
-  - "company/overview.md (SLA)"
+  - "clients/{slug}/comms-log.md"
+  - "clients/{slug}/overview.md (SLA)"
 writes:
-  - "company/comms-log.md (log the request)"
-  - "company/decision-log.md (log the decision)"
+  - "clients/{slug}/comms-log.md (log the request)"
+  - "clients/{slug}/decision-log.md (log the decision)"
 ---
 
 # Skill: Client Request Handler
@@ -31,7 +31,7 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -64,11 +64,11 @@ Ask Harry to confirm interpretation if ambiguous.
 | Type | Indicators | Route to |
 |------|-----------|---------|
 | **A — Change to ICP** | "Stop targeting X", "Add Y to ICP", "These leads aren't right" | `gtm-skills/icp-builder.md` |
-| **B — Change to offer** | "Update the pitch", "New case study to use", "Stop using X claim" | Update `company/offer.md` directly |
+| **B — Change to offer** | "Update the pitch", "New case study to use", "Stop using X claim" | Update `clients/{slug}/offer.md` directly |
 | **C — Change to copy** | "Rewrite Email 1", "Try this angle", "This subject isn't working" | `gtm-skills/cold-email-writer.md` |
 | **D — New test request** | "Test X", "Try Y vs Z" | `gtm-skills/test-launcher.md` |
-| **E — Pause / stop a campaign** | "Pause X", "Stop sending to Y", "Halt for 2 weeks" | Update `company/campaign-state.md` directly |
-| **F — Resume campaign** | "Restart X", "Resume sending" | Update `company/campaign-state.md` + verify pre-launch-check |
+| **E — Pause / stop a campaign** | "Pause X", "Stop sending to Y", "Halt for 2 weeks" | Update `clients/{slug}/campaign-state.md` directly |
+| **F — Resume campaign** | "Restart X", "Resume sending" | Update `clients/{slug}/campaign-state.md` + verify pre-launch-check |
 | **G — Reporting question** | "What's our PRR this month", "How many meetings did we book", "Send me the data" | `gtm-skills/campaign-analyst.md` or `gtm-skills/client-report-writer.md` |
 | **H — Strategic / Q4 planning** | "Plan Q4", "What should we change", "What's working" | `gtm-skills/qbr-writer.md` or strategic discussion |
 | **I — Performance concern** | "PRR seems low", "Why are we underperforming" | `gtm-skills/campaign-optimiser.md` + diagnostic |
@@ -82,7 +82,7 @@ If multiple types → handle the most actionable first, then sequentially.
 
 ## STEP 3 — Initial Response (acknowledgement)
 
-Within SLA (default 24h per `company/overview.md`), send a brief acknowledgement:
+Within SLA (default 24h per `clients/{slug}/overview.md`), send a brief acknowledgement:
 
 **Template (default):**
 ```
@@ -96,7 +96,7 @@ Harry
 ```
 
 **Adjust:**
-- Tone matches `company/voice.md` and prior `comms-log.md` history
+- Tone matches `clients/{slug}/voice.md` and prior `comms-log.md` history
 - If urgent → include shorter ETA
 - If unclear request → ask one clarifying question before committing ETA
 
@@ -108,12 +108,12 @@ Based on classification:
 
 ### Type A — ICP Change
 1. Invoke `gtm-skills/icp-builder.md`
-2. Update `company/icp.md`
+2. Update `clients/{slug}/icp.md`
 3. Re-check active lead lists against new ICP
 4. Flag if any active campaign now has wrong-fit leads → may need to pause or filter
 
 ### Type B — Offer Change
-1. Read current `company/offer.md`
+1. Read current `clients/{slug}/offer.md`
 2. Apply the change
 3. If proof point changed → check active copy for usage of old proof point, flag for rewrites
 4. Note: any change to "approved claims" requires explicit client confirmation in writing
@@ -131,16 +131,16 @@ Based on classification:
 3. Queue or launch per Harry's go-ahead
 
 ### Type E — Pause Campaign
-1. Update `company/campaign-state.md`:
+1. Update `clients/{slug}/campaign-state.md`:
    - Change status to "Paused"
    - Note reason and date
 2. Pause in Instantly
-3. Log to `company/decision-log.md`
+3. Log to `clients/{slug}/decision-log.md`
 
 ### Type F — Resume Campaign
 1. Run `gtm-skills/pre-launch-check.md` first
 2. If READY → resume
-3. Update `company/campaign-state.md`
+3. Update `clients/{slug}/campaign-state.md`
 
 ### Type G — Reporting Question
 1. Pull data from Instantly MCP
@@ -172,7 +172,7 @@ ESCALATE — do not auto-handle. Notify Harry, draft acknowledgement to client.
 
 ## STEP 5 — Log Everything
 
-**To `company/comms-log.md`:**
+**To `clients/{slug}/comms-log.md`:**
 ```
 ### {{YYYY-MM-DD HH:MM}} — {{channel}} {{inbound/outbound}}
 
@@ -188,7 +188,7 @@ ESCALATE — do not auto-handle. Notify Harry, draft acknowledgement to client.
 **Outcome:** (to update after completion)
 ```
 
-**To `company/decision-log.md`** (if a non-trivial decision was made):
+**To `clients/{slug}/decision-log.md`** (if a non-trivial decision was made):
 ```
 ### {{date}} — Client request: {{topic}}
 
@@ -256,8 +256,8 @@ Acknowledgement draft (sending now):
 "{{PRIMARY_CONTACT}} — on it. Reframing Email 2 around candidate quality. Will have a draft for you by EOD tomorrow. — Harry"
 
 Routing to cold-email-writer for Email 2 of Hiring Signal v4.
-Reading company/copy-library.md (current Email 2)...
-Reading company/offer.md (proof points around candidate provenance)...
+Reading clients/{slug}/copy-library.md (current Email 2)...
+Reading clients/{slug}/offer.md (proof points around candidate provenance)...
 
 [Invokes cold-email-writer to draft new Email 2]
 [Shows side-by-side: current Email 2 vs new variant]
@@ -266,7 +266,7 @@ After Harry approves:
 - Reply to {{PRIMARY_CONTACT}} with the new copy for sign-off
 - Once approved by {{PRIMARY_CONTACT}} → run campaign-launcher pre-flight
 - Update in Instantly
-- Update company/campaign-state.md with new Email 2 in sequence
+- Update clients/{slug}/campaign-state.md with new Email 2 in sequence
 - Log to comms-log + decision-log
 ```
 
@@ -274,4 +274,4 @@ After Harry approves:
 
 ## ACTIVE-TEST ENFORCEMENT
 
-Before modifying a campaign or its sequence, check `company/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.
+Before modifying a campaign or its sequence, check `clients/{slug}/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.

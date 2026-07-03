@@ -1,6 +1,6 @@
 ---
 name: client-offboarder
-description: End-of-engagement workflow. Generates final report, migrates learnings to meta-OS, archives client repo, closes billing, decommissions assets. Used when a client churns or transitions out of active engagement.
+description: End-of-engagement workflow. Generates final report, promotes abstracted learnings to the shared layer, archives the client folder, closes billing, decommissions assets. Used when a client churns or transitions out of active engagement.
 triggers:
   - "Offboard {{client}}"
   - "{{client}} is churning"
@@ -8,11 +8,11 @@ triggers:
   - "Archive {{client}} OS"
 reads:
   - "wiki/_skill-context.md"
-  - "all company/*.md"
+  - "all clients/{slug}/*.md"
   - "all examples files"
 writes:
-  - "company/decision-log.md (final entry)"
-  - "company/overview.md (engagement closed status)"
+  - "clients/{slug}/decision-log.md (final entry)"
+  - "clients/{slug}/overview.md (engagement closed status)"
   - "FINAL-REPORT.md (generated)"
 ---
 
@@ -32,7 +32,7 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -71,7 +71,7 @@ If pause (not churn) → use a separate "Pause" workflow (not this skill).
 
 ## STEP 2 — Generate Final Report
 
-Create `FINAL-REPORT.md` in the client repo root. Contents:
+Create `FINAL-REPORT.md` in the client folder (`clients/{slug}/FINAL-REPORT.md`). Contents:
 
 ```
 # Final Report — {{CLIENT_NAME}} | {{date_range}}
@@ -98,19 +98,19 @@ Pull from Instantly MCP for entire engagement:
 
 | Date | Winner | What worked |
 |------|--------|-------------|
-| [Pull from company/copy-library.md top performers] |
+| [Pull from clients/{slug}/copy-library.md top performers] |
 
 ## Lessons Learned
 
 | Lesson | Source | Applied where |
 |--------|--------|---------------|
-| [Pull from company/decision-log.md highlights] |
+| [Pull from clients/{slug}/decision-log.md highlights] |
 
 ## Tests Completed
 
 | Test | Result |
 |------|--------|
-| [Pull from company/test-log.md completed tests] |
+| [Pull from clients/{slug}/test-log.md completed tests] |
 
 ## Infrastructure Status at End
 
@@ -139,15 +139,23 @@ Show the draft to Harry. Confirm before sending.
 
 ---
 
-## STEP 3 — Migrate Learnings to Meta-OS
+## STEP 3 — Promote Abstracted Learnings to the Shared Layer
 
-**Note:** meta-OS exists once Harry hits 3-5 active clients. If not yet built, skip this step but flag the learnings for manual migration later.
+This repo **is** the multi-client OS. The place for cross-client learning is the shared layer
+(`best-practices/`, `frameworks/`), not a separate meta-OS repo.
 
-If meta-OS exists:
-- Copy top 3-5 winning variants from `company/copy-library.md` → meta-OS `cross-client-winners.md`
-- Copy top 3-5 graveyard entries → meta-OS `cross-client-graveyard.md`
-- Copy 1-2 strategic insights from `company/decision-log.md` → meta-OS `cross-client-insights.md`
-- Tag each migration with `{{CLIENT_NAME}}` as the source for attribution
+**Isolation rule (critical):** only promote **abstracted, generalisable patterns** — never a client's raw
+private data. Strip the client's specific numbers, named prospects, proof points, and verbatim copy. If a
+learning cannot be stated without the client's private data, it stays in `clients/{slug}/` and is not
+promoted. See root `CLAUDE.md` → *Golden Rules* (no cross-client sharing of data, ever).
+
+What to promote (abstracted only):
+- Generalised copy *structures* that won (the pattern, not the client's exact email) → `best-practices/`
+- Graveyard *anti-patterns* (the structural mistake to avoid, not the client's copy) → `best-practices/`
+- Strategic *insights / mental models* from `clients/{slug}/decision-log.md` → `frameworks/`
+
+Do **not** copy `copy-library.md` / `decision-log.md` entries verbatim into shared files — extract the
+transferable lesson and write it in the client-agnostic form.
 
 ---
 
@@ -159,7 +167,7 @@ If meta-OS exists:
 - [ ] Cancel any client-specific subscriptions / tools (Clay enrichment, etc.)
 - [ ] Suppress all leads in this client's lists across Harry's other client workspaces (to avoid accidental cross-contamination)
 - [ ] Remove client from Slack channels / Notion / shared drives
-- [ ] Update `company/_config.md`:
+- [ ] Update `clients/{slug}/_config.md`:
   ```
   status: offboarded
   offboarding_date: {{date}}
@@ -236,33 +244,39 @@ Show draft to Harry. Do not auto-send.
 
 ---
 
-## STEP 7 — Archive the Repo
+## STEP 7 — Archive the Client Folder
+
+A client is a folder under `clients/`, not a separate repo. Archiving keeps the record without leaving the
+client in the active portfolio (so portfolio sweeps and `clients/` enumeration skip it).
 
 After all above complete:
 
-1. **Add archival notice to README.md** at top:
+1. **Add an archival notice** to the top of `clients/{slug}/overview.md`:
 ```
 > ⚠️ ARCHIVED — engagement ended {{date}}.
-> This repo is preserved for reference but not actively maintained.
-> Last active version: {{template_version}}.
+> Preserved for reference; not actively maintained. Last template_version: {{template_version}}.
 ```
 
-2. **Rename the repo** in GitHub: `client-os-{{client_name}}` → `archive-client-os-{{client_name}}-{{YYYY-MM}}`
+2. **Move the folder out of the active set:** `git mv clients/{slug}/ clients/_archived/{slug}-{{YYYY-MM}}/`
+   (create `clients/_archived/` if it does not exist). Portfolio mode enumerates only top-level
+   `clients/{slug}/` folders, so an archived client is automatically excluded.
 
-3. **Set repo description** to indicate archival.
+3. **Clear the active-client pointer if it points here:** if `_state/active-client` contains this slug,
+   blank it so the next session does not resolve to an archived client.
 
-4. **Move to "Archived" folder/topic** in GitHub UI.
+4. **Confirm secrets are gone:** the client's `secrets/` was never committed (git-ignored). Delete the
+   local `clients/_archived/{slug}-.../secrets/` folder so no live API key lingers on disk.
 
 5. **Final commit:**
 ```
-chore: archive engagement — final state preserved
+chore: archive {{slug}} — engagement ended, final state preserved
 ```
 
 ---
 
 ## STEP 8 — Log to Decision Log
 
-Final entry in `company/decision-log.md`:
+Final entry in `clients/{slug}/decision-log.md`:
 
 ```
 ### {{date}} — Engagement Ended
@@ -277,8 +291,8 @@ Final entry in `company/decision-log.md`:
 - Average PRR: {{X}}%
 - Peak campaign: {{name}} at {{X}}% PRR
 
-**Wins preserved to meta-OS:**
-- {{list}}
+**Wins promoted to shared layer (abstracted):**
+- {{list — client-agnostic patterns only}}
 
 **Open lessons:**
 - {{anything we still don't understand about why this ended}}
@@ -300,8 +314,8 @@ Effective: {{date}}
 Generated:
 - FINAL-REPORT.md (draft ready for review)
 
-Migrated to meta-OS:
-- {{n}} winners, {{n}} graveyard entries, {{n}} insights
+Promoted to shared layer (abstracted, client-agnostic):
+- {{n}} winning patterns, {{n}} anti-patterns, {{n}} insights
 
 Decommissioned:
 - {{n}} campaigns paused

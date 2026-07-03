@@ -5,15 +5,15 @@
 **Context:** Harry sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
 
 **Read before writing:**
-- `company/overview.md` — client name and reporting day
-- `company/campaign-state.md` — active campaigns and benchmarks
-- `company/test-log.md` — what is currently being tested (to include in "what is next")
+- `clients/{slug}/overview.md` — client name and reporting day
+- `clients/{slug}/campaign-state.md` — active campaigns and benchmarks
+- `clients/{slug}/test-log.md` — what is currently being tested (to include in "what is next")
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |

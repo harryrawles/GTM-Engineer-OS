@@ -4,7 +4,7 @@ How we iterate copy, sequences, signals, and any tested stimulus. **Every change
 
 The principle, in one sentence: **define a hypothesis, hold every other variable constant, test it long enough to be real, then iterate one variable toward fitness.**
 
-> Used by: `gtm-skills/test-launcher.md`, `gtm-skills/test-readiness-check.md`, `gtm-skills/weekly-reviewer.md`, `gtm-skills/campaign-optimiser.md`, `gtm-skills/cold-email-writer.md`. Test entries live in `company/test-log.md`.
+> Used by: `gtm-skills/test-launcher.md`, `gtm-skills/test-readiness-check.md`, `gtm-skills/weekly-reviewer.md`, `gtm-skills/campaign-optimiser.md`, `gtm-skills/cold-email-writer.md`. Test entries live in `clients/{slug}/test-log.md`.
 
 ---
 
@@ -121,7 +121,7 @@ Label every variable clearly. First version is V1.
 Content(V1) - CTA(V1) - Delivery(V1) = Initial Video V1
 ```
 
-V-number notation is mandatory in `company/test-log.md`. Without it, you cannot reason about which version regressed or improved.
+V-number notation is mandatory in `clients/{slug}/test-log.md`. Without it, you cannot reason about which version regressed or improved.
 
 ### 1.7 Establish the constants
 
@@ -164,7 +164,7 @@ Every day, log the metrics. Verify each data point. Make no judgements until the
 
 **Daily logging rule:** report on **yesterday's** results. If you log today at 3pm, 24 hours have not elapsed — that is not a real test data point. Log yesterday only.
 
-Log goes into `company/test-log.md` under the active test's "Running data" section.
+Log goes into `clients/{slug}/test-log.md` under the active test's "Running data" section.
 
 ---
 
@@ -277,7 +277,7 @@ Content(V1) - CTA(V1) - Delivery(V1) = Initial Video V1
 Content(V2) - CTA(V1) - Delivery(V1) = Initial Video V2
 ```
 
-Log the V-numbers in `company/test-log.md`.
+Log the V-numbers in `clients/{slug}/test-log.md`.
 
 ### 4.6 Repeat Step 1
 
@@ -331,5 +331,5 @@ There is no magic copy variant. There is only the cycle: hypothesis → test →
 Synthesised from practitioner methodology (Refine Flow / Harry's iteration process). Cross-referenced with:
 - `wiki/copywriting-101.md` — the canonical formula being iterated
 - `wiki/email-benchmarks.md` — KPI reference points
-- `company/test-log.md` — where each test is captured
+- `clients/{slug}/test-log.md` — where each test is captured
 - `gtm-skills/test-readiness-check.md` — the gate that enforces Step 1 completion

@@ -8,14 +8,14 @@ triggers:
   - "Build the Q{{n}} review"
 reads:
   - "wiki/_skill-context.md"
-  - "company/copy-library.md"
-  - "company/decision-log.md"
-  - "company/test-log.md"
-  - "company/comms-log.md"
-  - "company/campaign-state.md"
+  - "clients/{slug}/copy-library.md"
+  - "clients/{slug}/decision-log.md"
+  - "clients/{slug}/test-log.md"
+  - "clients/{slug}/comms-log.md"
+  - "clients/{slug}/campaign-state.md"
 writes:
   - "QBR-{{YYYY-Q}}.md (generated)"
-  - "company/decision-log.md (post-call summary)"
+  - "clients/{slug}/decision-log.md (post-call summary)"
 ---
 
 # Skill: QBR Writer
@@ -32,11 +32,11 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `company/copy-library.md` — wins from the quarter
-- `company/decision-log.md` — decisions and rationale
-- `company/test-log.md` — completed tests
-- `company/comms-log.md` — client sentiment over the quarter
-- `company/campaign-state.md` — current state
+- `clients/{slug}/copy-library.md` — wins from the quarter
+- `clients/{slug}/decision-log.md` — decisions and rationale
+- `clients/{slug}/test-log.md` — completed tests
+- `clients/{slug}/comms-log.md` — client sentiment over the quarter
+- `clients/{slug}/campaign-state.md` — current state
 
 Pull from Instantly MCP: full quarter of data per campaign.
 
@@ -44,7 +44,7 @@ Pull from Instantly MCP: full quarter of data per campaign.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -73,7 +73,7 @@ Ask Harry before generating:
 
 ## QBR DOCUMENT STRUCTURE
 
-Generate `QBR-{{YYYY-Q}}.md` in the client repo root.
+Generate `QBR-{{YYYY-Q}}.md` in the client folder (`clients/{slug}/QBR-{{YYYY-Q}}.md`).
 
 ```
 # Q{{n}} {{YYYY}} Business Review — {{CLIENT_NAME}}
@@ -98,7 +98,7 @@ Generate `QBR-{{YYYY-Q}}.md` in the client repo root.
 
 ## 1. Performance vs Target
 
-Compare actual to the success criteria in `company/overview.md`.
+Compare actual to the success criteria in `clients/{slug}/overview.md`.
 
 | Metric | Q{{n}} Target | Q{{n}} Actual | Status |
 |--------|--------------|---------------|--------|
@@ -126,7 +126,7 @@ Compare actual to the success criteria in `company/overview.md`.
 
 ## 3. Wins of the Quarter
 
-Pull from `company/copy-library.md` top performers added this quarter.
+Pull from `clients/{slug}/copy-library.md` top performers added this quarter.
 
 ### Win 1 — {{title}}
 **Campaign:** {{campaign}}
@@ -141,7 +141,7 @@ Pull from `company/copy-library.md` top performers added this quarter.
 
 ## 4. Lessons Learned
 
-Pull from `company/decision-log.md` significant entries from this quarter.
+Pull from `clients/{slug}/decision-log.md` significant entries from this quarter.
 
 ### Lesson 1 — {{title}}
 **Context:** {{what we did}}
@@ -300,9 +300,9 @@ Also generate a 45-minute agenda for the QBR call:
 
 After the QBR is delivered:
 
-1. Update `company/comms-log.md` with the call summary
-2. Update `company/decision-log.md` with any strategic decisions agreed
-3. Update `company/overview.md` Success Criteria for the new quarter
+1. Update `clients/{slug}/comms-log.md` with the call summary
+2. Update `clients/{slug}/decision-log.md` with any strategic decisions agreed
+3. Update `clients/{slug}/overview.md` Success Criteria for the new quarter
 4. Mark renewal status (signed / pending / at risk)
 
 ---

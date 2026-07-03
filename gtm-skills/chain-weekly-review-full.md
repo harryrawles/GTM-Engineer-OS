@@ -12,7 +12,7 @@ triggers:
   - "Portfolio sweep"
 reads:
   - "wiki/_skill-context.md"
-  - "company/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md, comms-log.md, overview.md"
+  - "clients/{slug}/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md, comms-log.md, overview.md"
 invokes:
   - "gtm-skills/client-health-scorer.md (always)"
   - "gtm-skills/weekly-reviewer.md (always — runs full 8 steps including synthesis)"
@@ -20,11 +20,11 @@ invokes:
   - "gtm-skills/test-launcher.md (conditional)"
   - "gtm-skills/client-report-writer.md (always)"
 writes:
-  - "company/copy-library.md (winners logged via weekly-reviewer)"
-  - "company/decision-log.md (decisions + recurring patterns via weekly-reviewer Step 7)"
-  - "company/test-log.md (completed tests + queued next tests)"
-  - "company/campaign-state.md (health rating updates)"
-  - "company/MEMORY.md (Active Focus and Recent Learnings updates)"
+  - "clients/{slug}/copy-library.md (winners logged via weekly-reviewer)"
+  - "clients/{slug}/decision-log.md (decisions + recurring patterns via weekly-reviewer Step 7)"
+  - "clients/{slug}/test-log.md (completed tests + queued next tests)"
+  - "clients/{slug}/campaign-state.md (health rating updates)"
+  - "clients/{slug}/MEMORY.md (Active Focus and Recent Learnings updates)"
   - "reports/YYYY-WW-weekly-report.md (NOT yet implemented — report stored in client-report-writer output)"
 ---
 
@@ -48,12 +48,12 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Confirm Client + Pull Data (always)
 
-**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-weekly-review-full | (filled at end) |`. Sub-skills invoked later will write their own rows.
+**Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-weekly-review-full | (filled at end) |`. Sub-skills invoked later will write their own rows.
 
 Then verify:
-- Client name confirmed (`company/_config.md` matches the trigger)
-- This is the Friday routine for THIS client (not a portfolio sweep — that is `weekly-reviewer.md` batch mode, deferred until meta-OS exists)
-- Last weekly review date (per `company/_config.md` `last_review_date`) — flag if more than 14 days ago (skipped weeks compound problems)
+- Client name confirmed (`clients/{slug}/_config.md` matches the trigger)
+- This is the Friday routine for the active client only (not a portfolio sweep — for all clients, use `weekly-reviewer.md` batch mode / Portfolio Triage Mode below, which loops every folder in `clients/`)
+- Last weekly review date (per `clients/{slug}/_config.md` `last_review_date`) — flag if more than 14 days ago (skipped weeks compound problems)
 
 Pull from Instantly MCP: last 7 days of campaign data per active campaign.
 
@@ -69,7 +69,7 @@ Invoke `gtm-skills/client-health-scorer.md`. Produces a 100-point score with bre
 
 **Why first:** the health score frames the rest of the review. A Red client gets prioritised attention. A Green client gets routine logging.
 
-If Red/Critical: flag urgency in `company/MEMORY.md` Active Focus. Optionally Harry can pause the chain here to take immediate action.
+If Red/Critical: flag urgency in `clients/{slug}/MEMORY.md` Active Focus. Optionally Harry can pause the chain here to take immediate action.
 
 ---
 
@@ -82,7 +82,7 @@ Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 8-step flow:
 3. Identify winners (PRR ≥ 1.5%, sample ≥ 300) — confirm + capture "why" + log to copy-library + decision-log
 4. Identify losers (PRR < 0.5%, sample ≥ 300) — confirm root cause + log to graveyard
 5. Update completed tests (six-rule check + 5-question tree + regression check + recommend revert or promotion)
-6. Update campaign health in `company/campaign-state.md`
+6. Update campaign health in `clients/{slug}/campaign-state.md`
 7. **Synthesise the week's insight** — capture meta-takeaway, write to copy-library Cross-Campaign Patterns OR decision-log Recurring Patterns
 8. Hand off to report (handled by Step 4 of this chain)
 
@@ -92,12 +92,12 @@ Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 8-step flow:
 
 ## STEP 3 — Test Promotion (conditional)
 
-After weekly-reviewer Step 5 completes, check `company/test-log.md` for:
+After weekly-reviewer Step 5 completes, check `clients/{slug}/test-log.md` for:
 
 ### Case A: A completed test recommended PROMOTION
 The variant won (V(n+1) beat V(n) on PRR).
 
-- Promote variant to new control in `company/copy-library.md`
+- Promote variant to new control in `clients/{slug}/copy-library.md`
 - Queue the NEXT test (different needle-mover per `wiki/scientific-method.md` Step 4.2 priority order)
 - If next test is ready to launch: invoke `gtm-skills/test-readiness-check.md` on the queued test
 - If READY: invoke `gtm-skills/test-launcher.md`
@@ -107,7 +107,7 @@ The variant won (V(n+1) beat V(n) on PRR).
 The variant regressed from V(n) (regression check fired).
 
 - Revert to V(n) as control
-- Log to `company/test-log.md` Reverted Tests section
+- Log to `clients/{slug}/test-log.md` Reverted Tests section
 - Queue a DIFFERENT needle-mover for the next test (do not re-test the same variable)
 - Same readiness check pattern as Case A
 
@@ -131,7 +131,7 @@ The report should reflect:
 
 **Pause-point:** Harry reviews the report before sending. Edits if needed.
 
-After approval → Harry sends via Slack/email per `company/overview.md` SLA. The chain does not auto-send.
+After approval → Harry sends via Slack/email per `clients/{slug}/overview.md` SLA. The chain does not auto-send.
 
 ---
 
@@ -139,15 +139,15 @@ After approval → Harry sends via Slack/email per `company/overview.md` SLA. Th
 
 After the report is sent:
 
-1. Update `company/_config.md`:
+1. Update `clients/{slug}/_config.md`:
    - `last_review_date` → today's date
 
-2. Update `company/MEMORY.md`:
+2. Update `clients/{slug}/MEMORY.md`:
    - Active Focus: any new priorities surfaced this week
    - Active Inbound Watch: prune entries past their re-check date
    - Recent Learnings: any pattern from Step 2 Step 7 synthesis
 
-3. Update `company/comms-log.md` with an entry that the weekly report was sent.
+3. Update `clients/{slug}/comms-log.md` with an entry that the weekly report was sent.
 
 4. If health was Red/Critical in Step 1, ensure a follow-up action is scheduled (next Monday review, escalation call, etc.).
 
@@ -172,13 +172,13 @@ Step 4 — Report:
   - Draft generated and ready for Harry review
 
 Files updated:
-- company/copy-library.md
-- company/decision-log.md
-- company/test-log.md
-- company/campaign-state.md
-- company/MEMORY.md
-- company/_config.md (last_review_date)
-- company/comms-log.md (report sent entry — pending after Harry sends)
+- clients/{slug}/copy-library.md
+- clients/{slug}/decision-log.md
+- clients/{slug}/test-log.md
+- clients/{slug}/campaign-state.md
+- clients/{slug}/MEMORY.md
+- clients/{slug}/_config.md (last_review_date)
+- clients/{slug}/comms-log.md (report sent entry — pending after Harry sends)
 
 OS state for [client]: [Green/Amber/Red]
 Next review: Friday [date + 7]
@@ -192,13 +192,13 @@ Outstanding: [any client-side actions Harry needs to take this week]
 
 **Trigger:** "Friday portfolio triage", "Run triage for all clients", "Portfolio sweep"
 
-**Purpose:** Sweep all 20 clients in under 45 minutes and identify which ones need a full review this Friday. Run this first, every Friday. Then run single-client mode (Steps 0-5) only on flagged clients.
+**Purpose:** Sweep every active client in under 45 minutes and identify which ones need a full review this Friday. Run this first, every Friday. Then run single-client mode (Steps 0-5) only on flagged clients.
 
-**Prerequisites:** Harry supplies the client list at invocation: "Portfolio triage for: [Client A, Client B, ...]". A formal `clients.md` index will be added in v1.5.0 meta-OS. Until then, the list is the source of truth.
+**Client list:** enumerate the folders under `clients/` — each folder is one active client (slug = folder name), skipping any whose name starts with `_` or `.` (e.g. `clients/_archived/`). No manual list needed; the `clients/` directory is the source of truth. Harry can still scope it explicitly ("Portfolio triage for: acme, vector-health") to run a subset.
 
 ### Phase 1 — Triage Sweep (~2 min per client)
 
-For each client in the list, invoke `gtm-skills/weekly-reviewer.md` in quick-review mode.
+For each client folder under `clients/`, invoke `gtm-skills/weekly-reviewer.md` in quick-review mode, in full isolation (never mix client contexts).
 
 Output a running portfolio table as each client completes:
 

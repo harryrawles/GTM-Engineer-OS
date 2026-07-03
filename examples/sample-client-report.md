@@ -1,6 +1,6 @@
 # Sample Weekly Client Report
 
-Example of what `gtm-skills/client-report-writer.md` produces. Sent to client via Slack or email per `company/overview.md` SLA.
+Example of what `gtm-skills/client-report-writer.md` produces. Sent to client via Slack or email per `clients/{slug}/overview.md` SLA.
 
 ---
 

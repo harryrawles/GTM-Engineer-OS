@@ -8,10 +8,10 @@ triggers:
   - "Is this client ready to launch"
 reads:
   - "CLAUDE.md"
-  - "company/_config.md"
-  - "company/*.md"
+  - "clients/{slug}/_config.md"
+  - "clients/{slug}/*.md"
 writes:
-  - "company/_config.md (updates setup_complete flag)"
+  - "clients/{slug}/_config.md (updates setup_complete flag)"
 ---
 
 # Skill: Pre-Launch Check
@@ -30,7 +30,7 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -52,15 +52,15 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 1. **No unresolved `{{PLACEHOLDER}}` strings** in:
    - `CLAUDE.md`
-   - `company/_config.md`
-   - `company/overview.md`
-   - `company/icp.md`
-   - `company/offer.md`
-   - `company/voice.md`
+   - `clients/{slug}/_config.md`
+   - `clients/{slug}/overview.md`
+   - `clients/{slug}/icp.md`
+   - `clients/{slug}/offer.md`
+   - `clients/{slug}/voice.md`
 
-2. **No unresolved `{{TO CONFIRM}}` markers** anywhere in `company/*.md`.
+2. **No unresolved `{{TO CONFIRM}}` markers** anywhere in `clients/{slug}/*.md`.
 
-3. **`company/_config.md` has all required fields filled:**
+3. **`clients/{slug}/_config.md` has all required fields filled:**
    - `client_name`
    - `industry`
    - `primary_contact_name`
@@ -72,34 +72,34 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ### Warn-level (HIGH — fail = warn, can override)
 
-5. **`company/offer.md` has at least:**
+5. **`clients/{slug}/offer.md` has at least:**
    - One named case study with a specific number
    - At least 3 approved claims listed
    - Risk reversal / guarantee defined
 
-6. **`company/icp.md` has at least:**
+6. **`clients/{slug}/icp.md` has at least:**
    - 1 priority signal defined
    - 2+ decision-maker titles
    - Lead filter criteria block populated
    - Avoid list with at least one entry
 
-7. **`company/voice.md` has at least:**
+7. **`clients/{slug}/voice.md` has at least:**
    - Tone defined
    - Banned words list (even if empty, must be confirmed)
    - Spelling default explicitly set (UK / US)
 
-8. **`company/campaign-state.md` has:**
+8. **`clients/{slug}/campaign-state.md` has:**
    - At least one campaign or planning entry
    - Infrastructure section filled (domains, mailboxes, warmup status)
 
 ### Soft-level (LOW — informational)
 
-9. `company/decision-log.md` exists (even if empty — should have header)
-10. `company/comms-log.md` exists
-11. `company/copy-library.md` exists
-12. `company/test-log.md` exists
-13. SLA defined in `company/overview.md`
-14. Success criteria defined in `company/overview.md`
+9. `clients/{slug}/decision-log.md` exists (even if empty — should have header)
+10. `clients/{slug}/comms-log.md` exists
+11. `clients/{slug}/copy-library.md` exists
+12. `clients/{slug}/test-log.md` exists
+13. SLA defined in `clients/{slug}/overview.md`
+14. Success criteria defined in `clients/{slug}/overview.md`
 
 ---
 
@@ -135,7 +135,7 @@ VERDICT: {{READY / NOT READY}}
 - **READY:** zero blocking issues. Warnings may exist but do not stop launch.
 - **NOT READY:** any blocking issue present. Output the exact files and fields to fix.
 
-If READY, update `company/_config.md`:
+If READY, update `clients/{slug}/_config.md`:
 ```
 setup_complete: true
 last_pre_launch_check: {{YYYY-MM-DD}}
@@ -151,7 +151,7 @@ last_pre_launch_check: {{YYYY-MM-DD}}
 - **If invoked by another skill,** return a structured status the calling skill can act on:
   - `verdict: READY` → proceed
   - `verdict: NOT READY` → calling skill must STOP and instruct Harry to fix.
-- **Log every run** to `company/decision-log.md` as a "Setup verification" entry if verdict changes (e.g. went from NOT READY to READY).
+- **Log every run** to `clients/{slug}/decision-log.md` as a "Setup verification" entry if verdict changes (e.g. went from NOT READY to READY).
 
 ---
 
@@ -166,7 +166,7 @@ Claude:
 === Pre-Launch Check — {{CLIENT_NAME}} — 2026-05-29 ===
 
 BLOCKING ISSUES: 1
-[X] No unresolved {{PLACEHOLDER}} strings  | Found: company/voice.md:14 "{{Tone}}"
+[X] No unresolved {{PLACEHOLDER}} strings  | Found: clients/{slug}/voice.md:14 "{{Tone}}"
 [ ] No unresolved {{TO CONFIRM}} markers
 [ ] _config.md fully populated
 [ ] Instantly MCP connected
@@ -174,12 +174,12 @@ BLOCKING ISSUES: 1
 WARNINGS: 0
 
 SOFT ISSUES: 1
-[.] SLA not yet defined in company/overview.md
+[.] SLA not yet defined in clients/{slug}/overview.md
 
 VERDICT: NOT READY
 
 Fix needed:
-- company/voice.md line 14: tone field still has placeholder. Run client-onboarder Phase 4 or fill manually.
+- clients/{slug}/voice.md line 14: tone field still has placeholder. Run client-onboarder Phase 4 or fill manually.
 
 After fix, re-run pre-launch check before launching the campaign.
 ```

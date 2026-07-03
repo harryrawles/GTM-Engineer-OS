@@ -32,7 +32,7 @@ assignees: harryrawles
 
 ## Tracking
 
-- [ ] Logged to `company/test-log.md` as "Running"
+- [ ] Logged to `clients/{slug}/test-log.md` as "Running"
 - [ ] Latency window noted (+1 week post final send)
 - [ ] Daily metric tracking spreadsheet started
 
@@ -51,8 +51,8 @@ assignees: harryrawles
 
 ## Post-completion
 
-- [ ] Updated `company/test-log.md` to "Completed"
-- [ ] Logged decision to `company/decision-log.md`
-- [ ] If winner → added to `company/copy-library.md`
+- [ ] Updated `clients/{slug}/test-log.md` to "Completed"
+- [ ] Logged decision to `clients/{slug}/decision-log.md`
+- [ ] If winner → added to `clients/{slug}/copy-library.md`
 - [ ] If loser → added to graveyard
 - [ ] Next test queued

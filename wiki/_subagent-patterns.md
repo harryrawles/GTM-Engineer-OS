@@ -89,7 +89,7 @@ The single biggest failure mode is under-briefing the sub-agent. It has no conte
 5. **The success criterion** — how it knows when it's done
 
 Bad prompt: `"Review this copy."`
-Good prompt: `"Read company/voice.md and company/offer.md. Then review the email below against (a) banned words list, (b) approved claims list, (c) word count rules for the recipient register, and (d) voice tone. Return a structured list: PASS items and FAIL items. Do NOT rewrite the copy. Do NOT suggest alternatives. Just flag failures."`
+Good prompt: `"Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then review the email below against (a) banned words list, (b) approved claims list, (c) word count rules for the recipient register, and (d) voice tone. Return a structured list: PASS items and FAIL items. Do NOT rewrite the copy. Do NOT suggest alternatives. Just flag failures."`
 
 ---
 

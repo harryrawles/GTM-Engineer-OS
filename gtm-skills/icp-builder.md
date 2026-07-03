@@ -2,12 +2,12 @@
 
 **Trigger:** "Build the ICP", "refine the ICP", "who should we target", "define lead criteria", "update targeting"
 
-**Context:** Building or refining the ICP for this client. The output is a completed or updated `company/icp.md` — specific enough to source leads, write copy, and set up signal targeting.
+**Context:** Building or refining the ICP for this client. The output is a completed or updated `clients/{slug}/icp.md` — specific enough to source leads, write copy, and set up signal targeting.
 
 **Read before starting:**
-- `company/overview.md` — what the client does and who they serve
-- `company/offer.md` — what is being sold and what problem it solves
-- `company/icp.md` — current ICP (if updating, not building from scratch)
+- `clients/{slug}/overview.md` — what the client does and who they serve
+- `clients/{slug}/offer.md` — what is being sold and what problem it solves
+- `clients/{slug}/icp.md` — current ICP (if updating, not building from scratch)
 - `raw/onboarding-intake.md` — intake answers from the client
 - `wiki/list-building.md` — 3-layer ICP framework, scoring matrix, ABM tiers
 - `wiki/signal-sourcing.md` — to identify which signals are relevant for this ICP
@@ -18,7 +18,7 @@
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -38,9 +38,9 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 Confirm these before building:
 
-1. **What does the client sell?** (refer to `company/offer.md`)
+1. **What does the client sell?** (refer to `clients/{slug}/offer.md`)
 2. **Who is their best current customer?** (size, sector, title, geography)
-3. **What problem do they solve?** (refer to `company/offer.md`)
+3. **What problem do they solve?** (refer to `clients/{slug}/offer.md`)
 4. **What signals indicate buying intent?** (cross-reference with `wiki/signal-sourcing.md`)
 5. **Who should we avoid?** (bad-fit clients, competitors, sectors)
 
@@ -89,7 +89,7 @@ Output specific, actionable filter criteria ready to use in Instantly or a lead 
 
 ## OUTPUT FORMAT
 
-Update `company/icp.md` with the completed ICP. Confirm with Harry before updating the file.
+Update `clients/{slug}/icp.md` with the completed ICP. Confirm with Harry before updating the file.
 
 For a full ICP scoring system and ABM tier assignment, route to `gtm-skills/list-builder.md`.
 

@@ -105,7 +105,7 @@ When a skill or wiki file uses an unexplained term, look it up here.
 
 | Term | Definition |
 |------|-----------|
-| **OS** | Operating System. This template and its instantiation per client. |
-| **Wiki** | Shared knowledge base — same across all client repos. |
+| **OS** | Operating System. This multi-client repo: a shared layer plus one isolated `clients/{slug}/` folder per client. |
+| **Wiki** | Shared knowledge base in `wiki/` — same for every client (part of the shared layer). |
 | **Skill** | A defined AI workflow in `gtm-skills/`. |
 | **Compounding loop** | The Friday weekly-reviewer flow that makes the OS smarter over time. |

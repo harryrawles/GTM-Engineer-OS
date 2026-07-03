@@ -13,12 +13,12 @@ reads:
   - "wiki/inbound-orchestration.md"
   - "wiki/signal-sourcing.md"
   - "wiki/list-building.md"
-  - "company/icp.md"
-  - "company/campaign-state.md (tools section)"
+  - "clients/{slug}/icp.md"
+  - "clients/{slug}/campaign-state.md (tools section)"
 writes:
-  - "company/comms-log.md (logs the activation)"
-  - "company/decision-log.md (if novel signal pattern)"
-  - "company/MEMORY.md (active inbound under watch)"
+  - "clients/{slug}/comms-log.md (logs the activation)"
+  - "clients/{slug}/decision-log.md (if novel signal pattern)"
+  - "clients/{slug}/MEMORY.md (active inbound under watch)"
 ---
 
 # Skill: Inbound Activator
@@ -42,19 +42,19 @@ See `wiki/_skill-context.md`.
 
 **MUST READ:**
 - `wiki/inbound-orchestration.md` — the framework (signals, SLA, tiering)
-- `company/icp.md` — for qualification scoring
-- `company/campaign-state.md` Tools section — to know what enrichment is possible
+- `clients/{slug}/icp.md` — for qualification scoring
+- `clients/{slug}/campaign-state.md` Tools section — to know what enrichment is possible
 
 **READ IF:**
 - `wiki/signal-sourcing.md` — for multi-signal scoring across this and other detected signals
 - `wiki/list-building.md` — for ICP scoring methodology
-- `company/MEMORY.md` — check if this account is already under watch from prior signals
+- `clients/{slug}/MEMORY.md` — check if this account is already under watch from prior signals
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -86,7 +86,7 @@ If signal is older than its optimal window (per freshness rules in `wiki/signal-
 
 ## STEP 2 — Enrich
 
-Check `company/campaign-state.md` Tools section to see what's available.
+Check `clients/{slug}/campaign-state.md` Tools section to see what's available.
 
 ### If Clay connected
 Trigger Clay workflow for this signal type. Expected output:
@@ -130,7 +130,7 @@ Assign tier:
 
 ## STEP 4 — Check Multi-Signal Stack
 
-Query `company/decision-log.md`, recent `company/comms-log.md`, and any signal source available — is the same account showing other signals?
+Query `clients/{slug}/decision-log.md`, recent `clients/{slug}/comms-log.md`, and any signal source available — is the same account showing other signals?
 
 - 1 signal → standard route per tier
 - 2 signals → bump priority one level (B → A, A → urgent)
@@ -164,7 +164,7 @@ Based on tier × signal:
 
 ### Disqualify (D-tier)
 - **Action:** Add to suppression
-- **Log:** to `company/decision-log.md` with reason (don't waste future outreach)
+- **Log:** to `clients/{slug}/decision-log.md` with reason (don't waste future outreach)
 
 ---
 
@@ -182,11 +182,11 @@ Invoke `gtm-skills/cold-email-writer.md` with:
 ## STEP 7 — Log Everything
 
 ### Always
-- `company/comms-log.md` — signal activated, tier assigned, action taken
-- `company/MEMORY.md` — add to "Active inbound under watch" section
+- `clients/{slug}/comms-log.md` — signal activated, tier assigned, action taken
+- `clients/{slug}/MEMORY.md` — add to "Active inbound under watch" section
 
 ### If novel pattern
-- `company/decision-log.md` — if this is a new signal type or unusual stack
+- `clients/{slug}/decision-log.md` — if this is a new signal type or unusual stack
 
 ### If converts (replies positively)
 - Mark in MEMORY.md as "converted from inbound signal"

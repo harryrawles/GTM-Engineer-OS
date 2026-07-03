@@ -32,9 +32,9 @@ assignees: harryrawles
 
 ## Implementation plan
 
-- [ ] Update `company/[file].md`
-- [ ] Log to `company/decision-log.md` with reasoning
-- [ ] Log to `company/comms-log.md`
+- [ ] Update `clients/{slug}/[file].md`
+- [ ] Log to `clients/{slug}/decision-log.md` with reasoning
+- [ ] Log to `clients/{slug}/comms-log.md`
 - [ ] Run skill: {{skill name}}
 - [ ] Notify client of completion
 

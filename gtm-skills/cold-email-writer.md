@@ -2,7 +2,7 @@
 
 **Trigger:** "Write a cold email", "write me a sequence", "email copy for [campaign]", "cold email for [signal]"
 
-**Context:** Harry manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows company/voice.md. PRR is the only metric that matters.
+**Context:** Harry manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows clients/{slug}/voice.md. PRR is the only metric that matters.
 
 ---
 
@@ -13,12 +13,12 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 ## SKILL-SPECIFIC READS
 
 **MUST READ (every time):**
-- `company/copy-library.md` — past top-performing variants for this client
+- `clients/{slug}/copy-library.md` — past top-performing variants for this client
 - `wiki/copywriting-101.md` — canonical rules, 4-part formula
 - `wiki/psychological-principles.md` — bias mapping per copy stage (which to leverage, which to avoid)
 
 **READ IF CONDITION:**
-- `company/decision-log.md` — if optimising or building on a prior decision
+- `clients/{slug}/decision-log.md` — if optimising or building on a prior decision
 - `wiki/atl-btl-messaging.md` — if recipient register (ATL vs BTL) is unclear
 - `wiki/personalization-at-scale.md` — if personalisation tier needs to be decided
 - `wiki/signal-sourcing.md` — if mapping a signal to a copy angle
@@ -34,7 +34,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -66,7 +66,7 @@ If Instantly MCP is unavailable, ask Harry to paste the metrics before continuin
 
 ### Step 2 — Surface winning copy
 
-Read `company/copy-library.md`. Find entries matching:
+Read `clients/{slug}/copy-library.md`. Find entries matching:
 - Same signal type
 - Same sequence step (Email 1, 2, or 3)
 - PRR above 1.5%
@@ -76,7 +76,7 @@ If no match exists: state you are starting fresh.
 
 ### Step 3 — Check the graveyard
 
-Read the Graveyard section in `company/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
+Read the Graveyard section in `clients/{slug}/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
 
 ### Step 4 — Decide register (ATL vs BTL)
 
@@ -223,8 +223,8 @@ Skip Pass 2 for: routine sequence variants, Email 2/3 follow-ups when Email 1 al
 - [ ] CTA is one binary question?
 - [ ] No question marks except the CTA?
 - [ ] No links in the body?
-- [ ] No banned words from `company/voice.md`?
-- [ ] Uses only approved claims from `company/offer.md`?
+- [ ] No banned words from `clients/{slug}/voice.md`?
+- [ ] Uses only approved claims from `clients/{slug}/offer.md`?
 - [ ] Different value prop from other emails in the sequence?
 - [ ] Subject line 2-4 words, lowercase?
 - [ ] Subject + preview reads as a complete thought?
@@ -236,4 +236,4 @@ Skip Pass 2 for: routine sequence variants, Email 2/3 follow-ups when Email 1 al
 
 ## ACTIVE-TEST ENFORCEMENT
 
-Before modifying a campaign or its sequence, check `company/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.
+Before modifying a campaign or its sequence, check `clients/{slug}/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.

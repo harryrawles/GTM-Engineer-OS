@@ -12,12 +12,12 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/deliverability.md"
-  - "company/campaign-state.md"
-  - "company/overview.md"
+  - "clients/{slug}/campaign-state.md"
+  - "clients/{slug}/overview.md"
 writes:
-  - "company/decision-log.md (incident entry)"
-  - "company/comms-log.md (client communication)"
-  - "company/campaign-state.md (campaign status updates)"
+  - "clients/{slug}/decision-log.md (incident entry)"
+  - "clients/{slug}/comms-log.md (client communication)"
+  - "clients/{slug}/campaign-state.md (campaign status updates)"
 ---
 
 # Skill: Incident Responder
@@ -38,7 +38,7 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -132,7 +132,7 @@ Harry
 
 ### After resolution (within 7 days)
 
-8. **Post-mortem** logged to `company/decision-log.md`:
+8. **Post-mortem** logged to `clients/{slug}/decision-log.md`:
 ```
 ### {{date}} — Incident: Blacklist on {{domain}}
 
@@ -201,7 +201,7 @@ Harry
 
 ### Post-mortem
 
-Logged to `company/decision-log.md` per template above.
+Logged to `clients/{slug}/decision-log.md` per template above.
 
 ---
 

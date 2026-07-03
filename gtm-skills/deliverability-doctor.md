@@ -7,13 +7,13 @@
 **Read before diagnosing:**
 - `wiki/deliverability.md` — infrastructure, DNS, warmup, monitoring, troubleshooting
 - `wiki/email-benchmarks.md` — what deliverability metrics should look like
-- `company/campaign-state.md` — current infrastructure status
+- `clients/{slug}/campaign-state.md` — current infrastructure status
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -138,4 +138,4 @@ Check:
 - **Plain text only.** Always. No HTML for cold outreach. Ever.
 - **Never stop warmup.** 10-20/day per mailbox even during active campaigns.
 - **Re-verify lists every 30 days.** Email decays 2.1% per month.
-- **Document infrastructure changes** in `company/campaign-state.md` so future-Harry knows what changed.
+- **Document infrastructure changes** in `clients/{slug}/campaign-state.md` so future-Harry knows what changed.

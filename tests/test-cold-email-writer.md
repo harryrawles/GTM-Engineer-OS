@@ -16,7 +16,7 @@ Claude should:
 
 ### 1. Run Pre-Write Protocol
 - Pull Instantly data (or ask Harry to paste)
-- Read company/copy-library.md for prior winners on hiring signal
+- Read clients/{slug}/copy-library.md for prior winners on hiring signal
 - Check graveyard
 - Decide register: VP Engineering → ATL → max 60 words
 - Decide personalisation: $25K+ ACV (recruitment fees are 20%+ of senior salary) → personalise
@@ -27,7 +27,7 @@ Claude should:
 - Under 60 words (ATL ceiling)
 - No question marks except CTA
 - Subject 2-4 words, lowercase
-- Use approved claims from company/offer.md only ({{NAMED_PROOF_COMPANY}} $100k, 72-hour shortlist, etc.)
+- Use approved claims from clients/{slug}/offer.md only ({{NAMED_PROOF_COMPANY}} $100k, 72-hour shortlist, etc.)
 - Match voice (American English, direct, data-led, no fluff)
 - Do NOT mention the signal directly ("saw you posted 3 roles")
 

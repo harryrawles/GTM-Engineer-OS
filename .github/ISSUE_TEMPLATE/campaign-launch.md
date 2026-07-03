@@ -19,7 +19,7 @@ assignees: harryrawles
 
 Run `gtm-skills/pre-launch-check.md` and `gtm-skills/campaign-launcher.md` to verify each item.
 
-- [ ] All `{{PLACEHOLDER}}` values resolved in `company/*.md`
+- [ ] All `{{PLACEHOLDER}}` values resolved in `clients/{slug}/*.md`
 - [ ] Copy approved by client (link approval below)
 - [ ] Sequence loaded into Instantly correctly
 - [ ] Send times match client timezone
@@ -29,7 +29,7 @@ Run `gtm-skills/pre-launch-check.md` and `gtm-skills/campaign-launcher.md` to ve
 - [ ] Warmup status green for all mailboxes
 - [ ] Bounce rate baseline acceptable
 - [ ] Stop conditions defined
-- [ ] Logged to `company/decision-log.md`
+- [ ] Logged to `clients/{slug}/decision-log.md`
 
 ## Client approval
 

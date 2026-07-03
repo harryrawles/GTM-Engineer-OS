@@ -31,8 +31,8 @@ The "sample shortlist" CTA pattern (or its equivalent — sample audit, sample a
 - The "10-15 hrs/week" number is engineering-recruiting-specific
 
 **Linked entries:**
-- `company/copy-library.md` → Hiring Signal v4 Email 1 (PRR 2.4%)
-- `company/test-log.md` → T-002 confirmed this was variant winner
+- `clients/{slug}/copy-library.md` → Hiring Signal v4 Email 1 (PRR 2.4%)
+- `clients/{slug}/test-log.md` → T-002 confirmed this was variant winner
 
 **Outcome (to update):**
 *Will update at next QBR with adoption rate on other campaigns.*
@@ -64,8 +64,8 @@ Pausing Funding v2 Email 1. Replacing via test T-006 with reframed offer.
 - Sentences over 18 words lose attention in cold
 
 **Linked entries:**
-- `company/copy-library.md` → Graveyard: Funding v2 Email 1
-- `company/test-log.md` → T-006 (queued — reframe to "scale without headcount" angle)
+- `clients/{slug}/copy-library.md` → Graveyard: Funding v2 Email 1
+- `clients/{slug}/test-log.md` → T-006 (queued — reframe to "scale without headcount" angle)
 
 ---
 
@@ -79,7 +79,7 @@ Pausing Funding v2 Email 1. Replacing via test T-006 with reframed offer.
 - Time spent qualifying out 200+ orgs was 30% of our sourcing effort
 
 **Decision:**
-Updated `company/icp.md` lead filter: maxHeadcount changed from 500 to 200.
+Updated `clients/{slug}/icp.md` lead filter: maxHeadcount changed from 500 to 200.
 
 **Why:**
 - {{CLIENT_NAME}}'s wedge (sourcing from VC-backed product companies) matters more to smaller, faster-moving teams

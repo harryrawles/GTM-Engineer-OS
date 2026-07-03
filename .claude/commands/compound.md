@@ -1,6 +1,6 @@
 ---
 name: gtm:compound
-description: Capture a GTM win to company/copy-library.md and company/decision-log.md while context is hot. Auto-triggers on win phrases. Uses parallel subagents to extract copy, metrics, and the replicable pattern simultaneously.
+description: Capture a GTM win to clients/{slug}/copy-library.md and clients/{slug}/decision-log.md while context is hot. Auto-triggers on win phrases. Uses parallel subagents to extract copy, metrics, and the replicable pattern simultaneously.
 argument-hint: "[optional: brief context about the win]"
 ---
 
@@ -27,7 +27,7 @@ Manual: `/gtm:compound [optional context]`
 
 ## STEP 0 — Log invocation
 
-Append to `company/session-log.md` Active Log:
+Append to `clients/{slug}/session-log.md` Active Log:
 ```
 | YYYY-MM-DD HH:MM | Win capture triggered — [brief context] | gtm:compound | (filled at end) |
 ```
@@ -39,7 +39,7 @@ Append to `company/session-log.md` Active Log:
 Launch all four as parallel subagents. Each returns TEXT DATA — no file writes in Phase 1.
 
 ### Subagent 1 — Metrics Extractor
-From the current conversation and `company/campaign-state.md`, extract:
+From the current conversation and `clients/{slug}/campaign-state.md`, extract:
 - Campaign name, signal, target ICP/title, sequence step (Email 1/2/3)
 - Sends, PRR, reply rate, meetings booked
 If a metric is missing, mark `{{CONFIRM}}`.
@@ -50,7 +50,7 @@ Find the subject line and full email body from the current conversation. If a fu
 Returns: full copy block per email step.
 
 ### Subagent 3 — Why-It-Worked Analyst
-Read `company/copy-library.md` (prior entries for this signal/ICP) and `wiki/psychological-principles.md` (Biases by Copy Stage table). Identify:
+Read `clients/{slug}/copy-library.md` (prior entries for this signal/ICP) and `wiki/psychological-principles.md` (Biases by Copy Stage table). Identify:
 - Which specific element drove performance: Part 1 signal reference, Part 2 proof, Part 3 offer framing, Part 4 CTA, sequence structure, personalisation tier?
 - Which biases does this copy deliberately leverage?
 - The single most portable pattern (works on a different client)
@@ -112,9 +112,9 @@ Returns: replication guidance + portability rating.
 
 ## Phase 3 — Write and confirm
 
-1. Read `company/copy-library.md` — confirm entry does not already exist (match by campaign name + date)
-2. Append to `company/copy-library.md` Top Performers section
-3. Append to `company/decision-log.md`
+1. Read `clients/{slug}/copy-library.md` — confirm entry does not already exist (match by campaign name + date)
+2. Append to `clients/{slug}/copy-library.md` Top Performers section
+3. Append to `clients/{slug}/decision-log.md`
 4. Update session-log outcome column
 
 Output:

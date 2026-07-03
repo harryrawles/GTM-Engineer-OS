@@ -9,14 +9,14 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/_subagent-patterns.md"
-  - "company/session-log.md (to study the pattern's example prompts)"
+  - "clients/{slug}/session-log.md (to study the pattern's example prompts)"
   - "gtm-skills/*.md (sample existing skills for format)"
   - "Any existing skills that handle related work (to avoid duplication)"
 writes:
   - "gtm-skills/forged-{name}.md (the new skill candidate)"
-  - "company/session-log.md (Forged skills tracking table)"
-  - "company/MEMORY.md (adds to Active Focus for review)"
-  - "company/decision-log.md (forging rationale)"
+  - "clients/{slug}/session-log.md (Forged skills tracking table)"
+  - "clients/{slug}/MEMORY.md (adds to Active Focus for review)"
+  - "clients/{slug}/decision-log.md (forging rationale)"
 ---
 
 # Skill: Skill Forge
@@ -105,7 +105,7 @@ forged_from:
 
 **Context:** {{Why this skill exists, distilled from the pattern Harry has shown.}}
 
-**Forged from pattern:** detected on {{date}}. See ``company/session-log.md`` Forged skills table.
+**Forged from pattern:** detected on {{date}}. See ``clients/{slug}/session-log.md`` Forged skills table.
 
 ---
 
@@ -167,19 +167,19 @@ The `forged-` prefix is **mandatory and load-bearing**:
 
 ## STEP 5 — Log the Forging
 
-### Update `company/session-log.md` Forged skills table:
+### Update `clients/{slug}/session-log.md` Forged skills table:
 
 ```
 | forged-{{name}} | {{intent-name}} | {{date}} | Pending review | (blank until promoted) |
 ```
 
-### Update `company/MEMORY.md` Active Focus:
+### Update `clients/{slug}/MEMORY.md` Active Focus:
 
 ```
 - 🆕 Forged skill: `gtm-skills/forged-{{name}}.md` — created {{date}} from {{N}} repeating prompts. Review and either promote (rename to drop `forged-` prefix + add to CLAUDE.md routing) or delete.
 ```
 
-### Update `company/decision-log.md`:
+### Update `clients/{slug}/decision-log.md`:
 
 ```
 ### {{date}} — Forged new skill: {{name}}

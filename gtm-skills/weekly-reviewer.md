@@ -2,7 +2,7 @@
 
 **Trigger:** "Run weekly review for {{client}}", "Weekly sweep", "Run weekly review for all clients", "End of week review", "Friday review"
 
-**Context:** The compounding loop of the OS. Without this skill running consistently, `company/copy-library.md`, `company/test-log.md`, and `company/decision-log.md` stay empty — meaning every campaign starts from scratch. **This is the single most important recurring skill in the OS.**
+**Context:** The compounding loop of the OS. Without this skill running consistently, `clients/{slug}/copy-library.md`, `clients/{slug}/test-log.md`, and `clients/{slug}/decision-log.md` stay empty — meaning every campaign starts from scratch. **This is the single most important recurring skill in the OS.**
 
 **Cadence:** every Friday afternoon (or first thing Monday). Skipping a week is fine. Skipping a month means the compounding effect is dead.
 
@@ -15,27 +15,27 @@
 ## READS
 
 - Instantly MCP — last 7 days per campaign per client
-- `company/campaign-state.md` — current campaign list and health
-- `company/icp.md` — to check signal alignment
-- `company/copy-library.md` — prior winners (do not re-log)
-- `company/test-log.md` — currently running tests
+- `clients/{slug}/campaign-state.md` — current campaign list and health
+- `clients/{slug}/icp.md` — to check signal alignment
+- `clients/{slug}/copy-library.md` — prior winners (do not re-log)
+- `clients/{slug}/test-log.md` — currently running tests
 - `wiki/signal-sourcing.md` — signal performance benchmarks
 - `wiki/email-benchmarks.md` — what good looks like
-- `company/decision-log.md` — prior decision rationale (read for context)
+- `clients/{slug}/decision-log.md` — prior decision rationale (read for context)
 
 ## WRITES (now includes the canonical scientific-method discipline)
 
-- `company/copy-library.md` — new winners (with why-it-worked notes)
-- `company/copy-library.md` graveyard section — new losers
-- `company/decision-log.md` — rationale for every winner logged
-- `company/test-log.md` — completed test results, next test queued
-- `company/campaign-state.md` — refreshed health rating per campaign
+- `clients/{slug}/copy-library.md` — new winners (with why-it-worked notes)
+- `clients/{slug}/copy-library.md` graveyard section — new losers
+- `clients/{slug}/decision-log.md` — rationale for every winner logged
+- `clients/{slug}/test-log.md` — completed test results, next test queued
+- `clients/{slug}/campaign-state.md` — refreshed health rating per campaign
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -79,16 +79,16 @@ The portfolio triage pattern: run quick-review on every client first, collect th
 
 ### Pull data
 
-Pull last 7 days from Instantly MCP. If MCP unavailable, read `company/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
+Pull last 7 days from Instantly MCP. If MCP unavailable, read `clients/{slug}/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
 
 ### Four triage gates
 
 | Gate | Check | Flag if... |
 |------|-------|------------|
-| G1 — Winner candidate | Any campaign PRR ≥ 1.5% with ≥ 300 sends | NOT already in `company/copy-library.md` Top Performers |
-| G2 — Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `company/copy-library.md` Graveyard |
-| G3 — Test completing | Any Running test in `company/test-log.md` | Sample size hit AND latency window elapsed this week |
-| G4 — Signal declining | Any signal in `company/icp.md` signal table | PRR down 30%+ week-over-week |
+| G1 — Winner candidate | Any campaign PRR ≥ 1.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Top Performers |
+| G2 — Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Graveyard |
+| G3 — Test completing | Any Running test in `clients/{slug}/test-log.md` | Sample size hit AND latency window elapsed this week |
+| G4 — Signal declining | Any signal in `clients/{slug}/icp.md` signal table | PRR down 30%+ week-over-week |
 
 ### Output and routing
 
@@ -96,8 +96,8 @@ Pull last 7 days from Instantly MCP. If MCP unavailable, read `company/campaign-
 ```
 {{client_name}} — Green pass. PRR {{x}}%, {{n}} meetings. No action this Friday.
 ```
-- Update health to Green in `company/campaign-state.md` (or preserve current rating if already higher)
-- Update `company/_config.md` `last_review_date` to today
+- Update health to Green in `clients/{slug}/campaign-state.md` (or preserve current rating if already higher)
+- Update `clients/{slug}/_config.md` `last_review_date` to today
 - Write session-log row (see below)
 - Done — move to next client
 
@@ -113,7 +113,7 @@ Escalate to SINGLE-CLIENT MODE — Full Flow below.
 
 ### Session-log entry
 
-Write one row to `company/session-log.md` Active Log:
+Write one row to `clients/{slug}/session-log.md` Active Log:
 ```
 | YYYY-MM-DD HH:MM | Quick-review triage | weekly-reviewer | Green pass / Flagged: [gates fired] |
 ```
@@ -134,7 +134,7 @@ If Instantly MCP is unavailable → ask Harry to paste the data. Continue from S
 
 ### Step 2 — Surface signal performance trends
 
-For each active signal in `company/icp.md`:
+For each active signal in `clients/{slug}/icp.md`:
 - 7-day PRR vs prior 7 days
 - 30-day rolling PRR trend
 - Flag any signal trending down 30%+ week over week
@@ -153,7 +153,7 @@ If a signal is flagged: recommend either pause + iterate, or rotate in a new sig
 
 ### Step 3 — Identify winners (PRR ≥ 1.5%, sample ≥ 300 sends)
 
-For each campaign / variant hitting the winner threshold AND not already in `company/copy-library.md`:
+For each campaign / variant hitting the winner threshold AND not already in `clients/{slug}/copy-library.md`:
 
 1. Output the candidate winner:
 ```
@@ -177,9 +177,9 @@ Subject: {{subject}}
    - **What is the most stealable element?** (the pattern to replicate)
    - **Anything you would NOT carry over to another client?**
 
-4. **Write to `company/copy-library.md`** in the Top Performers section using the existing template (client, date, signal, target ICP, sequence step, metrics, full copy, why it worked, what to steal).
+4. **Write to `clients/{slug}/copy-library.md`** in the Top Performers section using the existing template (client, date, signal, target ICP, sequence step, metrics, full copy, why it worked, what to steal).
 
-5. **Write to `company/decision-log.md`** with the rationale (see decision-log template below).
+5. **Write to `clients/{slug}/decision-log.md`** with the rationale (see decision-log template below).
 
 6. Confirm both writes to Harry.
 
@@ -189,10 +189,10 @@ For each campaign / variant hitting the loser threshold AND not already in the g
 
 1. Output the candidate loser with metrics and copy.
 2. Ask: **"Log this to the graveyard? What was the root cause?"**
-3. Write to `company/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
-4. Write to `company/decision-log.md` capturing the lesson.
+3. Write to `clients/{slug}/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
+4. Write to `clients/{slug}/decision-log.md` capturing the lesson.
 
-### Step 5 — Update completed tests in `company/test-log.md` (apply scientific method)
+### Step 5 — Update completed tests in `clients/{slug}/test-log.md` (apply scientific method)
 
 For each test currently in "Running" status, run the **six-rule completion check** from `wiki/scientific-method.md` Step 3:
 
@@ -219,8 +219,8 @@ If all 6 pass → proceed to the **5-question tree** (Step 3.2):
 
 If the completed variant V(n+1) was an iteration of V(n), compare PRR head-to-head:
 
-- **V(n+1) regressed from V(n) by more than the backtrack threshold defined in test-log** → recommend **REVERT** to V(n) and iterate a DIFFERENT needle-mover next. Log the regression as a learning in `company/decision-log.md` under "What we tried + what failed" and in `company/test-log.md` Reverted Tests section.
-- **V(n+1) improved over V(n)** → promote V(n+1) as the new control. Update `company/copy-library.md` if PRR ≥ 1.5%. Queue next test (different needle-mover, OR same needle-mover at a different modification level, OR same modification on a different variable per the priority order in `wiki/scientific-method.md` Step 4.2).
+- **V(n+1) regressed from V(n) by more than the backtrack threshold defined in test-log** → recommend **REVERT** to V(n) and iterate a DIFFERENT needle-mover next. Log the regression as a learning in `clients/{slug}/decision-log.md` under "What we tried + what failed" and in `clients/{slug}/test-log.md` Reverted Tests section.
+- **V(n+1) improved over V(n)** → promote V(n+1) as the new control. Update `clients/{slug}/copy-library.md` if PRR ≥ 1.5%. Queue next test (different needle-mover, OR same needle-mover at a different modification level, OR same modification on a different variable per the priority order in `wiki/scientific-method.md` Step 4.2).
 - **V(n+1) inconclusive (within margin of V(n))** → re-test with a moderate modification of the same needle-mover.
 
 Output the regression verdict explicitly:
@@ -253,16 +253,16 @@ Winner: {{Control / Variant / Inconclusive}}
 
 2. Ask: **"Confirm result? Conclusion?"**
 
-3. Write the result to `company/test-log.md` Completed Tests section.
+3. Write the result to `clients/{slug}/test-log.md` Completed Tests section.
 
 4. Apply scientific method (`wiki/scientific-method.md`):
    - If variant won → promote variant to new control. Recommend next test from priority order.
    - If control won → return to control. Pick a different needle-mover variable.
    - If inconclusive → recommend re-test with refined hypothesis.
 
-5. Queue the recommended next test in `company/test-log.md` testing roadmap.
+5. Queue the recommended next test in `clients/{slug}/test-log.md` testing roadmap.
 
-### Step 6 — Update campaign health in `company/campaign-state.md`
+### Step 6 — Update campaign health in `clients/{slug}/campaign-state.md`
 
 For each active campaign, set health:
 - **Green** — PRR ≥ 1.5%, bounce < 2%, all sequence steps performing
@@ -280,8 +280,8 @@ Ask Harry one question:
 
 Then classify the pattern type:
 
-- **Copy pattern** (a specific phrasing, hook, CTA, framework, sequence step is working/failing repeatedly) → write to `company/copy-library.md` **Cross-Campaign Patterns** table
-- **Strategic pattern** (signal health, ICP fit, offer framing, sequence structure, persona register) → write to `company/decision-log.md` **Recurring Patterns** section
+- **Copy pattern** (a specific phrasing, hook, CTA, framework, sequence step is working/failing repeatedly) → write to `clients/{slug}/copy-library.md` **Cross-Campaign Patterns** table
+- **Strategic pattern** (signal health, ICP fit, offer framing, sequence structure, persona register) → write to `clients/{slug}/decision-log.md` **Recurring Patterns** section
 
 Format the entry as:
 
@@ -348,28 +348,28 @@ If yes → invoke `gtm-skills/client-report-writer.md` using the data just analy
 
 ---
 
-## BATCH MODE — Portfolio Sweep (v2 — requires meta-OS)
+## BATCH MODE — Portfolio Sweep
 
 Triggered by "Run weekly review for all clients" or "Weekly portfolio sweep."
 
-**STATUS: deferred until meta-OS exists** (build when Harry has 3-5 active clients).
+This is the multi-client OS — no separate meta-OS repo is needed. The portfolio **is** the set of folders
+under `clients/`.
 
-**Workaround for now:**
-- Harry runs single-client mode sequentially: `Run weekly review for {{client}}` for each active client
-- Outputs a manual portfolio summary at the end by aggregating individual reviews
-- Total time: 15 min per client × n clients
+**How the client list is resolved:**
+- Enumerate every active folder in `clients/` — each is one client (its slug is the folder name). Skip any subfolder whose name starts with `_` or `.` (e.g. `clients/_archived/`).
+- Run the sweep once per client, in **full isolation**: read/write only that client's `clients/{slug}/`
+  files. Never carry one client's copy, ICP, or data into another's review.
+- Cross-client *patterns* (e.g. a winning Email 1 framework working across 3 clients) may be surfaced in
+  the aggregate summary as an observation — but never by copying one client's private data into another.
 
-**When meta-OS is built (planned):**
-- A `harryrawles/gtm-meta-os` repo lists active client repos
-- Batch mode iterates: pull data, surface health one-liner per client, drill into flagged accounts
-- Auto-aggregates portfolio summary at end
-- Cross-client patterns surfaced (winning Email 1 framework working across 3 clients, etc.)
+**Total time guide:** ~15 min per client if run as full deep reviews; use Portfolio Triage first (quick
+one-line health per client, then deep-dive only flagged accounts) to keep the whole sweep to 2.5-4 hours.
 
-The flow below describes batch mode for when meta-OS is built. For now, refer to single-client mode (Step 1-7 above).
+The flow below is the batch flow.
 
 ### Batch flow
 
-For each client repo in sequence:
+For each client folder under `clients/` in sequence:
 1. Pull last 7 days of Instantly data
 2. Output a one-line health summary per client:
 ```
@@ -469,8 +469,8 @@ Anything you would NOT carry over to another client?
 Harry: The dollar figure is {{CLIENT_NAME}}-specific. Other clients need their own proof number.
 
 Claude:
-Writing to company/copy-library.md... done.
-Writing to company/decision-log.md... done.
+Writing to clients/{slug}/copy-library.md... done.
+Writing to clients/{slug}/decision-log.md... done.
 
 Next: loser candidates.
 

@@ -7,8 +7,8 @@
 **Read before responding:**
 - `wiki/list-building.md` — full methodology: ICP framework, scoring, ABM tiers, contact mapping, hygiene
 - `wiki/signal-sourcing.md` — for intent data layering during qualification
-- `company/icp.md` — current client ICP
-- `company/offer.md` — to ensure ICP matches what is being sold
+- `clients/{slug}/icp.md` — current client ICP
+- `clients/{slug}/offer.md` — to ensure ICP matches what is being sold
 
 ---
 
@@ -27,7 +27,7 @@
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -51,7 +51,7 @@ Use the 3-layer framework from `wiki/list-building.md`:
 2. **Technographic** — tech stack, CRM, marketing automation, competitive tools
 3. **Behavioural / intent** — job postings, funding events, leadership changes, content engagement, website visits
 
-Output: structured ICP that can populate `company/icp.md`.
+Output: structured ICP that can populate `clients/{slug}/icp.md`.
 
 ---
 

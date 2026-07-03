@@ -1,6 +1,6 @@
 ---
 name: test-readiness-check
-description: Pre-test gate. Validates that a planned test in company/test-log.md has all Step 1 fields completed per the scientific method, plus stop conditions and a backtrack plan. Blocks test-launcher if anything is missing. Forces the discipline that makes iteration compound.
+description: Pre-test gate. Validates that a planned test in clients/{slug}/test-log.md has all Step 1 fields completed per the scientific method, plus stop conditions and a backtrack plan. Blocks test-launcher if anything is missing. Forces the discipline that makes iteration compound.
 triggers:
   - "Run test-readiness check on T-{{XXX}}"
   - "Is the test ready to launch"
@@ -9,18 +9,18 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/scientific-method.md"
-  - "company/test-log.md (the test in Queued status)"
-  - "company/campaign-state.md (for constants verification)"
+  - "clients/{slug}/test-log.md (the test in Queued status)"
+  - "clients/{slug}/campaign-state.md (for constants verification)"
 writes:
-  - "company/test-log.md (marks readiness check status on the test entry)"
-  - "company/decision-log.md (if blocking issue surfaces a design question)"
+  - "clients/{slug}/test-log.md (marks readiness check status on the test entry)"
+  - "clients/{slug}/decision-log.md (if blocking issue surfaces a design question)"
 ---
 
 # Skill: Test Readiness Check
 
 **Trigger:** "Run test-readiness check on T-XXX", "Is the test ready to launch", "Verify test setup", "Check test T-XXX"
 
-**Context:** Mirror of `gtm-skills/pre-launch-check.md`, but for tests specifically. Validates that a Queued test in `company/test-log.md` has all the Step 1 fields, stop conditions, and backtrack plan defined per the scientific method. Blocks `gtm-skills/test-launcher.md` from firing if anything is missing.
+**Context:** Mirror of `gtm-skills/pre-launch-check.md`, but for tests specifically. Validates that a Queued test in `clients/{slug}/test-log.md` has all the Step 1 fields, stop conditions, and backtrack plan defined per the scientific method. Blocks `gtm-skills/test-launcher.md` from firing if anything is missing.
 
 **Why this exists:** without enforced discipline, tests get launched with vague hypotheses, no defined sample size, drifting constants, or no plan for what to do if they fail. The result is data you cannot reason about. This skill prevents that.
 
@@ -33,21 +33,21 @@ See `wiki/_skill-context.md`.
 ## SKILL-SPECIFIC READS
 
 - `wiki/scientific-method.md` — the canonical 4-step framework
-- `company/test-log.md` — the test under evaluation (in Queued status)
-- `company/campaign-state.md` — to verify infrastructure constants are stable
+- `clients/{slug}/test-log.md` — the test under evaluation (in Queued status)
+- `clients/{slug}/campaign-state.md` — to verify infrastructure constants are stable
 
 ---
 
 ## INPUTS
 
-- **Test ID** (T-XXX) — the test in `company/test-log.md` to evaluate
+- **Test ID** (T-XXX) — the test in `clients/{slug}/test-log.md` to evaluate
 - If no ID given, default to the most recently queued test in the testing roadmap
 
 ---
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -134,7 +134,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 - Complete rewrite on a close-to-KPI variant (PRR 2.3% vs 3.5% target) → warn, recommend slight
 
 **13. Constant overlap with another active test**
-- No other Running test in `company/test-log.md` uses the same campaign / mailbox / lead source
+- No other Running test in `clients/{slug}/test-log.md` uses the same campaign / mailbox / lead source
 
 **14. Polaris (secondary) currently above KPI**
 - If secondary (ABR) is currently at or above KPI, warn — Step 3.2 Q2 says do NOT iterate primary while Polaris is hitting
@@ -175,7 +175,7 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 ## VERDICT RULES
 
 - **READY:** zero blocking issues, zero warnings. Test-launcher can proceed.
-- **READY WITH WARNINGS:** zero blocking issues, 1+ warnings. Harry must explicitly say "proceed with warnings" before test-launcher fires. The warnings get logged to `company/test-log.md` and `company/decision-log.md`.
+- **READY WITH WARNINGS:** zero blocking issues, 1+ warnings. Harry must explicitly say "proceed with warnings" before test-launcher fires. The warnings get logged to `clients/{slug}/test-log.md` and `clients/{slug}/decision-log.md`.
 - **NOT READY:** any blocking issue present. Test-launcher refuses. Specific gaps listed.
 
 ---
@@ -185,7 +185,7 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 - **Block by default.** A NOT READY verdict is the right answer when uncertain — slow tests are better than meaningless tests.
 - **Be specific about failures.** Not "Sample size missing" — "Section 1.3 of T-006 in test-log.md is blank. Set sample size in writing (minimum 300 for cold email)."
 - **Do not auto-fix.** Surface gaps, let Harry resolve them in test-log.md.
-- **Log every check.** Even passes go to `company/decision-log.md` as a Setup verification entry — the audit trail matters for QBR and weekly review.
+- **Log every check.** Even passes go to `clients/{slug}/decision-log.md` as a Setup verification entry — the audit trail matters for QBR and weekly review.
 - **Cite scientific-method.md.** When warning on modification level mismatch (e.g. slight modification on dead variant), reference the exact rule from `wiki/scientific-method.md` Step 4.4.
 
 ---
@@ -212,7 +212,7 @@ WARNINGS: 1
 
 VERDICT: NOT READY
 
-Fix needed in company/test-log.md → T-006:
+Fix needed in clients/{slug}/test-log.md → T-006:
 1. Section 1.7 — add: send time of day (current campaign sends 9am-11am EST), follow-up sequence (current 3-step sequence with D3 and D7 follow-ups)
 2. Add Backtrack Plan section — define regression threshold (suggested: V(2) PRR <0.4% within first 300 sends triggers revert to V(1)), name revert target (Hiring v4 Email 1), state next-direction (modify CTA instead of Content if this regresses)
 

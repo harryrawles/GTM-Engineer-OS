@@ -6,7 +6,7 @@
 # Logs every Claude Code hook event to a per-session JSONL file.
 # Output: .claude/sessions/<session_id>.jsonl (one JSON object per line)
 #
-# Distinct from company/session-log.md (the per-client AI-readable skill
+# Distinct from clients/{slug}/session-log.md (the per-client AI-readable skill
 # invocation log read by pattern-detector). This file is the raw system
 # audit trail — unconditional, cannot be skipped by a skill.
 #

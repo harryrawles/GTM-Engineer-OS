@@ -231,7 +231,7 @@ gantt
 
 ```mermaid
 flowchart TD
-    A[Client OS Repo] --> B[Per-client files<br/>company/]
+    A[Client OS Repo] --> B[Per-client files<br/>clients/{slug}/]
     A --> C[Shared knowledge<br/>wiki/]
     A --> D[AI skills<br/>gtm-skills/]
     A --> E[Infrastructure<br/>README, BOOTSTRAP, VERSION]

@@ -5,13 +5,13 @@
 **Context:** Diagnosing underperforming campaigns and recommending the highest-leverage fix. Always follow the scientific method — one variable at a time.
 
 **Read before diagnosing — primary:**
-- `company/campaign-state.md` — live campaign status and benchmarks
-- `company/icp.md` — ICP and signal accuracy check
-- `company/offer.md` — offer and proof point check
+- `clients/{slug}/campaign-state.md` — live campaign status and benchmarks
+- `clients/{slug}/icp.md` — ICP and signal accuracy check
+- `clients/{slug}/offer.md` — offer and proof point check
 - `wiki/scientific-method.md` — test methodology
 - `wiki/copywriting-101.md` — copy hard rules and formula
-- `company/copy-library.md` — winning variants and graveyard
-- `company/test-log.md` — what has already been tested
+- `clients/{slug}/copy-library.md` — winning variants and graveyard
+- `clients/{slug}/test-log.md` — what has already been tested
 
 **Read before diagnosing — extended:**
 - `wiki/email-benchmarks.md` — symptom-to-cause diagnostic table and benchmark calibration
@@ -28,7 +28,7 @@
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -71,7 +71,7 @@ Work through these in order. Stop at the first confirmed root cause and recommen
 
 ### 2. List quality check
 
-- Are leads matching the ICP in `company/icp.md`?
+- Are leads matching the ICP in `clients/{slug}/icp.md`?
 - Is the signal still firing correctly?
 - What percentage of leads are hitting the target titles?
 - Are there false positives in the signal?
@@ -90,8 +90,8 @@ If signal is the root cause → route to `gtm-skills/signal-sourcer.md` to ident
 
 - Is Part 3 of the formula specific enough? (Outcome + timeframe + risk reversal)
 - Is the offer differentiated? Would they get this pitch from 10 other senders?
-- Does it use proof points from `company/offer.md`?
-- Does the value prop match the decision-maker role (check `company/icp.md` and `wiki/atl-btl-messaging.md`)?
+- Does it use proof points from `clients/{slug}/offer.md`?
+- Does the value prop match the decision-maker role (check `clients/{slug}/icp.md` and `wiki/atl-btl-messaging.md`)?
 
 ### 5. Copy check
 
@@ -157,7 +157,7 @@ Priority order (from `wiki/scientific-method.md`):
 4. CTA phrasing
 5. Subject line
 
-Check `company/test-log.md` before recommending — do not re-test what has already been learned.
+Check `clients/{slug}/test-log.md` before recommending — do not re-test what has already been learned.
 
 If the default formula has plateaued: recommend switching to a named framework from `wiki/copywriting-frameworks.md` (Do the Math, Pattern Interrupt, Upfront Value).
 
@@ -170,10 +170,10 @@ If the default formula has plateaued: recommend switching to a named framework f
 - Bounce rate is always the first check — deliverability beats copy.
 - If PRR is above 1.5%, do not change copy. Scale instead.
 - If PRR is close to KPI (within 1%), consider scaling rather than iterating.
-- Log every test result in `company/test-log.md` after completion.
+- Log every test result in `clients/{slug}/test-log.md` after completion.
 
 ---
 
 ## ACTIVE-TEST ENFORCEMENT
 
-Before modifying a campaign or its sequence, check `company/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.
+Before modifying a campaign or its sequence, check `clients/{slug}/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.

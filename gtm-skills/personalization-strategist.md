@@ -6,8 +6,8 @@
 
 **Read before responding:**
 - `wiki/personalization-at-scale.md` — 6 buckets, hook types, playbooks by category, 6 AI prompts
-- `company/icp.md` — to know who is being personalised to
-- `company/offer.md` — to know what the personalisation should connect to
+- `clients/{slug}/icp.md` — to know who is being personalised to
+- `clients/{slug}/offer.md` — to know what the personalisation should connect to
 - `wiki/atl-btl-messaging.md` — for register-appropriate personalisation
 
 ---
@@ -26,7 +26,7 @@
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |

@@ -51,8 +51,8 @@ What is the most stealable element? [Harry: The "sample shortlist" CTA pattern. 
 
 Anything you would NOT carry over to another client? [Harry: The $100k {{NAMED_PROOF_COMPANY}} figure. Other clients need their own dollar story.]
 
-Writing to company/copy-library.md... done.
-Writing to company/decision-log.md... done.
+Writing to clients/{slug}/copy-library.md... done.
+Writing to clients/{slug}/decision-log.md... done.
 
 [Step 4 — Loser candidates]
 

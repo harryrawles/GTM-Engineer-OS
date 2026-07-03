@@ -1,6 +1,6 @@
 ---
 name: pattern-detector
-description: Runs FIRST at every Claude Code session. Scans company/session-log.md for repeating prompts/intents. If the current prompt resembles 3+ recent historical prompts, surfaces a one-line note proposing to forge a new skill via skill-forge. Does not block work — surfaces and proceeds.
+description: Runs FIRST at every Claude Code session. Scans clients/{slug}/session-log.md for repeating prompts/intents. If the current prompt resembles 3+ recent historical prompts, surfaces a one-line note proposing to forge a new skill via skill-forge. Does not block work — surfaces and proceeds.
 triggers:
   - "(automatic — runs at every session start per CLAUDE.md Session Start Protocol)"
   - "Detect patterns"
@@ -8,11 +8,11 @@ triggers:
   - "What am I doing repeatedly"
 reads:
   - "wiki/_skill-context.md"
-  - "company/session-log.md (last 90 days)"
-  - "company/MEMORY.md (forged skills + rejected patterns sections)"
+  - "clients/{slug}/session-log.md (last 90 days)"
+  - "clients/{slug}/MEMORY.md (forged skills + rejected patterns sections)"
 writes:
-  - "company/session-log.md (pattern detection entries)"
-  - "company/MEMORY.md (when proposing a forge)"
+  - "clients/{slug}/session-log.md (pattern detection entries)"
+  - "clients/{slug}/MEMORY.md (when proposing a forge)"
 ---
 
 # Skill: Pattern Detector
@@ -31,11 +31,12 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Read State
+## STEP 0 — Resolve Active Client, then Read State
 
-1. Read `company/session-log.md` Active Log (last 90 days)
-2. Read `company/session-log.md` "Rejected pattern suggestions" — skip any pattern signature here
-3. Read `company/session-log.md` "Forged skills" — skip patterns already forged
+0. **Resolve the active client** (per `wiki/_skill-context.md` → *Resolve the Active Client*). Read `_state/active-client` for the `{slug}`; honour an inline "for [client]" override; in portfolio mode ("for all clients") run this detection once per client folder in isolation. If client-specific work is requested and no client is resolved → stop and ask. Pattern detection is always scoped to the resolved client's own log.
+1. Read `clients/{slug}/session-log.md` Active Log (last 90 days)
+2. Read `clients/{slug}/session-log.md` "Rejected pattern suggestions" — skip any pattern signature here
+3. Read `clients/{slug}/session-log.md` "Forged skills" — skip patterns already forged
 4. Read the current user prompt
 
 If `session-log.md` is empty or only has a few entries (under 10) → skip detection. Not enough data yet. Just write a session-log entry for the current invocation and return control to the actual request.
@@ -102,19 +103,19 @@ Want me to forge a skill that automates this? Reply "forge it" and I'll invoke s
 
 If user replies "forge it" in this or a subsequent session → invoke `gtm-skills/skill-forge.md` with the pattern context.
 
-If user replies "skip this" → add to `company/session-log.md` Rejected pattern suggestions with today's date and reason "user dismissed".
+If user replies "skip this" → add to `clients/{slug}/session-log.md` Rejected pattern suggestions with today's date and reason "user dismissed".
 
 ---
 
 ## STEP 4 — Log This Session
 
-Append a new row to `company/session-log.md` Active Log table:
+Append a new row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{prompt summary 60 chars}} | pattern-detector + {{actual skill being invoked}} | {{detection result: pattern detected / no pattern}} |
 ```
 
-If pattern-detector found a pattern AND surfaced it, also write to `company/MEMORY.md` Active Focus section:
+If pattern-detector found a pattern AND surfaced it, also write to `clients/{slug}/MEMORY.md` Active Focus section:
 ```
 - Pattern detection {{date}}: surfaced "{{intent name}}" ({{N}} occurrences). Awaiting Harry's response on forging.
 ```

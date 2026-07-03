@@ -10,7 +10,7 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/_subagent-patterns.md"
-  - "company/_config.md, MEMORY.md, campaign-state.md, icp.md, offer.md, voice.md, copy-library.md, test-log.md"
+  - "clients/{slug}/_config.md, MEMORY.md, campaign-state.md, icp.md, offer.md, voice.md, copy-library.md, test-log.md"
 invokes:
   - "gtm-skills/icp-builder.md (conditional)"
   - "gtm-skills/list-builder.md (conditional)"
@@ -20,9 +20,9 @@ invokes:
   - "gtm-skills/pre-launch-check.md (always)"
   - "gtm-skills/campaign-launcher.md (always)"
 writes:
-  - "company/campaign-state.md (new campaign entry)"
-  - "company/decision-log.md (rationale)"
-  - "company/MEMORY.md (active focus update)"
+  - "clients/{slug}/campaign-state.md (new campaign entry)"
+  - "clients/{slug}/decision-log.md (rationale)"
+  - "clients/{slug}/MEMORY.md (active focus update)"
 ---
 
 # Skill: Chain — Build Campaign
@@ -43,17 +43,17 @@ See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
 ## STEP 0 — Assess State (always)
 
-**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-build-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows. Without this step, `gtm-skills/pattern-detector.md` cannot find repeating prompts.
+**Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-build-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows. Without this step, `gtm-skills/pattern-detector.md` cannot find repeating prompts.
 
 Then read the following and produce an assessment:
 
-- `company/_config.md` — client identity
-- `company/MEMORY.md` — current focus, active inbound, watch-outs
-- `company/icp.md` — does the ICP look complete and current?
-- `company/offer.md` — does the offer look complete and current?
-- `company/campaign-state.md` — what is active, what is paused, what has been tried
-- `company/copy-library.md` — do we have prior winners on the proposed signal?
-- `company/test-log.md` — any active tests on this campaign that would conflict?
+- `clients/{slug}/_config.md` — client identity
+- `clients/{slug}/MEMORY.md` — current focus, active inbound, watch-outs
+- `clients/{slug}/icp.md` — does the ICP look complete and current?
+- `clients/{slug}/offer.md` — does the offer look complete and current?
+- `clients/{slug}/campaign-state.md` — what is active, what is paused, what has been tried
+- `clients/{slug}/copy-library.md` — do we have prior winners on the proposed signal?
+- `clients/{slug}/test-log.md` — any active tests on this campaign that would conflict?
 
 Also clarify intent with Harry if not already stated:
 - **Signal:** what triggers this campaign? (e.g. hiring, funding, champion job change)
@@ -68,9 +68,9 @@ Then produce a **chain plan** as the next output. Always show the chain plan fir
 ## SKIP CONDITIONS (the intelligence)
 
 ### Skip Step 1 (icp-builder) if:
-- `company/icp.md` has zero placeholder values
+- `clients/{slug}/icp.md` has zero placeholder values
 - ICP last reviewed within last 30 days
-- No new evidence in `company/comms-log.md` suggesting ICP drift
+- No new evidence in `clients/{slug}/comms-log.md` suggesting ICP drift
 - Harry has not explicitly requested ICP refinement
 
 ### Skip Step 2 (list-builder) if:
@@ -80,8 +80,8 @@ Then produce a **chain plan** as the next output. Always show the chain plan fir
 - Harry has not explicitly requested a new list
 
 ### Skip Step 3 (signal-sourcer) if:
-- Signal strategy for this campaign is already defined in `company/icp.md` signal priority table
-- Signal is in active rotation per `company/campaign-state.md`
+- Signal strategy for this campaign is already defined in `clients/{slug}/icp.md` signal priority table
+- Signal is in active rotation per `clients/{slug}/campaign-state.md`
 - Harry has not requested a signal pivot
 
 ### Skip Step 4 (personalization-strategist) if:
@@ -103,17 +103,17 @@ If required: invoke `gtm-skills/icp-builder.md`.
 
 **Pause-point:** show Harry the refined ICP. Get confirmation before proceeding.
 
-**Output to checkpoint:** updates `company/icp.md`. Note the change in `company/decision-log.md` if non-trivial.
+**Output to checkpoint:** updates `clients/{slug}/icp.md`. Note the change in `clients/{slug}/decision-log.md` if non-trivial.
 
 ---
 
 ## STEP 2 — Lead List (conditional)
 
-If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or current `company/icp.md` if Step 1 skipped).
+If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or current `clients/{slug}/icp.md` if Step 1 skipped).
 
 **Pause-point:** show Harry the list count, tier distribution (A/B/C), and 5 sampled leads for spot-check.
 
-**Output to checkpoint:** list saved to client's preferred lead storage (Instantly directly, or staged in Notion/Sheets per `company/campaign-state.md` Tools section).
+**Output to checkpoint:** list saved to client's preferred lead storage (Instantly directly, or staged in Notion/Sheets per `clients/{slug}/campaign-state.md` Tools section).
 
 ---
 
@@ -123,7 +123,7 @@ If required: invoke `gtm-skills/signal-sourcer.md`.
 
 **Pause-point:** show Harry the proposed signal(s), scoring framework, recommended SLA per tier.
 
-**Output to checkpoint:** updates `company/icp.md` signal priority table if changed.
+**Output to checkpoint:** updates `clients/{slug}/icp.md` signal priority table if changed.
 
 ---
 
@@ -133,7 +133,7 @@ If required: invoke `gtm-skills/personalization-strategist.md`.
 
 **Pause-point:** show Harry the proposed personalisation tier (strong hook / lite hook / none), which bucket to use, and AI prompt if Clay-based.
 
-**Output to checkpoint:** decision noted in `company/decision-log.md`. AI prompts saved for Instantly / Clay setup.
+**Output to checkpoint:** decision noted in `clients/{slug}/decision-log.md`. AI prompts saved for Instantly / Clay setup.
 
 ---
 
@@ -144,7 +144,7 @@ Invoke `gtm-skills/cold-email-writer.md` with all gathered context:
 - Target persona from Step 1 (or current icp.md)
 - Personalisation tier from Step 4 (or matrix default)
 - Sequence length from Step 0 intent
-- Pull from `company/copy-library.md` winners as starting point
+- Pull from `clients/{slug}/copy-library.md` winners as starting point
 
 **Pass 2 fresh-eyes review:** automatically invoke `gtm-skills/fresh-eyes-reviewer.md` on the generated copy if this is a Tier 1 campaign OR a new variant being tested. Skip Pass 2 for routine follow-ups.
 
@@ -169,7 +169,7 @@ Invoke `gtm-skills/campaign-launcher.md`. Full 10-category pre-flight checklist.
 
 **Pause-point:** Harry confirms the launch checklist results before clicking launch in Instantly.
 
-**On launch:** update `company/campaign-state.md` with new campaign entry, status Active. Update `company/decision-log.md` with launch rationale.
+**On launch:** update `clients/{slug}/campaign-state.md` with new campaign entry, status Active. Update `clients/{slug}/decision-log.md` with launch rationale.
 
 ---
 

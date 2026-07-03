@@ -9,13 +9,13 @@ triggers:
   - "Client risk assessment"
 reads:
   - "wiki/_skill-context.md"
-  - "company/campaign-state.md"
-  - "company/comms-log.md"
-  - "company/copy-library.md"
-  - "company/overview.md"
+  - "clients/{slug}/campaign-state.md"
+  - "clients/{slug}/comms-log.md"
+  - "clients/{slug}/copy-library.md"
+  - "clients/{slug}/overview.md"
 writes:
-  - "company/decision-log.md (if status changes)"
-  - "company/_config.md (health field)"
+  - "clients/{slug}/decision-log.md (if status changes)"
+  - "clients/{slug}/_config.md (health field)"
 ---
 
 # Skill: Client Health Scorer
@@ -32,10 +32,10 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `company/campaign-state.md` — current campaign metrics
-- `company/comms-log.md` — client sentiment proxy
-- `company/copy-library.md` — recent winners (good sign)
-- `company/overview.md` — SLA, success criteria
+- `clients/{slug}/campaign-state.md` — current campaign metrics
+- `clients/{slug}/comms-log.md` — client sentiment proxy
+- `clients/{slug}/copy-library.md` — recent winners (good sign)
+- `clients/{slug}/overview.md` — SLA, success criteria
 
 Pull from Instantly MCP: last 4 weeks of campaign data (need trend, not just snapshot).
 
@@ -43,7 +43,7 @@ Pull from Instantly MCP: last 4 weeks of campaign data (need trend, not just sna
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -96,7 +96,7 @@ Compare last 4 weeks against prior 4 weeks.
 
 ### 5. Client Sentiment Proxy (10 points)
 
-From `company/comms-log.md` (last 30 days):
+From `clients/{slug}/comms-log.md` (last 30 days):
 
 | Sub-metric | Weight | Scoring |
 |-----------|--------|---------|
@@ -214,7 +214,7 @@ Suggested order of attention:
 - **Never report a score without breakdown.** A single number without context is noise.
 - **Surface trends, not just snapshots.** A 70 trending down to 50 is more urgent than a steady 60.
 - **Recommended interventions must be specific.** Not "improve performance" — "run campaign-optimiser on hiring campaign, the PRR drop is concentrated there."
-- **Log status changes** to `company/decision-log.md`:
+- **Log status changes** to `clients/{slug}/decision-log.md`:
   - Going from Green → Amber
   - Going from Amber → Red
   - Going from Red → Critical

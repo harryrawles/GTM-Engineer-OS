@@ -1,8 +1,22 @@
 # Standard Skill Context
 
-Every skill in `gtm-skills/` should load this context block before acting. Defines the minimum context required to operate on behalf of this client.
+Every skill in `gtm-skills/` should load this context block before acting. Defines the minimum context required to operate on behalf of the **active client**.
 
 **How to use:** skills reference this file in their READS section instead of restating the same 4-5 files every time.
+
+---
+
+## Resolve the Active Client (STEP 0, before any read below)
+
+`{slug}` in every path below means the **active client's** folder under `clients/`.
+
+1. Read `_state/active-client` (git-ignored). Its contents are the active `{slug}`.
+2. If it names a slug → that is the active client. State it: "Active client: {Name}."
+3. **Inline override:** if the user's request names a client ("… for acme"), use that slug for this request only — do not change `_state/active-client`.
+4. **Portfolio mode:** if the request says "for all clients", loop every **active** client folder in `clients/` — that is, every direct subfolder whose name does **not** start with `_` or `.` (so `clients/_archived/` and `clients/.gitkeep` are skipped). Run the skill once per client with full isolation (never mix one client's context into another).
+5. If no active client is set and none is named, and the task is client-specific → **stop and ask which client.** Never guess.
+
+**Isolation rule:** only ever read/write files under the resolved `clients/{slug}/`. Never read another client's folder in the same run.
 
 ---
 
@@ -10,48 +24,48 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 
 | File | Why |
 |------|-----|
-| `company/_config.md` | Client name, industry, Instantly workspace |
-| `company/MEMORY.md` | **Always-loaded scratchpad — current focus, watch-outs, client preferences, recent learnings** |
-| `company/overview.md` | What the client does, SLA, success criteria |
-| `company/voice.md` | Tone, spelling default, banned words, approved claims |
-| `company/icp.md` | Who we target |
-| `company/offer.md` | What we sell on their behalf |
+| `clients/{slug}/_config.md` | Client name, industry, Instantly workspace |
+| `clients/{slug}/MEMORY.md` | **Always-loaded scratchpad — current focus, watch-outs, client preferences, recent learnings** |
+| `clients/{slug}/overview.md` | What the client does, SLA, success criteria |
+| `clients/{slug}/voice.md` | Tone, spelling default, banned words, approved claims |
+| `clients/{slug}/icp.md` | Who we target |
+| `clients/{slug}/offer.md` | What we sell on their behalf |
 
 ## Conditional Reads (when applicable)
 
 | File | When to read |
 |------|-------------|
-| `company/decision-log.md` | Any time prior decision context matters |
-| `company/campaign-state.md` | When current campaign state affects the task |
-| `company/comms-log.md` | When prior client communication matters |
-| `company/copy-library.md` | Any time you are writing or evaluating copy |
-| `company/test-log.md` | Any time you are running or evaluating a test |
+| `clients/{slug}/decision-log.md` | Any time prior decision context matters |
+| `clients/{slug}/campaign-state.md` | When current campaign state affects the task |
+| `clients/{slug}/comms-log.md` | When prior client communication matters |
+| `clients/{slug}/copy-library.md` | Any time you are writing or evaluating copy |
+| `clients/{slug}/test-log.md` | Any time you are running or evaluating a test |
 | `wiki/glossary.md` | When acronyms need defining |
 
 ## Standard Writes (when generating outputs)
 
 | File | When to write |
 |------|-------------|
-| `company/decision-log.md` | When a non-obvious choice is made |
-| `company/comms-log.md` | When client comms are sent |
-| `company/campaign-state.md` | When campaign state changes |
-| `company/copy-library.md` | When a winner emerges (PRR >= 1.5%) |
+| `clients/{slug}/decision-log.md` | When a non-obvious choice is made |
+| `clients/{slug}/comms-log.md` | When client comms are sent |
+| `clients/{slug}/campaign-state.md` | When campaign state changes |
+| `clients/{slug}/copy-library.md` | When a winner emerges (PRR >= 1.5%) |
 
 ---
 
 ## Standard Behaviour
 
-- **Direct, no fluff.** Match the voice in `company/voice.md`.
+- **Direct, no fluff.** Match the voice in `clients/{slug}/voice.md`.
 - **Push back on vague inputs.** Specifics beat clichés.
 - **Never invent data.** If a number or claim is uncertain, ask or flag.
 - **Always show writes before confirming.** Diff or preview before overwriting.
 - **PRR is the primary KPI.** Not reply rate, not open rate, unless explicitly noted otherwise.
-- **British spelling default; override via `company/voice.md` if client is US-based.**
+- **British spelling default; override via `clients/{slug}/voice.md` if client is US-based.**
 ---
 
 ## Session-Log Write (mandatory for every skill)
 
-Every skill MUST append a row to `company/session-log.md` Active Log at the START of its execution. This is what powers `gtm-skills/pattern-detector.md`. Without consistent log writes, pattern detection breaks.
+Every skill MUST append a row to `clients/{slug}/session-log.md` Active Log at the START of its execution. This is what powers `gtm-skills/pattern-detector.md`. Without consistent log writes, pattern detection breaks.
 
 ### Format
 

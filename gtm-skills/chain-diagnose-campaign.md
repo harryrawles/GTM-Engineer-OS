@@ -9,7 +9,7 @@ triggers:
   - "[Campaign] is broken"
 reads:
   - "wiki/_skill-context.md"
-  - "company/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md"
+  - "clients/{slug}/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md"
 invokes:
   - "gtm-skills/campaign-optimiser.md (always)"
   - "gtm-skills/deliverability-doctor.md (conditional)"
@@ -19,9 +19,9 @@ invokes:
   - "gtm-skills/test-readiness-check.md (conditional — if test recommended)"
   - "gtm-skills/test-launcher.md (conditional — if test approved)"
 writes:
-  - "company/decision-log.md (diagnosis + action taken)"
-  - "company/campaign-state.md (health rating update)"
-  - "company/test-log.md (if test queued)"
+  - "clients/{slug}/decision-log.md (diagnosis + action taken)"
+  - "clients/{slug}/campaign-state.md (health rating update)"
+  - "clients/{slug}/test-log.md (if test queued)"
 ---
 
 # Skill: Chain — Diagnose Campaign
@@ -42,11 +42,11 @@ See `wiki/_skill-context.md`.
 
 ## STEP 0 — Pull Metrics (always)
 
-**Log this invocation first.** Append a row to `company/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-diagnose-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows.
+**Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-diagnose-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows.
 
 Then read:
-- `company/campaign-state.md` — which campaign, what is the recent trend
-- `company/MEMORY.md` — any prior watch-outs on this campaign
+- `clients/{slug}/campaign-state.md` — which campaign, what is the recent trend
+- `clients/{slug}/MEMORY.md` — any prior watch-outs on this campaign
 - Pull from Instantly MCP: last 14 days metrics per campaign
 
 Output a quick metric snapshot:
@@ -125,18 +125,18 @@ This ensures any diagnostic-driven fix gets tested under the scientific method, 
 
 After diagnosis + action:
 
-1. Update `company/campaign-state.md`:
+1. Update `clients/{slug}/campaign-state.md`:
    - Health rating (Green/Amber/Red) per current metrics
    - Note any infrastructure or signal changes
    - Note any active test launched as a result
 
-2. Write to `company/decision-log.md`:
+2. Write to `clients/{slug}/decision-log.md`:
    - Diagnosis findings
    - Specialist invoked
    - Action taken
    - Expected impact + when to verify
 
-3. Update `company/MEMORY.md` Active Focus if this campaign is now under watch.
+3. Update `clients/{slug}/MEMORY.md` Active Focus if this campaign is now under watch.
 
 ---
 

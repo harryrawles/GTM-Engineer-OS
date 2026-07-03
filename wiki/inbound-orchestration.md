@@ -116,7 +116,7 @@ Response time impact on conversion (Velocify, ColdIQ benchmarks):
 
 ## Clay Templates for Inbound Orchestration
 
-If Clay is connected (check `company/campaign-state.md` Tools section):
+If Clay is connected (check `clients/{slug}/campaign-state.md` Tools section):
 
 | Template | What it does |
 |---------|--------------|

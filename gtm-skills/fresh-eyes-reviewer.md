@@ -37,7 +37,7 @@ See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
 ## STEP 0 — Log Invocation (mandatory)
 
-Before any other step, append one row to `company/session-log.md` Active Log table:
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
 ```
 | YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | {{this skill name}} | (filled at end) |
@@ -73,7 +73,7 @@ Prepare the prompt with:
 
 Template prompt for cold email review:
 ```
-Read company/voice.md and company/offer.md. Then read the email below.
+Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then read the email below.
 
 Review against these specific rules:
 1. Word count (ATL ≤60, BTL ≤90, default 75-100)
@@ -125,7 +125,7 @@ Show Harry:
 
 ## STEP 5 — Optional Log
 
-If the review surfaced a non-trivial issue (a FAIL that almost shipped), log a brief note to `company/MEMORY.md` Recent Learnings:
+If the review surfaced a non-trivial issue (a FAIL that almost shipped), log a brief note to `clients/{slug}/MEMORY.md` Recent Learnings:
 
 ```
 {{date}} — Fresh-eyes caught {{specific issue}} that would have shipped. Pattern: {{the underlying rule that failed}}.

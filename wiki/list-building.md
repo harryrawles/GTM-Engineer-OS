@@ -2,7 +2,7 @@
 
 ICP definition with 100-point scoring, ABM tier system, account qualification, contact mapping, list hygiene, and data validation. Read before sourcing leads or qualifying accounts.
 
-> Client-specific ICP lives in [company/icp.md](../company/icp.md). This file is the methodology — how to build, score, qualify, and clean.
+> Client-specific ICP lives in [clients/{slug}/icp.md](../clients/{slug}/icp.md). This file is the methodology — how to build, score, qualify, and clean.
 
 ---
 
