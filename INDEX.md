@@ -143,6 +143,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | File | When to use |
 |------|------------|
 | gtm-skills/client-report-writer.md | Weekly client performance reports |
+| gtm-skills/eod-report-writer.md | Daily end-of-day report (portfolio-wide) — MOVED / BLOCKED / NEXT, posted to team Slack |
 | gtm-skills/qbr-writer.md | Quarterly Business Reviews |
 | gtm-skills/client-offboarder.md | End-of-engagement workflow (archives the client folder, promotes abstracted learnings) |
 
@@ -152,6 +153,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 |------|--------------|
 | examples/sample-weekly-review.md | What a Friday review session produces |
 | examples/sample-client-report.md | What a sent weekly report looks like |
+| examples/sample-eod-report.md | What an end-of-day team report looks like |
 | examples/sample-decision-log-entries.md | What good decision log entries look like |
 
 ## Tests

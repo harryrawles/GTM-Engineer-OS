@@ -206,6 +206,7 @@ auto-discovers them. Nothing in these folders may contain a specific client's pr
 | "Diagnose deliverability" | `gtm-skills/deliverability-doctor.md` |
 | "Incident" / "Blacklisted" / "Bounce spike" | `gtm-skills/incident-responder.md` |
 | "Write the weekly report" | `gtm-skills/client-report-writer.md` |
+| "EOD report" / "Wrap up my day" / "Close out the day" | `gtm-skills/eod-report-writer.md` |
 | "Generate QBR for [client]" | `gtm-skills/qbr-writer.md` |
 | "Offboard [client]" | `gtm-skills/client-offboarder.md` |
 | (helper, invoked by other skills) | `gtm-skills/fresh-eyes-reviewer.md` |

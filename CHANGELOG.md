@@ -6,6 +6,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.1.0] — 2026-07-03
+
+### Added — EOD report writer (daily end-of-day report)
+
+- `gtm-skills/eod-report-writer.md` — new skill. Portfolio-wide daily report that reconstructs the day
+  from `.claude/sessions/*.jsonl` (the session-logger hook's raw trail) cross-referenced with each
+  client's `session-log.md`, `comms-log.md`, `decision-log.md`, `campaign-state.md`, and `test-log.md`.
+  Categorises outcomes by client into MOVED / BLOCKED / NEXT and outputs a plain-text Slack message.
+  Runs in portfolio mode (no active client required); defaults the reporter to Harry. Never auto-sends —
+  draft only, enforced by the Safety Guard.
+- `examples/sample-eod-report.md` — worked example (brand-agnostic placeholders).
+- Fills the "Daily — End of Day Wrap" slot in `OPERATING-RHYTHM.md`, previously manual logging.
+- Wired into the `CLAUDE.md` routing table and `INDEX.md` (Reporting and Relationship + Examples).
+
+### Why this matters
+
+The end-of-day wrap was the one daily-cadence step with no skill behind it. The session-logger hook
+(v1.6.0) already captures every prompt and tool call to `.claude/sessions/`; this skill turns that raw
+trail into the outcomes-based report Harry posts to the team, so the day's work is summarised from the
+audit trail rather than reconstructed from memory.
+
+---
+
 ## [2.0.0] — 2026-07-03
 
 ### Changed — BREAKING: single-client OS → multi-client GTM Engineer OS

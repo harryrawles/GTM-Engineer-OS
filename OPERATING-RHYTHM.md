@@ -31,6 +31,7 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 **When:** Before logging off.
 
 **What:**
+0. Run `gtm-skills/eod-report-writer.md` ("wrap up my day") — generates the MOVED / BLOCKED / NEXT report from today's session trail, drafts it for Slack.
 1. Log any client comms sent today to `clients/{slug}/comms-log.md` (per client)
 2. Update any decision log entries if a decision was made
 3. Commit changes if any client files changed (one repo holds every client)
@@ -182,7 +183,7 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 | Cadence | Duration | Skill |
 |---------|----------|-------|
 | Daily morning | 10 min | Manual + reply-handler |
-| Daily evening | 5 min | Manual logging |
+| Daily evening | 5 min | eod-report-writer + manual logging |
 | Monday | 1 hour | client-health-scorer (portfolio) |
 | Friday | 2.5-4 hours | weekly-reviewer (triage + full on flagged) + client-report-writer |
 | Monthly (per client) | 30 min | Manual review of icp.md, offer.md, test-log.md |
