@@ -114,7 +114,7 @@ auto-discovers them. Nothing in these folders may contain a specific client's pr
 
 - **frameworks/** — strategic frameworks and mental models.
 - **sops/** — step-by-step standard operating procedures.
-- **best-practices/** — best-practice references and checklists.
+- **best-practices/** — best-practice references and checklists. Includes **`best-practices/playbooks/`** — reusable, client-agnostic campaign playbooks to start from when building any client's campaign (adapt, never drop in verbatim; fill from the active client's files).
 - **templates/** — reusable output templates (emails, reports, QBRs) + the `client-template/` skeleton used
   to spin up new clients.
 

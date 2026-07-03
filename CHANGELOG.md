@@ -6,6 +6,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.2.0] — 2026-07-03
+
+### Added — Shared campaign playbooks
+
+- `best-practices/playbooks/` — new shared-layer home for reusable, **client-agnostic** campaign playbooks.
+  Available to every client; each playbook is a proven campaign structure (goal, ICP, messaging, sequence,
+  when to use/avoid) written with `{{PLACEHOLDER}}` values to adapt per client.
+- `best-practices/playbooks/funding.md` — funding / fast-capital playbook (abstracted from a Tiger Capital
+  campaign; brand genericised to `{{COMPANY}}` + approved-terms placeholders).
+- `best-practices/playbooks/README.md` — playbooks index + the no-client-data rule.
+- Wired in: `CLAUDE.md` (Shared Layer note) and `INDEX.md`; `cold-email-writer`, `signal-sourcer`, and
+  `chain-build-campaign` now consult `best-practices/playbooks/` and adapt (never drop in verbatim; fill
+  from the active client's files, using only Approved Claims from `voice.md`).
+
+---
+
 ## [2.1.0] — 2026-07-03
 
 ### Added — EOD report writer (daily end-of-day report)

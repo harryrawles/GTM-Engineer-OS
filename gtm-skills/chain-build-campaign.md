@@ -39,6 +39,11 @@ writes:
 
 See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
+Before building, check `best-practices/playbooks/` for a reusable playbook matching the active client's
+offer/angle (e.g. funding). If one fits, start the campaign from its structure and adapt it to the client —
+fill placeholders from `clients/{slug}/` and use only Approved Claims from `voice.md`. Never drop playbook
+copy in verbatim.
+
 ---
 
 ## STEP 0 — Assess State (always)

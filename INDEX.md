@@ -56,7 +56,8 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/ | Shared knowledge base (see below) |
 | frameworks/ | Strategic frameworks & mental models (uploaded later) |
 | sops/ | Standard operating procedures (uploaded later) |
-| best-practices/ | Best-practice references & checklists (uploaded later) |
+| best-practices/ | Best-practice references & checklists |
+| best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) — start-points for any client's campaign |
 | templates/ | Reusable output templates + `client-template/` skeleton |
 
 ## Shared Knowledge — Copywriting

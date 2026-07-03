@@ -24,6 +24,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 - `wiki/signal-sourcing.md` — if mapping a signal to a copy angle
 
 **REFERENCE (consult when needed):**
+- `best-practices/playbooks/` — reusable campaign playbooks. Check for one matching the client's offer/angle and start from its structure; adapt to the client (fill placeholders from their files, use only Approved Claims from `voice.md`). Never drop playbook copy in verbatim.
 - `wiki/copywriting-frameworks.md` — 13 named frameworks for when the default formula has plateaued
 - `wiki/subject-lines.md` — 4 subject line formulas
 - `wiki/email-benchmarks.md` — what good looks like

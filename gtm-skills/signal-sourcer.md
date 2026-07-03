@@ -9,6 +9,7 @@
 - `wiki/buying-triggers.md` — 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
 - `clients/{slug}/icp.md` — client ICP to filter which signals apply
 - `clients/{slug}/offer.md` — what the client sells to map signal → angle
+- `best-practices/playbooks/` — check for a reusable playbook matching the client's offer/angle to start the campaign from (adapt per client; never use verbatim)
 - `wiki/email-benchmarks.md` — response time SLAs and performance benchmarks
 
 ---
