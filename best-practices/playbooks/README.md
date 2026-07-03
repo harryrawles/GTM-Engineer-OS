@@ -19,5 +19,6 @@ verbatim.
 | Playbook | Use for |
 |----------|---------|
 | [funding.md](./funding.md) | Fast-capital / funding offers to SMB owners — speed + low-friction approvals |
+| [investment.md](./investment.md) | Investor raise campaigns — credibility-first (notable backers, scarcity, low-friction ask) |
 
 _Add new playbooks as one file each; append a row above._

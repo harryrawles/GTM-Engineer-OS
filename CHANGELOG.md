@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.3.0] — 2026-07-03
+
+### Added — Investment / raise playbook
+
+- `best-practices/playbooks/investment.md` — investor raise playbook (abstracted from an early-stage
+  fundraising campaign; brand and raise details genericised to `{{COMPANY}}`, `{{NOTABLE_BACKERS}}`,
+  `{{ANCHOR_INVESTMENT}}`, `{{SECTOR}}`, `{{TECH_DESCRIPTION}}`). Credibility-first structure: social proof +
+  scarcity + low-friction ask (intro / deck / private overview), with an explicit "investor claims are
+  regulated territory — verified + approved only" guardrail.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.2.0] — 2026-07-03
 
 ### Added — Shared campaign playbooks
