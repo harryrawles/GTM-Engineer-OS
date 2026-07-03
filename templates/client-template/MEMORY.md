@@ -2,7 +2,7 @@
 
 **Always-loaded scratchpad.** This file is read at the start of every Claude session for this client. It is the "what is currently top of mind" working memory — distinct from the structured logs.
 
-**This file is intentionally lightweight.** It is NOT a permanent archive. Old entries get pruned or moved to `company/decision-log.md` if they become permanent learnings.
+**This file is intentionally lightweight.** It is NOT a permanent archive. Old entries get pruned or moved to `clients/{slug}/decision-log.md` if they become permanent learnings.
 
 ---
 
@@ -11,10 +11,10 @@
 | File | Purpose | Cadence |
 |------|---------|---------|
 | `MEMORY.md` (this file) | Active context, transient notes, current focus | Updated mid-session by any skill |
-| `company/decision-log.md` | Permanent decision rationale with structure | Updated on decisions |
-| `company/comms-log.md` | Communication events with the client | Updated on every interaction |
-| `company/copy-library.md` | Winning copy artefacts | Updated weekly |
-| `company/test-log.md` | Test history | Updated when tests start / complete |
+| `clients/{slug}/decision-log.md` | Permanent decision rationale with structure | Updated on decisions |
+| `clients/{slug}/comms-log.md` | Communication events with the client | Updated on every interaction |
+| `clients/{slug}/copy-library.md` | Winning copy artefacts | Updated weekly |
+| `clients/{slug}/test-log.md` | Test history | Updated when tests start / complete |
 
 If something belongs in one of the other files, write it there. Only use MEMORY for transient or evolving context.
 
@@ -96,7 +96,7 @@ Skills auto-created by `gtm-skills/skill-forge.md` from detected patterns. Each 
 4. Add a row to `CLAUDE.md` routing table
 5. Move the entry from this section to a permanent record
 
-**Deletion:** just delete the file. The pattern signature is preserved in `company/session-log.md` Forged skills table so it will not be re-suggested.
+**Deletion:** just delete the file. The pattern signature is preserved in `clients/{slug}/session-log.md` Forged skills table so it will not be re-suggested.
 
 | Forged skill | Pattern intent | Date forged | Status |
 |-------------|----------------|-------------|--------|

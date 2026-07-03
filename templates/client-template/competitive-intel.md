@@ -56,4 +56,4 @@ When 3+ prospects mention the same competitor or angle, log here:
 
 - Do not invent competitors. Only log what is confirmed.
 - Do not bad-mouth competitors in copy. Position around our wedge.
-- If a battle card is consistently winning, log it as a pattern to `company/decision-log.md`.
+- If a battle card is consistently winning, log it as a pattern to `clients/{slug}/decision-log.md`.

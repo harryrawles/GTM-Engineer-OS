@@ -88,7 +88,7 @@ Pause this test if:
 If V({{n+1}}) regresses from V({{n}}) — defined as performing worse on the primary KPI by more than {{X}}%:
 - Revert to V({{n}}) as the control
 - Next iteration: modify a different needle-mover (NOT the same variable again)
-- Log the regression as a learning in `company/decision-log.md`
+- Log the regression as a learning in `clients/{slug}/decision-log.md`
 
 #### Step 2 — Running Data (yesterday's results, logged daily)
 
@@ -155,7 +155,7 @@ If any rule failed → mark this test as INVALID and restart. Do not draw conclu
 
 **Next test queued:** T-{{XXX}}
 
-**Decision-log entry:** see `company/decision-log.md` — `{{date}} — Test {{T-XXX}} {{outcome}}`
+**Decision-log entry:** see `clients/{slug}/decision-log.md` — `{{date}} — Test {{T-XXX}} {{outcome}}`
 
 ---
 

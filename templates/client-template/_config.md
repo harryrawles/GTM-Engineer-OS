@@ -10,7 +10,9 @@ Central source of truth for variables used across this OS. Other files reference
 
 | Key | Value |
 |-----|-------|
+| `slug` | {{SLUG}} — lowercase-kebab folder name under `clients/` (e.g. `acme-corp`) |
 | `client_name` | {{CLIENT_NAME}} |
+| `tier` | {{TIER}} — e.g. DFY / DWY / Custom, or A/B/C priority |
 | `industry` | {{INDUSTRY}} |
 | `website` | {{WEBSITE}} |
 | `geography` | {{GEOGRAPHY}} |
@@ -32,7 +34,7 @@ Central source of truth for variables used across this OS. Other files reference
 
 | Key | Value |
 |-----|-------|
-| `template_version` | 1.0.0 |
+| `template_version` | {{TEMPLATE_VERSION}} — copy from repo root `VERSION` at spin-up time |
 | `os_setup_date` | {{YYYY-MM-DD}} |
 | `last_review_date` | {{YYYY-MM-DD}} |
 
@@ -43,8 +45,8 @@ Central source of truth for variables used across this OS. Other files reference
 When a file needs CLIENT_NAME, INDUSTRY, etc., it points here rather than duplicating. Example pattern:
 
 ```
-**Client:** see company/_config.md → client_name
-**Industry:** see company/_config.md → industry
+**Client:** see clients/{slug}/_config.md → client_name
+**Industry:** see clients/{slug}/_config.md → industry
 ```
 
 This way: rename a client once (here), and the rest of the OS stays consistent.
