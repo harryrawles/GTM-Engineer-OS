@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.7.0] — 2026-07-04
+
+### Added — HNWI / private-aviation playbook
+
+- `best-practices/playbooks/aviation.md` — high-net-worth / executive outreach led by a discreet,
+  low-commitment "pricing overview" hook with a trust-building opt-out line. Includes a 3-email sequence
+  plus ultra-short / LinkedIn DM / SMS variants. Brand genericised (`FusionJets` → `{{COMPANY}}`); merge
+  fields kept verbatim.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.6.0] — 2026-07-04
 
 ### Added — Athletic directors / coaches playbook
