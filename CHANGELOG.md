@@ -6,6 +6,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.24.0] — 2026-07-04
+
+### Added — Marketing 3 / review-management (reputation) playbook
+
+- `best-practices/playbooks/marketing-3.md` — reputation/review-management playbook for local businesses,
+  built on an observational review-reference hook with a fully spintaxed template and multiple CTA variants.
+  **Ships with a prominent compliance guardrail** — claiming to delete/guarantee removal of genuine Google
+  reviews conflicts with Google policy and consumer-protection law, so the guaranteed-removal language is
+  flagged as blocked pending legal sign-off and the copy directs users to lawful phrasing (flag policy-
+  violating reviews, respond, rebuild rating). Merge fields/spintax kept verbatim. Distinct from
+  `marketing.md` (competitor-insights) and `marketing-2.md` (local traffic).
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.23.0] — 2026-07-04
 
 ### Added — Booking-SaaS / experiential-product playbook

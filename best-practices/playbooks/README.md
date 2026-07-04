@@ -40,5 +40,6 @@ verbatim.
 | [booking-saas.md](./booking-saas.md) | Experiential/booking product — friction-removal access + discount hook, safe + credential variants (⚠️ compliance) |
 | [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
+| [marketing-3.md](./marketing-3.md) | Reputation / review management for local biz — review-reference hook, spintax template (⚠️ removal-claim compliance) |
 
 _Add new playbooks as one file each; append a row above._
