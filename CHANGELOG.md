@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.13.0] — 2026-07-04
+
+### Added — Medical / rehab ministry-outreach playbook
+
+- `best-practices/playbooks/medical-rehab.md` — addiction-recovery / family-restoration playbook for
+  partnering rehab programs with churches. Equip-don't-pitch framing: pastoral tone, gospel + clinical care
+  integration, family-restoration focus, feedback-not-commitment CTAs. Four angles, opt-out throughout.
+  Explicit **sensitive/health-adjacent guardrail** — clinical and outcome claims must be substantiated and
+  approved, never implying guaranteed results; tone stays compassionate and non-pressuring. Merge fields
+  kept verbatim.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.12.0] — 2026-07-04
 
 ### Added — Merchandise / apparel playbook
