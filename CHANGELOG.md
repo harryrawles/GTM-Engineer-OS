@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.10.0] — 2026-07-04
+
+### Added — Investment 2 / VC-education playbook
+
+- `best-practices/playbooks/investment-2.md` — VC/PE education-program playbook built on the credibility-gap
+  angle: lead with the "no track record" problem, anchor with real alumni/deal outcomes, offer a guide or
+  white paper instead of pitching enrolment. 5-email sequence plus ultra-short / LinkedIn DM / SMS variants
+  and opt-out throughout. Heavily branded source genericised — brand → `{{COMPANY}}`, named deal companies →
+  `{{NOTABLE_DEALS}}` — with a "verified/approved credibility claims only" guardrail. Distinct from the
+  raise-focused `investment.md`.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.9.1] — 2026-07-04
 
 ### Changed

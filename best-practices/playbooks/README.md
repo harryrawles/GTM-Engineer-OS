@@ -20,6 +20,7 @@ verbatim.
 |----------|---------|
 | [funding.md](./funding.md) | Fast-capital / funding offers to SMB owners — speed + low-friction approvals |
 | [investment.md](./investment.md) | Investor raise campaigns — credibility-first (notable backers, scarcity, low-friction ask) |
+| [investment-2.md](./investment-2.md) | VC/PE education programs — credibility-gap angle, outcome proof, guide/white-paper offer, multi-channel |
 | [retail.md](./retail.md) | Retail / shelf-expansion for F&B / CPG brands — AI vs brokers, seasonal urgency, soft CTA |
 | [marketing.md](./marketing.md) | B2B marketing / demand gen — competitor-insights curiosity hook, single short email |
 | [athletic-directors.md](./athletic-directors.md) | Athletic directors / coaches — leadership/culture platform, credibility + scannable features + demo CTA |
