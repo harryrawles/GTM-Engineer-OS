@@ -32,6 +32,7 @@ verbatim.
 | [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities — proof + mockups + buyer's guide, trust-first, 4 angles |
 | [home-services.md](./home-services.md) | Home services / trades — reviews & local visibility, analysis-led "3 quick wins", 4 angles, opt-out |
 | [media.md](./media.md) | Media placements / content partnerships — trusted-audience-not-ad-inventory, founder-led signature, 3 angles |
+| [b2c-email-marketing.md](./b2c-email-marketing.md) | eComm/Shopify retention — free flow-rebuild offer (Welcome + Abandoned), value-first, single email |
 | [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
 | [saas-2.md](./saas-2.md) | Dev-tools / in-IDE automation (autonomous QA) — workflow integration + shipping velocity, single overview email |
 | [saas-3.md](./saas-3.md) | Dev-tools curiosity hook for QA engineers — specific "3 test paths" insight, ultra-short knowledge-first email |

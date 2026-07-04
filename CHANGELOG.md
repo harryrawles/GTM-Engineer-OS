@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.21.0] — 2026-07-04
+
+### Added — B2C email-marketing / free-flow-rebuild playbook
+
+- `best-practices/playbooks/b2c-email-marketing.md` — eComm retention playbook that opens with a free,
+  concrete deliverable (rebuilding the highest-leverage flows — example: Shopify Welcome + Abandoned
+  Checkout) to prove value before pitching. Single email, why-it-works, execution tips. Brand genericised to
+  `{{COMPANY}}`; "only run if you can actually deliver better flows" guardrail.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.20.0] — 2026-07-04
 
 ### Added — Funding 2 / personalized-growth-ideas playbook
