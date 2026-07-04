@@ -6,11 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.9.1] — 2026-07-04
+
+### Changed
+
+- Renamed `best-practices/playbooks/local-traffic-conversion.md` → `marketing-2.md` (and updated its title
+  to "Marketing 2"). Content unchanged; README index updated.
+
+---
+
 ## [2.9.0] — 2026-07-04
 
 ### Added — Local traffic & website-conversion playbook
 
-- `best-practices/playbooks/local-traffic-conversion.md` — value-first playbook for local businesses, trades,
+- `best-practices/playbooks/marketing-2.md` (originally added as `local-traffic-conversion.md`) — value-first playbook for local businesses, trades,
   and professional service firms selling marketing / SEO / CRO / traffic partnerships. Three angles (local
   traffic partnerships, trade website-readiness guide, professional-services conversion gaps), each with an
   A/B variant, local relevance, opt-out language, and a "have the guide/options ready before the hook"
