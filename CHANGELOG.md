@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.14.0] — 2026-07-04
+
+### Added — Vertical-SaaS automation playbook
+
+- `best-practices/playbooks/saas.md` — purpose-built vertical-SaaS automation playbook (real-time pricing /
+  data sync) aimed at ops + technical buyers. Risk+speed framing, "industry-specific not generic",
+  technical-readiness proof, and a free-trial friction remover. Seven angles, opt-out throughout. Branded
+  source genericised — brand → `{{COMPANY}}`, named reference customers → `{{NOTABLE_CUSTOMERS}}`, trial
+  terms → `{{TRIAL_OFFER}}` — with a "re-skin the vertical + approved logos/claims only" guardrail. Sample
+  copy stays precious-metals-specific to illustrate the pattern.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.13.0] — 2026-07-04
 
 ### Added — Medical / rehab ministry-outreach playbook

@@ -29,6 +29,7 @@ verbatim.
 | [med-spas.md](./med-spas.md) | Med spas / wellness clinics — education-first peptide/wellness program expansion, 6 angles (regulated claims) |
 | [medical-rehab.md](./medical-rehab.md) | Rehab/recovery × churches — pastoral, equip-don't-pitch ministry resources, 4 angles (sensitive claims) |
 | [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities — proof + mockups + buyer's guide, trust-first, 4 angles |
+| [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 
 _Add new playbooks as one file each; append a row above._
