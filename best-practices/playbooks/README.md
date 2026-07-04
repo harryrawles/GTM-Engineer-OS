@@ -27,6 +27,7 @@ verbatim.
 | [aviation.md](./aviation.md) | HNWI / private aviation — discreet "pricing overview" hook, opt-out line, multi-channel variants |
 | [influencers.md](./influencers.md) | Influencer marketing for SaaS / SI — value-first hand-curated creator list, opt-out, multi-channel |
 | [med-spas.md](./med-spas.md) | Med spas / wellness clinics — education-first peptide/wellness program expansion, 6 angles (regulated claims) |
+| [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities — proof + mockups + buyer's guide, trust-first, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 
 _Add new playbooks as one file each; append a row above._
