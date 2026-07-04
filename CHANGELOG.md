@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.18.0] — 2026-07-04
+
+### Added — SaaS 2 / dev-tools in-workflow automation playbook
+
+- `best-practices/playbooks/saas-2.md` — developer-workflow tool playbook (example: MCP-powered autonomous
+  QA inside the IDE) aimed at product & engineering leadership. Workflow-integration + shipping-velocity
+  framing, single lightweight overview email. Brand genericised to `{{COMPANY}}` and supported IDEs to
+  `{{SUPPORTED_IDES}}` with a "don't claim integrations that don't exist" guardrail. Distinct from the
+  vertical-pricing `saas.md`.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.17.0] — 2026-07-04
 
 ### Added — Media placement playbook

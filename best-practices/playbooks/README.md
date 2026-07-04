@@ -32,6 +32,7 @@ verbatim.
 | [home-services.md](./home-services.md) | Home services / trades — reviews & local visibility, analysis-led "3 quick wins", 4 angles, opt-out |
 | [media.md](./media.md) | Media placements / content partnerships — trusted-audience-not-ad-inventory, founder-led signature, 3 angles |
 | [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
+| [saas-2.md](./saas-2.md) | Dev-tools / in-IDE automation (autonomous QA) — workflow integration + shipping velocity, single overview email |
 | [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 
