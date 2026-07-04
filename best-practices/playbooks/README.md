@@ -37,6 +37,7 @@ verbatim.
 | [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
 | [saas-2.md](./saas-2.md) | Dev-tools / in-IDE automation (autonomous QA) — workflow integration + shipping velocity, single overview email |
 | [saas-3.md](./saas-3.md) | Dev-tools curiosity hook for QA engineers — specific "3 test paths" insight, ultra-short knowledge-first email |
+| [booking-saas.md](./booking-saas.md) | Experiential/booking product — friction-removal access + discount hook, safe + credential variants (⚠️ compliance) |
 | [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 

@@ -6,6 +6,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.23.0] — 2026-07-04
+
+### Added — Booking-SaaS / experiential-product playbook
+
+- `best-practices/playbooks/booking-saas.md` — friction-removal + discount-hook playbook for experiential /
+  booking products (travel, hospitality, lifestyle). Binary "hotel vs Airbnb" framing, ready-access hook,
+  incentive, curiosity CTA, opt-out. Brand → `{{COMPANY}}`, incentive → `{{DISCOUNT}}`. **Ships two variants
+  with a prominent compliance guardrail:** a recommended safe variant (offer to set up access / one-click
+  invite) as the default, and the original pre-created-credentials variant gated behind legal sign-off +
+  consented flow (flagged as blocked pending client approval per the OS Safety Guard; passwords must be
+  system-generated, never a predictable format).
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.22.0] — 2026-07-04
 
 ### Added — Gaming / gamified-classroom teacher-outreach playbook
