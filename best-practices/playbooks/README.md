@@ -22,5 +22,6 @@ verbatim.
 | [investment.md](./investment.md) | Investor raise campaigns — credibility-first (notable backers, scarcity, low-friction ask) |
 | [retail.md](./retail.md) | Retail / shelf-expansion for F&B / CPG brands — AI vs brokers, seasonal urgency, soft CTA |
 | [marketing.md](./marketing.md) | B2B marketing / demand gen — competitor-insights curiosity hook, single short email |
+| [athletic-directors.md](./athletic-directors.md) | Athletic directors / coaches — leadership/culture platform, credibility + scannable features + demo CTA |
 
 _Add new playbooks as one file each; append a row above._

@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.6.0] — 2026-07-04
+
+### Added — Athletic directors / coaches playbook
+
+- `best-practices/playbooks/athletic-directors.md` — leadership/culture/player-development platform pitched
+  to athletic directors and coaches. Reusable pattern: credibility (endorser) + scannable feature list +
+  ultra-low-friction "reply 'demo'" CTA. Heavily branded source genericised — brand → `{{COMPANY}}`,
+  endorser → `{{NOTABLE_ENDORSER}}`, and product modules turned into a `{{FEATURE_N}}` template block
+  (with an illustrative example) so no client's product names leak into another's campaign.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.5.0] — 2026-07-04
 
 ### Added — Marketing / competitor-insights playbook
