@@ -77,4 +77,9 @@ Every skill MUST append a row to `clients/{slug}/session-log.md` Active Log at t
 - **One row per skill invocation.** If a chain invokes 5 sub-skills, each sub-skill writes its own row.
 - **The pattern-detector is NOT exempt** — it writes its own row too. Recursion is fine; the detector knows to recognise its own entries and not re-detect on itself.
 
+### Deterministic backstop (`via:hook`)
+The `.claude/hooks/session-logger.sh` hook independently appends **one row per user prompt** to the active client's `session-log.md` (skill column = `via:hook`, prompt redacted: emails stripped, truncated to 60 chars). This guarantees the compounding loop keeps a signal even if a skill forgets its STEP-0 row. Skill rows are still mandatory and are the richer record; `pattern-detector` dedupes skill rows against `via:hook` rows so nothing is double-counted.
+
+**Known limitation:** the hook keys off `_state/active-client`, so it correctly attributes rows after a "switch to {client}" but **cannot** attribute an *inline override* ("… for acme" without switching) — those still rely on the skill's STEP-0 row for correct client attribution.
+
 ---

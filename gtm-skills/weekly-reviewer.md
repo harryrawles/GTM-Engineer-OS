@@ -2,7 +2,7 @@
 
 **Trigger:** "Run weekly review for {{client}}", "Weekly sweep", "Run weekly review for all clients", "End of week review", "Friday review"
 
-**Context:** The compounding loop of the OS. Without this skill running consistently, `clients/{slug}/copy-library.md`, `clients/{slug}/test-log.md`, and `clients/{slug}/decision-log.md` stay empty — meaning every campaign starts from scratch. **This is the single most important recurring skill in the OS.**
+**Context:** The compounding loop of the OS. Without this skill running consistently, `clients/{slug}/copy-library.md`, `clients/{slug}/test-log.md`, and `clients/{slug}/decision-log.md` stay empty — meaning every campaign starts from scratch. It is also where **Confirmed** learnings get abstracted, de-identified, and promoted up into the shared layer (Step 8) so a lesson learned on one client improves the OS for *all* clients. **This is the single most important recurring skill in the OS.**
 
 **Cadence:** every Friday afternoon (or first thing Monday). Skipping a week is fine. Skipping a month means the compounding effect is dead.
 
@@ -30,6 +30,7 @@
 - `clients/{slug}/decision-log.md` — rationale for every winner logged
 - `clients/{slug}/test-log.md` — completed test results, next test queued
 - `clients/{slug}/campaign-state.md` — refreshed health rating per campaign
+- **Shared layer — Step 8, DE-IDENTIFIED ONLY, and only on `Confirmed` patterns:** `best-practices/` (won copy *structures* + graveyard *anti-patterns*), `frameworks/` (strategic mental models), or `wiki/objection-library.md` (reusable objections). Never a client's raw copy, numbers, or named prospects.
 
 ---
 
@@ -327,7 +328,36 @@ Use sub-agent here only when the synthesis genuinely requires external context. 
 This is the compounding step. Skipping it means individual entries pile up without ever connecting into insight.
 
 ---
-### Step 8 — Hand off to client-report-writer
+### Step 8 — Promote Generalisable Learnings to the Shared Layer
+
+This is the **system-wide** half of the compounding loop (root `CLAUDE.md` → *The Compounding Loop*). Steps 3-7 compound *within* the client; this step lifts de-identified methodology *up* so every client benefits. Runs after the week's patterns are logged.
+
+**When it fires:** only for a pattern that reached **`Confirmed`** confidence in Step 7 (6+ data points across 3+ weeks). Tentative/Emerging patterns stay client-local until they mature. If nothing is Confirmed this week, skip this step and say so.
+
+**Isolation guardrail (critical — same rule as `gtm-skills/client-offboarder.md` STEP 3):** only promote **abstracted, generalisable patterns** — never a client's raw private data. Strip the client's specific numbers, named prospects, proof points, and verbatim copy. If a learning cannot be stated without the client's private data, it is NOT promotable — it stays in `clients/{slug}/`. See root `CLAUDE.md` → *Golden Rules* (no cross-client sharing of data, ever).
+
+**Flow — for each Confirmed pattern:**
+
+1. Restate the pattern in **client-agnostic form** (the transferable lesson, not the client's exact email). Do not copy `copy-library.md` / `decision-log.md` entries verbatim.
+2. Classify the destination:
+   - Won copy **structure** / hook / CTA / sequence-step pattern → `best-practices/` (append to the most relevant existing file, or create a new client-agnostic one).
+   - Graveyard **anti-pattern** (the structural mistake to avoid) → `best-practices/`.
+   - Strategic **mental model** / signal-health / offer-framing / register insight → `frameworks/`.
+   - Reusable **objection + response** → `wiki/objection-library.md`.
+3. Show Harry the exact de-identified text and target file. **Ask: "Promote this to `{path}`? (Y/N)"** Wait for confirmation (per the RULES below — never write without confirmation).
+4. On yes: write the abstracted entry to the target file. If a *new* shared file was created, add it to `INDEX.md`.
+5. Record the promotion in `clients/{slug}/decision-log.md` (one line: what was promoted, to where, on what date) for traceability — so the client folder shows what left it, without the shared file ever pointing back to the client.
+
+**Output:**
+```
+Step 8 — Shared-layer promotions this week: {{n}}
+- "{{pattern name}}" → {{best-practices/frameworks/wiki path}} (de-identified) [pending Harry Y/N]
+```
+
+If a promotion is declined, leave the learning in the client folder and note the decline in `decision-log.md`.
+
+---
+### Step 9 — Hand off to client-report-writer
 
 Once all writes are confirmed, output:
 
@@ -474,5 +504,5 @@ Writing to clients/{slug}/decision-log.md... done.
 
 Next: loser candidates.
 
-[continues through all 7 steps]
+[continues through all 9 steps]
 ```

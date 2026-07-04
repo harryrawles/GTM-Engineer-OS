@@ -8,95 +8,161 @@
 #
 # Exit codes: 0 = allow | 2 = block (Claude shows the block message to user)
 #
-# CUSTOMISE: replace mcp__instantly__* tool names to match your Instantly MCP.
-# Run: ask Claude Code "list available Instantly MCP tools" to find exact names.
+# MATCHING MODEL: MCP tool names are "mcp__<server>__<operation>". We match on
+# the OPERATION (everything after the last "__"), NOT the full name, so the
+# guard is namespace-agnostic — it fires regardless of which Instantly/Slack
+# workspace the MCP server is mounted under (e.g. mcp__claude_ai_DPS_Instantly__,
+# mcp__claude_ai_Verity_Instantly_account__, mcp__claude_ai_Slack__). Reads
+# (list_/get_/analytics_/count_/search_/*_status) are never in the blocklist, so
+# they stay automatic per CLAUDE.md. Add a new mutating operation by listing its
+# operation name (no namespace) in BLOCKED_OPS below.
 # =============================================================================
 
 INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // ""' 2>/dev/null)
 TOOL_INPUT=$(echo "$INPUT" | jq -c '.tool_input // {}' 2>/dev/null)
 
-BLOCKED_TOOLS=(
+# Operation = substring after the final "__" (full name if there is no "__").
+OP="${TOOL_NAME##*__}"
+
+BLOCKED_OPS=(
 
   # ---------------------------------------------------------------------------
-  # 1. INSTANTLY — campaign and lead mutations
-  #    Require Harry's explicit approval before executing.
-  #    Confirm exact tool names: ask Claude "list available Instantly MCP tools"
+  # 1. INSTANTLY — campaign / lead / account / sequence / workspace MUTATIONS
+  #    Require Harry's explicit approval before executing (spec Safety Guard #2).
+  #    Reads (list_/get_/analytics_/count_/search_/*_status) are NOT listed and
+  #    therefore always pass.
   # ---------------------------------------------------------------------------
-  "mcp__instantly__activate_campaign"
-  "mcp__instantly__pause_campaign"
-  "mcp__instantly__resume_campaign"
-  "mcp__instantly__delete_campaign"
-  "mcp__instantly__update_campaign"
-  "mcp__instantly__update_sequence"
-  "mcp__instantly__delete_sequence"
-  "mcp__instantly__update_sequence_step"
-  "mcp__instantly__delete_sequence_step"
-  "mcp__instantly__move_leads_to_campaign"
-  "mcp__instantly__delete_lead"
-  "mcp__instantly__delete_leads"
-  "mcp__instantly__mark_as_unsubscribed"
-  "mcp__instantly__add_to_blocklist"
-  "mcp__instantly__update_email_account"
-  "mcp__instantly__delete_email_account"
-  "mcp__instantly__update_workspace"
+  "activate_campaign"
+  "pause_campaign"
+  "delete_campaign"
+  "update_campaign"
+  "create_campaign"
+  "campaigns_bulk-activate"
+  "campaigns_bulk-pause"
+  "campaigns_duplicate"
+  "create_lead"
+  "update_lead"
+  "delete_lead"
+  "leads_bulk_delete"
+  "leads_bulk_assign"
+  "leads_merge"
+  "move_leads_to_campaign_or_list"
+  "add_leads_to_campaign_or_list_bulk"
+  "leads_update_interest_status"
+  "leads_subsequence_move"
+  "leads_remove_from_subsequence"
+  "create_lead_list"
+  "update_lead_list"
+  "delete_lead_list"
+  "create_account"
+  "update_account"
+  "delete_account"
+  "accounts_pause"
+  "accounts_resume"
+  "accounts_warmup_enable"
+  "accounts_warmup_disable"
+  "manage_account_state"
+  "blocklist_create"
+  "blocklist_update"
+  "blocklist_delete"
+  "subsequences_create"
+  "subsequences_update"
+  "subsequences_delete"
+  "subsequences_pause"
+  "subsequences_resume"
+  "subsequences_duplicate"
+  "sales_flow_create"
+  "sales_flow_update"
+  "sales_flow_delete"
+  "email_templates_create"
+  "email_templates_delete"
+  "api_keys_create"
+  "api_keys_delete"
+  "webhooks_create"
+  "webhooks_update"
+  "webhooks_delete"
+  "webhooks_resume"
+  "workspace_update"
+  "workspace_change-owner"
+  "workspace_members_create"
+  "workspace_members_update"
+  "workspace_members_delete"
+  "enrichment_create"
+  "enrichment_enrich"
+  "enrichment_run"
+  "dfy_orders_create"
+  "dfy_orders_cancel"
+  "verify_email"
 
   # ---------------------------------------------------------------------------
-  # 2. EXTERNAL MESSAGING — never send without Harry's explicit approval
+  # 2. EXTERNAL MESSAGING — never send/forward/reply without explicit approval
+  #    (spec Safety Guard #1). Covers Slack, Gmail, and Instantly inbox sends.
   # ---------------------------------------------------------------------------
-  "mcp__gmail__send_email"
-  "mcp__gmail__send_draft"
-  "mcp__gmail__create_draft"
-  "mcp__slack__slack_post_message"
-  "mcp__slack__slack_send_message"
-  "mcp__slack__slack_schedule_message"
-  "mcp__slack__slack_reply_to_thread"
+  "slack_send_message"
+  "slack_send_message_draft"
+  "slack_schedule_message"
+  "slack_post_message"
+  "slack_reply_to_thread"
+  "send_email"
+  "send_draft"
+  "create_draft"
+  "reply_to_email"
+  "email_forward"
+  "email_update"
+  "email_delete"
 
   # ---------------------------------------------------------------------------
-  # 3. FINANCIAL OPERATIONS
+  # 3. FINANCIAL OPERATIONS (spec Safety Guard #4)
   # ---------------------------------------------------------------------------
-  "mcp__stripe__create_invoice"
-  "mcp__stripe__finalize_invoice"
-  "mcp__stripe__create_refund"
-  "mcp__stripe__create_payment_link"
+  "create_invoice"
+  "finalize_invoice"
+  "create_refund"
+  "create_payment_link"
+  "create_charge"
+  "create_subscription"
 
   # ---------------------------------------------------------------------------
-  # 4. DESTRUCTIVE DATA OPERATIONS
+  # 4. DESTRUCTIVE DATA OPERATIONS (other connected tools)
   # ---------------------------------------------------------------------------
-  "mcp__airtable__delete_records"
-  "mcp__notion__delete_block"
-  "mcp__hubspot__delete_contact"
+  "delete_records"
+  "delete_block"
+  "delete_page"
+  "delete_contact"
 
   # ---------------------------------------------------------------------------
   # 5. GITHUB MUTATIONS
   # ---------------------------------------------------------------------------
-  "mcp__github__push_files"
-  "mcp__github__create_or_update_file"
-  "mcp__github__merge_pull_request"
+  "push_files"
+  "create_or_update_file"
+  "merge_pull_request"
 )
 
-for blocked in "${BLOCKED_TOOLS[@]}"; do
+for blocked in "${BLOCKED_OPS[@]}"; do
   [[ "$blocked" == \#* ]] && continue
-  if [ "$TOOL_NAME" = "$blocked" ]; then
-    case "$TOOL_NAME" in
-      *instantly*activate*|*instantly*resume*)  CATEGORY="Instantly — activating campaign (live sends)" ;;
-      *instantly*pause*)                        CATEGORY="Instantly — pausing campaign" ;;
-      *instantly*delete*campaign*)              CATEGORY="Instantly — deleting campaign (irreversible)" ;;
-      *instantly*delete*lead*|*instantly*bulk*) CATEGORY="Instantly — deleting leads (irreversible)" ;;
-      *instantly*update*|*instantly*sequence*)  CATEGORY="Instantly — modifying sequence or account" ;;
-      *instantly*blocklist*|*unsubscribe*)      CATEGORY="Instantly — suppression list change" ;;
-      *send*|*post*|*reply*|*draft*)            CATEGORY="External messaging" ;;
-      *stripe*|*invoice*|*refund*)              CATEGORY="Financial operation" ;;
-      *delete*)                                 CATEGORY="Destructive delete" ;;
-      *push*|*merge*)                           CATEGORY="GitHub mutation" ;;
-      *)                                        CATEGORY="Blocked operation" ;;
+  if [ "$OP" = "$blocked" ]; then
+    case "$OP" in
+      activate_campaign|campaigns_bulk-activate)  CATEGORY="Instantly — activating campaign (live sends)" ;;
+      pause_campaign|campaigns_bulk-pause)        CATEGORY="Instantly — pausing campaign" ;;
+      delete_campaign)                            CATEGORY="Instantly — deleting campaign (irreversible)" ;;
+      *lead*)                                     CATEGORY="Instantly — lead mutation (may be irreversible)" ;;
+      blocklist_*)                                CATEGORY="Instantly — suppression list change" ;;
+      subsequences_*|sales_flow_*|update_campaign|create_campaign|campaigns_duplicate|*account*|email_templates_*|*_email|email_*|api_keys_*|webhooks_*|workspace_*|enrichment_*|dfy_orders_*)
+                                                  CATEGORY="Instantly — modifying sequence / account / workspace" ;;
+      slack_*|send_email|send_draft|create_draft) CATEGORY="External messaging" ;;
+      create_invoice|finalize_invoice|create_refund|create_payment_link|create_charge|create_subscription)
+                                                  CATEGORY="Financial operation" ;;
+      delete_*)                                   CATEGORY="Destructive delete" ;;
+      push_files|create_or_update_file|merge_pull_request)
+                                                  CATEGORY="GitHub mutation" ;;
+      *)                                          CATEGORY="Blocked operation" ;;
     esac
     DETAILS=$(echo "$TOOL_INPUT" | jq -c '.' 2>/dev/null | head -c 300)
     echo "SAFETY GUARD BLOCKED: $CATEGORY"
     echo "Tool: $TOOL_NAME"
     echo "Details: $DETAILS"
     echo ""
-    echo "State exactly what you were about to do, then ask Harry for explicit approval before retrying."
+    echo "State exactly what you were about to do, name the client/workspace, then ask Harry for explicit approval before retrying."
     exit 2
   fi
 done

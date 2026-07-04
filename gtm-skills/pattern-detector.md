@@ -74,6 +74,8 @@ Count matches. Apply these rules:
 | 5-9 matches | **Confirmed pattern.** Surface explicitly: "You've asked variants of this N times in last 30 days. Want me to forge a skill that automates this? Reply 'forge it' to proceed." |
 | 10+ matches | **Strong pattern.** Same as 5-9 but with stronger language: "You've made this request N times. There is clear ROI in automating it. Recommend forging a skill." |
 
+**Hook-backstop rows (`via:hook`):** the `session-logger.sh` hook writes one deterministic row per user prompt (skill column = `via:hook`) so the log is never empty even if a skill forgets its STEP-0 row. When counting matches, **dedupe skill rows against hook rows** for the same prompt/timestamp — a prompt logged by both a named skill AND `via:hook` is ONE occurrence, not two. Use hook rows only to fill gaps (a prompt with a `via:hook` row but no skill row still counts as one occurrence of that intent). Skill rows remain the richer record for naming what ran.
+
 **Rejected pattern check:** if the matching pattern's signature is in the "Rejected pattern suggestions" table → SKIP this detection. Harry already said no. Do not re-suggest.
 
 **Already-forged check:** if the pattern matches an already-forged skill → SKIP. The skill exists; Harry just hasn't been invoking it. Surface a different note: "FYI, a skill exists for this: `gtm-skills/forged-{name}.md`. You may want to invoke it directly next time."
