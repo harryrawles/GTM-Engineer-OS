@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.11.0] — 2026-07-04
+
+### Added — Med spas / wellness peptide-program playbook
+
+- `best-practices/playbooks/med-spas.md` — education-first playbook for med spas and wellness clinics
+  expanding into wellness/recovery/longevity peptides alongside aesthetics. Six angles (wellness expansion,
+  local-market context, longevity add-ons, metabolic support, retention/adherence, patient experience),
+  opt-out throughout. Explicit **regulated/medical guardrail** — peptide, sourcing, and outcome claims must
+  be substantiated and approved; language stays educational, never prescriptive/promissory. Merge fields
+  kept verbatim (incl. `{{City}}` / `{{State}}`).
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.10.0] — 2026-07-04
 
 ### Added — Investment 2 / VC-education playbook
