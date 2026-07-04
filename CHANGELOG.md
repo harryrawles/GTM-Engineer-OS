@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.8.0] — 2026-07-04
+
+### Added — Influencer-marketing / curated-creator-list playbook
+
+- `best-practices/playbooks/influencers.md` — value-first influencer-marketing playbook for SaaS / SI
+  founders and marketing leaders, built on a hand-curated creator list offered with no upfront pitch.
+  4-email sequence plus ultra-short / LinkedIn DM / SMS variants, opt-out language throughout, and a
+  "deliver a real curated list, never scraped" guardrail. Merge fields kept verbatim (incl. custom `{{SI}}`).
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.7.0] — 2026-07-04
 
 ### Added — HNWI / private-aviation playbook

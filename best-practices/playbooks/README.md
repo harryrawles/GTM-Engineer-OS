@@ -24,5 +24,6 @@ verbatim.
 | [marketing.md](./marketing.md) | B2B marketing / demand gen — competitor-insights curiosity hook, single short email |
 | [athletic-directors.md](./athletic-directors.md) | Athletic directors / coaches — leadership/culture platform, credibility + scannable features + demo CTA |
 | [aviation.md](./aviation.md) | HNWI / private aviation — discreet "pricing overview" hook, opt-out line, multi-channel variants |
+| [influencers.md](./influencers.md) | Influencer marketing for SaaS / SI — value-first hand-curated creator list, opt-out, multi-channel |
 
 _Add new playbooks as one file each; append a row above._
