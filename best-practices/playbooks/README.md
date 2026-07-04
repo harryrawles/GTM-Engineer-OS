@@ -19,6 +19,7 @@ verbatim.
 | Playbook | Use for |
 |----------|---------|
 | [funding.md](./funding.md) | Fast-capital / funding offers to SMB owners — speed + low-friction approvals |
+| [funding-2.md](./funding-2.md) | Funding via AI-personalised growth ideas first — value-first, soft transition to capital, includes idea prompt |
 | [investment.md](./investment.md) | Investor raise campaigns — credibility-first (notable backers, scarcity, low-friction ask) |
 | [investment-2.md](./investment-2.md) | VC/PE education programs — credibility-gap angle, outcome proof, guide/white-paper offer, multi-channel |
 | [retail.md](./retail.md) | Retail / shelf-expansion for F&B / CPG brands — AI vs brokers, seasonal urgency, soft CTA |

@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.20.0] — 2026-07-04
+
+### Added — Funding 2 / personalized-growth-ideas playbook
+
+- `best-practices/playbooks/funding-2.md` — funding-outreach playbook that leads with AI-personalised growth
+  ideas, then softly transitions into funding as the way to execute them. Includes the idea-generation prompt
+  (with word cap, 7th-grade language, location use, no-spam-words constraints), value points, why-it-works,
+  and execution tips. Brand genericised to `{{COMPANY}}`; merge/enrichment fields kept verbatim. Guardrail:
+  the AI ideas must be real and specific or don't run it (use `funding.md` for the direct angle). Distinct
+  from the fast-capital `funding.md`.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.19.0] — 2026-07-04
 
 ### Added — SaaS 3 / QA-engineer curiosity-hook playbook
