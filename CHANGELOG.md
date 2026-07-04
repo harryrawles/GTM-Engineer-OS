@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.17.0] — 2026-07-04
+
+### Added — Media placement playbook
+
+- `best-practices/playbooks/media.md` — media-placement / content-partnership playbook that positions an
+  owned audience as a high-trust distribution channel (not ad inventory). Example built around education
+  brands reaching parents; three angles, founder-led signature block, opt-out throughout. Branded source
+  genericised — founder/company/credibility/audience-size → `{{FOUNDER_NAME}}`, `{{FOUNDER_TITLE}}`,
+  `{{CREDIBILITY_MENTION}}`, `{{AUDIENCE_SIZE}}` — with an "approved audience figures + real signatory only"
+  guardrail.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.16.0] — 2026-07-04
 
 ### Added — Home services / reviews & local-visibility playbook
