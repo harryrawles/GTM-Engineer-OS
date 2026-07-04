@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.22.0] — 2026-07-04
+
+### Added — Gaming / gamified-classroom teacher-outreach playbook
+
+- `best-practices/playbooks/gaming.md` — gamified classroom/engagement product playbook for direct teacher
+  outreach: low-friction free pilot, role relevance, deliberately simple and non-technical (avoid
+  "AI/platform/solution" buzzwords). Value points, why-it-works, execution tips. Brand genericised to
+  `{{COMPANY}}`. The source provided no email copy, so an illustrative starter draft (clearly labelled) was
+  written from the stated strategy for the client to rewrite in voice.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.21.0] — 2026-07-04
 
 ### Added — B2C email-marketing / free-flow-rebuild playbook
