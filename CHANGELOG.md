@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.19.0] — 2026-07-04
+
+### Added — SaaS 3 / QA-engineer curiosity-hook playbook
+
+- `best-practices/playbooks/saas-3.md` — testing/reliability tool playbook aimed directly at QA and test
+  engineers, built on a specific curiosity insight ("the 3 test paths where accuracy drops fastest when the
+  UI changes") and a near-zero-friction CTA. Ships as one ultra-short knowledge-first email with an
+  "actually have the insight/list before hooking" guardrail. Merge fields kept verbatim. Complements
+  `saas-2.md` (leadership-facing) with a QA-native angle.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.18.0] — 2026-07-04
 
 ### Added — SaaS 2 / dev-tools in-workflow automation playbook
