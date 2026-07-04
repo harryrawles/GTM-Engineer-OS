@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.5.0] — 2026-07-04
+
+### Added — Marketing / competitor-insights playbook
+
+- `best-practices/playbooks/marketing.md` — B2B marketing / demand-gen playbook using a competitor-insights
+  curiosity hook (ships as a single short, high-reply email). Merge fields kept verbatim (incl. the custom
+  `{{lcsi}}` industry field); includes a "you must be able to deliver the tactics you promise" guardrail.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.4.0] — 2026-07-04
 
 ### Added — Retail / shelf-expansion playbook
