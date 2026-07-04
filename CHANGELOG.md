@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.4.0] — 2026-07-04
+
+### Added — Retail / shelf-expansion playbook
+
+- `best-practices/playbooks/retail.md` — retail shelf-expansion playbook for F&B / CPG brands (abstracted
+  from a CPG campaign; client figures genericised to `{{RETAILERS_PER_WEEK}}`, `{{RETAIL_NETWORK_SIZE}}`,
+  `{{CLIENT_COUNT}}`). Positions an AI platform as a faster/cheaper alternative to brokers, with seasonal
+  urgency and a soft "point me to the right contact" CTA.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.3.0] — 2026-07-03
 
 ### Added — Investment / raise playbook
