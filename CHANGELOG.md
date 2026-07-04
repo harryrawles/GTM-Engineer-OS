@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.25.0] — 2026-07-04
+
+### Added — AI calling-agent (pro-bono dealership) playbook
+
+- `best-practices/playbooks/ai-calling.md` — AI voice/phone-automation playbook for high-call-volume
+  businesses (example: car dealerships), led by a pro-bono/pilot offer around lead capture and 24/7 coverage.
+  Two ultra-short spintax variants, binary relevance CTA. **Ships with two prominent guardrails:** keep
+  "pro-bono" genuine (not upsell bait), and clear AI-calling behaviour against TCPA / robocall rules before
+  promising a working agent (liability can land on the dealership too) — flagged as blocked pending client +
+  compliance sign-off. Merge fields/spintax kept verbatim.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.24.0] — 2026-07-04
 
 ### Added — Marketing 3 / review-management (reputation) playbook
