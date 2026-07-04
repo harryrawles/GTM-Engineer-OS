@@ -30,6 +30,7 @@ verbatim.
 | [medical-rehab.md](./medical-rehab.md) | Rehab/recovery × churches — pastoral, equip-don't-pitch ministry resources, 4 angles (sensitive claims) |
 | [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities — proof + mockups + buyer's guide, trust-first, 4 angles |
 | [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
+| [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 
 _Add new playbooks as one file each; append a row above._

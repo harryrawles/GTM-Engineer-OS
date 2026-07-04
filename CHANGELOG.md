@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.15.0] — 2026-07-04
+
+### Added — Franchising / decision-clarity playbook
+
+- `best-practices/playbooks/franchising.md` — buyer-side franchise-guidance playbook for experienced
+  professionals exploring ownership. Clarity-before-commitment framing (guides, quizzes, frameworks over
+  pitches), four angles, opt-out throughout, and a "keep it buyer-side, never a single-brand pitch"
+  guardrail. Merge fields kept verbatim (incl. `{{City}}` / custom `{{lcsi}}`).
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.14.0] — 2026-07-04
 
 ### Added — Vertical-SaaS automation playbook
