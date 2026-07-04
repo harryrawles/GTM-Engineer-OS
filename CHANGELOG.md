@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.16.0] — 2026-07-04
+
+### Added — Home services / reviews & local-visibility playbook
+
+- `best-practices/playbooks/home-services.md` — value-first playbook for review management / local SEO /
+  reputation tools sold to home-service and trades businesses. Analysis-led framing ("studied hundreds of
+  businesses") with three practical quick wins, four angles, opt-out throughout. Named audit tool genericised
+  to `{{AUDIT_TOOL}}`, with a "the audit/analysis must be real — actually run the business-specific audit
+  before sending" guardrail. Merge fields kept verbatim.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.15.0] — 2026-07-04
 
 ### Added — Franchising / decision-clarity playbook
