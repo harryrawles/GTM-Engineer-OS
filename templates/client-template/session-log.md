@@ -62,7 +62,7 @@ Append-only archive of session-log entries past the 90-day window. Kept for long
 
 ## Hygiene Rules
 
-- **Auto-prune monthly:** entries older than 90 days move to Archive. Done during weekly-reviewer (Step 8 — Update OS Hygiene).
+- **Auto-prune monthly:** entries older than 90 days move to Archive. Done during weekly-reviewer (OS Hygiene section) or chain-weekly-review-full (STEP 5 — Update OS Hygiene).
 - **Never delete entries.** The log is the substrate that makes the OS exponentially improving.
 - **Rejected patterns are sticky.** Once Harry rejects a pattern suggestion, the detector never re-suggests the SAME pattern signature. If Harry wants to reverse a rejection, delete that row.
 - **Privacy:** prompt summaries should not contain raw client data (specific prospect names, emails, sensitive details). Paraphrase to the abstract intent.

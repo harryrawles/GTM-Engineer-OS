@@ -1,6 +1,6 @@
 ---
 name: pattern-detector
-description: Runs FIRST at every Claude Code session. Scans clients/{slug}/session-log.md for repeating prompts/intents. If the current prompt resembles 3+ recent historical prompts, surfaces a one-line note proposing to forge a new skill via skill-forge. Does not block work — surfaces and proceeds.
+description: Runs FIRST at every Claude Code session. Scans clients/{slug}/session-log.md for repeating prompts/intents. Surfaces a soft one-line note at 3+ matching intents in 30 days, and proposes forging a new skill via skill-forge at 5+. Does not block work — surfaces and proceeds.
 triggers:
   - "(automatic — runs at every session start per CLAUDE.md Session Start Protocol)"
   - "Detect patterns"
@@ -19,7 +19,7 @@ writes:
 
 **Trigger:** Runs automatically at every Claude Code session per `CLAUDE.md` Session Start Protocol. Can also be invoked explicitly via "Detect patterns" or "Scan for repeating prompts."
 
-**Context:** This is the mechanism that makes the OS exponentially improving. Every time Claude is invoked, this skill runs FIRST. It scans the session log to detect whether the current prompt is a repeat of historical prompts. If a pattern is found (3+ matches in 30 days), it surfaces the option to forge a new skill via `gtm-skills/skill-forge.md`.
+**Context:** This is the mechanism that makes the OS exponentially improving. Every time Claude is invoked, this skill runs FIRST. It scans the session log to detect whether the current prompt is a repeat of historical prompts. A tentative pattern (3-4 matches in 30 days) gets a soft note; a confirmed pattern (5+ matches) surfaces the option to forge a new skill via `gtm-skills/skill-forge.md` (see the match-count table in STEP 2).
 
 **Output rule:** never blocks work. Surfaces a one-line note at the top of the response, then proceeds with the user's actual request.
 

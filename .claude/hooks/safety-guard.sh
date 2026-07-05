@@ -16,11 +16,22 @@
 # (list_/get_/analytics_/count_/search_/*_status) are never in the blocklist, so
 # they stay automatic per CLAUDE.md. Add a new mutating operation by listing its
 # operation name (no namespace) in BLOCKED_OPS below.
+#
+# jq is used when present but is OPTIONAL: if jq is missing (common on Windows)
+# the guard falls back to a regex extract of the raw JSON rather than failing
+# open. It never silently allows a mutation just because jq is absent.
 # =============================================================================
 
 INPUT=$(cat)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // ""' 2>/dev/null)
-TOOL_INPUT=$(echo "$INPUT" | jq -c '.tool_input // {}' 2>/dev/null)
+
+# jq-optional parsing — must NOT fail open if jq is unavailable.
+if command -v jq >/dev/null 2>&1; then
+  TOOL_NAME=$(printf '%s' "$INPUT" | jq -r '.tool_name // ""' 2>/dev/null)
+  TOOL_INPUT=$(printf '%s' "$INPUT" | jq -c '.tool_input // {}' 2>/dev/null)
+else
+  TOOL_NAME=$(printf '%s' "$INPUT" | grep -oE '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
+  TOOL_INPUT="$INPUT"
+fi
 
 # Operation = substring after the final "__" (full name if there is no "__").
 OP="${TOOL_NAME##*__}"
@@ -157,7 +168,11 @@ for blocked in "${BLOCKED_OPS[@]}"; do
                                                   CATEGORY="GitHub mutation" ;;
       *)                                          CATEGORY="Blocked operation" ;;
     esac
-    DETAILS=$(echo "$TOOL_INPUT" | jq -c '.' 2>/dev/null | head -c 300)
+    if command -v jq >/dev/null 2>&1; then
+      DETAILS=$(printf '%s' "$TOOL_INPUT" | jq -c '.' 2>/dev/null | head -c 300)
+    else
+      DETAILS=$(printf '%s' "$TOOL_INPUT" | tr -d '\n' | head -c 300)
+    fi
     echo "SAFETY GUARD BLOCKED: $CATEGORY"
     echo "Tool: $TOOL_NAME"
     echo "Details: $DETAILS"
@@ -169,7 +184,11 @@ done
 
 # ─── Dangerous bash patterns ──────────────────────────────────────────────────
 if [ "$TOOL_NAME" = "Bash" ]; then
-  CMD=$(echo "$TOOL_INPUT" | jq -r '.command // ""' 2>/dev/null)
+  if command -v jq >/dev/null 2>&1; then
+    CMD=$(printf '%s' "$TOOL_INPUT" | jq -r '.command // ""' 2>/dev/null)
+  else
+    CMD=$(printf '%s' "$INPUT" | grep -oE '"command"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
+  fi
 
   if echo "$CMD" | grep -qE '\bgit\s+push\s+.*(-f|--force)\b'; then
     echo "SAFETY GUARD BLOCKED: git push --force rewrites remote history. Ask Harry for approval."; exit 2

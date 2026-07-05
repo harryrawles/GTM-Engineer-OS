@@ -28,6 +28,7 @@ Central source of truth for variables used across this OS. Other files reference
 |-----|-------|
 | `instantly_workspace_url` | {{URL}} |
 | `instantly_workspace_id` | {{ID}} |
+| `instantly_mcp_server` | {{MCP_SERVER_NAME}} — the exact MCP server this client's workspace is mounted as (e.g. the tool prefix `mcp__<server>__…`). Skills MUST target this server when multiple Instantly workspaces are connected. |
 | `mcp_connected` | {{true/false}} |
 
 ## OS

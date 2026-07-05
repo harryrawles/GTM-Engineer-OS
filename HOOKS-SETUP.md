@@ -1,6 +1,6 @@
 # Hooks Setup
 
-Three production-ready Claude Code hooks and one slash command ship with this OS. Once installed, they run automatically on every session.
+Four Claude Code hooks and one slash command ship with this OS. Once installed, they run automatically on every session.
 
 ---
 
@@ -8,11 +8,12 @@ Three production-ready Claude Code hooks and one slash command ship with this OS
 
 | Hook | Fires on | What it does |
 |------|----------|-------------|
-| `safety-guard.sh` | Every tool call (PreToolUse) | Blocks dangerous Instantly mutations, external sends, and destructive bash commands before they execute. Hard block — exit code 2. |
-| `session-logger.sh` | Every event | Logs tool calls, prompts, failures, compaction snapshots, and session summaries to `.claude/sessions/<session_id>.jsonl`. Unconditional — cannot be skipped by a skill. |
-| `notify.sh` | Stop, PermissionRequest, SessionStart, SessionEnd | Desktop notification when Claude finishes or needs approval. macOS, Linux, and Windows. |
+| `safety-guard.sh` | Every tool call (PreToolUse) | Blocks dangerous Instantly mutations, external sends, financial ops, and destructive bash commands before they execute. Hard block — exit code 2. Matches on the **operation name** (the part after the last `__`), so it fires across any connected Instantly/Slack namespace without per-workspace customisation. |
+| `session-logger.sh` | Every event | (1) Logs events to `.claude/sessions/<session_id>.jsonl` (raw audit trail). (2) On UserPromptSubmit, appends one redacted `via:hook` row to the active client's `clients/{slug}/session-log.md` as a deterministic backstop for pattern-detector. |
+| `session-start-context.sh` | SessionStart (`startup`) | Injects a one-line reminder to run the Session Start Protocol — resolve the active client and run `pattern-detector` first — so the auto-improvement loop isn't left to chance. |
+| `notify.sh` | Stop, PermissionRequest, SessionStart, SessionEnd, SubagentStop | Desktop notification when Claude finishes or needs approval. macOS, Linux, and Windows. |
 
-**Distinction from session-log.md:** `clients/{slug}/session-log.md` is the per-client AI-readable skill invocation log (read by pattern-detector). `.claude/sessions/` JSONL files are the raw system audit trail. Both run in parallel. The JSONL files are gitignored — they stay local.
+**Two logs, on purpose:** `clients/{slug}/session-log.md` is the per-client AI-readable skill-invocation log (read by pattern-detector). The `.claude/sessions/*.jsonl` files are the raw system audit trail (gitignored, stay local). Each skill writes its own rich session-log row at STEP 0; `session-logger.sh` adds a `via:hook` row as a backstop so the log is never empty even if a skill forgets. pattern-detector dedupes the two.
 
 ---
 
@@ -34,30 +35,35 @@ active. Nothing to copy per client.
 ```bash
 chmod +x .claude/hooks/safety-guard.sh
 chmod +x .claude/hooks/session-logger.sh
+chmod +x .claude/hooks/session-start-context.sh
 chmod +x .claude/hooks/notify.sh
 ```
 
-### Step 2 — Install jq
-The hooks require `jq` for JSON parsing.
+### Step 2 — Install jq (recommended)
 ```bash
 brew install jq          # macOS
 choco install jq         # Windows
 sudo apt install jq      # Ubuntu/Debian
 ```
+`jq` is **recommended but not required**. The hooks degrade gracefully without it: `safety-guard.sh` falls
+back to a regex extract so it still blocks mutations (it never fails open), and the `via:hook` backstop
+still writes. Only the raw `.claude/sessions/*.jsonl` audit trail needs `jq` — it is skipped cleanly when
+`jq` is absent, never writing malformed lines.
 
 ### Step 3 — Verify hooks are firing
 Open the repo in Claude Code and run any command. Then:
 ```bash
-ls .claude/sessions/
+ls .claude/sessions/          # a <session_id>.jsonl should appear (requires jq)
 ```
-A `.jsonl` file should appear for the current session. If not: check `jq` is installed and scripts are executable.
+If nothing appears: check `jq` is installed and the scripts are executable.
 
-### Step 4 — Customise the Instantly tool names
-The safety guard blocks `mcp__instantly__*` tool names. Confirm exact names match your Instantly MCP:
-```
-Ask Claude Code: "List all available Instantly MCP tools"
-```
-Update the `BLOCKED_TOOLS` array in `.claude/hooks/safety-guard.sh` to match.
+### Step 4 — No tool-name customisation needed
+Unlike earlier versions, the safety guard **no longer** hard-codes fully-qualified tool names. It matches
+on the operation (everything after the last `__`), so it works across both connected Instantly namespaces
+(`mcp__…DPS_Instantly__…`, `mcp__…Verity_Instantly_account__…`) and Slack/Stripe out of the box. To gate a
+**new** mutating operation, add its operation name (no namespace) to the `BLOCKED_OPS` array in
+`.claude/hooks/safety-guard.sh`. Read-only operations (`list_`/`get_`/`analytics_`/`count_`/`search_`/`*_status`)
+are never listed, so reads stay automatic.
 
 ---
 
@@ -66,7 +72,7 @@ Update the `BLOCKED_TOOLS` array in `.claude/hooks/safety-guard.sh` to match.
 | Issue | Fix |
 |-------|-----|
 | Hook not firing | Verify `.claude/settings.json` exists at project root. Verify scripts are executable. |
-| "jq: command not found" | Install jq (see Step 2) |
+| No `.jsonl` audit files | Install jq (see Step 2). The safety guard and the `via:hook` backstop still work without it. |
 | Notifications not showing on Windows | Requires PowerShell accessible from bash (`powershell.exe`). Fails silently if unavailable — non-fatal. |
-| Safety guard blocking something it should not | Remove the tool name from BLOCKED_TOOLS in safety-guard.sh |
-| Safety guard NOT blocking something it should | The Instantly MCP tool name differs — ask Claude to list tools and update BLOCKED_TOOLS |
+| Safety guard blocking something it should not | Remove that operation name from `BLOCKED_OPS` in `safety-guard.sh` (or confirm it's genuinely a read). |
+| Safety guard NOT blocking something it should | Add the operation name (the part after the last `__`, no namespace) to `BLOCKED_OPS` in `safety-guard.sh`. Regression-tested by `tests/ci/test-safety-guard.sh`. |

@@ -31,10 +31,11 @@ The most important connection. Without it, the weekly-reviewer and report-writer
 
 2. **Add the MCP to Claude Code:**
    - Open Claude Code settings
-   - Add MCP server: `instantly` (a distinct connection per client)
+   - Add the MCP server with a **client-distinct name** (e.g. `instantly-{slug}`), NOT a generic `instantly`. When more than one client's Instantly workspace is connected, the tool names differ only by this server prefix (`mcp__<server>__…`), and that prefix is how a skill targets the right workspace.
    - Type: HTTP
    - Workspace URL: see `clients/{slug}/_config.md → instantly_workspace_url`
    - API key: paste from `clients/{slug}/secrets/credentials.md`
+   - Record the server name in `clients/{slug}/_config.md → instantly_mcp_server` so skills know which server maps to this client.
 
 3. **Verify the connection:**
    ```
@@ -45,6 +46,7 @@ The most important connection. Without it, the weekly-reviewer and report-writer
 4. **Update `clients/{slug}/_config.md`:**
    - Set `mcp_connected: true`
    - Set `instantly_workspace_id: [paste from URL]`
+   - Set `instantly_mcp_server: [the client-distinct server name you chose above]`
 
 ### What this MCP enables
 
@@ -122,6 +124,7 @@ Only if Harry uses Slack for client comms or alerts.
 ### Multiple clients confused (data crossover)
 - Each client should have its own Instantly MCP connection. Do NOT share a single API key across clients.
 - Use the workspace URL in `clients/{slug}/_config.md` to verify which client Claude is working on.
+- With multiple Instantly workspaces connected, always call the server named in `clients/{slug}/_config.md → instantly_mcp_server`. A generic "the Instantly MCP" is ambiguous when several are mounted (e.g. two servers with `mcp__…Instantly…__` prefixes) and can hit the wrong workspace.
 
 ---
 

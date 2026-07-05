@@ -15,7 +15,7 @@ reads:
   - "clients/{slug}/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md, comms-log.md, overview.md"
 invokes:
   - "gtm-skills/client-health-scorer.md (always)"
-  - "gtm-skills/weekly-reviewer.md (always — runs full 8 steps including synthesis)"
+  - "gtm-skills/weekly-reviewer.md (always — runs the full 9 steps including synthesis and shared-layer promotion)"
   - "gtm-skills/test-readiness-check.md (conditional)"
   - "gtm-skills/test-launcher.md (conditional)"
   - "gtm-skills/client-report-writer.md (always)"
@@ -25,7 +25,7 @@ writes:
   - "clients/{slug}/test-log.md (completed tests + queued next tests)"
   - "clients/{slug}/campaign-state.md (health rating updates)"
   - "clients/{slug}/MEMORY.md (Active Focus and Recent Learnings updates)"
-  - "reports/YYYY-WW-weekly-report.md (NOT yet implemented — report stored in client-report-writer output)"
+  - "clients/{slug}/comms-log.md (the weekly report text, logged when sent — via client-report-writer)"
 ---
 
 # Skill: Chain — Weekly Review Full
@@ -36,7 +36,7 @@ writes:
 
 **Why this exists:** the Friday routine is the most important recurring activity in the OS — without it, nothing compounds. Running each skill individually means 4-5 explicit invocations with manual context-passing. This chain captures the routine as a single intent.
 
-**Distinction from `gtm-skills/weekly-reviewer.md`:** the weekly-reviewer skill does the deep review (steps 1-8). This chain wraps it with the pre-step (health scoring) and post-step (test launches + report generation).
+**Distinction from `gtm-skills/weekly-reviewer.md`:** the weekly-reviewer skill does the deep review (steps 1-9, including shared-layer promotion). This chain wraps it with the pre-step (health scoring) and post-step (test launches + report generation).
 
 ---
 
@@ -75,7 +75,7 @@ If Red/Critical: flag urgency in `clients/{slug}/MEMORY.md` Active Focus. Option
 
 ## STEP 2 — Deep Weekly Review (always)
 
-Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 8-step flow:
+Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 9-step flow:
 
 1. Pull Instantly data (Step 0 of this chain already did this, weekly-reviewer can reuse)
 2. Signal trends — surface declining signals
@@ -84,7 +84,8 @@ Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 8-step flow:
 5. Update completed tests (six-rule check + 5-question tree + regression check + recommend revert or promotion)
 6. Update campaign health in `clients/{slug}/campaign-state.md`
 7. **Synthesise the week's insight** — capture meta-takeaway, write to copy-library Cross-Campaign Patterns OR decision-log Recurring Patterns
-8. Hand off to report (handled by Step 4 of this chain)
+8. **Promote generalisable learnings** — on Confirmed patterns only, de-identify and promote up into `best-practices/` / `frameworks/` / `wiki/` (never raw client data)
+9. Hand off to report (handled by Step 4 of this chain)
 
 **This is the longest step.** Operator pauses occur naturally inside weekly-reviewer (confirm each winner, each loser, each test result).
 
