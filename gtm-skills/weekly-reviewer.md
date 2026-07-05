@@ -378,6 +378,18 @@ If yes → invoke `gtm-skills/client-report-writer.md` using the data just analy
 
 ---
 
+## OS Hygiene (run at the end of every review)
+
+Housekeeping so the compounding substrate stays clean:
+
+- **Prune the session log.** In `clients/{slug}/session-log.md`, move Active Log rows older than 90 days into the Archive table — including the deterministic `via:hook` backstop rows, which accrue one per prompt and are the fastest-growing entries. Never delete; archive only.
+- **Refresh dates.** Set `clients/{slug}/_config.md` `last_review_date` to today.
+- **INDEX.** If Step 8 promoted a learning into a *new* shared file, confirm it is listed in `INDEX.md`.
+
+(The portfolio chain `gtm-skills/chain-weekly-review-full.md` performs the equivalent as its STEP 5 — Update OS Hygiene.)
+
+---
+
 ## BATCH MODE — Portfolio Sweep
 
 Triggered by "Run weekly review for all clients" or "Weekly portfolio sweep."

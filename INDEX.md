@@ -26,7 +26,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 |------|----------------|
 | clients/{slug}/ | One isolated folder per client (created from the template). Git-tracked EXCEPT `secrets/`. |
 | clients/{slug}/secrets/ | GIT-IGNORED — this client's Instantly API key, workspace id/url. Never committed. |
-| clients/_archived/ | Offboarded clients (skipped by portfolio sweeps). |
+| clients/_archived/ | Offboarded clients (skipped by portfolio sweeps). Created on first offboard. |
 | _state/active-client | Git-ignored pointer to the current active client slug. |
 | templates/client-template/ | The skeleton every new client is copied from (run `client-onboarder`). |
 
@@ -54,8 +54,8 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 |------|----------------|
 | gtm-skills/ | Skill + chain definitions, pattern-detector, skill-forge |
 | wiki/ | Shared knowledge base (see below) |
-| frameworks/ | Strategic frameworks & mental models (uploaded later) |
-| sops/ | Standard operating procedures (uploaded later) |
+| frameworks/ | Strategic frameworks & mental models — index in `frameworks/README.md`; also the promotion destination for de-identified learnings |
+| sops/ | Standard operating procedures — staging area, populate as runbooks are written (`sops/README.md`) |
 | best-practices/ | Best-practice references & checklists |
 | best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) — start-points for any client's campaign |
 | templates/ | Reusable output templates + `client-template/` skeleton |
@@ -70,6 +70,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/offer-framework.md | 12-step offer building |
 | wiki/psychological-principles.md | Cognitive biases for copy |
 | wiki/scientific-method.md | Split test methodology |
+| wiki/_active-test-rules.md | Guardrails for in-flight tests (do-not-touch rules while a test runs) |
 | wiki/subject-lines.md | 4 subject line formulas + A/B testing |
 | wiki/atl-btl-messaging.md | VP/C-Level vs Manager/IC messaging |
 | wiki/objection-library.md | Top 15 objections with response templates |
@@ -163,6 +164,10 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 |------|--------------|
 | tests/test-onboarding.md | Client onboarder flow |
 | tests/test-cold-email-writer.md | Copy quality |
+| tests/ci/check-links.sh | CI: every referenced `.md` path resolves (link integrity) |
+| tests/ci/check-secrets.sh | CI: no tracked secrets, credentials, or key material |
+| tests/ci/test-safety-guard.sh | CI: safety-guard block/allow matrix |
+| .github/workflows/ci.yml | CI runner — shellcheck + the three checks above, on every push/PR |
 
 ## Raw Inputs
 

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq + shellcheck
+        run: sudo apt-get update && sudo apt-get install -y jq shellcheck
+
+      - name: Make hooks + CI scripts executable
+        run: chmod +x .claude/hooks/*.sh tests/ci/*.sh
+
+      - name: Shellcheck (errors only — style warnings don't fail CI)
+        run: shellcheck --severity=error .claude/hooks/*.sh tests/ci/*.sh
+
+      - name: Link integrity (every referenced .md resolves)
+        run: bash tests/ci/check-links.sh
+
+      - name: Secret / isolation scan
+        run: bash tests/ci/check-secrets.sh
+
+      - name: Safety-guard block/allow matrix
+        run: bash tests/ci/test-safety-guard.sh

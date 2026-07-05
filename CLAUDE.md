@@ -68,8 +68,8 @@ For any client task, before producing or deciding, load in this order and **synt
 
 1. **Active client** — `MEMORY.md` first, then the files the task needs (`voice`, `icp`, `offer`,
    `campaign-state`, `copy-library`, `test-log`, `decision-log`).
-2. **Shared method** — `wiki/_skill-context.md`, plus the relevant `wiki/` pages, `frameworks/`,
-   `best-practices/` (including playbooks), and `sops/`.
+2. **Shared method** — `wiki/_skill-context.md`, plus the relevant `wiki/` pages, the frameworks indexed
+   in `frameworks/README.md`, `best-practices/` (including playbooks), and any `sops/` that exist.
 3. **The skill or chain** — the matching `gtm-skills/` entry from the routing table.
 
 Never act on a partial read. **Example — "launch a campaign for Acme":** pull Acme's `icp`/`offer`/`voice`/
@@ -104,6 +104,8 @@ gtm-engineer-os/
 ├── README.md             # Human-facing intro
 ├── OPERATING-RHYTHM.md   # Full daily / weekly / quarterly cadence
 ├── MCP-SETUP.md          # Instantly MCP + per-client workspace setup
+├── BOOTSTRAP.md          # How to add a new client
+├── HOOKS-SETUP.md        # Claude Code hooks + /gtm:compound setup
 ├── INDEX.md              # Map of the entire OS — must stay current
 ├── CHANGELOG.md / VERSION / LICENSE / .gitignore
 │
@@ -122,6 +124,8 @@ gtm-engineer-os/
 ├── sops/                 # Standard operating procedures (filled over time)
 ├── templates/            # Reusable outputs + client-template/ skeleton
 │
+├── .claude/              # Claude Code config — hooks (safety-guard, session-logger,
+│                         #   notify, session-start-context), settings.json, commands/
 └── examples/ tests/ assets/ raw/ .github/
 ```
 
@@ -183,8 +187,8 @@ specific client's private data. `INDEX.md` maps the whole OS and must be kept cu
 
 1. Read `_state/active-client`; state it. If none is set and the task is client-specific, ask which client.
 2. Load the active client's `MEMORY.md` and `wiki/_skill-context.md`.
-3. Invoke `gtm-skills/pattern-detector.md`: reads the active client's `session-log.md`, proposes
-   `skill-forge` on 3+ repeated intents, writes a session-log row, then hands off.
+3. Invoke `gtm-skills/pattern-detector.md`: reads the active client's `session-log.md`, surfaces a soft
+   note at 3+ repeated intents and proposes `skill-forge` at 5+, writes a session-log row, then hands off.
 4. Assemble context (see above), then route the request via the table.
 
 **Every skill writes its own session-log row at STEP 0**, into the active client's `session-log.md`. A

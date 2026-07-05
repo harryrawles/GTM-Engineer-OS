@@ -3,19 +3,19 @@
 # =============================================================================
 # Session Logger — Claude Code Event Logger
 # =============================================================================
-# Logs every Claude Code hook event to a per-session JSONL file.
-# Output: .claude/sessions/<session_id>.jsonl (one JSON object per line)
+# Two independent outputs:
 #
-# Distinct from clients/{slug}/session-log.md (the per-client AI-readable skill
-# invocation log read by pattern-detector). This .jsonl file is the raw system
-# audit trail — unconditional, cannot be skipped by a skill.
+# 1. Raw JSONL audit trail → .claude/sessions/<session_id>.jsonl (one JSON
+#    object per event). Requires jq for safe string escaping; skipped cleanly
+#    if jq is unavailable (no malformed lines are ever written).
 #
-# BACKSTOP (see pattern-detector.md): on UserPromptSubmit this hook ALSO appends
-# one deterministic "via:hook" row to the active client's session-log.md, so the
-# compounding loop keeps a signal even if a skill forgets its STEP-0 row. Skill
-# rows remain the richer record; pattern-detector dedupes the two.
+# 2. Deterministic compounding BACKSTOP (see pattern-detector.md): on
+#    UserPromptSubmit, appends one redacted "via:hook" row to the active
+#    client's clients/{slug}/session-log.md so pattern-detector keeps a signal
+#    even if a skill forgets its STEP-0 row. This works WITH OR WITHOUT jq.
+#    Skill rows remain the richer record; pattern-detector dedupes the two.
 #
-# Requires: jq (brew install jq / choco install jq / apt install jq)
+# jq install (recommended): brew install jq / choco install jq / apt install jq
 # =============================================================================
 
 INPUT=$(cat)
@@ -24,41 +24,65 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 LOG_DIR="$SCRIPT_DIR/../sessions"
 mkdir -p "$LOG_DIR"
 
-SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // "unknown"' 2>/dev/null)
-EVENT=$(echo "$INPUT" | jq -r '.hook_event_name // "unknown"' 2>/dev/null)
-TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null)
+HAVE_JQ=0
+command -v jq >/dev/null 2>&1 && HAVE_JQ=1
+
+# --- field extraction (jq-optional) ---
+if [ "$HAVE_JQ" -eq 1 ]; then
+  SESSION_ID=$(printf '%s' "$INPUT" | jq -r '.session_id // "unknown"' 2>/dev/null)
+  EVENT=$(printf '%s' "$INPUT" | jq -r '.hook_event_name // "unknown"' 2>/dev/null)
+  TOOL_NAME=$(printf '%s' "$INPUT" | jq -r '.tool_name // empty' 2>/dev/null)
+else
+  SESSION_ID=$(printf '%s' "$INPUT" | grep -oE '"session_id"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
+  [ -z "$SESSION_ID" ] && SESSION_ID="unknown"
+  EVENT=$(printf '%s' "$INPUT" | grep -oE '"hook_event_name"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
+  [ -z "$EVENT" ] && EVENT="unknown"
+  TOOL_NAME=$(printf '%s' "$INPUT" | grep -oE '"tool_name"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
+fi
 TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 TRANSCRIPT="$LOG_DIR/${SESSION_ID}.jsonl"
 
+# ── Deterministic compounding backstop (runs with or without jq) ─────────────
+# Only fires when an active client is set AND its log already exists (the
+# onboarder creates it). Never creates folders; silent no-op otherwise.
+if [ "$EVENT" = "UserPromptSubmit" ]; then
+  if [ "$HAVE_JQ" -eq 1 ]; then
+    PROMPT=$(printf '%s' "$INPUT" | jq -r '.prompt // empty' 2>/dev/null | head -c 2000)
+  else
+    PROMPT=$(printf '%s' "$INPUT" | grep -oE '"prompt"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/' | head -c 2000)
+  fi
+
+  SLUG=$(tr -d '\r\n' < "$REPO_ROOT/_state/active-client" 2>/dev/null | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')
+  CLIENT_LOG="$REPO_ROOT/clients/$SLUG/session-log.md"
+  if [ -n "$SLUG" ] && [ -f "$CLIENT_LOG" ]; then
+    # Redact: drop email addresses, strip pipes/newlines, collapse spaces, cap 60 chars.
+    SUMMARY=$(printf '%s' "$PROMPT" \
+      | tr '\n\t' '  ' \
+      | sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/[email]/g' \
+      | sed 's/|/\//g' \
+      | sed -E 's/[[:space:]]+/ /g; s/^ +//; s/ +$//' \
+      | cut -c1-60)
+    [ -z "$SUMMARY" ] && SUMMARY="(prompt)"
+    MD_TS=$(date -u +"%Y-%m-%d %H:%M")
+    ROW="| $MD_TS | $SUMMARY | via:hook | (auto-captured; deterministic backstop) |"
+    # Insert as the first data row of the Active Log table (newest first).
+    awk -v row="$ROW" '
+      BEGIN { sect=0; done=0 }
+      /^## Active Log/ { sect=1 }
+      { print }
+      (sect==1 && done==0 && /^\|-{3,}/) { print row; done=1 }
+    ' "$CLIENT_LOG" > "$CLIENT_LOG.tmp" 2>/dev/null && mv "$CLIENT_LOG.tmp" "$CLIENT_LOG" 2>/dev/null
+  fi
+fi
+
+# ── Raw JSONL audit trail (requires jq for safe escaping) ────────────────────
+if [ "$HAVE_JQ" -eq 0 ]; then
+  exit 0
+fi
+
 case "$EVENT" in
   UserPromptSubmit)
-    PROMPT=$(echo "$INPUT" | jq -r '.prompt // empty' 2>/dev/null | head -c 2000)
     echo "{\"ts\":\"$TIMESTAMP\",\"event\":\"user_prompt\",\"sid\":\"$SESSION_ID\",\"prompt\":$(echo "$PROMPT" | jq -Rs .)}" >> "$TRANSCRIPT"
-
-    # ── Deterministic backstop into the active client's session-log.md ────────
-    # Only fires when an active client is set AND its log already exists (the
-    # onboarder creates it). Never creates folders; silent no-op otherwise.
-    SLUG=$(tr -d '\r\n' < "$REPO_ROOT/_state/active-client" 2>/dev/null | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//')
-    CLIENT_LOG="$REPO_ROOT/clients/$SLUG/session-log.md"
-    if [ -n "$SLUG" ] && [ -f "$CLIENT_LOG" ]; then
-      # Redact: drop email addresses, strip pipes/newlines, collapse spaces, cap 60 chars.
-      SUMMARY=$(printf '%s' "$PROMPT" \
-        | tr '\n\t' '  ' \
-        | sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/[email]/g' \
-        | sed 's/|/\//g' \
-        | sed -E 's/[[:space:]]+/ /g; s/^ +//; s/ +$//' \
-        | cut -c1-60)
-      [ -z "$SUMMARY" ] && SUMMARY="(prompt)"
-      MD_TS=$(date -u +"%Y-%m-%d %H:%M")
-      ROW="| $MD_TS | $SUMMARY | via:hook | (auto-captured; deterministic backstop) |"
-      # Insert as the first data row of the Active Log table (newest first).
-      awk -v row="$ROW" '
-        BEGIN { sect=0; done=0 }
-        /^## Active Log/ { sect=1 }
-        { print }
-        (sect==1 && done==0 && /^\|-{3,}/) { print row; done=1 }
-      ' "$CLIENT_LOG" > "$CLIENT_LOG.tmp" 2>/dev/null && mv "$CLIENT_LOG.tmp" "$CLIENT_LOG" 2>/dev/null
-    fi
     ;;
   PreToolUse)
     TOOL_INPUT=$(echo "$INPUT" | jq -c '.tool_input // {}' 2>/dev/null | head -c 1000)
