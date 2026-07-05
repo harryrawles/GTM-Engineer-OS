@@ -6,6 +6,21 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [2.26.0] — 2026-07-04
+
+### Added — Recruitment / staffing MPC playbook
+
+- `best-practices/playbooks/recruitment-staffing.md` — MPC (Most Placeable Candidate) candidate-marketing
+  playbook for recruitment/staffing clients generating job orders proactively. Leads with an exclusive,
+  quantified-candidate heads-up (not an agency pitch); two subject-lined spintax variants and a suggested
+  4-touch scaling structure. Guardrails: only market a genuine MPC, only claim real exclusivity/scarcity, and
+  keep the candidate anonymised until the hiring manager opts in (no candidate PII across clients). Merge
+  fields/spintax kept verbatim.
+- Indexed in `best-practices/playbooks/README.md`. No skill wiring needed — `cold-email-writer`,
+  `signal-sourcer`, and `chain-build-campaign` already consult the `best-practices/playbooks/` folder.
+
+---
+
 ## [2.25.0] — 2026-07-04
 
 ### Added — AI calling-agent (pro-bono dealership) playbook

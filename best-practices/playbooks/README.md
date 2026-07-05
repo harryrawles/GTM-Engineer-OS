@@ -39,6 +39,7 @@ verbatim.
 | [saas-3.md](./saas-3.md) | Dev-tools curiosity hook for QA engineers — specific "3 test paths" insight, ultra-short knowledge-first email |
 | [booking-saas.md](./booking-saas.md) | Experiential/booking product — friction-removal access + discount hook, safe + credential variants (⚠️ compliance) |
 | [ai-calling.md](./ai-calling.md) | AI voice/calling agent for dealerships — pro-bono offer, ultra-short 2 variants (⚠️ pro-bono + TCPA compliance) |
+| [recruitment-staffing.md](./recruitment-staffing.md) | Recruitment / staffing MPC candidate marketing — exclusive quantified-candidate heads-up, 2 subject-lined variants |
 | [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
 | [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
 | [marketing-3.md](./marketing-3.md) | Reputation / review management for local biz — review-reference hook, spintax template (⚠️ removal-claim compliance) |
