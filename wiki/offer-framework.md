@@ -2,6 +2,10 @@
 
 12-step process for building and validating an offer before writing copy. Run through this when launching a new campaign or when an existing offer is underperforming.
 
+> **The theory behind this process** — why pain must be amplified indirectly, why confidence has three
+> sources, why raising price can raise perceived value, why "the gap" matters — lives in
+> [wiki/offer-creation-theory.md](./offer-creation-theory.md). Read it if a step below feels arbitrary.
+
 ---
 
 ## Step 1: Define Who

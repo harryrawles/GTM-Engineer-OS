@@ -67,6 +67,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/_skill-context.md | Standard skill preamble (every skill loads this — includes active-client resolution) |
 | wiki/copywriting-101.md | Canonical rules + 4-part formula + sequence structure |
 | wiki/copywriting-frameworks.md | 13 alternative named frameworks + ColdIQ playbook |
+| wiki/offer-creation-theory.md | Offer psychology: 6 Pillars, Pools of Confidence/Pain, Action Thresholds, latent conditions, pricing philosophy |
 | wiki/offer-framework.md | 12-step offer building |
 | wiki/psychological-principles.md | Cognitive biases for copy |
 | wiki/scientific-method.md | Split test methodology |
