@@ -202,7 +202,7 @@ Harry
 - Never name third-party tools (RB2B, Trigify, etc.) - sounds invasive
 - Reference public source even if data came from enrichment ("found via LinkedIn" is true if the chain started there)
 
-**Escalation:** if reply is hostile / mentions GDPR → check `wiki/deliverability.md` compliance, escalate to Harry, do not auto-respond beyond the first reply.
+**Escalation:** if reply is hostile / mentions GDPR → check `wiki/deliverability.md` compliance, escalate to Harry (who loops in his manager, this isn't his call alone), do not auto-respond beyond the first reply.
 
 ---
 
