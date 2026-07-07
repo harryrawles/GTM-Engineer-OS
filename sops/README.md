@@ -10,6 +10,9 @@ to every client.
 - `daily-structure.md` - the default daily block structure (onboarding, client management, meetings) and
   the response-time defaults (24-hour acknowledgement, 3-day campaign update, Friday batching rule) that
   `OPERATING-RHYTHM.md` and `gtm-skills/client-request-handler.md` build on.
+- `client-communication-principles.md` - the baseline standard for every client interaction (document work,
+  be proactive, professional language, MRR-weighted prioritisation) plus situational guidance for
+  cancellations, refunds, rush demands, and clients wanting to write their own copy.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

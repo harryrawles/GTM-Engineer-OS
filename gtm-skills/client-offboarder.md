@@ -20,7 +20,7 @@ writes:
 
 **Trigger:** "Offboard {{client}}", "{{client}} is churning", "End engagement with {{client}}", "Archive {{client}} OS"
 
-**Context:** When a client engagement ends - churn, expiry, mutual transition - this skill runs the close-out flow. Captures learnings for the portfolio, generates a final report for the client, decommissions assets cleanly.
+**Context:** When a client engagement ends - churn, expiry, mutual transition - this skill runs the close-out flow. Captures learnings for the portfolio, generates a final report for the client, decommissions assets cleanly. This runs after the decision is final. If a client has just said they want to cancel and a save is still possible, that is `sops/client-communication-principles.md`'s "Client wants to cancel" situation, not this skill.
 
 ---
 

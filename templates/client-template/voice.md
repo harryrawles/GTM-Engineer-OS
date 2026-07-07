@@ -1,6 +1,7 @@
 # Voice - {{CLIENT_NAME}}
 
-How to write on behalf of this client. Read before drafting any copy.
+How to write on behalf of this client. Read before drafting any copy. This sets tone on top of the
+Instantly-brand professionalism floor in `sops/client-communication-principles.md`, not instead of it.
 
 ---
 

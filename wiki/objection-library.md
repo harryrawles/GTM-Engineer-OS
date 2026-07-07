@@ -445,7 +445,9 @@ Harry
 - Any response involving GDPR, CAN-SPAM, or legal language
 - Any 2nd objection from same prospect (don't enter circular argument)
 - Any "we know your CEO" or "talked to your team" hints (relationship signal worth manual review)
-- Any request for refund, complaint, or formal action
+- Any request for refund, complaint, or formal action (this is a prospect replying to a cold email; if it's
+  an existing client asking for a refund, that's `sops/client-communication-principles.md`'s situational
+  guidance instead)
 
 ---
 
