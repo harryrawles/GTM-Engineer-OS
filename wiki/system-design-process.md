@@ -1,14 +1,14 @@
 # System Design - Building a Sub-System from Scratch
 
-The 7-step process for designing a brand-new client acquisition sub-system - not iterating an existing one
-(that's `wiki/scientific-method.md`), but building the channel/mechanism from nothing.
+The 6-step process for designing a brand-new client acquisition sub-system - not iterating an existing one
+(that's `wiki/scientific-method.md`), but building the channel/mechanism from nothing. Scoped to the GTME
+role: building a new channel or motion for an Instantly client, not a general business-building guide.
 
 **When this file is actually needed:** every client in this OS already runs on a built channel - Instantly
 cold email - so day-to-day work uses `gtm-skills/chain-build-campaign.md` directly, which is the cold-email
 channel already instantiated from this exact process (its sub-skills map onto the steps below - see the
-table in Section 8). Reach for this file specifically when:
+table in Section 7). Reach for this file specifically when:
 - A client wants a **second channel** added (LinkedIn, YouTube organic, paid ads, cold calling)
-- Harry is designing a **new acquisition motion** for Refine Flow itself
 - Something about an existing channel feels arbitrary and needs re-deriving from first principles
 
 ---
@@ -184,22 +184,6 @@ done than reading it described - the clearer the instruction, the more reliable 
 
 ---
 
-## Step 7 - Recruit Team
-
-Only bring in a human operator once you've run the system yourself and confirmed it works.
-
-**The human variable:** a bad operator running a genuinely good system can produce bad results - and it's
-easy to misread that as "the system doesn't work" when the fault is the operator, not the design. Validate
-the system solo first, so a new hire's performance can be judged against a known baseline rather than
-mistaken for a system flaw. (This is the "Team members" row already listed as a *variable* environment
-element in `wiki/acquisition-systems-theory.md` Section 3 - the human variable is why it's classified as
-variable rather than static: it's controllable, but only if you isolate it from the system's own design
-before judging either one.)
-
-**7.1** Prospect for candidates. **7.2** Interview the ones that look like a fit. **7.3** Decide.
-
----
-
 ## What a Fully Designed Sub-System Has
 
 1. A clear function (Step 1)
@@ -208,18 +192,18 @@ before judging either one.)
 4. Sound KPIs and a feedback mechanism (Step 4)
 5. A visual flow (Step 5)
 6. Tasks deployable by human or machine, with SOPs (Step 6)
-7. A human or team to run it, validated solo first (Step 7)
 
-Once iterated with `wiki/scientific-method.md`, this is the entire loop this OS's own theory files
-describe: design once (this file), then iterate forever (the scientific method) - the same closing point
-`wiki/scientific-method.md` and `wiki/darwinian-acquisition-theory.md` make about time being the only real
-constraint once the process itself is sound.
+Every channel in this OS is run by Harry and Claude together, not a hired operator, so there's no separate
+"recruit a team" step here. Once iterated with `wiki/scientific-method.md`, this is the entire loop this
+OS's own theory files describe: design once (this file), then iterate forever (the scientific method) - the
+same closing point `wiki/scientific-method.md` and `wiki/darwinian-acquisition-theory.md` make about time
+being the only real constraint once the process itself is sound.
 
 ---
 
-## 8. This Process, Already Instantiated for Cold Email
+## 7. This Process, Already Instantiated for Cold Email
 
-`gtm-skills/chain-build-campaign.md` is this exact 7-step process, already run once for the one channel
+`gtm-skills/chain-build-campaign.md` is this exact 6-step process, already run once for the one channel
 this OS operates, so its sub-skills can be run individually instead of re-deriving the process each time:
 
 | System Design step | Already answered by |
@@ -230,10 +214,9 @@ this OS operates, so its sub-skills can be run individually instead of re-derivi
 | 4. Feedback mechanisms | `gtm-skills/pre-launch-check.md`, `wiki/email-benchmarks.md` |
 | 5. Flow | `wiki/diagrams.md` (OS-level; no client-level flow doc exists yet - a genuine gap if a client ever needs one) |
 | 6. Deployment | `gtm-skills/campaign-launcher.md`, `.claude/bin/instantly.sh` |
-| 7. Recruit team | N/A - Claude is the operator for this channel |
 
 Building a second channel for any client means writing the equivalent right-hand column from scratch,
-using Steps 1-7 above as the checklist.
+using Steps 1-6 above as the checklist.
 
 ---
 

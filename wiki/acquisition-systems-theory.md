@@ -15,7 +15,7 @@ duplicates what's already built:
   which sub-system to point that funnel at in the first place.
 
 **Building a sub-system from nothing, rather than diagnosing one that already exists?** Use
-`wiki/system-design-process.md` - the 7-step build process, which assumes everything in this file as its
+`wiki/system-design-process.md` - the 6-step build process, which assumes everything in this file as its
 starting theory.
 
 ---
@@ -90,7 +90,7 @@ element:
 | Type | Definition | Examples |
 |------|-----------|---------|
 | **Static** | Doesn't change - uncontrollable | Human nature, psychology, competition, latency, Classical Conditioning (see `wiki/first-principles-client-acquisition.md` Section 4) |
-| **Variable** | Can change - controllable | Team members, the product, operator emotion, tooling, knowledge |
+| **Variable** | Can change - controllable | Operator consistency, the product, operator emotion, tooling, knowledge |
 
 > "It's not the strongest or the fittest that survive, but those most adaptable to the change of the
 > environment in which they find themselves." - paraphrasing Darwin.
@@ -103,8 +103,9 @@ element:
   (static - plan for it, see Section 10)
 - Inconsistent follow-up cadence from whoever is sending changes the process (variable - fixable)
 
-Your job as the system's builder: understand the static elements well enough to work around them, and
-actively manage the variable elements that help or hurt performance.
+Your job running this layer of the system: understand the static elements well enough to work around them,
+and actively manage the variable elements within GTME's own scope (`sops/am-gtme-responsibility-split.md`) -
+campaigns, lead lists, and client comms - that help or hurt performance.
 
 ---
 
@@ -280,8 +281,8 @@ system's design is the DNA; if it's fit for the environment (Section 3), volume 
 ### Limiting factors
 
 Scale has a ceiling. You're capped by how many humans with the right latent conditions actually exist in
-the niche (Section 4), and by team capacity - time and energy for a sales rep, sending limits for
-infrastructure.
+the niche (Section 4), and by capacity - GTME's own time and attention across the portfolio, sending limits
+for infrastructure.
 
 ### Non-linear scaling factors
 
