@@ -88,6 +88,9 @@ Run every item. Each must pass before launch.
 
 ### 4. Sending Infrastructure
 
+This is confirming the AM's setup is ready, not GTME configuring it (`sops/am-gtme-responsibility-split.md`).
+If anything below is red, flag the AM rather than fixing it directly.
+
 From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/instantly.sh`):
 - [ ] Sending domains assigned to campaign
 - [ ] Mailboxes warmed (warmup status green per mailbox)

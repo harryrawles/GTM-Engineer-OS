@@ -70,7 +70,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/first-principles-client-acquisition.md | Meta-framework: Human+Stimulus=Action, Stimuli vs Fundamentals, Stimuli Entropy, Multi-Disciplinary Thinking, mental models toolkit |
 | wiki/acquisition-systems-theory.md | Systems theory: sub-systems funnel, throughput/bottlenecks, Polaris/non-linear metrics, scale, entropy, feedback loops |
 | wiki/darwinian-acquisition-theory.md | Biological grounding for the scientific method: genotypes, fitness, traits, splicing, cross-pollination, network conjugation |
-| wiki/system-design-process.md | 7-step process for building a new client acquisition sub-system/channel from scratch |
+| wiki/system-design-process.md | 6-step process for building a new client acquisition sub-system/channel from scratch |
 | wiki/offer-creation-theory.md | Offer psychology: 6 Pillars, Pools of Confidence/Pain, Action Thresholds, latent conditions, pricing philosophy |
 | wiki/offer-framework.md | 12-step offer building |
 | wiki/psychological-principles.md | Cognitive biases for copy |
@@ -95,7 +95,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 
 | File | What it contains |
 |------|----------------|
-| wiki/deliverability.md | DNS, warmup, infrastructure, recovery |
+| wiki/deliverability.md | Benchmarks, symptom-to-cause diagnosis, list verification (GTME-owned), what to flag the AM for |
 | wiki/email-benchmarks.md | Industry benchmarks |
 | wiki/glossary.md | All acronyms defined |
 | wiki/diagrams.md | Mermaid flowcharts of OS workflows |

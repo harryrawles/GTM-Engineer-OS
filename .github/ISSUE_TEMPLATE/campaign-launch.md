@@ -25,11 +25,13 @@ Run `gtm-skills/pre-launch-check.md` and `gtm-skills/campaign-launcher.md` to ve
 - [ ] Send times match client timezone
 - [ ] Reply alerts routed correctly
 - [ ] Lead list verified within last 30 days
+- [ ] Stop conditions defined
+- [ ] Logged to `clients/{slug}/decision-log.md`
+
+**Confirm with the AM (their setup, not verified by GTME directly, `sops/am-gtme-responsibility-split.md`):**
 - [ ] Tracking domain working
 - [ ] Warmup status green for all mailboxes
 - [ ] Bounce rate baseline acceptable
-- [ ] Stop conditions defined
-- [ ] Logged to `clients/{slug}/decision-log.md`
 
 ## Client approval
 

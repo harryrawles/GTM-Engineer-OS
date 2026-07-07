@@ -176,11 +176,11 @@ flowchart TD
     C -->|E: Data exposure| H[Protocol E]
     C -->|F: Other| I[Protocol F]
 
-    D --> J[Pause campaigns + submit removal]
-    E --> K[Pause campaigns + re-verify list]
-    F --> L[Do not respond + escalate]
+    D --> J[Pause campaigns + flag AM to submit removal]
+    E --> K[Pause campaigns + re-verify list - GTME]
+    F --> L[Do not respond + escalate to manager]
     G --> M[Wait + notify if extended]
-    H --> N[STOP all + escalate + preserve evidence]
+    H --> N[STOP all + escalate to manager + preserve evidence]
     I --> O[Capture + escalate + fix]
 
     J --> P[Resolution]

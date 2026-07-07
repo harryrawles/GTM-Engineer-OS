@@ -35,8 +35,7 @@ assignees: harryrawles
 ## Immediate actions taken
 
 - [ ] Campaigns paused
-- [ ] Domain checked against blacklists
-- [ ] Warmup increased
+- [ ] AM flagged for domain/blacklist/warmup fix (execution is AM-owned, `sops/am-gtme-responsibility-split.md`)
 - [ ] Client notified (if appropriate)
 
 ## Root cause

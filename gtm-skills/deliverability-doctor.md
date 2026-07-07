@@ -5,7 +5,7 @@
 **Context:** Deliverability is upstream of every metric. If emails are not landing, nothing else matters. This skill diagnoses and recovers deliverability problems before they kill a campaign.
 
 **Read before diagnosing:**
-- `wiki/deliverability.md` - infrastructure, DNS, warmup, monitoring, troubleshooting
+- `wiki/deliverability.md` - benchmarks, symptom-to-cause diagnosis, list verification, and what to flag the AM for
 - `wiki/email-benchmarks.md` - what deliverability metrics should look like
 - `clients/{slug}/campaign-state.md` - current infrastructure status
 
@@ -103,7 +103,8 @@ stay GTME's, they're campaign decisions, not infrastructure ones.
 ### Protocol A - Domain blacklisted
 
 1. Identify which blacklist (MXToolbox shows all)
-2. Submit removal request per blacklist (see `wiki/deliverability.md`)
+2. Flag the AM to submit the removal request per blacklist (execution is AM-owned, see
+   `sops/am-gtme-responsibility-split.md`)
 3. Pause campaigns from that domain
 4. Run warmup only for 7 days minimum
 5. Resume at 5-10 cold per mailbox per day
