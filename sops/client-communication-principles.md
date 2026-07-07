@@ -35,7 +35,7 @@ separate system outside this OS, do not try to resolve them yourself.
 
 | Situation | Guidance |
 |---|---|
-| Client wants to cancel | Do not attempt to handle this independently. Buy time, stay warm, and flag to the CSM same day. |
+| Client wants to cancel | Do not attempt to handle this independently. Buy time, stay warm, and flag to the CSM same day. If a discount comes up, per `sops/churn-prevention.md` the floor is 20% off next month's VIP MRR, minimum $1k MRR, and Ammad must sign off before anything is offered. Never offer one yourself. |
 | Client is becoming difficult, disengaged, or consuming disproportionate time, before it's a cancellation | Follow `sops/tough-client-involve-csm.md`. Flag the CSM early, don't wait for it to escalate into the row above. |
 | Client wants a refund | Do not make any commitments or promises. Escalate immediately to the AM (billing is AM-owned, per `sops/am-gtme-responsibility-split.md`), using the channel and format in `sops/gtme-escalation-to-am.md`. Tag Aaron if the client has any public presence or significant following. |
 | Client wants everything completed "yesterday" | Explain that proper testing takes around a week to understand what is working. For scope demands, refer back to the agreement. For urgency: "I totally understand, to make sure this is done properly it will take {{ETA}}. Is it okay if we take a little extra care so we get a really strong result?" |
@@ -79,3 +79,5 @@ separate system outside this OS, do not try to resolve them yourself.
 - **The refund row's AM escalation** now has a concrete channel and message format,
   `sops/gtme-escalation-to-am.md`. The "who" (Aaron, for public-presence situations) is unchanged, that
   SOP just adds the "how."
+- **The cancellation row's discount detail** comes from `sops/churn-prevention.md`, which also covers
+  onboarding-time prevention and the earlier "at-risk" trigger, before a client ever reaches this row.

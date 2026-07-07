@@ -63,3 +63,6 @@ from campaign work.
   documents GTME's side of the interface, what to flag and when, not CSM's process once flagged.
 - **`sops/gtme-escalation-to-am.md` is the equivalent document for AM.** The two aren't mutually exclusive,
   see its "senior voice" trigger for the dual-flag case.
+- **`sops/churn-prevention.md` names this SOP as its "Early Signal, At-Risk Intervention" step.** Same
+  trigger set, dropping reply rate, negative tone, missed responses. That SOP also covers onboarding-time
+  prevention and the cancellation-save discount boundary, both outside this SOP's scope.

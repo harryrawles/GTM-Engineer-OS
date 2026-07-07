@@ -31,6 +31,9 @@ to every client.
 - `solving-campaign-issues.md` - tactical fix playbook for underperforming campaigns: low-risk CTA plays,
   deliverability recovery, and ICP-miss recovery including the lookalike play. Run
   `gtm-skills/campaign-optimiser.md` first to diagnose, this is the fix once a root cause is found.
+- `churn-prevention.md` - onboarding-time churn prevention, the early at-risk trigger (see
+  `tough-client-involve-csm.md`), and the cancellation-save discount boundary (20% off next month's VIP
+  MRR, minimum $1k MRR, Ammad sign-off required).
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List
