@@ -7,6 +7,9 @@ to every client.
 - `instantly-api.md` - how the OS calls each client's Instantly workspace directly via the v2 API: the
   `.claude/bin/instantly.sh` wrapper, per-client keys, and the read/write gating map. **Every skill that
   pulls Instantly data depends on this.**
+- `daily-structure.md` - the default daily block structure (onboarding, client management, meetings) and
+  the response-time defaults (24-hour acknowledgement, 3-day campaign update, Friday batching rule) that
+  `OPERATING-RHYTHM.md` and `gtm-skills/client-request-handler.md` build on.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

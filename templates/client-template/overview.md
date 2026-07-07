@@ -35,7 +35,7 @@
 
 ## SLA & Commitments (O1)
 
-What we have explicitly committed to this client. Use as the bar for response times, reporting cadence, and escalation paths.
+What we have explicitly committed to this client. Use as the bar for response times, reporting cadence, and escalation paths. Default to the OS-wide figures in `sops/daily-structure.md` (24-hour acknowledgement, 3-day campaign update) unless this client's contract specifies otherwise.
 
 - **Response time to client messages:** {{e.g. Within 24 hours weekdays}}
 - **Reporting cadence:** {{Weekly Friday EOD / Bi-weekly / etc.}}

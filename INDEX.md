@@ -55,7 +55,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/ | Skill + chain definitions, pattern-detector, skill-forge |
 | wiki/ | Shared knowledge base (see below) |
 | frameworks/ | Strategic frameworks & mental models - index in `frameworks/README.md`; also the promotion destination for de-identified learnings |
-| sops/ | Standard operating procedures. `sops/instantly-api.md` = how the OS calls each client's Instantly workspace via the API wrapper `.claude/bin/instantly.sh` (per-client keys, read/write gating). Add more runbooks over time (`sops/README.md`). |
+| sops/ | Standard operating procedures. `sops/instantly-api.md` = how the OS calls each client's Instantly workspace via the API wrapper `.claude/bin/instantly.sh` (per-client keys, read/write gating). `sops/daily-structure.md` = default daily block structure + response-time defaults. Add more runbooks over time (`sops/README.md`). |
 | best-practices/ | Best-practice references & checklists |
 | best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) - start-points for any client's campaign |
 | templates/ | Reusable output templates + `client-template/` skeleton |

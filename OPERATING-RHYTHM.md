@@ -4,6 +4,9 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 **Total time investment for 20 clients:** ~20-25 hours per week (with triage-first Friday review).
 
+> The two daily checkpoints below (Morning Check, End of Day Wrap) bookend the working day. What happens in
+> between - the block structure and response-time defaults - is `sops/daily-structure.md`.
+
 ---
 
 ## Daily - Morning Check (10 min)
@@ -59,6 +62,9 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
    - Wed: net new copy / new client onboarding
    - Thu: client comms, calls, QBR prep
    - Fri: weekly review of all clients
+
+   This is the weekly theme, not a fixed rule - per `sops/daily-structure.md`, an onboard jumps the queue
+   and takes Block 1 on whatever day it lands, ahead of that day's theme.
 
 **Output:** prioritised week with concrete tasks per client.
 

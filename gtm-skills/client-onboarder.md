@@ -6,6 +6,8 @@
 
 **The conversation IS the intake.** Harry should not fill the intake form manually. This skill replaces that workflow.
 
+Per `sops/daily-structure.md`, onboarding is Block 1 of the working day and takes priority over everything else whenever one is pending.
+
 ---
 
 ## STEP 0 - Create / Resolve the Client Folder (do this FIRST)

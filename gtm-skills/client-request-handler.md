@@ -82,7 +82,8 @@ If multiple types → handle the most actionable first, then sequentially.
 
 ## STEP 3 - Initial Response (acknowledgement)
 
-Within SLA (default 24h per `clients/{slug}/overview.md`), send a brief acknowledgement:
+Within SLA (default 24h per `clients/{slug}/overview.md`, and the OS-wide default set in
+`sops/daily-structure.md`), send a brief acknowledgement:
 
 **Template (default):**
 ```
