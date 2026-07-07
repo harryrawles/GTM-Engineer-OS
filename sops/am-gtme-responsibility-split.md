@@ -121,3 +121,7 @@ is to detect, scope, notify, and manage the client relationship, then hand off e
   (#am-vip-handling-updates), message format, and tagging matrix behind every escalation named in this
   document. It also codifies the one case that is a dual-flag rather than a handoff: a client losing
   confidence goes to AM and CSM in parallel, each working their own lever.
+- **Client handover is a distinct event from any of the above.** `sops/client-handover.md` covers moving
+  an existing client between GTMEs (departure, reassignment, temporary cover), not a task ownership
+  question. Aaron's role there (reviewing briefs, assigning incoming GTMEs) is a staffing decision, the
+  same person named elsewhere in this document for escalations.
