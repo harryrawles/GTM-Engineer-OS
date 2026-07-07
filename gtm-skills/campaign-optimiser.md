@@ -20,6 +20,7 @@ funnel below.
 
 **Read before diagnosing - extended:**
 - `wiki/email-benchmarks.md` - symptom-to-cause diagnostic table and benchmark calibration
+- `sops/campaign-performance-standards.md` - the authoritative PRR tiers, and the escalation path at 1,000+ sends per positive reply
 - `wiki/deliverability.md` - for any bounce / open rate / spam issues
 - `wiki/copywriting-frameworks.md` - alternative frameworks if the default formula has plateaued
 - `wiki/signal-sourcing.md` - for signal freshness and list quality issues
@@ -155,7 +156,7 @@ State the root cause, confidence level, and recommended fix:
 
 ## WHAT TO TEST NEXT
 
-If the campaign is not in crisis (PRR above 0.5%), recommend the next split test.
+If the campaign is not in crisis (PRR above 0.2%, per `sops/campaign-performance-standards.md`), recommend the next split test.
 
 Priority order (from `wiki/scientific-method.md`):
 1. Offer (Part 3 of formula)
@@ -177,6 +178,7 @@ If the default formula has plateaued: recommend switching to a named framework f
 - Bounce rate is always the first check - deliverability beats copy.
 - If PRR is above 1%, do not change copy. Scale instead.
 - If PRR is close to KPI (within 0.3 points, e.g. 0.7-0.9%), consider scaling rather than iterating.
+- If sends per positive reply is at or above 1,000 (PRR under 0.1%), escalate immediately per `sops/campaign-performance-standards.md` rather than continuing to iterate solo.
 - Log every test result in `clients/{slug}/test-log.md` after completion.
 
 ---

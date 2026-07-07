@@ -265,10 +265,10 @@ Winner: {{Control / Variant / Inconclusive}}
 
 ### Step 6 - Update campaign health in `clients/{slug}/campaign-state.md`
 
-For each active campaign, set health:
-- **Green** - PRR ≥ 1%, bounce < 2%, all sequence steps performing
-- **Amber** - PRR 0.5-1%, OR bounce 2-3%, OR signal declining
-- **Red** - PRR < 0.5%, OR bounce > 3%, OR warmup disabled
+For each active campaign, set health (PRR bands per `sops/campaign-performance-standards.md`):
+- **Green** - PRR ≥ 0.5%, bounce < 2%, all sequence steps performing
+- **Amber** - PRR 0.2-0.5%, OR bounce 2-3%, OR signal declining
+- **Red** - PRR < 0.2%, OR bounce > 3%, OR warmup disabled
 
 Update the "current metrics" and "health" fields per campaign. Add a state note if anything changed materially.
 

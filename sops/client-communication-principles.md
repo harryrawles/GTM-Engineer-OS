@@ -67,3 +67,7 @@ separate system outside this OS, do not try to resolve them yourself.
   ("Prefer what already exists") and the never-write-from-memory discipline in `wiki/scientific-method.md`
   and `wiki/copywriting-101.md`. The "testing takes about a week" line for urgency pushback is the same
   7-day latency rule from `wiki/scientific-method.md` Step 1.4, stated for a client instead of for Harry.
+- **Professional Language** also covers what not to say: `sops/campaign-performance-standards.md`'s
+  internal PRR/sends-per-reply tiers never get shared with a client. What they see is their own actual
+  performance (`gtm-skills/client-report-writer.md`) and the external "1 per 1,000" framing, not our
+  internal floor.

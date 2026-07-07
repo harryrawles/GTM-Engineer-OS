@@ -82,10 +82,12 @@ Tracks what tooling is configured for this client. Affects which signals can be 
 
 | Metric | Target | Acceptable | Needs attention |
 |--------|--------|-----------|-----------------|
-| PRR | 1%+ | 0.5-1% | Under 0.5% |
+| PRR | 0.5%+ | 0.2-0.5% | Under 0.2% |
 | Reply rate | 3%+ | 1-3% | Under 1% |
 | Bounce rate | Under 2% | 2-4% | Over 4% |
 | LinkedIn acceptance | 35%+ | 20-35% | Under 20% |
+
+PRR bands per `sops/campaign-performance-standards.md`.
 
 ---
 

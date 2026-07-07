@@ -107,7 +107,8 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 - Under 300 words total.
 - No corporate filler. No "hope you are well". No "please do not hesitate to contact me".
 - Data from Instantly is the source of truth. Do not round numbers.
-- If a campaign is Red (PRR under 0.5%), name the root cause and the fix - do not hide it.
+- If a campaign is Red (PRR under 0.2%, per `sops/campaign-performance-standards.md`), name the root cause and the fix - do not hide it.
+- Report the client's actual PRR plainly, that is not an internal figure. Do not describe it using the internal floor/tier language from `sops/campaign-performance-standards.md`, that stays internal.
 - If something worked, say specifically why (not just "good results this week").
 - The "What is next" section should make the client feel like there is always a plan.
 - Sign off as Harry, not as the company.

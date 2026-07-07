@@ -21,15 +21,24 @@ Industry benchmarks for calibrating expectations, setting KPIs, and diagnosing p
 
 ## PRR Benchmarks (Primary KPI)
 
-**The KPI: PRR ≥ 1% → scale.** A 5% reply rate with 20% of those replies positive is a 1% PRR - that
-already clears the bar. Do not confuse the raw reply rate with PRR; PRR is the fraction of *sends* that
-are positive replies, not the fraction of *replies* that are positive.
+Do not confuse the raw reply rate with PRR; PRR is the fraction of *sends* that are positive replies, not
+the fraction of *replies* that are positive.
 
-| Tier | PRR | Status |
-|------|-----|--------|
-| Scale | 1%+ | Scale, do not change copy |
-| Acceptable | 0.5-1% | Iterate primary variable |
-| Underperforming | Under 0.5% | Diagnose root cause urgently |
+The authoritative scale, in both PRR% and its raw sends-per-reply equivalent (see
+`sops/campaign-performance-standards.md`, the canonical version of this table, expressed the way benchmarks
+get judged day-to-day):
+
+| Sends per positive reply | PRR | Status |
+|---|---|---|
+| Under 60 | Over 1.67% | Exceptional. Offer and ICP firing perfectly. |
+| 60-200 | 0.5%-1.67% | Great. Strong campaign, keep iterating. |
+| 200-500 | 0.2%-0.5% | Good. This is the internal floor for every client. |
+| 500-1,000 | 0.1%-0.2% | Below standard. Review copy, ICP targeting, and deliverability now. |
+| 1,000+ | Under 0.1% | Poor. Escalate immediately per `sops/campaign-performance-standards.md`. |
+
+These figures are internal only, see `sops/campaign-performance-standards.md`'s "External Benchmark"
+section for what gets communicated to clients (1 positive reply per 1,000 emails, framed as the industry
+standard).
 
 ---
 

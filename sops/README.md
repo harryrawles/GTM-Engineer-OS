@@ -15,6 +15,8 @@ to every client.
   cancellations, refunds, rush demands, and clients wanting to write their own copy.
 - `am-gtme-responsibility-split.md` - who owns what between the GTME (Harry) and the AM: campaigns, lead
   lists, and client comms are GTME's; technical setup, domain issues, and billing are the AM's.
+- `campaign-performance-standards.md` - the authoritative PRR/sends-per-reply benchmark tiers, what counts
+  as underperforming, and the internal-only figures that don't get shared with clients.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List
