@@ -47,7 +47,9 @@ Have ready (or know who to ask):
 - Their offer / pricing / case studies
 - Who they target (ICP) and what signals indicate buying intent
 - Tone of voice samples (a piece of their content, an email they like)
-- This client's own Instantly workspace details (API key, workspace URL/ID, domains, mailboxes, warmup)
+- This client's own Instantly workspace details (API key, workspace URL/ID, domains, mailboxes, warmup) -
+  the AM provisions these on a separate track (`sops/am-gtme-responsibility-split.md`); get the resulting
+  details from them rather than setting infrastructure up yourself
 
 If you do not have an answer for something, the onboarder will mark it `{{TO CONFIRM}}` and surface it at
 the end. No question stalls the flow.

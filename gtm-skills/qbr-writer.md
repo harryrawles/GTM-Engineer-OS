@@ -22,7 +22,7 @@ writes:
 
 **Trigger:** "Generate QBR for {{client}}", "QBR prep for {{client}}", "Quarterly review for {{client}}", "Build the Q{{n}} review"
 
-**Context:** The Quarterly Business Review is where renewals are won or lost. This skill generates the QBR document covering 90-day performance, wins, learnings, ROI, and next-quarter strategy. Run last week of each quarter.
+**Context:** The Quarterly Business Review is where the case for renewal gets made, even though the renewal terms themselves are the AM's to negotiate (`sops/am-gtme-responsibility-split.md`). This skill generates the QBR document covering 90-day performance, wins, learnings, ROI, and next-quarter strategy, the GTME half of the call. Run last week of each quarter.
 
 ---
 
@@ -222,16 +222,22 @@ Based on the quarter's learnings, what should we double down on, what should we 
 
 ---
 
-## 9. Renewal / Expansion Discussion
+## 9. Performance Case for the AM
+
+Renewal terms, pricing, and contract scope are the AM's to discuss and negotiate, not the GTME's
+(`sops/am-gtme-responsibility-split.md`). This section is the performance evidence GTME hands the AM going
+into that conversation, not a renewal recommendation.
 
 **Current contract:** {{end date}}
-**Discussion needed:**
-- [ ] Renewal terms (auto-renew vs renegotiate)
-- [ ] Scope changes (sending volume, channels, services)
-- [ ] Pricing review
+**Performance case:**
+- {{Strongest quarter result, tie it to a number}}
+- {{Trajectory - improving, flat, or declining, and why}}
+- {{Any campaign-side risk the AM should know about before that conversation - e.g. a signal running dry,
+  a test that hasn't landed yet}}
 
-**Harry's recommendation:**
-{{Explicit recommendation - renew at current terms / expand / contract / pause / end}}
+**Operationally feasible for next quarter (GTME's input, not a commitment):**
+- {{Sending volume range that current infrastructure and list supply can support}}
+- {{New channels/campaigns GTME could stand up if scope expands}}
 
 ---
 
@@ -264,7 +270,8 @@ Also generate a 45-minute agenda for the QBR call:
 # QBR Call Agenda - {{CLIENT_NAME}} - {{date}}
 
 **Duration:** 45 min
-**Attendees:** {{client contact}}, Harry
+**Attendees:** {{client contact}}, Harry, AM (joining for the renewal segment, or for the whole call if
+that's easier to schedule)
 
 ## Agenda
 
@@ -272,7 +279,7 @@ Also generate a 45-minute agenda for the QBR call:
 2. (10 min) Wins and what we learned (Sections 3, 4)
 3. (10 min) ROI snapshot (Section 6)
 4. (10 min) Next quarter strategy (Sections 7, 8)
-5. (5 min) Renewal / scope discussion (Section 9)
+5. (5 min) Performance case for renewal (Section 9), hand off to the AM for terms/pricing
 6. (5 min) Open items and Q&A (Section 10)
 
 ## Talking Points (Harry's notes)
@@ -280,7 +287,7 @@ Also generate a 45-minute agenda for the QBR call:
 - Lead with the headline number. Don't bury it.
 - If a campaign underperformed, name it and the fix. Don't dodge.
 - For the strategy section: be specific. "Test offer framing" is not a plan. "Test offer framing on Email 1 of funding campaign, hypothesis is X" is.
-- For renewal: ask. Don't assume. Even if you think it's a yes.
+- For renewal: make the performance case, then hand off. "Given these numbers, I'll let [AM] pick up the renewal conversation with you" is the line, not a personal recommendation on terms or price.
 
 ## Anticipated Questions
 
@@ -302,8 +309,11 @@ After the QBR is delivered:
 
 1. Update `clients/{slug}/comms-log.md` with the call summary
 2. Update `clients/{slug}/decision-log.md` with any strategic decisions agreed
-3. Update `clients/{slug}/overview.md` Success Criteria for the new quarter
-4. Mark renewal status (signed / pending / at risk)
+3. Propose updated performance targets in `clients/{slug}/overview.md` Success Criteria for the new
+   quarter, based on this quarter's results. Any target tied to contract scope or price is the AM's to
+   confirm, not GTME's to set unilaterally.
+4. Note renewal status for context (signed / pending / at risk) once the AM has it - this is a record, not
+   a GTME decision.
 
 ---
 
@@ -313,5 +323,6 @@ After the QBR is delivered:
 - **Honesty over polish.** If a campaign failed, name it. Clients respect honesty more than polish.
 - **Lead with data, follow with story.** Numbers first, narrative second.
 - **Be specific about Q{{n+1}}.** Plans without specifics are noise.
-- **Always end with the renewal conversation.** Even if client doesn't bring it up - you have to.
+- **Always flag renewal and hand off to the AM.** Even if the client doesn't bring it up, you have to raise
+  it, but the terms conversation itself is the AM's, not yours.
 - **Log the call.** comms-log + decision-log. Future-Harry will thank you.

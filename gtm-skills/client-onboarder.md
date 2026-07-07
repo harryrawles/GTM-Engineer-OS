@@ -94,7 +94,9 @@ Ask in this order:
 6. Who is the primary contact? Name, title, email.
 7. Are there other key contacts I should know about?
 8. Why did they hire Instantly.ai? What were they doing before?
-9. What service are they on (DFY / DWY / Instantly-managed retainer / other)? Start date? Monthly send target? Which day of the week is the report due?
+9. Contract terms (service type, start date, monthly send target, reporting day) come from the signed
+   deal, get these from the AM rather than negotiating them fresh with the client. Confirm them with the
+   client here, don't originate them.
 10. Anything else relevant - quirks, sensitivities, preferences, things they care about beyond metrics?
 
 **After Phase 1:**
@@ -196,6 +198,10 @@ Ask in this order:
 ## PHASE 5 - Infrastructure (5 minutes)
 
 **Target file:** `clients/{slug}/campaign-state.md`
+
+The AM provisions mailboxes, domains, and warmup on a separate parallel track
+(`sops/am-gtme-responsibility-split.md`, `sops/daily-structure.md`). This phase records the resulting state
+for campaign-building purposes, it isn't GTME setting infrastructure up.
 
 Ask in this order:
 

@@ -52,7 +52,8 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 2. **Identify focus list for the week:**
    - All Red / Critical clients → top priority
    - All Amber clients → second priority
-   - Clients with renewal in next 90 days → ensure positive momentum
+   - Clients with renewal in next 90 days → ensure positive campaign momentum (the AM owns the renewal
+     conversation itself, per `sops/am-gtme-responsibility-split.md`)
 3. **For each focus client (~5-10 min each):**
    - Review last week's metrics
    - Identify the one biggest needle-mover for the week
@@ -149,13 +150,15 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
    - Wins and learnings (from decision-log)
    - ROI calculation (what client paid vs what they earned)
    - Next quarter strategy (signal pivots, new tests, scale plan)
-   - Renewal / expansion discussion
-3. Schedule QBR call with client (~45 min)
+   - Performance case for the AM's renewal conversation (terms and pricing are the AM's, not GTME's)
+3. Schedule QBR call with client (~45 min), AM joins for the renewal segment
 4. Run the call, capture feedback to `clients/{slug}/comms-log.md`
 5. Log strategic decisions to `clients/{slug}/decision-log.md`
-6. Update `clients/{slug}/overview.md` Success Criteria for next quarter
+6. Propose updated performance targets in `clients/{slug}/overview.md` Success Criteria for next quarter;
+   any target tied to contract scope or price is the AM's to confirm
 
-**Output:** strategic alignment for next 90 days. Renewal momentum.
+**Output:** strategic alignment for next 90 days. Performance case handed to the AM for the renewal
+conversation.
 
 ---
 

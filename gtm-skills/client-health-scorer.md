@@ -114,6 +114,10 @@ From `clients/{slug}/comms-log.md` (last 30 days):
 
 ### 7. Strategic Position (5 points)
 
+Renewal proximity is a prioritisation signal here, per `sops/client-communication-principles.md`
+"Prioritise by Account Value", not a cue for GTME to run the renewal conversation. Renewal terms and
+pricing are the AM's (`sops/am-gtme-responsibility-split.md`).
+
 | Sub-metric | Weight | Scoring |
 |-----------|--------|---------|
 | Renewal date proximity + signals | 5 | >90 days + positive = 5, 30-90 days + positive = 3, Renewal at risk = 0 |
@@ -128,7 +132,7 @@ From `clients/{slug}/comms-log.md` (last 30 days):
 | 60-79 | **Green-Amber** | Performing but watch trends. Consider increasing test cadence. |
 | 40-59 | **Amber** | At risk. Active intervention needed within 1 week. |
 | 20-39 | **Red** | Critical. Immediate action. Consider proactive client conversation. |
-| 0-19 | **Critical / Churn imminent** | Escalate. Crisis playbook. Renewal in jeopardy. |
+| 0-19 | **Critical / Churn imminent** | Escalate. Crisis playbook. If renewal is near, loop in the AM immediately, that conversation is theirs. |
 
 ---
 
@@ -264,7 +268,7 @@ Recommended interventions:
 - THIS WEEK: run campaign-optimiser on hiring campaign (root cause analysis)
 - THIS WEEK: queue a new test (priority order: offer framing)
 - THIS WEEK: run weekly review - restart cadence
-- NEXT 7 DAYS: schedule renewal prep call with client
+- NEXT 7 DAYS: loop in the AM given renewal is approaching with no positive momentum
 
 Last status: 71 → Change: -19 (significant decline - escalate to Harry)
 ```

@@ -65,7 +65,10 @@ Defined targets. Used by `gtm-skills/client-health-scorer.md` to score performan
 
 ### Quarterly target
 - {{$X}}+ in revenue attributable to outbound
-- Renewal signed
+
+Renewal is an AM-owned commercial outcome (`sops/am-gtme-responsibility-split.md`), not a GTME success
+criterion, it isn't listed as a target here. `gtm-skills/qbr-writer.md` still builds the performance case
+that supports it.
 
 ## Context Notes
 
