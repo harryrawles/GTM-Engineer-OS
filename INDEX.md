@@ -153,6 +153,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/eod-report-writer.md | Daily end-of-day report (portfolio-wide) - MOVED / BLOCKED / NEXT, posted to team Slack |
 | gtm-skills/qbr-writer.md | Quarterly Business Reviews |
 | gtm-skills/client-offboarder.md | End-of-engagement workflow (archives the client folder, promotes abstracted learnings) |
+| gtm-skills/handover-brief-writer.md | Handover Brief + Client Introduction Message for a client moving between GTMEs (`sops/client-handover.md`) |
 
 ## Examples
 

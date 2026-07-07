@@ -275,6 +275,7 @@ the loop keeps a signal even if a skill forgets; `pattern-detector` dedupes the 
 | "EOD report" / "Wrap up my day" / "Close out the day" | `gtm-skills/eod-report-writer.md` |
 | "Generate QBR for [client]" | `gtm-skills/qbr-writer.md` |
 | "Offboard [client]" | `gtm-skills/client-offboarder.md` |
+| "Handover [client] to [GTME]" / "I'm covering for [GTME]" | `gtm-skills/handover-brief-writer.md` |
 | (helper, invoked by other skills) | `gtm-skills/fresh-eyes-reviewer.md` |
 
 ---
