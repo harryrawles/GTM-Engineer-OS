@@ -29,12 +29,12 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `clients/{slug}/campaign-state.md` — current infrastructure
-- `gtm-skills/pre-launch-check.md` — placeholder validation (invoked as sub-step)
+- `clients/{slug}/campaign-state.md` - current infrastructure
+- `gtm-skills/pre-launch-check.md` - placeholder validation (invoked as sub-step)
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -43,8 +43,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -101,7 +101,7 @@ From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/
 - [ ] Bounce rate baseline < 2% (from verification report)
 - [ ] List size appropriate for sequence capacity (sends/mailbox/day × duration)
 - [ ] No duplicates against prior campaigns or suppression list
-- [ ] ICP-fit check: spot-check 5 random leads — do they match `clients/{slug}/icp.md`?
+- [ ] ICP-fit check: spot-check 5 random leads - do they match `clients/{slug}/icp.md`?
 
 ### 6. Send Schedule
 
@@ -125,7 +125,7 @@ From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/
 
 ### 9. Stop Conditions
 
-Define BEFORE launch — not in the heat of the moment.
+Define BEFORE launch - not in the heat of the moment.
 
 - [ ] Bounce rate threshold: stop if > {{X}}% (default: 4%)
 - [ ] PRR floor: stop if < {{X}}% after {{n}} sends (default: 0.3% after 500 sends)
@@ -148,9 +148,9 @@ Write these explicitly into `clients/{slug}/campaign-state.md` under the campaig
 After all checks:
 
 ```
-=== Campaign Launch Check — {{campaign_name}} — {{date}} ===
+=== Campaign Launch Check - {{campaign_name}} - {{date}} ===
 
-PASS / FAIL — by category:
+PASS / FAIL - by category:
 
 1. OS Setup Validation        | PASS / FAIL
 2. Copy Approval              | PASS / FAIL
@@ -180,11 +180,11 @@ If READY:
 1. Update `clients/{slug}/campaign-state.md`:
    - Set status to "Active"
    - Set launch date
-   - Set initial health to "Green (new — monitoring)"
+   - Set initial health to "Green (new - monitoring)"
 
 2. Write to `clients/{slug}/decision-log.md`:
 ```
-### {{date}} — Launched campaign: {{campaign_name}}
+### {{date}} - Launched campaign: {{campaign_name}}
 
 **Context:**
 - Signal: {{signal}}
@@ -207,7 +207,7 @@ Launched after pre-flight check (all 10 categories passed).
 {{Filled in after 30 days}}
 ```
 
-3. Schedule first checkpoint: 48 hours post-launch — quick sanity check on opens, bounces, complaints.
+3. Schedule first checkpoint: 48 hours post-launch - quick sanity check on opens, bounces, complaints.
 
 4. Inform Harry: "Campaign live. First checkpoint in 48 hours. Weekly review will pick it up Friday."
 
@@ -216,16 +216,16 @@ Launched after pre-flight check (all 10 categories passed).
 ## RULES
 
 - **No launch without pre-launch-check verdict = READY.**
-- **No launch without explicit client approval.** Verbal in a call is not enough — must be written (email, Slack, Notion comment).
+- **No launch without explicit client approval.** Verbal in a call is not enough - must be written (email, Slack, Notion comment).
 - **Stop conditions are mandatory.** A campaign without explicit stop conditions is a campaign that drifts into harm.
-- **Block, do not workaround.** If something fails, fix it. Do not "ship anyway and fix later" — cold email has no take-backs.
+- **Block, do not workaround.** If something fails, fix it. Do not "ship anyway and fix later" - cold email has no take-backs.
 - **Log every launch.** Even if Harry remembers, future-Claude does not.
 
 ---
 
 ## EXAMPLES
 
-### Example — failed launch (placeholder remaining)
+### Example - failed launch (placeholder remaining)
 
 ```
 Harry: Launch the hiring campaign for {{CLIENT_NAME}}
@@ -233,17 +233,17 @@ Harry: Launch the hiring campaign for {{CLIENT_NAME}}
 Claude:
 Running pre-flight check...
 
-=== Campaign Launch Check — {{CLIENT_NAME}} Hiring v1 — 2026-05-29 ===
+=== Campaign Launch Check - {{CLIENT_NAME}} Hiring v1 - 2026-05-29 ===
 
-1. OS Setup Validation        | FAIL — clients/{slug}/voice.md line 22 has unresolved {{Tone}}
+1. OS Setup Validation        | FAIL - clients/{slug}/voice.md line 22 has unresolved {{Tone}}
 2. Copy Approval              | PASS
 3. Sequence Configuration     | PASS
 4. Sending Infrastructure     | PASS
-5. Lead List                  | WARN — list verified 31 days ago (just over 30-day limit)
+5. Lead List                  | WARN - list verified 31 days ago (just over 30-day limit)
 6. Send Schedule              | PASS
 7. Reply Handling             | PASS
 8. Tracking and Reporting     | PASS
-9. Stop Conditions            | FAIL — not defined yet
+9. Stop Conditions            | FAIL - not defined yet
 10. Communication             | PASS
 
 OVERALL: NOT READY

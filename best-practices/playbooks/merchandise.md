@@ -1,9 +1,9 @@
-# Playbook: Merchandise — Apparel & Merch (Church / Community)
+# Playbook: Merchandise - Apparel & Merch (Church / Community)
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling apparel / merch
-printing to trust-sensitive, community-led buyers (churches, ministries, and similar) — led by
+printing to trust-sensitive, community-led buyers (churches, ministries, and similar) - led by
 **experience, proof, and risk-reduction resources** (guides, mockups, buyer's guides), not an upfront pitch.
-**Origin:** Abstracted from a church-apparel campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a church-apparel campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
@@ -18,7 +18,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 
 Start warm, trust-based conversations with church leaders by offering practical, experience-driven resources
 (guides, mockups, visuals) that **reduce risk** and help them confidently plan their next merch run. No
-selling upfront — proof, education, and helpful tools.
+selling upfront - proof, education, and helpful tools.
 
 ## Ideal Customer Profile (ICP)
 
@@ -38,7 +38,7 @@ selling upfront — proof, education, and helpful tools.
 
 ## Core Messaging Strategy
 
-- Lead with **experience & credibility** (volume of church orders — approved claims only)
+- Lead with **experience & credibility** (volume of church orders - approved claims only)
 - Offer **guides and previews, not pitches**
 - Reduce risk with **visual mockups** before ordering
 - Ask for feedback → builds trust
@@ -49,10 +49,10 @@ selling upfront — proof, education, and helpful tools.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{CompanyName}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{CompanyName}}`,
 `{{SendingAccountFirstName}}`). Pick the angle that fits the target / stage.
 
-### Angle 1 — Lessons-Learned Guide (Feedback First)
+### Angle 1 - Lessons-Learned Guide (Feedback First)
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -69,7 +69,7 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Visual Mockups Before Ordering
+### Angle 2 - Visual Mockups Before Ordering
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -86,7 +86,7 @@ Would you like me to set this up for {{CompanyName}}?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Church Merch Best-Practices Guide
+### Angle 3 - Church Merch Best-Practices Guide
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -103,14 +103,14 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 4 — Buyer's Guide (Risk Reduction)
+### Angle 4 - Buyer's Guide (Risk Reduction)
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
 After printing apparel for churches nationwide, we put together a simple Buyer's Guide.
 
-It's packed with practical tips to help make sure shirts and hoodies turn out exactly as expected — without surprises.
+It's packed with practical tips to help make sure shirts and hoodies turn out exactly as expected - without surprises.
 
 Would you like a copy?
 

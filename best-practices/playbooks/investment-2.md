@@ -1,15 +1,15 @@
-# Playbook: Investment 2 — VC-Education / Credibility-Gap Campaign
+# Playbook: Investment 2 - VC-Education / Credibility-Gap Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling a VC / PE education or
-training program to professionals who want to break into investing — led by the **credibility-gap** problem
+training program to professionals who want to break into investing - led by the **credibility-gap** problem
 and outcome proof, offering guides / white papers instead of pitching enrolment.
-**Origin:** Abstracted from a VC-education campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a VC-education campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
 > Claims*. Alumni-outcome and deal-participation claims (`{{NOTABLE_DEALS}}`) are **credibility claims that
-> must be verified and approved** — never name a company or outcome the client can't substantiate. Have the
+> must be verified and approved** - never name a company or outcome the client can't substantiate. Have the
 > guide / white paper ready before the hook. Never carry one client's specifics into another.
 
 ---
@@ -17,7 +17,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Engage professionals interested in venture capital by addressing the **credibility gap** and positioning the
-client's program as a path to real-world experience, deal exposure, and outcomes — not just theory.
+client's program as a path to real-world experience, deal exposure, and outcomes - not just theory.
 
 ## Ideal Customer Profile (ICP)
 
@@ -48,11 +48,11 @@ client's program as a path to real-world experience, deal exposure, and outcomes
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{SendingAccountFirstName}}`, and
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{SendingAccountFirstName}}`, and
 the custom category field `{{lcsi}}`). `{{COMPANY}}` = the active client's brand; `{{NOTABLE_DEALS}}` =
 verified, approved companies/outcomes.
 
-### Email 1 — Credibility Gap Angle
+### Email 1 - Credibility Gap Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -71,7 +71,7 @@ P.S. Recent alumni have participated in deals with companies like {{NOTABLE_DEAL
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 1 — Transition Into VC Angle
+### Follow Up 1 - Transition Into VC Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -88,7 +88,7 @@ Should I share it with you?
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 2 — Theory vs. Outcomes Angle
+### Follow Up 2 - Theory vs. Outcomes Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -105,7 +105,7 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 3 — Results & Career Outcomes Angle
+### Follow Up 3 - Results & Career Outcomes Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -122,7 +122,7 @@ Would you like a copy?
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 4 — Flexibility & Access Angle
+### Follow Up 4 - Flexibility & Access Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -155,7 +155,7 @@ Hi {{FirstName}}, I shared a short paper on how {{COMPANY}} alumni built real VC
 
 **SMS:**
 ```
-{{FirstName}}, quick one — we put together a VC credibility guide based on {{COMPANY}} alumni outcomes. Want a copy?
+{{FirstName}}, quick one - we put together a VC credibility guide based on {{COMPANY}} alumni outcomes. Want a copy?
 ```
 
 ---
@@ -198,7 +198,7 @@ Hi {{FirstName}}, I shared a short paper on how {{COMPANY}} alumni built real VC
 - [ ] `{{NOTABLE_DEALS}}` → only verified, approved companies/outcomes named in `clients/{slug}/voice.md` → Approved Claims
 - [ ] `{{FirstName}}` / `{{lcsi}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped
 - [ ] The guide / white paper actually exists and is ready to send before the hook goes out
-- [ ] Every alumni-outcome / deal claim is substantiated — this is credibility territory, no invented names
+- [ ] Every alumni-outcome / deal claim is substantiated - this is credibility territory, no invented names
 - [ ] Keep the opt-out line
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`
 - [ ] Log the resulting variants and PRR to `clients/{slug}/copy-library.md`

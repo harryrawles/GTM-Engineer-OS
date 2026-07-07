@@ -15,13 +15,13 @@ Industry benchmarks for calibrating expectations, setting KPIs, and diagnosing p
 | Champion job change | 20-25% |
 | Signal + ABM multi-touch | 36% meeting rate |
 
-> Note: ColdIQ measures "reply rate" broadly. Our primary KPI is **Positive Reply Rate (PRR)** — replies expressing interest, excluding negatives and OOOs. PRR runs roughly 30-50% of the reply rate above. So 18-22% reply rate = ~6-11% PRR.
+> Note: ColdIQ measures "reply rate" broadly. Our primary KPI is **Positive Reply Rate (PRR)** - replies expressing interest, excluding negatives and OOOs. PRR runs roughly 30-50% of the reply rate above. So 18-22% reply rate = ~6-11% PRR.
 
 ---
 
 ## PRR Benchmarks (Primary KPI)
 
-**The KPI: PRR ≥ 1% → scale.** A 5% reply rate with 20% of those replies positive is a 1% PRR — that
+**The KPI: PRR ≥ 1% → scale.** A 5% reply rate with 20% of those replies positive is a 1% PRR - that
 already clears the bar. Do not confuse the raw reply rate with PRR; PRR is the fraction of *sends* that
 are positive replies, not the fraction of *replies* that are positive.
 
@@ -96,7 +96,7 @@ are positive replies, not the fraction of *replies* that are positive.
 - Delegation ask effective ("Is this even on your radar?")
 - ~10-15% of sequence replies
 
-### Email 4 (Break-up — optional)
+### Email 4 (Break-up - optional)
 - Often surprisingly high reply rate
 - Creates urgency
 - Clean exit
@@ -106,7 +106,7 @@ If Email 2 or 3 outperforms Email 1, the Email 1 offer needs work.
 
 ---
 
-## Quick Diagnostics — Symptom to Cause
+## Quick Diagnostics - Symptom to Cause
 
 | Symptom | Likely cause | Fix |
 |---------|-------------|-----|

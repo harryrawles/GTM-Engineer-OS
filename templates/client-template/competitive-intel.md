@@ -1,8 +1,8 @@
-# Competitive Intelligence — {{CLIENT_NAME}}
+# Competitive Intelligence - {{CLIENT_NAME}}
 
 Who else is targeting this client's ICP. What competing offers exist. How we differentiate. Battle cards for the most common competitive scenarios.
 
-**Lightly maintained** — update when learned, not actively researched. Pattern recognition over surveillance.
+**Lightly maintained** - update when learned, not actively researched. Pattern recognition over surveillance.
 
 ---
 
@@ -50,7 +50,7 @@ When prospect names a specific competitor in reply, use these.
 
 When 3+ prospects mention the same competitor or angle, log here:
 
-- **{{Pattern}}** — observed in {{n}} replies. Implication: {{what to do about it}}
+- **{{Pattern}}** - observed in {{n}} replies. Implication: {{what to do about it}}
 
 ## Notes
 

@@ -1,4 +1,4 @@
-# Campaign State — {{CLIENT_NAME}}
+# Campaign State - {{CLIENT_NAME}}
 
 Live status of all outbound campaigns. Update this file when campaigns launch, pause, change, or are retired.
 
@@ -64,7 +64,7 @@ Tracks what tooling is configured for this client. Affects which signals can be 
 |----------|--------|--------|
 | Sending domains | {{List domains}} | Active / Warming |
 | Mailboxes | {{n}} mailboxes across {{n}} domains | Active |
-| Warmup status | {{All warmed / some warming}} | — |
+| Warmup status | {{All warmed / some warming}} | - |
 | Instantly workspace | {{Workspace name / URL}} | Connected |
 | LinkedIn accounts | {{n accounts}} | {{Status}} |
 
@@ -91,4 +91,4 @@ Tracks what tooling is configured for this client. Affects which signals can be 
 
 ## State Notes
 
-{{Anything about the current state that does not fit the tables above — deliverability concerns, list quality issues, signals performing differently than expected, etc.}}
+{{Anything about the current state that does not fit the tables above - deliverability concerns, list quality issues, signals performing differently than expected, etc.}}

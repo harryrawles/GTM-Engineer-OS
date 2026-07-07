@@ -32,17 +32,17 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `clients/{slug}/copy-library.md` — wins from the quarter
-- `clients/{slug}/decision-log.md` — decisions and rationale
-- `clients/{slug}/test-log.md` — completed tests
-- `clients/{slug}/comms-log.md` — client sentiment over the quarter
-- `clients/{slug}/campaign-state.md` — current state
+- `clients/{slug}/copy-library.md` - wins from the quarter
+- `clients/{slug}/decision-log.md` - decisions and rationale
+- `clients/{slug}/test-log.md` - completed tests
+- `clients/{slug}/comms-log.md` - client sentiment over the quarter
+- `clients/{slug}/campaign-state.md` - current state
 
 Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): full quarter of data per campaign.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -51,8 +51,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -76,7 +76,7 @@ Ask Harry before generating:
 Generate `QBR-{{YYYY-Q}}.md` in the client folder (`clients/{slug}/QBR-{{YYYY-Q}}.md`).
 
 ```
-# Q{{n}} {{YYYY}} Business Review — {{CLIENT_NAME}}
+# Q{{n}} {{YYYY}} Business Review - {{CLIENT_NAME}}
 
 **Prepared by:** Harry Rawles
 **Date:** {{call date}}
@@ -119,8 +119,8 @@ Compare actual to the success criteria in `clients/{slug}/overview.md`.
 | {{Campaign 1}} | {{n}} | {{X}}% | {{n}} | {{current state}} |
 | {{Campaign 2}} | {{n}} | {{X}}% | {{n}} | {{current state}} |
 
-**Top performer:** {{campaign name}} — {{why it worked}}
-**Underperformer:** {{campaign name}} — {{root cause + what we did about it}}
+**Top performer:** {{campaign name}} - {{why it worked}}
+**Underperformer:** {{campaign name}} - {{root cause + what we did about it}}
 
 ---
 
@@ -128,13 +128,13 @@ Compare actual to the success criteria in `clients/{slug}/overview.md`.
 
 Pull from `clients/{slug}/copy-library.md` top performers added this quarter.
 
-### Win 1 — {{title}}
+### Win 1 - {{title}}
 **Campaign:** {{campaign}}
 **Result:** {{specific metric}}
 **What worked:** {{from decision-log "why" notes}}
 **Carrying forward:** {{being adopted as default / similar test queued / etc.}}
 
-### Win 2 — {{title}}
+### Win 2 - {{title}}
 ...
 
 ---
@@ -143,12 +143,12 @@ Pull from `clients/{slug}/copy-library.md` top performers added this quarter.
 
 Pull from `clients/{slug}/decision-log.md` significant entries from this quarter.
 
-### Lesson 1 — {{title}}
+### Lesson 1 - {{title}}
 **Context:** {{what we did}}
 **Lesson:** {{what we know now that we didn't before}}
 **Applied where:** {{how it changes our default}}
 
-### Lesson 2 — {{title}}
+### Lesson 2 - {{title}}
 ...
 
 ---
@@ -177,7 +177,7 @@ If revenue data is available:
 
 **Narrative:** {{1 paragraph on ROI story}}
 
-If revenue data is not available — replace with:
+If revenue data is not available - replace with:
 - Estimated value of meetings booked (using client's average deal size)
 - Cost per meeting calculation only
 
@@ -231,7 +231,7 @@ Based on the quarter's learnings, what should we double down on, what should we 
 - [ ] Pricing review
 
 **Harry's recommendation:**
-{{Explicit recommendation — renew at current terms / expand / contract / pause / end}}
+{{Explicit recommendation - renew at current terms / expand / contract / pause / end}}
 
 ---
 
@@ -245,9 +245,9 @@ Things to raise on the QBR call:
 
 ---
 
-## Appendix — Detailed Data
+## Appendix - Detailed Data
 
-(Optional — only if client wants the data dump)
+(Optional - only if client wants the data dump)
 
 - Campaign-by-campaign breakdown
 - Test log summaries
@@ -261,7 +261,7 @@ Things to raise on the QBR call:
 Also generate a 45-minute agenda for the QBR call:
 
 ```
-# QBR Call Agenda — {{CLIENT_NAME}} — {{date}}
+# QBR Call Agenda - {{CLIENT_NAME}} - {{date}}
 
 **Duration:** 45 min
 **Attendees:** {{client contact}}, Harry
@@ -313,5 +313,5 @@ After the QBR is delivered:
 - **Honesty over polish.** If a campaign failed, name it. Clients respect honesty more than polish.
 - **Lead with data, follow with story.** Numbers first, narrative second.
 - **Be specific about Q{{n+1}}.** Plans without specifics are noise.
-- **Always end with the renewal conversation.** Even if client doesn't bring it up — you have to.
+- **Always end with the renewal conversation.** Even if client doesn't bring it up - you have to.
 - **Log the call.** comms-log + decision-log. Future-Harry will thank you.

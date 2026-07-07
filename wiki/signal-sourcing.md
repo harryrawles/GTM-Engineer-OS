@@ -2,7 +2,7 @@
 
 Signal-based outbound is the highest lever on PRR. Cold lists hit 6-8% reply rate (~2-3% PRR). Single-signal hits 18-22% reply rate (~6-11% PRR). Multi-signal (3+) hits 35-40% reply rate (~12-20% PRR).
 
-> **PRR conversion:** ColdIQ benchmarks use `reply rate` (broad — includes negatives and OOOs). Our primary KPI is **PRR** (positive reply rate). Rough conversion: `reply rate × 30-50% ≈ PRR`. Apply this when comparing to our targets.
+> **PRR conversion:** ColdIQ benchmarks use `reply rate` (broad - includes negatives and OOOs). Our primary KPI is **PRR** (positive reply rate). Rough conversion: `reply rate × 30-50% ≈ PRR`. Apply this when comparing to our targets.
 
 Use this file to:
 1. Decide which signals to target for a client
@@ -28,7 +28,7 @@ Use this file to:
 ### 1. Former customers and alumni users
 Past users of the product at new companies. Trust already established. Known playbook. Fastest path to proof of value.
 - **Source:** CRM cross-reference, LinkedIn champion tracking, Clay, LoneScale, Champify
-- **Angle:** "Saw you joined {{new_company}} — we worked together at {{previous_company}}. Same problem still relevant?"
+- **Angle:** "Saw you joined {{new_company}} - we worked together at {{previous_company}}. Same problem still relevant?"
 
 ### 2. New leadership (under 90 days in role)
 New leaders have a mandate for early wins, vendor amnesty (no loyalty to current stack), and budget air cover.
@@ -41,7 +41,7 @@ Pricing page, competitor comparisons, demo, integrations. Active evaluation.
 - **Source:** RB2B, Common Room, Vector, Warmly, Koala
 - **Reply rate:** 25-30% (they already know you)
 - **Act within:** 24-48 hours
-- **Angle:** Never mention you saw the visit — reference the topic they viewed
+- **Angle:** Never mention you saw the visit - reference the topic they viewed
 
 ### 4. Tech stack change
 Removal or new adoption of a tool in the relevant category. Fresh pain from transition, new gaps in workflow.
@@ -64,7 +64,7 @@ Hiring = ramp pressure, efficiency mandate. Downsizing = do-more-with-less manda
 
 ## Signal Tier System and Response SLAs
 
-### Tier 1 — Drop-everything signals (under 1 hour)
+### Tier 1 - Drop-everything signals (under 1 hour)
 
 | Signal | Action | Channel |
 |--------|--------|---------|
@@ -73,7 +73,7 @@ Hiring = ramp pressure, efficiency mandate. Downsizing = do-more-with-less manda
 | Champion job change to target account | Congratulations + re-engagement | LinkedIn + email |
 | Multiple stakeholders from same account | Map buying committee, multi-touch | All channels |
 
-### Tier 2 — Act-today signals (under 24 hours)
+### Tier 2 - Act-today signals (under 24 hours)
 
 | Signal | Action | Channel |
 |--------|--------|---------|
@@ -82,7 +82,7 @@ Hiring = ramp pressure, efficiency mandate. Downsizing = do-more-with-less manda
 | Bombora surge score 70+ | Reference their research area | Email |
 | G2 comparison activity | Send competitive battlecard | Email |
 
-### Tier 3 — Act-this-week signals (under 72 hours)
+### Tier 3 - Act-this-week signals (under 72 hours)
 
 | Signal | Action | Channel |
 |--------|--------|---------|
@@ -91,8 +91,8 @@ Hiring = ramp pressure, efficiency mandate. Downsizing = do-more-with-less manda
 | Webinar attendance | Recording + related offer | Email |
 | Industry news mention | Comment on news + soft touch | LinkedIn |
 
-### Tier 4 — Monitor and nurture (automated)
-Single website visit, email open without click, social follow — context only, not triggers on their own.
+### Tier 4 - Monitor and nurture (automated)
+Single website visit, email open without click, social follow - context only, not triggers on their own.
 
 ---
 
@@ -100,7 +100,7 @@ Single website visit, email open without click, social follow — context only, 
 
 Build a score per lead. Trigger different actions at different thresholds.
 
-### Tier 1 — Hot signals (50-100 points)
+### Tier 1 - Hot signals (50-100 points)
 
 | Signal | Points |
 |--------|--------|
@@ -112,7 +112,7 @@ Build a score per lead. Trigger different actions at different thresholds.
 | G2 comparison with competitors | 60 |
 | 5+ website visits in 2 weeks | 50 |
 
-### Tier 2 — Warm signals (20-49 points)
+### Tier 2 - Warm signals (20-49 points)
 
 | Signal | Points |
 |--------|--------|
@@ -124,7 +124,7 @@ Build a score per lead. Trigger different actions at different thresholds.
 | Webinar attendance | 25 |
 | 3+ blog post visits | 20 |
 
-### Tier 3 — Cool signals (5-19 points)
+### Tier 3 - Cool signals (5-19 points)
 
 | Signal | Points |
 |--------|--------|
@@ -160,7 +160,7 @@ Build a score per lead. Trigger different actions at different thresholds.
 
 | Signal | Fresh until | Optimal window | Decay |
 |--------|------------|---------------|-------|
-| Champion job change | 30 days | 0-14 days | Fastest — act immediately |
+| Champion job change | 30 days | 0-14 days | Fastest - act immediately |
 | LinkedIn post engagement | 30 days | 0-7 days | Fast |
 | Pricing page visits | 7 days | 0-3 days | Very fast |
 | Conference / event | 21 days | -7 to +7 days | Fast |
@@ -180,7 +180,7 @@ Build a score per lead. Trigger different actions at different thresholds.
 
 ---
 
-## Signal Detection — 30 Triggers with Tools
+## Signal Detection - 30 Triggers with Tools
 
 ### Funding and financial
 
@@ -246,20 +246,20 @@ Build a score per lead. Trigger different actions at different thresholds.
 
 ## Signal Sources by Data Party
 
-### 1st-party (your own / client own — strongest)
+### 1st-party (your own / client own - strongest)
 CRM (HubSpot, Salesforce, Attio) · Product usage (Mixpanel, Amplitude) · Meeting forms · Gated content · Marketing sequences · Website visitors (Common Room, RB2B, Vector)
 
-### 2nd-party (partner data — strong)
+### 2nd-party (partner data - strong)
 Partner signals (Crossbeam, PartnerStack) · Warm intros (LinkedIn, The Swarm) · Review sites (G2, Capterra) · Champion moves (Clay, LoneScale, Champify) · Ad insights · LinkedIn engagement (Clay, Teamfluence, Trigify)
 
-### 3rd-party (public data — moderate to strong)
+### 3rd-party (public data - moderate to strong)
 Technographic (BuiltWith, HG Insights, TheirStack) · Job openings (Clay, PredictLeads) · Firmographic (Apollo, Amplemarket, Cognism) · People data (Sales Nav, Clay) · Web data (Apify, Zenrows) · Social (PhantomBuster, Trigify) · Funding (Crunchbase, Owler, PitchBook)
 
 ---
 
 ## 11 Plug-and-Play GTM Plays
 
-### Play 1 — New team members
+### Play 1 - New team members
 **Signal:** Company added a hire in a relevant department (2-4 weeks ago).
 **Template:**
 ```
@@ -269,25 +269,25 @@ We helped {{similar_company}} handle this by {{solution}}.
 Worth a quick chat?
 ```
 
-### Play 2 — Skills targeting
+### Play 2 - Skills targeting
 **Signal:** LinkedIn profile lists a specific skill.
 **Use:** Target by listed skills, not just titles. More precise.
 Examples: Salesforce skill → Salesforce add-ons. Python → developer tools. HubSpot → marketing automation.
 
-### Play 3 — Role targeting
+### Play 3 - Role targeting
 **Signal:** Unusual job title indicates company priority.
 Examples: "Happiness Manager" → employee wellbeing budget exists. "RevOps Manager" → RevOps is a priority. "Growth Engineer" → technical growth function.
 
-### Play 4 — Industry-level research (create your own signal)
+### Play 4 - Industry-level research (create your own signal)
 **Signal:** Survey ICP experts on a topic they care about. Opens conversation with a value-first approach.
 **Template:**
 ```
-Hey {{first_name}} — we are surveying {{role}} experts on {{topic}}.
+Hey {{first_name}} - we are surveying {{role}} experts on {{topic}}.
 We have a page listing {{insight_type}} used at {{company_types}}.
 Want to contribute? [link]
 ```
 
-### Play 5 — Resources for ICs (evergreen)
+### Play 5 - Resources for ICs (evergreen)
 **Signal:** New SDRs / ICs starting roles continuously. Automated, always-on.
 **Template:**
 ```
@@ -297,7 +297,7 @@ Here they are: [link]
 Good luck.
 ```
 
-### Play 6 — Leaving employees
+### Play 6 - Leaving employees
 **Signal:** Team member recently left a relevant department (1-2 weeks ago).
 **Template:**
 ```
@@ -307,11 +307,11 @@ We have been helping companies like {{similar_company}} cover that gap with {{so
 Worth exploring?
 ```
 
-### Play 7 — Companies without dedicated employees
+### Play 7 - Companies without dedicated employees
 **Signal:** No one with a specific title at the company.
 Examples: No Content Manager + $5M+ revenue = content gap. No DevOps Engineer + growing eng team = DevOps need.
 
-### Play 8 — Bad reviews targeting
+### Play 8 - Bad reviews targeting
 **Signal:** Negative G2 / Capterra review of competitor with identifiable reviewer.
 **Template:**
 ```
@@ -320,7 +320,7 @@ We tested 3 alternatives that do not suck.
 Shall I send the report over?
 ```
 
-### Play 9 — AI-generated ideas
+### Play 9 - AI-generated ideas
 **Signal:** Create personalised value through AI research.
 **Template:**
 ```
@@ -331,7 +331,7 @@ Based on {{company_description}}, here are 3 ideas:
 I would probably give better ideas with more context. Want to chat?
 ```
 
-### Play 10 — Website visitor coordination
+### Play 10 - Website visitor coordination
 **Signal:** Visitor hits pricing page.
 **Sequence:**
 1. Alert triggers within 2 minutes
@@ -339,7 +339,7 @@ I would probably give better ideas with more context. Want to chat?
 3. LinkedIn connection next day
 4. Soft follow-up day 3
 
-### Play 11 — Inbound followers
+### Play 11 - Inbound followers
 **Signal:** New LinkedIn follower matches ICP.
 **Template:**
 ```

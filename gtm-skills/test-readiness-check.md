@@ -32,20 +32,20 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `wiki/scientific-method.md` — the canonical 4-step framework
-- `clients/{slug}/test-log.md` — the test under evaluation (in Queued status)
-- `clients/{slug}/campaign-state.md` — to verify infrastructure constants are stable
+- `wiki/scientific-method.md` - the canonical 4-step framework
+- `clients/{slug}/test-log.md` - the test under evaluation (in Queued status)
+- `clients/{slug}/campaign-state.md` - to verify infrastructure constants are stable
 
 ---
 
 ## INPUTS
 
-- **Test ID** (T-XXX) — the test in `clients/{slug}/test-log.md` to evaluate
+- **Test ID** (T-XXX) - the test in `clients/{slug}/test-log.md` to evaluate
 - If no ID given, default to the most recently queued test in the testing roadmap
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -54,8 +54,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -65,35 +65,35 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## CHECKS PERFORMED
 
-### Block-level (CRITICAL — fail = stop)
+### Block-level (CRITICAL - fail = stop)
 
-**1. Step 1.1 — Genotype defined**
+**1. Step 1.1 - Genotype defined**
 - 2-4 key variables explicitly listed
 - Each variable has a V-number (V1, V2, etc.)
 - Stimulus name and overall V-number clear
 
-**2. Step 1.2 — KPIs defined**
+**2. Step 1.2 - KPIs defined**
 - Primary metric named (typically PRR)
 - Primary KPI target value set (numeric, e.g. "5%")
-- Secondary metric named (typically ABR — the Polaris)
+- Secondary metric named (typically ABR - the Polaris)
 - Secondary KPI target value set
 
-**3. Step 1.3 — Sample size set**
+**3. Step 1.3 - Sample size set**
 - Sample size per variant defined
 - Sample size meets minimum (300 sends for cold email, 30 viewed for video/Loom)
 
-**4. Step 1.4 — Latency and timeframe set**
+**4. Step 1.4 - Latency and timeframe set**
 - Latency window explicit (e.g. "7 days post-final-send")
 - Total timeframe explicit
 
-**5. Step 1.5 — Airtight check completed**
+**5. Step 1.5 - Airtight check completed**
 - Deliverability verified (warmup green, bounce baseline <2%)
 - Tracking attribution wired
 - Variants cleanly differentiated in platform
 - All constants locked in writing
 - Stop conditions written
 
-**6. Step 1.6 — Variant configuration**
+**6. Step 1.6 - Variant configuration**
 - ONE variable identified as needle-mover (not multiple)
 - Modification level picked (Slight / Moderate / Complete)
 - Modification level matches distance from KPI (per scientific-method.md 4.4)
@@ -101,7 +101,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 - Variant copy / configuration pasted in full
 - V-numbers correctly assigned to both
 
-**7. Step 1.7 — Constants explicit**
+**7. Step 1.7 - Constants explicit**
 - Lead source named
 - ICP referenced
 - Sending domain / mailbox named
@@ -121,7 +121,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 - Revert target named (V(n))
 - Next-direction guidance present (e.g. "if reverts, modify CTA next, NOT Content again")
 
-### Warn-level (HIGH — fail = warn, can override with reason)
+### Warn-level (HIGH - fail = warn, can override with reason)
 
 **10. Sample size feasibility**
 - At current send rate, sample will be hit within stated timeframe (math checks out)
@@ -137,16 +137,16 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 - No other Running test in `clients/{slug}/test-log.md` uses the same campaign / mailbox / lead source
 
 **14. Polaris (secondary) currently above KPI**
-- If secondary (ABR) is currently at or above KPI, warn — Step 3.2 Q2 says do NOT iterate primary while Polaris is hitting
+- If secondary (ABR) is currently at or above KPI, warn - Step 3.2 Q2 says do NOT iterate primary while Polaris is hitting
 
 ---
 
 ## OUTPUT FORMAT
 
 ```
-=== Test Readiness Check — T-XXX — date ===
+=== Test Readiness Check - T-XXX - date ===
 
-TEST: T-XXX — description
+TEST: T-XXX - description
 Status in test-log: Queued
 
 BLOCKING ISSUES: n
@@ -182,25 +182,25 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 
 ## RULES
 
-- **Block by default.** A NOT READY verdict is the right answer when uncertain — slow tests are better than meaningless tests.
-- **Be specific about failures.** Not "Sample size missing" — "Section 1.3 of T-006 in test-log.md is blank. Set sample size in writing (minimum 300 for cold email)."
+- **Block by default.** A NOT READY verdict is the right answer when uncertain - slow tests are better than meaningless tests.
+- **Be specific about failures.** Not "Sample size missing" - "Section 1.3 of T-006 in test-log.md is blank. Set sample size in writing (minimum 300 for cold email)."
 - **Do not auto-fix.** Surface gaps, let Harry resolve them in test-log.md.
-- **Log every check.** Even passes go to `clients/{slug}/decision-log.md` as a Setup verification entry — the audit trail matters for QBR and weekly review.
+- **Log every check.** Even passes go to `clients/{slug}/decision-log.md` as a Setup verification entry - the audit trail matters for QBR and weekly review.
 - **Cite scientific-method.md.** When warning on modification level mismatch (e.g. slight modification on dead variant), reference the exact rule from `wiki/scientific-method.md` Step 4.4.
 
 ---
 
 ## EXAMPLES
 
-### Example — failed check (missing constants)
+### Example - failed check (missing constants)
 
 ```
 Harry: Run test-readiness check on T-006
 
 Claude:
-=== Test Readiness Check — T-006 — 2026-05-30 ===
+=== Test Readiness Check - T-006 - 2026-05-30 ===
 
-TEST: T-006 — Funding Email 1 offer reframe (scale-without-headcount angle)
+TEST: T-006 - Funding Email 1 offer reframe (scale-without-headcount angle)
 Status in test-log: Queued
 
 BLOCKING ISSUES: 2
@@ -208,13 +208,13 @@ BLOCKING ISSUES: 2
 [X] Backtrack plan defined                    | No regression threshold or revert target named
 
 WARNINGS: 1
-[!] Polaris not currently hitting KPI         | OK — ABR is at 1.1% vs 3.5% target, primary iteration is justified
+[!] Polaris not currently hitting KPI         | OK - ABR is at 1.1% vs 3.5% target, primary iteration is justified
 
 VERDICT: NOT READY
 
 Fix needed in clients/{slug}/test-log.md → T-006:
-1. Section 1.7 — add: send time of day (current campaign sends 9am-11am EST), follow-up sequence (current 3-step sequence with D3 and D7 follow-ups)
-2. Add Backtrack Plan section — define regression threshold (suggested: V(2) PRR <0.4% within first 300 sends triggers revert to V(1)), name revert target (Hiring v4 Email 1), state next-direction (modify CTA instead of Content if this regresses)
+1. Section 1.7 - add: send time of day (current campaign sends 9am-11am EST), follow-up sequence (current 3-step sequence with D3 and D7 follow-ups)
+2. Add Backtrack Plan section - define regression threshold (suggested: V(2) PRR <0.4% within first 300 sends triggers revert to V(1)), name revert target (Hiring v4 Email 1), state next-direction (modify CTA instead of Content if this regresses)
 
 After fixes, re-run "Run test-readiness check on T-006" and I will re-evaluate.
 ```

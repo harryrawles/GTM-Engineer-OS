@@ -1,12 +1,12 @@
-# Playbook: Marketing 3 — Google Review Removal / Reputation Outreach
+# Playbook: Marketing 3 - Google Review Removal / Reputation Outreach
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client offering **review management /
-reputation services** to local businesses — led by observational personalisation (referencing real reviews)
+reputation services** to local businesses - led by observational personalisation (referencing real reviews)
 and a direct problem → solution frame.
-**Origin:** Abstracted from a review-removal campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a review-removal campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
-> **⚠️ Compliance guardrail — read first.** Claiming to *delete* or *guarantee removal* of genuine Google
+> **⚠️ Compliance guardrail - read first.** Claiming to *delete* or *guarantee removal* of genuine Google
 > reviews conflicts with **Google's policies** and can breach consumer-protection / advertising law. Do
 > **not** promise guaranteed deletion. Only run this when the client has a **legitimate, lawful** review-
 > management capability (e.g. flagging policy-violating reviews for Google's review, responding, or
@@ -22,7 +22,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Initiate conversations with business owners by **referencing their Google reviews** and offering a
-review-management service — a direct problem → solution frame that triggers curiosity and replies.
+review-management service - a direct problem → solution frame that triggers curiosity and replies.
 
 ## Ideal Customer Profile (ICP)
 
@@ -43,7 +43,7 @@ review-management service — a direct problem → solution frame that triggers 
 - Start with light **observational personalisation**
 - Create implied credibility ("we specialise")
 - Highlight **problem visibility** (negative reviews exist)
-- Offer a direct fix (review management) — **without guaranteeing deletion**
+- Offer a direct fix (review management) - **without guaranteeing deletion**
 - End with a low-friction question CTA
 - Tone: neutral, helpful, slightly investigative (defer to `clients/{slug}/voice.md`)
 
@@ -51,11 +51,11 @@ review-management service — a direct problem → solution frame that triggers 
 
 ## Sequence
 
-Merge fields and spintax are Instantly syntax — keep them as-is (`{{firstName}}`,
+Merge fields and spintax are Instantly syntax - keep them as-is (`{{firstName}}`,
 `{{sendingAccountFirstName}}`, `{{RANDOM|...}}`). The template below is the exact spintax variant; soften any
 "have it deleted" phrasing to compliant language ("help you address / flag / respond to") before sending.
 
-### Email 1 — Review Reference (exact spintax template)
+### Email 1 - Review Reference (exact spintax template)
 
 ```
 {{RANDOM|Hi |Hello | |Hey}} {{firstName}},
@@ -116,8 +116,8 @@ If you don't want to hear from me anymore, just let me know.
 ## Execution Tips (important)
 
 - Only use when you can actually point to real reviews
-- Avoid guaranteed-deletion language — it raises trust and legal issues if misused
-- Keep variation balanced — too much randomness reduces clarity
+- Avoid guaranteed-deletion language - it raises trust and legal issues if misused
+- Keep variation balanced - too much randomness reduces clarity
 - Stronger when you reference specific review themes (if allowed)
 - Always ensure compliance with Google's policies and local laws
 - Monitor replies for skepticism around "removal claims"
@@ -126,7 +126,7 @@ If you don't want to hear from me anymore, just let me know.
 
 ## Adapting for a client (checklist)
 
-- [ ] **Compliance check first** — confirm the client's review capability is legitimate and lawful; strip guaranteed-removal language; get legal sign-off before any "delete/remove" claim
+- [ ] **Compliance check first** - confirm the client's review capability is legitimate and lawful; strip guaranteed-removal language; get legal sign-off before any "delete/remove" claim
 - [ ] `{{firstName}}` / `{{sendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped
 - [ ] You've actually reviewed the target's Google profile before referencing it
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims

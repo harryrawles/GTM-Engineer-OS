@@ -1,9 +1,9 @@
-# Playbook: Recruitment / Staffing — MPC (Most Placeable Candidate) Outreach
+# Playbook: Recruitment / Staffing - MPC (Most Placeable Candidate) Outreach
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any recruitment / staffing client
-generating job orders proactively — led by an **exclusive, specific candidate offer** (a heads-up, not a
+generating job orders proactively - led by an **exclusive, specific candidate offer** (a heads-up, not a
 pitch) built on real quantified results and genuine scarcity.
-**Origin:** Abstracted from an MPC candidate-marketing campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from an MPC candidate-marketing campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
@@ -11,7 +11,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 > Claims*. The credibility of this whole campaign rests on **discipline**: only market a candidate who
 > genuinely passes the MPC filter, only claim exclusivity you actually have, and only use scarcity lines when
 > factually true. Never carry one client's specifics (or a real candidate's details) into another client's
-> campaign. Never expose an identifiable candidate's private data — keep the profile anonymised until the
+> campaign. Never expose an identifiable candidate's private data - keep the profile anonymised until the
 > hiring manager opts in.
 
 ---
@@ -19,7 +19,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Start conversations with hiring managers by offering **exclusive early access to a specific, high-performing
-candidate** already in the market — a heads-up, not a pitch. Trigger curiosity and urgency around a real,
+candidate** already in the market - a heads-up, not a pitch. Trigger curiosity and urgency around a real,
 scarce opportunity. This does not sell a recruitment service; it markets one candidate.
 
 ## Ideal Customer Profile (ICP)
@@ -44,7 +44,7 @@ scarce opportunity. This does not sell a recruitment service; it markets one can
 ## Core Messaging Strategy
 
 - Lead with the **exclusive candidate offer, not the agency**
-- Position the candidate as a **scarce, quantified asset** — not a generic profile
+- Position the candidate as a **scarce, quantified asset** - not a generic profile
 - Focus on **speed and exclusivity** (they're off-market soon)
 - Keep the message extremely short and non-salesy
 - Use a **binary relevance question** (yes/no)
@@ -54,11 +54,11 @@ scarce opportunity. This does not sell a recruitment service; it markets one can
 
 ## Sequence
 
-Merge fields and spintax are Instantly syntax — keep them as-is (`{{firstName}}`, `{{congrats}}`,
+Merge fields and spintax are Instantly syntax - keep them as-is (`{{firstName}}`, `{{congrats}}`,
 `{{roleTitle}}`, `{{resultMetric}}`, `{{yearsExperience}}`, `{{specialism}}`, `{{industry}}`, `{{location}}`,
 `{{accountSignature}}`, `{{random|...}}`).
 
-### Email 1 — Variant 1
+### Email 1 - Variant 1
 
 ```
 Subject: Can I send it {{firstName}}?
@@ -77,14 +77,14 @@ Hi {{firstName}},
 {{accountSignature}}
 ```
 
-### Email 1 — Variant 2
+### Email 1 - Variant 2
 
 ```
-Subject: {{firstName}} — this will take 10 seconds
+Subject: {{firstName}} - this will take 10 seconds
 
 {{random|Hi|Hey|Hello}} {{firstName}},
 
-{{random|Quick one|Short note|Straight to it}} — {{random|I'm exclusively representing|I'm working with}} a {{roleTitle}} {{random|hitting|averaging|delivering}} {{resultMetric}} across {{specialism}}.
+{{random|Quick one|Short note|Straight to it}} - {{random|I'm exclusively representing|I'm working with}} a {{roleTitle}} {{random|hitting|averaging|delivering}} {{resultMetric}} across {{specialism}}.
 
 {{random|They're open to conversations this week only|Two other firms are already reviewing their profile|Notice period is short, so timing matters}}.
 
@@ -117,27 +117,27 @@ structure across MPCs rather than reusing the same candidate story repeatedly.
 - You're generating job orders proactively, before a role is advertised
 
 **Avoid when:**
-- The candidate is generic or unremarkable — no real MPC exists to market
+- The candidate is generic or unremarkable - no real MPC exists to market
 - The "urgency" would have to be invented rather than genuine
 - Targeting companies with no plausible need for that specialism
 - Generic industry targeting without a real reason the candidate fits
 
 ## Why This Works
 
-- **Exclusive-access framing** lowers the guard — it's a heads-up, not a sales pitch
+- **Exclusive-access framing** lowers the guard - it's a heads-up, not a sales pitch
 - **A specific number** is instantly more credible than a job description
 - **Real scarcity** ("two other firms reviewing") triggers loss aversion, not skepticism
-- **Minimal cognitive load** — one candidate, one ask, one decision
+- **Minimal cognitive load** - one candidate, one ask, one decision
 - **Binary relevance question** forces engagement instead of a "later" default
 - **Ultra-short format** stands out against long, templated recruiter spam
 
 ## Execution Tips (important)
 
-- Keep "exclusive representation" genuine — never claim exclusivity you don't have
+- Keep "exclusive representation" genuine - never claim exclusivity you don't have
 - Only use scarcity lines ("other firms reviewing") when factually true
-- Run every candidate through the MPC filter before writing copy — discipline keeps the campaign credible
+- Run every candidate through the MPC filter before writing copy - discipline keeps the campaign credible
 - "Industry/location" targeting should be real segmentation, not filler
-- First-reply goal is simply "yes, send it" — don't over-explain or oversell the candidate upfront
+- First-reply goal is simply "yes, send it" - don't over-explain or oversell the candidate upfront
 - If scaling across multiple MPCs, rotate the 4-touch structure rather than reusing one story
 
 ---

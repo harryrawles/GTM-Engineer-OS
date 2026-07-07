@@ -2,36 +2,36 @@
 
 **Trigger:** "Diagnose this campaign", "optimise this campaign", "why is PRR low", "what should I test next", "campaign is underperforming"
 
-**Context:** Diagnosing underperforming campaigns and recommending the highest-leverage fix. Always follow the scientific method — one variable at a time.
+**Context:** Diagnosing underperforming campaigns and recommending the highest-leverage fix. Always follow the scientific method - one variable at a time.
 
 If the problem spans more than one campaign or looks like a whole-motion stall rather than a single
 underperforming sequence, use `wiki/acquisition-systems-theory.md` Section 5 (bottleneck identification via
 sub-conversion rates) to find which sub-system is actually broken before running the single-campaign
 funnel below.
 
-**Read before diagnosing — primary:**
-- `clients/{slug}/campaign-state.md` — live campaign status and benchmarks
-- `clients/{slug}/icp.md` — ICP and signal accuracy check
-- `clients/{slug}/offer.md` — offer and proof point check
-- `wiki/scientific-method.md` — test methodology
-- `wiki/copywriting-101.md` — copy hard rules and formula
-- `clients/{slug}/copy-library.md` — winning variants and graveyard
-- `clients/{slug}/test-log.md` — what has already been tested
+**Read before diagnosing - primary:**
+- `clients/{slug}/campaign-state.md` - live campaign status and benchmarks
+- `clients/{slug}/icp.md` - ICP and signal accuracy check
+- `clients/{slug}/offer.md` - offer and proof point check
+- `wiki/scientific-method.md` - test methodology
+- `wiki/copywriting-101.md` - copy hard rules and formula
+- `clients/{slug}/copy-library.md` - winning variants and graveyard
+- `clients/{slug}/test-log.md` - what has already been tested
 
-**Read before diagnosing — extended:**
-- `wiki/email-benchmarks.md` — symptom-to-cause diagnostic table and benchmark calibration
-- `wiki/deliverability.md` — for any bounce / open rate / spam issues
-- `wiki/copywriting-frameworks.md` — alternative frameworks if the default formula has plateaued
-- `wiki/signal-sourcing.md` — for signal freshness and list quality issues
+**Read before diagnosing - extended:**
+- `wiki/email-benchmarks.md` - symptom-to-cause diagnostic table and benchmark calibration
+- `wiki/deliverability.md` - for any bounce / open rate / spam issues
+- `wiki/copywriting-frameworks.md` - alternative frameworks if the default formula has plateaued
+- `wiki/signal-sourcing.md` - for signal freshness and list quality issues
 
 **Skills to invoke if needed:**
-- `gtm-skills/deliverability-doctor.md` — if the root cause is infrastructure
-- `gtm-skills/list-builder.md` — if the root cause is list quality
-- `gtm-skills/signal-sourcer.md` — if the root cause is signal saturation
+- `gtm-skills/deliverability-doctor.md` - if the root cause is infrastructure
+- `gtm-skills/list-builder.md` - if the root cause is list quality
+- `gtm-skills/signal-sourcer.md` - if the root cause is signal saturation
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -40,8 +40,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -51,7 +51,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## BEFORE YOU DIAGNOSE
 
-Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`):
 - Campaign sends, reply rate, PRR, bounce rate (last 30 days)
 - Per-step breakdown: which email step is generating replies
 - Subject line performance breakdown
@@ -101,7 +101,7 @@ If signal is the root cause → route to `gtm-skills/signal-sourcer.md` to ident
 ### 5. Copy check
 
 - Is every email under 100 words?
-- Is Part 1 genuinely relevant to the signal — or generic?
+- Is Part 1 genuinely relevant to the signal - or generic?
 - Does Part 2 use "I" and a specific number?
 - Is the CTA one binary yes/no question?
 - Does it pass the bar test?
@@ -119,11 +119,11 @@ If signal is the root cause → route to `gtm-skills/signal-sourcer.md` to ident
 
 - Is the personalisation the right tier for the volume / deal size?
 - Is the AI-generated component fitting grammatically into the static template?
-- Does the personalisation feel relevant — or sweeping?
+- Does the personalisation feel relevant - or sweeping?
 
 ---
 
-## QUICK DIAGNOSTICS — Symptom to Cause
+## QUICK DIAGNOSTICS - Symptom to Cause
 
 From `wiki/email-benchmarks.md`:
 
@@ -145,7 +145,7 @@ State the root cause, confidence level, and recommended fix:
 **Root cause:** {{What is actually wrong}}
 **Confidence:** High / Medium / Low
 **Evidence:** {{Specific data point or observation that confirms this}}
-**Fix:** {{One specific change — one variable}}
+**Fix:** {{One specific change - one variable}}
 **Expected impact:** {{What PRR improvement you expect and why}}
 **Test approach:** {{How to isolate this variable and measure it cleanly}}
 
@@ -162,7 +162,7 @@ Priority order (from `wiki/scientific-method.md`):
 4. CTA phrasing
 5. Subject line
 
-Check `clients/{slug}/test-log.md` before recommending — do not re-test what has already been learned.
+Check `clients/{slug}/test-log.md` before recommending - do not re-test what has already been learned.
 
 If the default formula has plateaued: recommend switching to a named framework from `wiki/copywriting-frameworks.md` (Do the Math, Pattern Interrupt, Upfront Value).
 
@@ -172,7 +172,7 @@ If the default formula has plateaued: recommend switching to a named framework f
 
 - Never recommend changing more than one variable at a time.
 - Minimum 300 sends before drawing any conclusion.
-- Bounce rate is always the first check — deliverability beats copy.
+- Bounce rate is always the first check - deliverability beats copy.
 - If PRR is above 1%, do not change copy. Scale instead.
 - If PRR is close to KPI (within 0.3 points, e.g. 0.7-0.9%), consider scaling rather than iterating.
 - Log every test result in `clients/{slug}/test-log.md` after completion.

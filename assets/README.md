@@ -1,6 +1,6 @@
-# Assets — {{CLIENT_NAME}}
+# Assets - {{CLIENT_NAME}}
 
-Index of external assets for this client. Files are stored externally (Google Drive, Notion, S3, etc.) — this file lists the links.
+Index of external assets for this client. Files are stored externally (Google Drive, Notion, S3, etc.) - this file lists the links.
 
 **Why not commit files:** keeps repo lightweight, avoids binary bloat, respects file permissions, single source of truth wherever the asset originally lives.
 
@@ -25,8 +25,8 @@ Index of external assets for this client. Files are stored externally (Google Dr
 
 | Asset | Created for | Link |
 |-------|------------|------|
-| {{Loom — generic intro}} | All prospects | {{URL}} |
-| {{Loom — for {{specific company}}}} | One-off custom | {{URL}} |
+| {{Loom - generic intro}} | All prospects | {{URL}} |
+| {{Loom - for {{specific company}}}} | One-off custom | {{URL}} |
 
 ## Comparison Sheets / Battle Cards
 

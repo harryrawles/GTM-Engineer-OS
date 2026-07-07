@@ -1,6 +1,6 @@
 # Playbooks
 
-Reusable, **client-agnostic** campaign playbooks — part of the shared layer, available to every client.
+Reusable, **client-agnostic** campaign playbooks - part of the shared layer, available to every client.
 Each playbook is a proven campaign structure (goal, ICP, messaging strategy, sequence, when to use / avoid)
 written with `{{PLACEHOLDER}}` values so it can be adapted to any client.
 
@@ -11,37 +11,37 @@ claims from their `voice.md` → *Approved Claims*. Never copy one client's real
 ## When to consult
 
 Any time you build or write a campaign for the active client (`cold-email-writer`, `signal-sourcer`,
-`chain-build-campaign`), check here first for a matching playbook to start from — then adapt, don't drop in
+`chain-build-campaign`), check here first for a matching playbook to start from - then adapt, don't drop in
 verbatim.
 
 ## Index
 
 | Playbook | Use for |
 |----------|---------|
-| [funding.md](./funding.md) | Fast-capital / funding offers to SMB owners — speed + low-friction approvals |
-| [funding-2.md](./funding-2.md) | Funding via AI-personalised growth ideas first — value-first, soft transition to capital, includes idea prompt |
-| [investment.md](./investment.md) | Investor raise campaigns — credibility-first (notable backers, scarcity, low-friction ask) |
-| [investment-2.md](./investment-2.md) | VC/PE education programs — credibility-gap angle, outcome proof, guide/white-paper offer, multi-channel |
-| [retail.md](./retail.md) | Retail / shelf-expansion for F&B / CPG brands — AI vs brokers, seasonal urgency, soft CTA |
-| [marketing.md](./marketing.md) | B2B marketing / demand gen — competitor-insights curiosity hook, single short email |
-| [athletic-directors.md](./athletic-directors.md) | Athletic directors / coaches — leadership/culture platform, credibility + scannable features + demo CTA |
-| [aviation.md](./aviation.md) | HNWI / private aviation — discreet "pricing overview" hook, opt-out line, multi-channel variants |
-| [influencers.md](./influencers.md) | Influencer marketing for SaaS / SI — value-first hand-curated creator list, opt-out, multi-channel |
-| [med-spas.md](./med-spas.md) | Med spas / wellness clinics — education-first peptide/wellness program expansion, 6 angles (regulated claims) |
-| [medical-rehab.md](./medical-rehab.md) | Rehab/recovery × churches — pastoral, equip-don't-pitch ministry resources, 4 angles (sensitive claims) |
-| [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities — proof + mockups + buyer's guide, trust-first, 4 angles |
-| [home-services.md](./home-services.md) | Home services / trades — reviews & local visibility, analysis-led "3 quick wins", 4 angles, opt-out |
-| [media.md](./media.md) | Media placements / content partnerships — trusted-audience-not-ad-inventory, founder-led signature, 3 angles |
-| [b2c-email-marketing.md](./b2c-email-marketing.md) | eComm/Shopify retention — free flow-rebuild offer (Welcome + Abandoned), value-first, single email |
-| [gaming.md](./gaming.md) | Gamified classroom / teacher outreach — free pilot, role relevance, deliberately simple/non-techy |
-| [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) — risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
-| [saas-2.md](./saas-2.md) | Dev-tools / in-IDE automation (autonomous QA) — workflow integration + shipping velocity, single overview email |
-| [saas-3.md](./saas-3.md) | Dev-tools curiosity hook for QA engineers — specific "3 test paths" insight, ultra-short knowledge-first email |
-| [booking-saas.md](./booking-saas.md) | Experiential/booking product — friction-removal access + discount hook, safe + credential variants (⚠️ compliance) |
-| [ai-calling.md](./ai-calling.md) | AI voice/calling agent for dealerships — pro-bono offer, ultra-short 2 variants (⚠️ pro-bono + TCPA compliance) |
-| [recruitment-staffing.md](./recruitment-staffing.md) | Recruitment / staffing MPC candidate marketing — exclusive quantified-candidate heads-up, 2 subject-lined variants |
-| [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros — clarity over hype, guides/quizzes/frameworks, 4 angles |
-| [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services — local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
-| [marketing-3.md](./marketing-3.md) | Reputation / review management for local biz — review-reference hook, spintax template (⚠️ removal-claim compliance) |
+| [funding.md](./funding.md) | Fast-capital / funding offers to SMB owners - speed + low-friction approvals |
+| [funding-2.md](./funding-2.md) | Funding via AI-personalised growth ideas first - value-first, soft transition to capital, includes idea prompt |
+| [investment.md](./investment.md) | Investor raise campaigns - credibility-first (notable backers, scarcity, low-friction ask) |
+| [investment-2.md](./investment-2.md) | VC/PE education programs - credibility-gap angle, outcome proof, guide/white-paper offer, multi-channel |
+| [retail.md](./retail.md) | Retail / shelf-expansion for F&B / CPG brands - AI vs brokers, seasonal urgency, soft CTA |
+| [marketing.md](./marketing.md) | B2B marketing / demand gen - competitor-insights curiosity hook, single short email |
+| [athletic-directors.md](./athletic-directors.md) | Athletic directors / coaches - leadership/culture platform, credibility + scannable features + demo CTA |
+| [aviation.md](./aviation.md) | HNWI / private aviation - discreet "pricing overview" hook, opt-out line, multi-channel variants |
+| [influencers.md](./influencers.md) | Influencer marketing for SaaS / SI - value-first hand-curated creator list, opt-out, multi-channel |
+| [med-spas.md](./med-spas.md) | Med spas / wellness clinics - education-first peptide/wellness program expansion, 6 angles (regulated claims) |
+| [medical-rehab.md](./medical-rehab.md) | Rehab/recovery × churches - pastoral, equip-don't-pitch ministry resources, 4 angles (sensitive claims) |
+| [merchandise.md](./merchandise.md) | Apparel / merch printing for churches & communities - proof + mockups + buyer's guide, trust-first, 4 angles |
+| [home-services.md](./home-services.md) | Home services / trades - reviews & local visibility, analysis-led "3 quick wins", 4 angles, opt-out |
+| [media.md](./media.md) | Media placements / content partnerships - trusted-audience-not-ad-inventory, founder-led signature, 3 angles |
+| [b2c-email-marketing.md](./b2c-email-marketing.md) | eComm/Shopify retention - free flow-rebuild offer (Welcome + Abandoned), value-first, single email |
+| [gaming.md](./gaming.md) | Gamified classroom / teacher outreach - free pilot, role relevance, deliberately simple/non-techy |
+| [saas.md](./saas.md) | Vertical SaaS automation (real-time pricing/data) - risk+speed, purpose-built, free trial, 7 angles for ops/tech buyers |
+| [saas-2.md](./saas-2.md) | Dev-tools / in-IDE automation (autonomous QA) - workflow integration + shipping velocity, single overview email |
+| [saas-3.md](./saas-3.md) | Dev-tools curiosity hook for QA engineers - specific "3 test paths" insight, ultra-short knowledge-first email |
+| [booking-saas.md](./booking-saas.md) | Experiential/booking product - friction-removal access + discount hook, safe + credential variants (⚠️ compliance) |
+| [ai-calling.md](./ai-calling.md) | AI voice/calling agent for dealerships - pro-bono offer, ultra-short 2 variants (⚠️ pro-bono + TCPA compliance) |
+| [recruitment-staffing.md](./recruitment-staffing.md) | Recruitment / staffing MPC candidate marketing - exclusive quantified-candidate heads-up, 2 subject-lined variants |
+| [franchising.md](./franchising.md) | Buyer-side franchise guidance for experienced pros - clarity over hype, guides/quizzes/frameworks, 4 angles |
+| [marketing-2.md](./marketing-2.md) | Local biz / trades / pro services - local relevance + traffic or website-conversion guide, 3 angles w/ A/B |
+| [marketing-3.md](./marketing-3.md) | Reputation / review management for local biz - review-reference hook, spintax template (⚠️ removal-claim compliance) |
 
 _Add new playbooks as one file each; append a row above._

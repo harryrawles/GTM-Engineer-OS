@@ -21,7 +21,7 @@ Multi-thread (both) when:
 
 ---
 
-## ATL — Above-the-Line
+## ATL - Above-the-Line
 
 **Target:** VP, C-Level, Director, Head of.
 
@@ -50,7 +50,7 @@ Multi-thread (both) when:
 - 2-3 sentences only. Executives skim.
 - Lead with outcome, not process. They care about WHAT changes, not HOW it works.
 - No operational details. Mentioning daily workflows gets you delegated to a subordinate.
-- Question format works well — prompt strategic reflection.
+- Question format works well - prompt strategic reflection.
 
 ### Fatal ATL mistake
 
@@ -106,7 +106,7 @@ Open to a quick comparison?
 
 ---
 
-## BTL — Below-the-Line
+## BTL - Below-the-Line
 
 **Target:** Managers, Specialists, Analysts, Coordinators, Individual Contributors.
 
@@ -131,7 +131,7 @@ Open to a quick comparison?
 
 ### Rules
 
-- 3-4 sentences acceptable — more detail than ATL but still concise.
+- 3-4 sentences acceptable - more detail than ATL but still concise.
 - Lead with daily pain. Name the specific frustration they deal with regularly.
 - Quantify time / effort savings. "70% less time on reporting" beats "improved efficiency."
 - Make them look good to their boss. BTL personas care about performance perception.
@@ -172,7 +172,7 @@ How much time does your team spend on manual list building each week?
 
 Most SDR leads I talk to say 5-6 hours per rep.
 
-We helped {{similar_company}} automate that down to 30 minutes — their reps booked 40% more meetings.
+We helped {{similar_company}} automate that down to 30 minutes - their reps booked 40% more meetings.
 
 Worth a quick look?
 ```
@@ -205,7 +205,7 @@ Want to see the workflow?
 When threading both:
 - BTL gets emailed first (build champion)
 - ATL gets emailed 1-2 weeks later (after champion can reference user-side traction)
-- Or simultaneously with different angles — never identical copy
+- Or simultaneously with different angles - never identical copy
 
 ---
 

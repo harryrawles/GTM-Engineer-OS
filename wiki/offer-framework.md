@@ -2,8 +2,8 @@
 
 12-step process for building and validating an offer before writing copy. Run through this when launching a new campaign or when an existing offer is underperforming.
 
-> **The theory behind this process** — why pain must be amplified indirectly, why confidence has three
-> sources, why raising price can raise perceived value, why "the gap" matters — lives in
+> **The theory behind this process** - why pain must be amplified indirectly, why confidence has three
+> sources, why raising price can raise perceived value, why "the gap" matters - lives in
 > [wiki/offer-creation-theory.md](./offer-creation-theory.md). Read it if a step below feels arbitrary.
 
 ---
@@ -51,7 +51,7 @@ The outcome you promise may be their desired situation, or fixing one or more pr
 - Why does it take this long?
 - How could you make the timeframe shorter?
 
-**Conclusion:** State the timeframe. Shorter is better for the offer — but only if it is honest.
+**Conclusion:** State the timeframe. Shorter is better for the offer - but only if it is honest.
 
 ---
 

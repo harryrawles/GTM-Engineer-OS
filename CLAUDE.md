@@ -1,12 +1,12 @@
-# CLAUDE.md — GTM Engineer OS (Multi-Client, Self-Improving)
+# CLAUDE.md - GTM Engineer OS (Multi-Client, Self-Improving)
 
 ## What This Is
 
 A **living** operating system for running multiple Instantly GTM clients (target: ~30) from one private
-repo. A shared brain — skills, knowledge, frameworks, playbooks, best practices, templates — serves every
+repo. A shared brain - skills, knowledge, frameworks, playbooks, best practices, templates - serves every
 client, while each client's own context and data stay fully isolated.
 
-**Managed by:** Harry Rawles — GTM Engineer.
+**Managed by:** Harry Rawles - GTM Engineer.
 
 This file is both the hub and the spec: it defines exactly how the OS must behave. **If the repo and this
 file ever disagree, this file is correct and the repo should be fixed to match it.**
@@ -17,8 +17,8 @@ file ever disagree, this file is correct and the repo should be fixed to match i
 
 1. **Scale effortlessly.** Support ~30 clients with no structural change. Adding a client is a single action:
    copy `templates/client-template/` → `clients/{slug}/` and onboard. Nothing else in the repo changes.
-2. **Link everything together.** Any task pulls *all* relevant context — the client's own files plus the
-   right skills, playbooks, frameworks, wiki pages, and best practices — before a decision is made.
+2. **Link everything together.** Any task pulls *all* relevant context - the client's own files plus the
+   right skills, playbooks, frameworks, wiki pages, and best practices - before a decision is made.
 3. **Compound, never restart.** Every winner, test, and decision is logged with its reasoning and reused.
    New work is built from prior work, never from scratch.
 4. **Auto-improve.** The OS detects patterns across its own usage and feeds generalizable learnings back
@@ -66,15 +66,15 @@ All client-specific work runs against exactly one active client.
 
 For any client task, before producing or deciding, load in this order and **synthesize across all of it**:
 
-1. **Active client** — `MEMORY.md` first, then the files the task needs (`voice`, `icp`, `offer`,
+1. **Active client** - `MEMORY.md` first, then the files the task needs (`voice`, `icp`, `offer`,
    `campaign-state`, `copy-library`, `test-log`, `decision-log`).
-2. **Shared method** — `wiki/_skill-context.md`, plus the relevant `wiki/` pages, the frameworks indexed
+2. **Shared method** - `wiki/_skill-context.md`, plus the relevant `wiki/` pages, the frameworks indexed
    in `frameworks/README.md`, `best-practices/` (including playbooks), and any `sops/` that exist.
-3. **The skill or chain** — the matching `gtm-skills/` entry from the routing table.
+3. **The skill or chain** - the matching `gtm-skills/` entry from the routing table.
 
-Never act on a partial read. **Example — "launch a campaign for Acme":** pull Acme's `icp`/`offer`/`voice`/
+Never act on a partial read. **Example - "launch a campaign for Acme":** pull Acme's `icp`/`offer`/`voice`/
 `copy-library`, the relevant campaign playbook, the applicable frameworks, and the
-`cold-email-writer`/`campaign-launcher` skills, then decide. Everything must link — if a needed reference
+`cold-email-writer`/`campaign-launcher` skills, then decide. Everything must link - if a needed reference
 can't be found, say so rather than guessing.
 
 ---
@@ -87,14 +87,14 @@ The OS must get measurably better every session. Compounding happens on two laye
   `test-log.md` with the conclusion; every material choice → `decision-log.md`. This stays inside the
   client folder and is reused for that client only.
 - **System-wide (shared):** `pattern-detector` watches invocations and, on repeated workflows, proposes
-  `skill-forge` to mint a new skill. The `weekly-reviewer` promotes **abstracted, anonymised** insights —
-  generalizable principles only, never a client's identity or raw copy — up into `wiki/`, `frameworks/`,
+  `skill-forge` to mint a new skill. The `weekly-reviewer` promotes **abstracted, anonymised** insights -
+  generalizable principles only, never a client's identity or raw copy - up into `wiki/`, `frameworks/`,
   and `best-practices/`. This is how a lesson learned on one client improves the OS for *all* of them.
 
 **Promotion rule:** only de-identified methodology moves up. Raw client data never leaves the client
 folder. When in doubt, keep it in the client folder.
 
-> This is Network Effect Conjugation, structurally — see `wiki/darwinian-acquisition-theory.md` Section
+> This is Network Effect Conjugation, structurally - see `wiki/darwinian-acquisition-theory.md` Section
 > 11. `weekly-reviewer` is the conjugation mechanism; `wiki/`, `frameworks/`, and `best-practices/` are the
 > shared plasmid pool every client draws fitness from without re-discovering it independently.
 
@@ -104,13 +104,13 @@ folder. When in doubt, keep it in the client folder.
 
 ```
 gtm-engineer-os/
-├── CLAUDE.md              # This file — hub + spec (source of truth)
+├── CLAUDE.md              # This file - hub + spec (source of truth)
 ├── README.md             # Human-facing intro
 ├── OPERATING-RHYTHM.md   # Full daily / weekly / quarterly cadence
 ├── MCP-SETUP.md          # Instantly API (per-client key) + optional MCPs
 ├── BOOTSTRAP.md          # How to add a new client
 ├── HOOKS-SETUP.md        # Claude Code hooks + /gtm:compound setup
-├── INDEX.md              # Map of the entire OS — must stay current
+├── INDEX.md              # Map of the entire OS - must stay current
 ├── CHANGELOG.md / VERSION / LICENSE / .gitignore
 │
 ├── clients/              # One isolated folder per client. Tracked EXCEPT secrets/.
@@ -128,7 +128,7 @@ gtm-engineer-os/
 ├── sops/                 # Standard operating procedures (filled over time)
 ├── templates/            # Reusable outputs + client-template/ skeleton
 │
-├── .claude/              # Claude Code config — hooks (safety-guard, session-logger,
+├── .claude/              # Claude Code config - hooks (safety-guard, session-logger,
 │                         #   notify, session-start-context), bin/instantly.sh (Instantly
 │                         #   API wrapper), settings.json, commands/
 └── examples/ tests/ assets/ raw/ .github/
@@ -136,7 +136,7 @@ gtm-engineer-os/
 
 ---
 
-## Per-Client Folder — `clients/{slug}/`
+## Per-Client Folder - `clients/{slug}/`
 
 ```
 clients/{slug}/
@@ -151,24 +151,24 @@ clients/{slug}/
 ├── comms-log.md          # Client communications
 ├── copy-library.md       # Top performers + graveyard (check before writing)
 ├── test-log.md           # Split-test history
-├── MEMORY.md             # ALWAYS load first — focus, watch-outs, prefs
+├── MEMORY.md             # ALWAYS load first - focus, watch-outs, prefs
 ├── session-log.md        # Per-invocation log (powers pattern-detector)
-└── secrets/              # GIT-IGNORED — Instantly API key, workspace_id, workspace_url
+└── secrets/              # GIT-IGNORED - Instantly API key, workspace_id, workspace_url
     └── credentials.md
 ```
 
 ---
 
-## Shared Brain (universal — never client-specific)
+## Shared Brain (universal - never client-specific)
 
-- **gtm-skills/** — skills, chains, `pattern-detector`, `skill-forge`.
-- **wiki/** — knowledge base and the destination for promoted, anonymised learnings.
-- **frameworks/** — strategic frameworks and mental models.
-- **best-practices/** — best-practice references, including **best-practices/playbooks/**.
-- **sops/** — standard operating procedures (filled over time).
-- **templates/** — reusable outputs plus the `client-template/` skeleton for new clients.
+- **gtm-skills/** - skills, chains, `pattern-detector`, `skill-forge`.
+- **wiki/** - knowledge base and the destination for promoted, anonymised learnings.
+- **frameworks/** - strategic frameworks and mental models.
+- **best-practices/** - best-practice references, including **best-practices/playbooks/**.
+- **sops/** - standard operating procedures (filled over time).
+- **templates/** - reusable outputs plus the `client-template/` skeleton for new clients.
 
-Drop files into any of these and Claude auto-discovers them — reference by path. Nothing here may contain a
+Drop files into any of these and Claude auto-discovers them - reference by path. Nothing here may contain a
 specific client's private data. `INDEX.md` maps the whole OS and must be kept current.
 
 ---
@@ -179,15 +179,15 @@ specific client's private data. `INDEX.md` maps the whole OS and must be kept cu
   `clients/{slug}/secrets/credentials.md` (**git-ignored**).
 - Only the shape is committed: `templates/client-template/secrets/credentials.template.md`.
 - `.gitignore` MUST include: `clients/*/secrets/`, `**/.env`, `_state/active-client`.
-- **The OS calls the Instantly API v2 directly, per client — no MCP server.** All access goes through
+- **The OS calls the Instantly API v2 directly, per client - no MCP server.** All access goes through
   `.claude/bin/instantly.sh [--client SLUG] METHOD PATH [BODY]`, which loads **only the active client's**
   key (or the inline `--client` override) and calls `https://api.instantly.ai/api/v2`. The key is read
   inside the wrapper and never appears in argv, the process list, chat, or the session logs. `switch to
   {client}` switches which key is used. Full reference: `sops/instantly-api.md`.
-- **Reads are automatic.** `GET` calls (analytics, campaign status, reply data) — and the read-only
-  `POST /leads/list` — run without asking, for the active client's workspace only.
+- **Reads are automatic.** `GET` calls (analytics, campaign status, reply data) - and the read-only
+  `POST /leads/list` - run without asking, for the active client's workspace only.
 - **Writes are gated.** Any `POST`/`PATCH`/`PUT`/`DELETE` (pausing, editing, deleting, launching,
-  sending) requires explicit approval first — state the action and the workspace, then wait. (Enforced
+  sending) requires explicit approval first - state the action and the workspace, then wait. (Enforced
   defensively by `.claude/hooks/safety-guard.sh`, which gates the wrapper by HTTP verb and blocks raw
   `curl` to the API; the model must still gate writes regardless.)
 - Never print a full API key in chat. Never commit secrets. If any action would commit or display one,
@@ -213,19 +213,21 @@ the loop keeps a signal even if a skill forgets; `pattern-detector` dedupes the 
 
 - Direct, data-led, no fluff. Match the active client's `voice.md`.
 - PRR is the primary KPI for all copy decisions.
-- Never write from memory — check the active client's `copy-library.md` first.
+- Never write from memory - check the active client's `copy-library.md` first.
 - Short sentences, active voice, no unnecessary hedging. Numbers as digits (5, not five).
 - Never use: "leverage", "synergy", "game-changer", "revolutionary", "cutting-edge", "hope this helps".
+- **Never use an em dash.** Use a hyphen, comma, colon, or period instead. Applies everywhere in the OS:
+  skills, wiki, client outputs, commit messages, everything. Enforced by `tests/ci/check-em-dash.sh`.
 
 ---
 
-## Safety Guard — blocked without explicit approval
+## Safety Guard - blocked without explicit approval
 
 1. Sending any external comms on behalf of a client.
 2. Any change to a client's Instantly workspace (pausing, deleting, editing, launching, sending).
-3. Sharing one client's data externally — or exposing one client's context to another.
+3. Sharing one client's data externally - or exposing one client's context to another.
 4. Any financial operation (billing, refunds, invoices).
-5. Auto-handling hostile replies, GDPR-flagged messages, or legal threats — always escalate.
+5. Auto-handling hostile replies, GDPR-flagged messages, or legal threats - always escalate.
 6. Acting when the active client is ambiguous or unconfirmed.
 
 **When blocked:** state exactly what you were about to do, name the client/workspace, ask, wait.
@@ -293,4 +295,4 @@ generate QBR for [client]
 ## Source Knowledge
 
 Primary methodology (copywriting principles, scientific method, offer framework) is the **source of truth**.
-ColdIQ material and any uploaded playbooks, frameworks, and SOPs **extend** it — they never override it.
+ColdIQ material and any uploaded playbooks, frameworks, and SOPs **extend** it - they never override it.

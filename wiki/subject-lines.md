@@ -2,7 +2,7 @@
 
 Subject lines decide whether the email gets opened. Preview text decides whether the open turns into a read. Together they are the cover of the book.
 
-**The rule:** subject + preview = a complete thought. They work together. The first 50 characters of the email body appear in the inbox preview — write line 1 as if it is part of the subject line.
+**The rule:** subject + preview = a complete thought. They work together. The first 50 characters of the email body appear in the inbox preview - write line 1 as if it is part of the subject line.
 
 ---
 
@@ -83,7 +83,7 @@ Rules:
 
 - Test **2 subject lines at a time** (not more)
 - Minimum **100 sends per variant** before judging
-- Measure **open rate AND reply rate** — high opens with low replies = clickbait
+- Measure **open rate AND reply rate** - high opens with low replies = clickbait
 - Test contrasting styles: personalised vs curiosity, short vs slightly longer
 - Run **3 subject lines per campaign** in rotation if testing more broadly
 

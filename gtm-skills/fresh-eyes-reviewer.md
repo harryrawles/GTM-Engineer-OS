@@ -1,6 +1,6 @@
 ---
 name: fresh-eyes-reviewer
-description: Explicit manual fresh-eyes review on any artefact — cold email copy, ICP definition, offer positioning, campaign launch decision, client response draft. Spawns an Explore sub-agent that reads only what is passed to it, returns a structured pass/fail review with no context bias from the main session.
+description: Explicit manual fresh-eyes review on any artefact - cold email copy, ICP definition, offer positioning, campaign launch decision, client response draft. Spawns an Explore sub-agent that reads only what is passed to it, returns a structured pass/fail review with no context bias from the main session.
 triggers:
   - "Fresh-eyes review this"
   - "Get a fresh-eyes review on {{X}}"
@@ -9,9 +9,9 @@ triggers:
 reads:
   - "wiki/_skill-context.md"
   - "wiki/_subagent-patterns.md"
-  - "(passes target files to sub-agent — does not read them itself)"
+  - "(passes target files to sub-agent - does not read them itself)"
 writes:
-  - "(nothing — review is for Harry's evaluation)"
+  - "(nothing - review is for Harry's evaluation)"
 ---
 
 # Skill: Fresh-Eyes Reviewer
@@ -22,8 +22,8 @@ writes:
 
 **Use this when:**
 - About to send copy that feels right but you're not sure
-- ICP definition feels narrow or broad — want a second look
-- Offer positioning has shifted — verify it still holds together
+- ICP definition feels narrow or broad - want a second look
+- Offer positioning has shifted - verify it still holds together
 - Client response draft on a sensitive topic
 - Any high-stakes artefact where overconfidence is the risk
 
@@ -35,7 +35,7 @@ See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -44,8 +44,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -53,7 +53,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Identify the Artefact
+## STEP 1 - Identify the Artefact
 
 Ask Harry:
 1. **What's being reviewed?** (paste the copy, file content, decision summary, etc.)
@@ -62,7 +62,7 @@ Ask Harry:
 
 ---
 
-## STEP 2 — Configure the Sub-Agent
+## STEP 2 - Configure the Sub-Agent
 
 Prepare the prompt with:
 - **Specific task:** what to evaluate
@@ -102,17 +102,17 @@ Email to review:
 
 ---
 
-## STEP 3 — Spawn the Sub-Agent
+## STEP 3 - Spawn the Sub-Agent
 
 Use `Explore` agent type:
-- **Read-only** (cannot modify files — safe for QA)
+- **Read-only** (cannot modify files - safe for QA)
 - **Faster** (lower latency than general-purpose)
 - **Lower cost** (cheaper model)
 - Description: "Fresh-eyes review of [artefact type]"
 
 ---
 
-## STEP 4 — Present the Result
+## STEP 4 - Present the Result
 
 Show Harry:
 - The sub-agent's structured review (PASS / FAIL items)
@@ -123,12 +123,12 @@ Show Harry:
 
 ---
 
-## STEP 5 — Optional Log
+## STEP 5 - Optional Log
 
 If the review surfaced a non-trivial issue (a FAIL that almost shipped), log a brief note to `clients/{slug}/MEMORY.md` Recent Learnings:
 
 ```
-{{date}} — Fresh-eyes caught {{specific issue}} that would have shipped. Pattern: {{the underlying rule that failed}}.
+{{date}} - Fresh-eyes caught {{specific issue}} that would have shipped. Pattern: {{the underlying rule that failed}}.
 ```
 
 This helps future sessions catch similar issues earlier.
@@ -137,23 +137,23 @@ This helps future sessions catch similar issues earlier.
 
 ## RULES
 
-- **Always pass the full artefact to the sub-agent.** Do not assume it knows context — it doesn't.
+- **Always pass the full artefact to the sub-agent.** Do not assume it knows context - it doesn't.
 - **Always tell the sub-agent what NOT to do.** Otherwise it will try to be helpful by rewriting, which defeats the purpose.
 - **Never override a FAIL silently.** If the review flags something and Harry decides to ship anyway, document the override in MEMORY.md or decision-log.md.
 - **Cost-conscious.** Use `Explore` (not `general-purpose`) for file-based reviews. Save general-purpose for tasks requiring WebFetch or external lookup.
-- **Single-purpose per invocation.** Don't ask the sub-agent to "review and improve" — review only. Improvements are a separate invocation of the original skill.
+- **Single-purpose per invocation.** Don't ask the sub-agent to "review and improve" - review only. Improvements are a separate invocation of the original skill.
 
 ---
 
 ## EXAMPLES
 
-### Example — Reviewing a cold email before send
+### Example - Reviewing a cold email before send
 
 ```
 Harry: Fresh-eyes review this email before I push it to {{PRIMARY_CONTACT}} for approval:
 
 Subject: hiring speed
-Saw the senior eng hires coming in. Most VPs of Eng at this stage are losing 10-15 hrs/week interviewing low-signal candidates from outsourcing firms. We only source from VC-backed product companies — {{NAMED_PROOF_COMPANY}}'s VP closed 4 hires this way, saved $100k vs in-house. Want a sample shortlist?
+Saw the senior eng hires coming in. Most VPs of Eng at this stage are losing 10-15 hrs/week interviewing low-signal candidates from outsourcing firms. We only source from VC-backed product companies - {{NAMED_PROOF_COMPANY}}'s VP closed 4 hires this way, saved $100k vs in-house. Want a sample shortlist?
 
 Claude:
 Spawning Explore sub-agent for independent review against voice + offer rules...
@@ -162,19 +162,19 @@ Spawning Explore sub-agent for independent review against voice + offer rules...
 
 === Fresh-Eyes Review Result ===
 
-1. Word count: PASS — 64 words (within default 75-100, well within ATL 60 ceiling if recipient is VP — borderline)
-2. Banned words: PASS — no use of "leverage", "synergy", "game-changer", etc.
-3. Approved claims: PASS — "{{NAMED_PROOF_COMPANY}} $100k" is in offer.md approved list; "VC-backed product companies" is in differentiators
-4. Voice tone: PASS — direct, specific, data-led
-5. PRR structure: PASS — 4-part formula intact (Part 1 personalisation, Part 2 social proof with number, Part 3 offer with proof, Part 4 binary CTA)
-6. No question marks except CTA: PASS — only CTA has the question
+1. Word count: PASS - 64 words (within default 75-100, well within ATL 60 ceiling if recipient is VP - borderline)
+2. Banned words: PASS - no use of "leverage", "synergy", "game-changer", etc.
+3. Approved claims: PASS - "{{NAMED_PROOF_COMPANY}} $100k" is in offer.md approved list; "VC-backed product companies" is in differentiators
+4. Voice tone: PASS - direct, specific, data-led
+5. PRR structure: PASS - 4-part formula intact (Part 1 personalisation, Part 2 social proof with number, Part 3 offer with proof, Part 4 binary CTA)
+6. No question marks except CTA: PASS - only CTA has the question
 7. No links in body: PASS
-8. Single CTA: PASS — "Want a sample shortlist?"
-9. Subject 2-4 words lowercase: PASS — "hiring speed" (2 words, lowercase)
-10. Bar test: PASS — sounds natural
+8. Single CTA: PASS - "Want a sample shortlist?"
+9. Subject 2-4 words lowercase: PASS - "hiring speed" (2 words, lowercase)
+10. Bar test: PASS - sounds natural
 
 FAILS: 0
-WARNINGS: 1 — At 64 words this works for BTL register (Manager / IC) but is borderline for ATL register (VP / C-Level — should ideally be ≤60 words). If recipient is VP Engineering and considered ATL, trim 4-5 words. If BTL, ship as-is.
+WARNINGS: 1 - At 64 words this works for BTL register (Manager / IC) but is borderline for ATL register (VP / C-Level - should ideally be ≤60 words). If recipient is VP Engineering and considered ATL, trim 4-5 words. If BTL, ship as-is.
 
 OVERALL: SHIP (with awareness of register borderline)
 ```

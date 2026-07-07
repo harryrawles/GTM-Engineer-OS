@@ -5,10 +5,10 @@
 **Context:** Lead quality is upstream of every metric. A bad list means even perfect copy fails. This skill handles ICP definition, account qualification, ABM tier assignment, contact mapping, and list hygiene.
 
 **Read before responding:**
-- `wiki/list-building.md` — full methodology: ICP framework, scoring, ABM tiers, contact mapping, hygiene
-- `wiki/signal-sourcing.md` — for intent data layering during qualification
-- `clients/{slug}/icp.md` — current client ICP
-- `clients/{slug}/offer.md` — to ensure ICP matches what is being sold
+- `wiki/list-building.md` - full methodology: ICP framework, scoring, ABM tiers, contact mapping, hygiene
+- `wiki/signal-sourcing.md` - for intent data layering during qualification
+- `clients/{slug}/icp.md` - current client ICP
+- `clients/{slug}/offer.md` - to ensure ICP matches what is being sold
 
 ---
 
@@ -16,16 +16,16 @@
 
 | Request | Route to |
 |---------|----------|
-| "Define ICP for a new client" | Step 1 — ICP Framework |
-| "Score 500 accounts" | Step 2 — Account qualification |
-| "Build an ABM list for Tier 1" | Step 3 — ABM tier assignment |
-| "Map contacts at these accounts" | Step 4 — Contact mapping |
+| "Define ICP for a new client" | Step 1 - ICP Framework |
+| "Score 500 accounts" | Step 2 - Account qualification |
+| "Build an ABM list for Tier 1" | Step 3 - ABM tier assignment |
+| "Map contacts at these accounts" | Step 4 - Contact mapping |
 | "Build a lookalike list from best customers" | Lookalike building section in `wiki/list-building.md` |
-| "Verify these emails / clean the list" | Step 5 — Validation |
+| "Verify these emails / clean the list" | Step 5 - Validation |
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -34,8 +34,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -43,19 +43,19 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Define the ICP
+## STEP 1 - Define the ICP
 
 Use the 3-layer framework from `wiki/list-building.md`:
 
-1. **Firmographic** — industry, size, revenue, geography, growth rate, funding stage
-2. **Technographic** — tech stack, CRM, marketing automation, competitive tools
-3. **Behavioural / intent** — job postings, funding events, leadership changes, content engagement, website visits
+1. **Firmographic** - industry, size, revenue, geography, growth rate, funding stage
+2. **Technographic** - tech stack, CRM, marketing automation, competitive tools
+3. **Behavioural / intent** - job postings, funding events, leadership changes, content engagement, website visits
 
 Output: structured ICP that can populate `clients/{slug}/icp.md`.
 
 ---
 
-## STEP 2 — Score Accounts (100-point system)
+## STEP 2 - Score Accounts (100-point system)
 
 Apply the scoring matrix from `wiki/list-building.md`:
 
@@ -73,7 +73,7 @@ Output: a sortable list with score per account. Sort by score, then assign tier.
 
 ---
 
-## STEP 3 — Assign ABM Tier
+## STEP 3 - Assign ABM Tier
 
 | Score | ICP Tier | ABM Tier | Approach |
 |-------|---------|----------|----------|
@@ -86,7 +86,7 @@ Output: a sortable list with score per account. Sort by score, then assign tier.
 
 ---
 
-## STEP 4 — Contact Mapping
+## STEP 4 - Contact Mapping
 
 For Tier 1: map all 6 roles per account.
 For Tier 2: 3-4 roles.
@@ -103,7 +103,7 @@ For Tier 3: decision-maker only.
 
 ---
 
-## STEP 5 — Validate Before Sending
+## STEP 5 - Validate Before Sending
 
 Run before every campaign. Non-negotiable.
 

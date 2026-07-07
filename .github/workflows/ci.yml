@@ -20,11 +20,14 @@ jobs:
       - name: Make hooks + bin + CI scripts executable
         run: chmod +x .claude/hooks/*.sh .claude/bin/*.sh tests/ci/*.sh
 
-      - name: Shellcheck (errors only — style warnings don't fail CI)
+      - name: Shellcheck (errors only - style warnings don't fail CI)
         run: shellcheck --severity=error .claude/hooks/*.sh .claude/bin/*.sh tests/ci/*.sh
 
       - name: Link integrity (every referenced .md resolves)
         run: bash tests/ci/check-links.sh
+
+      - name: No em dashes (Harry's writing rule)
+        run: bash tests/ci/check-em-dash.sh
 
       - name: Secret / isolation scan
         run: bash tests/ci/check-secrets.sh

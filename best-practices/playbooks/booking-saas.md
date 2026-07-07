@@ -1,12 +1,12 @@
-# Playbook: Booking SaaS — Pre-Created Access + Discount Hook
+# Playbook: Booking SaaS - Pre-Created Access + Discount Hook
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client with an **experiential /
-booking product** (travel, hospitality, lifestyle) that can offer a real incentive — led by friction removal
+booking product** (travel, hospitality, lifestyle) that can offer a real incentive - led by friction removal
 (ready-to-use access) + a discount hook + a curiosity CTA. Example built around a stays-booking platform.
-**Origin:** Abstracted from a travel-booking campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a travel-booking campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
-> **⚠️ Compliance guardrail — read first.** This playbook's original hook pre-creates an account and emails
+> **⚠️ Compliance guardrail - read first.** This playbook's original hook pre-creates an account and emails
 > login credentials to a cold prospect. That is **high-risk**: it can breach privacy/anti-spam law, damage
 > deliverability, erode trust, and create security liability. Do **not** run the credential-sharing variant
 > unless the client has legal sign-off and a genuinely compliant, consented flow. Prefer the **safe variant
@@ -57,15 +57,15 @@ tangible incentive, then naturally move them into exploring listings. High frict
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{firstName | there}}`, `{{email}}`,
+Merge fields are Instantly variables - keep them as-is (`{{firstName | there}}`, `{{email}}`,
 `{{sendingAccountName}}`). `{{COMPANY}}` = the active client's brand; `{{DISCOUNT}}` = the real incentive.
 
-### Email 1 — Safe Variant (default, recommended)
+### Email 1 - Safe Variant (default, recommended)
 
 ```
-Hi {{firstName | there}}, if you had the choice: 5-star hotel or Airbnb — would you pick both? That's exactly what {{COMPANY}} homes were built for.
+Hi {{firstName | there}}, if you had the choice: 5-star hotel or Airbnb - would you pick both? That's exactly what {{COMPANY}} homes were built for.
 
-I can set you up with instant access and a {{DISCOUNT}} credit for your first stay — one click, no signup hassle.
+I can set you up with instant access and a {{DISCOUNT}} credit for your first stay - one click, no signup hassle.
 
 Want me to send a few hand-picked homes that would be perfect for your next trip?
 
@@ -75,10 +75,10 @@ Want me to send a few hand-picked homes that would be perfect for your next trip
 If you don't want to hear from me anymore, just let me know.
 ```
 
-### Email 1 — Pre-Created Access Variant (⚠️ only with legal sign-off + compliant, consented flow)
+### Email 1 - Pre-Created Access Variant (⚠️ only with legal sign-off + compliant, consented flow)
 
 ```
-Hi {{firstName | there}}, if you had the choice: 5-star hotel or Airbnb — would you pick both? That's exactly what {{COMPANY}} homes were built for.
+Hi {{firstName | there}}, if you had the choice: 5-star hotel or Airbnb - would you pick both? That's exactly what {{COMPANY}} homes were built for.
 
 I took the liberty of creating a {{COMPANY}} account for you and set up a {{DISCOUNT}} discount for your first stay:
 
@@ -131,16 +131,16 @@ If you don't want to hear from me anymore, just let me know.
 ## Execution Tips (important)
 
 - Ensure any access provisioning is legit, consented, and compliant (no misleading access)
-- If credentials are ever shared, use system-generated passwords — never a predictable format
+- If credentials are ever shared, use system-generated passwords - never a predictable format
 - Make "hand-picked homes" genuinely curated if you send them
-- Don't over-explain the product in the first message — let curiosity work
+- Don't over-explain the product in the first message - let curiosity work
 - Avoid over-sending discount-heavy variations (erodes credibility)
 
 ---
 
 ## Adapting for a client (checklist)
 
-- [ ] **Compliance check first** — confirm the access flow is legal, consented, and client-approved; default to the safe variant unless legal sign-off exists for pre-created accounts
+- [ ] **Compliance check first** - confirm the access flow is legal, consented, and client-approved; default to the safe variant unless legal sign-off exists for pre-created accounts
 - [ ] `{{COMPANY}}` → client brand (from `clients/{slug}/_config.md`)
 - [ ] `{{DISCOUNT}}` → the client's real, approved incentive (`offer.md`)
 - [ ] `{{firstName | there}}` / `{{email}}` / `{{sendingAccountName}}` → confirm these Instantly fields exist and are mapped

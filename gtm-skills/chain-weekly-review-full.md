@@ -1,6 +1,6 @@
 ---
 name: chain-weekly-review-full
-description: Friday compounding loop chain. Runs the full weekly review for a client end-to-end — health-scorer, weekly-reviewer (with regression check and synthesis), conditional test launches, and client-report-writer. Single command for the Friday routine that compounds the OS.
+description: Friday compounding loop chain. Runs the full weekly review for a client end-to-end - health-scorer, weekly-reviewer (with regression check and synthesis), conditional test launches, and client-report-writer. Single command for the Friday routine that compounds the OS.
 triggers:
   - "Run /weekly-review-full for [client]"
   - "Friday review for [client]"
@@ -15,7 +15,7 @@ reads:
   - "clients/{slug}/_config.md, MEMORY.md, campaign-state.md, decision-log.md, copy-library.md, test-log.md, comms-log.md, overview.md"
 invokes:
   - "gtm-skills/client-health-scorer.md (always)"
-  - "gtm-skills/weekly-reviewer.md (always — runs the full 9 steps including synthesis and shared-layer promotion)"
+  - "gtm-skills/weekly-reviewer.md (always - runs the full 9 steps including synthesis and shared-layer promotion)"
   - "gtm-skills/test-readiness-check.md (conditional)"
   - "gtm-skills/test-launcher.md (conditional)"
   - "gtm-skills/client-report-writer.md (always)"
@@ -25,16 +25,16 @@ writes:
   - "clients/{slug}/test-log.md (completed tests + queued next tests)"
   - "clients/{slug}/campaign-state.md (health rating updates)"
   - "clients/{slug}/MEMORY.md (Active Focus and Recent Learnings updates)"
-  - "clients/{slug}/comms-log.md (the weekly report text, logged when sent — via client-report-writer)"
+  - "clients/{slug}/comms-log.md (the weekly report text, logged when sent - via client-report-writer)"
 ---
 
-# Skill: Chain — Weekly Review Full
+# Skill: Chain - Weekly Review Full
 
 **Trigger:** "Run /weekly-review-full for [client]", "Friday review for [client]", "Full weekly review for [client]"
 
 **Context:** The Friday compounding loop, end-to-end. Runs health score → full weekly review (with synthesis step) → conditional test launches for any tests that completed and need promotion → weekly client report. One command captures the entire Friday routine for a single client.
 
-**Why this exists:** the Friday routine is the most important recurring activity in the OS — without it, nothing compounds. Running each skill individually means 4-5 explicit invocations with manual context-passing. This chain captures the routine as a single intent.
+**Why this exists:** the Friday routine is the most important recurring activity in the OS - without it, nothing compounds. Running each skill individually means 4-5 explicit invocations with manual context-passing. This chain captures the routine as a single intent.
 
 **Distinction from `gtm-skills/weekly-reviewer.md`:** the weekly-reviewer skill does the deep review (steps 1-9, including shared-layer promotion). This chain wraps it with the pre-step (health scoring) and post-step (test launches + report generation).
 
@@ -46,14 +46,14 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Confirm Client + Pull Data (always)
+## STEP 0 - Confirm Client + Pull Data (always)
 
 **Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-weekly-review-full | (filled at end) |`. Sub-skills invoked later will write their own rows.
 
 Then verify:
 - Client name confirmed (`clients/{slug}/_config.md` matches the trigger)
-- This is the Friday routine for the active client only (not a portfolio sweep — for all clients, use `weekly-reviewer.md` batch mode / Portfolio Triage Mode below, which loops every folder in `clients/`)
-- Last weekly review date (per `clients/{slug}/_config.md` `last_review_date`) — flag if more than 14 days ago (skipped weeks compound problems)
+- This is the Friday routine for the active client only (not a portfolio sweep - for all clients, use `weekly-reviewer.md` batch mode / Portfolio Triage Mode below, which loops every folder in `clients/`)
+- Last weekly review date (per `clients/{slug}/_config.md` `last_review_date`) - flag if more than 14 days ago (skipped weeks compound problems)
 
 Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): last 7 days of campaign data per active campaign.
 
@@ -61,7 +61,7 @@ If the Instantly API can't be reached (missing/invalid key) → ask Harry to pas
 
 ---
 
-## STEP 1 — Client Health Score (always)
+## STEP 1 - Client Health Score (always)
 
 Invoke `gtm-skills/client-health-scorer.md`. Produces a 100-point score with breakdown.
 
@@ -73,25 +73,25 @@ If Red/Critical: flag urgency in `clients/{slug}/MEMORY.md` Active Focus. Option
 
 ---
 
-## STEP 2 — Deep Weekly Review (always)
+## STEP 2 - Deep Weekly Review (always)
 
 Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 9-step flow:
 
 1. Pull Instantly data (Step 0 of this chain already did this, weekly-reviewer can reuse)
-2. Signal trends — surface declining signals
-3. Identify winners (PRR ≥ 1%, sample ≥ 300) — confirm + capture "why" + log to copy-library + decision-log
-4. Identify losers (PRR < 0.5%, sample ≥ 300) — confirm root cause + log to graveyard
+2. Signal trends - surface declining signals
+3. Identify winners (PRR ≥ 1%, sample ≥ 300) - confirm + capture "why" + log to copy-library + decision-log
+4. Identify losers (PRR < 0.5%, sample ≥ 300) - confirm root cause + log to graveyard
 5. Update completed tests (six-rule check + 5-question tree + regression check + recommend revert or promotion)
 6. Update campaign health in `clients/{slug}/campaign-state.md`
-7. **Synthesise the week's insight** — capture meta-takeaway, write to copy-library Cross-Campaign Patterns OR decision-log Recurring Patterns
-8. **Promote generalisable learnings** — on Confirmed patterns only, de-identify and promote up into `best-practices/` / `frameworks/` / `wiki/` (never raw client data)
+7. **Synthesise the week's insight** - capture meta-takeaway, write to copy-library Cross-Campaign Patterns OR decision-log Recurring Patterns
+8. **Promote generalisable learnings** - on Confirmed patterns only, de-identify and promote up into `best-practices/` / `frameworks/` / `wiki/` (never raw client data)
 9. Hand off to report (handled by Step 4 of this chain)
 
 **This is the longest step.** Operator pauses occur naturally inside weekly-reviewer (confirm each winner, each loser, each test result).
 
 ---
 
-## STEP 3 — Test Promotion (conditional)
+## STEP 3 - Test Promotion (conditional)
 
 After weekly-reviewer Step 5 completes, check `clients/{slug}/test-log.md` for:
 
@@ -119,7 +119,7 @@ Skip Step 3 entirely. Move to Step 4.
 
 ---
 
-## STEP 4 — Generate Weekly Report (always)
+## STEP 4 - Generate Weekly Report (always)
 
 Invoke `gtm-skills/client-report-writer.md` using the data captured in Steps 1-3.
 
@@ -136,7 +136,7 @@ After approval → Harry sends via Slack/email per `clients/{slug}/overview.md` 
 
 ---
 
-## STEP 5 — Update OS Hygiene (always)
+## STEP 5 - Update OS Hygiene (always)
 
 After the report is sent:
 
@@ -157,19 +157,19 @@ After the report is sent:
 ## CHAIN OUTPUT FORMAT
 
 ```
-=== Chain Complete: Weekly Review Full — [CLIENT_NAME] — Week ending [date] ===
+=== Chain Complete: Weekly Review Full - [CLIENT_NAME] - Week ending [date] ===
 
-Step 1 — Health Score:   [n]/100 → [band] (was [previous] → change [+/-])
-Step 2 — Deep Review:
+Step 1 - Health Score:   [n]/100 → [band] (was [previous] → change [+/-])
+Step 2 - Deep Review:
   - Winners logged: [n]
   - Losers logged: [n]
   - Tests completed: [n]
   - Synthesis: "[this week's meta-takeaway in 1 line]"
-Step 3 — Test Promotion:
+Step 3 - Test Promotion:
   - Tests promoted: [n]
   - Tests launched: [n]
   - Tests reverted: [n]
-Step 4 — Report:
+Step 4 - Report:
   - Draft generated and ready for Harry review
 
 Files updated:
@@ -179,7 +179,7 @@ Files updated:
 - clients/{slug}/campaign-state.md
 - clients/{slug}/MEMORY.md
 - clients/{slug}/_config.md (last_review_date)
-- clients/{slug}/comms-log.md (report sent entry — pending after Harry sends)
+- clients/{slug}/comms-log.md (report sent entry - pending after Harry sends)
 
 OS state for [client]: [Green/Amber/Red]
 Next review: Friday [date + 7]
@@ -195,16 +195,16 @@ Outstanding: [any client-side actions Harry needs to take this week]
 
 **Purpose:** Sweep every active client in under 45 minutes and identify which ones need a full review this Friday. Run this first, every Friday. Then run single-client mode (Steps 0-5) only on flagged clients.
 
-**Client list:** enumerate the folders under `clients/` — each folder is one active client (slug = folder name), skipping any whose name starts with `_` or `.` (e.g. `clients/_archived/`). No manual list needed; the `clients/` directory is the source of truth. Harry can still scope it explicitly ("Portfolio triage for: acme, vector-health") to run a subset.
+**Client list:** enumerate the folders under `clients/` - each folder is one active client (slug = folder name), skipping any whose name starts with `_` or `.` (e.g. `clients/_archived/`). No manual list needed; the `clients/` directory is the source of truth. Harry can still scope it explicitly ("Portfolio triage for: acme, vector-health") to run a subset.
 
-### Phase 1 — Triage Sweep (~2 min per client)
+### Phase 1 - Triage Sweep (~2 min per client)
 
 For each client folder under `clients/`, invoke `gtm-skills/weekly-reviewer.md` in quick-review mode, in full isolation (never mix client contexts).
 
 Output a running portfolio table as each client completes:
 
 ```
-=== Portfolio Triage — Friday [date] ===
+=== Portfolio Triage - Friday [date] ===
 
 | Client       | PRR   | Meetings | G1 Winner | G2 Loser | G3 Test | G4 Signal | Action       |
 |--------------|-------|----------|-----------|----------|---------|-----------|--------------|
@@ -217,17 +217,17 @@ Clients needing full review: [n] of 20
 Estimated Friday time remaining: [n × 15 min] + ~[20 × 3 min] reports
 ```
 
-**After table:** "Run full reviews now? (Y — I'll work through flagged clients in priority order / tell me the order)"
+**After table:** "Run full reviews now? (Y - I'll work through flagged clients in priority order / tell me the order)"
 
-### Phase 2 — Full Reviews (flagged clients only)
+### Phase 2 - Full Reviews (flagged clients only)
 
 For each flagged client, run this chain (Steps 0-5) in single-client mode.
 
 Priority order: Red/Critical first → Amber → Green (if flagged).
 
-### Phase 3 — Reports (all 20 clients)
+### Phase 3 - Reports (all 20 clients)
 
-After all full reviews complete, generate reports for flagged clients via `gtm-skills/client-report-writer.md`. Green-pass clients get a 3-line status update (PRR, meetings, no action) rather than a full report — saves ~30 min across the portfolio.
+After all full reviews complete, generate reports for flagged clients via `gtm-skills/client-report-writer.md`. Green-pass clients get a 3-line status update (PRR, meetings, no action) rather than a full report - saves ~30 min across the portfolio.
 
 ### Honest time estimate
 
@@ -245,9 +245,9 @@ This compares to 5-6 hours running full reviews on every client. The efficiency 
 
 ## RULES
 
-- **Use Portfolio Triage Mode for 20 clients.** Run quick-review triage on all clients first (see Portfolio Triage Mode above), then run single-client mode only on flagged clients. Do not run full review on all 20 clients sequentially — that is 5-6 hours, not 2.5-4 hours.
+- **Use Portfolio Triage Mode for 20 clients.** Run quick-review triage on all clients first (see Portfolio Triage Mode above), then run single-client mode only on flagged clients. Do not run full review on all 20 clients sequentially - that is 5-6 hours, not 2.5-4 hours.
 - **Never skip Step 2.** The deep review IS the compounding loop. If you skip it, the OS does not learn anything from this week.
-- **Always run the synthesis step.** That is weekly-reviewer Step 7 — the meta-takeaway that turns individual entries into compounding patterns. Without it, the entries pile up without ever connecting.
-- **Pause at every meaningful checkpoint.** This chain is decision support — Harry confirms winners, losers, test launches, and the report before send.
+- **Always run the synthesis step.** That is weekly-reviewer Step 7 - the meta-takeaway that turns individual entries into compounding patterns. Without it, the entries pile up without ever connecting.
+- **Pause at every meaningful checkpoint.** This chain is decision support - Harry confirms winners, losers, test launches, and the report before send.
 - **Update `last_review_date`.** Skipped weeks = broken compounding loop. The date tracking surfaces drift.
-- **If chain is interrupted mid-flow.** Resume from the last completed step on next invocation. The OS state files (copy-library, decision-log, test-log) are appended to as each step completes — no all-or-nothing risk.
+- **If chain is interrupted mid-flow.** Resume from the last completed step on next invocation. The OS state files (copy-library, decision-log, test-log) are appended to as each step completes - no all-or-nothing risk.

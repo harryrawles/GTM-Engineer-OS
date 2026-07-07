@@ -1,14 +1,14 @@
-# Playbook: Franchising — Decision Clarity for Experienced Buyers
+# Playbook: Franchising - Decision Clarity for Experienced Buyers
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client offering **buyer-side franchise
-guidance** to experienced professionals exploring ownership — led by clarity and disciplined decision-making,
+guidance** to experienced professionals exploring ownership - led by clarity and disciplined decision-making,
 not selling franchises. Resources (guides, quizzes, frameworks) over pitches.
 **Origin:** Abstracted from a franchise decision-clarity campaign. All brand-specific values are placeholders
-— fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
+- fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. Keep the framing buyer-side and pressure-free — this angle breaks the moment it feels like a
+> Claims*. Keep the framing buyer-side and pressure-free - this angle breaks the moment it feels like a
 > single-brand franchise pitch. Have the guide / quiz / framework ready before the hook. Keep the opt-out
 > line. Never carry one client's specifics into another.
 
@@ -49,10 +49,10 @@ This is about **clarity before commitment**, not selling franchises.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{City}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{City}}`,
 `{{SendingAccountFirstName}}`, and the custom category field `{{lcsi}}`). Pick the angle that fits the target.
 
-### Angle 1 — Avoiding Biased Franchise Lists
+### Angle 1 - Avoiding Biased Franchise Lists
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -69,7 +69,7 @@ Want me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Local Opportunity + Risk Awareness
+### Angle 2 - Local Opportunity + Risk Awareness
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -86,12 +86,12 @@ Would you like me to send it your way?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Decision Quiz (Speed + Focus)
+### Angle 3 - Decision Quiz (Speed + Focus)
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
-Sales leaders usually have options — which actually makes franchising harder, not easier.
+Sales leaders usually have options - which actually makes franchising harder, not easier.
 
 I created a short quiz that helps narrow down which franchise types fit your goals, instead of spending months researching everything.
 
@@ -103,12 +103,12 @@ Want me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 4 — Disciplined Buyer Framework
+### Angle 4 - Disciplined Buyer Framework
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
-Most sales leaders don't struggle with ambition — they struggle with decision clarity.
+Most sales leaders don't struggle with ambition - they struggle with decision clarity.
 
 I created a short framework showing how disciplined buyers evaluate franchise opportunities without rushing or over-researching.
 
@@ -149,7 +149,7 @@ If this isn't relevant, just let me know.
 
 - [ ] `{{FirstName}}` / `{{City}}` / `{{lcsi}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped
 - [ ] The guide / quiz / framework actually exists and is ready to send before the hook goes out
-- [ ] Keep the framing buyer-side and pressure-free — never let it read as a single-brand pitch
+- [ ] Keep the framing buyer-side and pressure-free - never let it read as a single-brand pitch
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims
 - [ ] Keep the opt-out line
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`

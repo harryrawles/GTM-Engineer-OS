@@ -1,6 +1,6 @@
 # frameworks/
 
-Strategic frameworks and mental models — part of the **shared layer**, available to every client on the
+Strategic frameworks and mental models - part of the **shared layer**, available to every client on the
 same footing as skills.
 
 ## Where the frameworks live today
@@ -25,7 +25,7 @@ them by their `wiki/` paths). This README is the index so "load the applicable f
 ## What lands in this folder
 
 This directory is the **promotion destination** for new, de-identified strategic mental models that emerge
-from client work — written here by `gtm-skills/weekly-reviewer.md` (Step 8, on `Confirmed` patterns) and
+from client work - written here by `gtm-skills/weekly-reviewer.md` (Step 8, on `Confirmed` patterns) and
 `gtm-skills/client-offboarder.md` (STEP 3). Drop new framework files here and reference them by path;
 Claude auto-discovers them. When you add one, list it above and in `INDEX.md`.
 

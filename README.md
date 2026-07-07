@@ -1,11 +1,11 @@
-# GTM Engineer OS — Multi-Client
+# GTM Engineer OS - Multi-Client
 
 The operating system for running **multiple Instantly.ai GTM clients** (target: up to ~30) from a single
-private repo. One shared brain — skills, knowledge, frameworks, SOPs, templates — plus a fully isolated
+private repo. One shared brain - skills, knowledge, frameworks, SOPs, templates - plus a fully isolated
 context folder per client. One active client per session.
 
-It gives Claude Code everything it needs to write copy, run campaigns, diagnose performance, and report —
-per client — using a consistent methodology grounded in proven cold email principles.
+It gives Claude Code everything it needs to write copy, run campaigns, diagnose performance, and report -
+per client - using a consistent methodology grounded in proven cold email principles.
 
 > **The hub is [CLAUDE.md](./CLAUDE.md).** It holds the golden rules, the active-client model, the safety
 > guard, and the skill routing table. Read it first.
@@ -15,13 +15,13 @@ per client — using a consistent methodology grounded in proven cold email prin
 ## What this is
 
 A markdown-native OS combining:
-- **Isolated per-client context** — who they are, what they sell, who they target, how they talk
+- **Isolated per-client context** - who they are, what they sell, who they target, how they talk
   (`clients/{slug}/`)
-- **Shared knowledge base** — copywriting, signals, deliverability, frameworks (`wiki/`)
-- **Shared frameworks / SOPs / best-practices** — strategy and runbooks (`frameworks/`, `sops/`,
+- **Shared knowledge base** - copywriting, signals, deliverability, frameworks (`wiki/`)
+- **Shared frameworks / SOPs / best-practices** - strategy and runbooks (`frameworks/`, `sops/`,
   `best-practices/`)
-- **AI skills** — orchestrated workflows for repeatable tasks (`gtm-skills/`)
-- **Client template** — the skeleton every new client is spun up from (`templates/client-template/`)
+- **AI skills** - orchestrated workflows for repeatable tasks (`gtm-skills/`)
+- **Client template** - the skeleton every new client is spun up from (`templates/client-template/`)
 
 Designed for one human (Harry) + Claude Code to run a whole portfolio, with **no cross-client data
 sharing, ever.**
@@ -47,7 +47,7 @@ it asks. See [CLAUDE.md](./CLAUDE.md) → *The Active-Client Model*.
 
 **Add a new client:**
 1. See [BOOTSTRAP.md](./BOOTSTRAP.md)
-2. Run: `Onboard new client [client name]` — the onboarder copies `templates/client-template/` →
+2. Run: `Onboard new client [client name]` - the onboarder copies `templates/client-template/` →
    `clients/{slug}/`, sets it active, and walks you through ~50 min of conversational setup.
 
 **Day-to-day operations:**
@@ -63,7 +63,7 @@ it asks. See [CLAUDE.md](./CLAUDE.md) → *The Active-Client Model*.
 ## File layout
 
 ```
-├── CLAUDE.md              # Hub for Claude — active-client model, rules, skill routing
+├── CLAUDE.md              # Hub for Claude - active-client model, rules, skill routing
 ├── README.md              # This file
 ├── BOOTSTRAP.md           # How to add and set up a new client
 ├── OPERATING-RHYTHM.md    # Daily/weekly/monthly/quarterly cadence
@@ -75,12 +75,12 @@ it asks. See [CLAUDE.md](./CLAUDE.md) → *The Active-Client Model*.
 ├── clients/               # One ISOLATED folder per client (git-tracked EXCEPT secrets/)
 │   └── {slug}/            # Created by copying templates/client-template/
 │       ├── _config.md         # Central config (slug, tier, industry, Instantly workspace…)
-│       ├── MEMORY.md          # Always-loaded scratchpad — current focus, watch-outs
+│       ├── MEMORY.md          # Always-loaded scratchpad - current focus, watch-outs
 │       ├── overview.md        # Identity, SLA, success criteria
 │       ├── icp.md · offer.md · voice.md
 │       ├── campaign-state.md · decision-log.md · competitive-intel.md
 │       ├── comms-log.md · copy-library.md · test-log.md · session-log.md
-│       └── secrets/           # GIT-IGNORED — instantly_api_key, workspace_id/url
+│       └── secrets/           # GIT-IGNORED - instantly_api_key, workspace_id/url
 │
 ├── _state/                # Local session state (git-ignored)
 │   └── active-client      # Plain file holding the current client slug
@@ -107,7 +107,7 @@ optimise for PRR. Open rate is vanity. Reply rate is noisy. PRR is signal.
 ### Compound, do not improvise
 Every winning email gets logged with the why. Every test gets logged with the conclusion. The next email
 is built from prior winners, not from scratch. The OS compounds when
-[weekly-reviewer](gtm-skills/weekly-reviewer.md) runs every Friday — per client.
+[weekly-reviewer](gtm-skills/weekly-reviewer.md) runs every Friday - per client.
 
 ### Signal-based, not spray-and-pray
 Cold lists: 6-8% reply. Single-signal: 18-22%. Multi-signal: 35-40%. We only contact prospects showing
@@ -146,17 +146,17 @@ Generate QBR for [client]
 - **Incident (blacklist, outage):** `Run incident responder`
 - **Client asks for something mid-week:** `Handle client request: [paste]`
 
-(All act on the active client — confirm it first.)
+(All act on the active client - confirm it first.)
 
 ---
 
 ## Maintenance
 
-- **Per-client logs** (`clients/{slug}/copy-library.md`, `test-log.md`, `decision-log.md`) — updated
+- **Per-client logs** (`clients/{slug}/copy-library.md`, `test-log.md`, `decision-log.md`) - updated
   automatically by weekly-reviewer, per client.
-- **Shared layer** (`wiki/`, `frameworks/`, `sops/`, `best-practices/`, `gtm-skills/`) — universal; updated
+- **Shared layer** (`wiki/`, `frameworks/`, `sops/`, `best-practices/`, `gtm-skills/`) - universal; updated
   when the template version is bumped or new shared content is uploaded.
-- **Template upgrades** — see [CHANGELOG.md](./CHANGELOG.md) for migration notes.
+- **Template upgrades** - see [CHANGELOG.md](./CHANGELOG.md) for migration notes.
 
 ## OS version
 
@@ -165,4 +165,4 @@ spun up from in `clients/{slug}/_config.md → template_version`.
 
 ---
 
-Built for Harry Rawles — GTM Engineer.
+Built for Harry Rawles - GTM Engineer.

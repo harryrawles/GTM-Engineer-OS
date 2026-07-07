@@ -1,10 +1,10 @@
 # Psychological Principles for Copywriting
 
-A working reference of cognitive biases and persuasion heuristics that show up consistently in B2B cold outreach. The goal is not to memorise them — it is to identify the right ones to deliberately leverage (and the wrong ones to deliberately avoid triggering) at each stage of a cold email or follow-up.
+A working reference of cognitive biases and persuasion heuristics that show up consistently in B2B cold outreach. The goal is not to memorise them - it is to identify the right ones to deliberately leverage (and the wrong ones to deliberately avoid triggering) at each stage of a cold email or follow-up.
 
 **The most important rule is the last one in this file: Overdone-It bias.** If you weaponise every principle in a single piece of copy, the result reads as manipulative and fails. Pick the few that fit. Leave the rest.
 
-> This file is the **Stimuli-Based (Psychological)** fundamentals layer — see
+> This file is the **Stimuli-Based (Psychological)** fundamentals layer - see
 > `wiki/first-principles-client-acquisition.md` Section 6 for how this fits alongside Strategy-Based
 > fundamentals, and Section 4 (Stimuli Entropy) for why any bias here eventually stops working once a
 > niche is over-exposed to it.
@@ -25,10 +25,10 @@ A working reference of cognitive biases and persuasion heuristics that show up c
 | Stage | Leverage these | Avoid triggering these |
 |-------|---------------|------------------------|
 | **Subject line (2-4 words)** | Curiosity tendency, Mystery bias, Quantitative specificity, Pattern break, Originality | Click-whirr (looking like every cold email), Ambiguity effect |
-| **Part 1 — Personalisation** | Subjective validation, Relatability, Understanding bias, Familiarity (in follow-ups) | Egocentric (do not make it about you), Excessive self-regard (do not compliment vaguely) |
-| **Part 2 — Who Am I** | Authority misinfluence, Social proof, Show-and-tell, Quantitative specificity, Conviction, Casual bias | Excessive self-regard (do not oversell), Click-whirr |
-| **Part 3 — The Offer** | Reward super-response, Deprival super-reaction (loss aversion), Punishment super-response (risk reversal), Anchoring, Contrast misreaction, Justification, Disqualified identity, One-of-a-kind, Removed self-concerns, Hyperbolic discounting, Tried-and-tested, Novelty, Trend, Scarcity, Urgency | Ambiguity, Cognitive dissonance, Zero risk bias being violated |
-| **Part 4 — CTA** | Action bias, Reason-respecting, Permission-based mis-influence, Lil' bonus, Instruction clarity, Curiosity | Ambiguity, Cognitive closure (do not preempt their decision) |
+| **Part 1 - Personalisation** | Subjective validation, Relatability, Understanding bias, Familiarity (in follow-ups) | Egocentric (do not make it about you), Excessive self-regard (do not compliment vaguely) |
+| **Part 2 - Who Am I** | Authority misinfluence, Social proof, Show-and-tell, Quantitative specificity, Conviction, Casual bias | Excessive self-regard (do not oversell), Click-whirr |
+| **Part 3 - The Offer** | Reward super-response, Deprival super-reaction (loss aversion), Punishment super-response (risk reversal), Anchoring, Contrast misreaction, Justification, Disqualified identity, One-of-a-kind, Removed self-concerns, Hyperbolic discounting, Tried-and-tested, Novelty, Trend, Scarcity, Urgency | Ambiguity, Cognitive dissonance, Zero risk bias being violated |
+| **Part 4 - CTA** | Action bias, Reason-respecting, Permission-based mis-influence, Lil' bonus, Instruction clarity, Curiosity | Ambiguity, Cognitive closure (do not preempt their decision) |
 | **Follow-ups** | Familiarity bias (compounds with exposure), Psychological attrition (persistence), Availability mis-weighing, Inconsistency avoidance, Reciprocation, Ben Franklin, Frequency illusion, Graduality | Click-whirr (do not look like every follow-up they get) |
 | **Objection handling** | Disarming honesty, Frame-based misreaction (hold your frame), Understanding bias, Relatability, Reason-respecting, Polite bias, Humour (light) | Egocentric (do not attack their idea), Cognitive dissonance head-on |
 | **Re-engagement** | Cognitive drift (gradualness), Familiarity, Hot-hand fallacy, Recency effect | Click-whirr |
@@ -54,7 +54,7 @@ Incentive is the main driver of human behaviour. The ants go where the sugar lie
 
 ### 4. Punishment super-response
 Humans avoid actions that lead to punishment (financial loss, status loss, time loss, regret).
-> A prospect may not book because the offer lacks risk reversal — they fear punishment via lost capital.
+> A prospect may not book because the offer lacks risk reversal - they fear punishment via lost capital.
 
 ### 5. Influence from mere association
 Humans associate things with the company they keep.
@@ -65,16 +65,16 @@ People act on requests from those they like or love.
 > You take advice from your own parents more than someone else's. People buy from senders they like.
 
 ### 7. Disliking / hating tendency
-People reject requests from those they dislike — including factually true ones.
+People reject requests from those they dislike - including factually true ones.
 > If they hate your approach, they will not book a call even if you could change their life.
 
 ### 8. Doubt avoidance
-Doubt is uncomfortable. People make decisions just to escape doubt — including the decision to disengage.
+Doubt is uncomfortable. People make decisions just to escape doubt - including the decision to disengage.
 > A prospect with doubts about value will choose "no reply" to escape the discomfort.
 
 ### 9. Inconsistency avoidance
 Humans avoid acting in ways that contradict their stated identity, beliefs, or prior commitments.
-> Get them to schedule a call and remind them of their decision a few times — they show up to stay consistent.
+> Get them to schedule a call and remind them of their decision a few times - they show up to stay consistent.
 
 ### 10. Commitment / consistency (confirmation bias)
 People seek information that confirms what they already believe.
@@ -86,7 +86,7 @@ Humans hate having half the picture. Open loops drive action.
 
 ### 12. Kantian fairness tendency
 Humans are sensitive to perceived unfairness.
-> "You work hard and don't get rewarded. That isn't fair — and that is exactly what we change."
+> "You work hard and don't get rewarded. That isn't fair - and that is exactly what we change."
 
 ### 13. Excessive self-regard
 People believe they are better than average.
@@ -98,7 +98,7 @@ To dodge pain, humans warp their worldview.
 
 ### 15. Overoptimism
 Humans expect better outcomes faster than is rational.
-> Prospects expect "too good to be true" — so do not be afraid to say it.
+> Prospects expect "too good to be true" - so do not be afraid to say it.
 
 ### 16. Deprival super-reaction (loss aversion)
 Losses hurt more than equivalent gains feel good.
@@ -114,7 +114,7 @@ Things are judged on a relative scale.
 
 ### 19. Authority misinfluence
 Authority figures get extra believability.
-> A YouTube channel, named-client logos, podcast appearances — all build authority that makes claims land harder.
+> A YouTube channel, named-client logos, podcast appearances - all build authority that makes claims land harder.
 
 ### 20. Cognitive closure
 Humans want decisions wrapped, sometimes prematurely.
@@ -126,7 +126,7 @@ Belief systems shift gradually with persistent exposure.
 
 ### 22. Cognitive dissonance
 Holding contradictory beliefs is uncomfortable. People polarise to resolve it.
-> Most buyers will not run cold email AND cold call simultaneously — even when both make sense.
+> Most buyers will not run cold email AND cold call simultaneously - even when both make sense.
 
 ### 23. The IKEA effect
 People love what they build.
@@ -134,11 +134,11 @@ People love what they build.
 
 ### 24. Reciprocation
 A favour creates a felt obligation to return it.
-> Offering a payment plan or a free audit triggers reciprocation — they feel obliged to say yes.
+> Offering a payment plan or a free audit triggers reciprocation - they feel obliged to say yes.
 
 ### 25. Ben Franklin effect
 We like people we have done favours for. Doing a favour increases future favours.
-> "Quick favour — can you confirm this is the right email address?" — sets up future asks.
+> "Quick favour - can you confirm this is the right email address?" - sets up future asks.
 
 ### 26. Information bias
 Humans seek more info before deciding, even when it does not help the decision.
@@ -158,7 +158,7 @@ The more invested, the more committed.
 
 ### 30. Hot-hand fallacy
 Recent wins feel like trend, regardless of base rate.
-> "Our last 3 clients hit X." Even if the prior 27 did not — the framing matters.
+> "Our last 3 clients hit X." Even if the prior 27 did not - the framing matters.
 
 ### 31. Ambiguity effect
 Humans avoid ambiguity.
@@ -178,7 +178,7 @@ Repeated claims feel true.
 
 ### 35. Rhyme as reason
 Rhyming claims feel more believable.
-> "A friend in need is a friend indeed." Use sparingly — sounds cheesy if overdone.
+> "A friend in need is a friend indeed." Use sparingly - sounds cheesy if overdone.
 
 ### 36. Subjective validation
 People accept claims that have personal meaning.
@@ -197,8 +197,8 @@ Knee-jerk pattern-matching kills attention.
 > If your copy looks like every other cold email, prospects auto-delete without reading. Pattern break is the antidote.
 
 ### 40. Reason-respecting tendency
-ANY reason — even a weak one — boosts compliance.
-> "Worth a chat — because we work with 3 similar teams already."
+ANY reason - even a weak one - boosts compliance.
+> "Worth a chat - because we work with 3 similar teams already."
 
 ### 41. Egocentric bias
 People rely on their own perspective. Attacks on their ideas fail.
@@ -206,7 +206,7 @@ People rely on their own perspective. Attacks on their ideas fail.
 
 ### 42. Anchoring bias
 The first number sets the reference point.
-> Mention the high-end package before the actual offer — makes the actual offer feel reasonable.
+> Mention the high-end package before the actual offer - makes the actual offer feel reasonable.
 
 ### 43. Availability mis-weighing
 The option most present is the option chosen.
@@ -234,7 +234,7 @@ Small immediate rewards beat large delayed ones.
 
 ### 49. Ostrich effect
 People bury their heads in the sand.
-> Position the offer as "you don't need to worry about this — we handle it" — you ARE the sand.
+> Position the offer as "you don't need to worry about this - we handle it" - you ARE the sand.
 
 ### 50. Groupthink
 Groups make irrational decisions together.
@@ -249,7 +249,7 @@ Complex conversations get reduced to simple takeaways.
 > Make sure the simple takeaway you want is the one that gets remembered. Trim everything else.
 
 ### 53. Envy / jealousy tendency
-"It is not greed that drives the world — it is envy." (Buffett)
+"It is not greed that drives the world - it is envy." (Buffett)
 > Reference a competitor or peer crushing it. Trigger the envy. Promise to help them match it.
 
 ### 54. Facial attention bias
@@ -268,7 +268,7 @@ These are not in any academic paper but appear consistently in B2B sales practic
 
 ### M1. Permission-based mis-influence
 Asking permission to ask increases compliance dramatically.
-> "Mind if I ask one question?" — the false sense of control makes them more agreeable.
+> "Mind if I ask one question?" - the false sense of control makes them more agreeable.
 
 ### M2. Frame-based misreaction
 Emotional states are contagious. Whoever holds their frame longest wins.
@@ -279,7 +279,7 @@ Persistent asks lower the action threshold.
 > Children get what they want by not stopping. Most adults stop too soon. Never say "this is my last follow-up."
 
 ### M4. Graduality tendency
-Some decisions only happen gradually — unfathomable → entertained → adopted.
+Some decisions only happen gradually - unfathomable → entertained → adopted.
 > 11-month nurture: testimonial per month → "alright you got me."
 
 ### M5. Simple digestibility
@@ -287,7 +287,7 @@ Simple beats clever. Words a child could understand outperform jargon.
 
 ### M6. Relatability bias
 "If she gets me, she can help me."
-> "I understand you want the price first — if you had a perfect prospect, would you quote without giving them value first?"
+> "I understand you want the price first - if you had a perfect prospect, would you quote without giving them value first?"
 
 ### M7. Understanding bias
 Feeling understood triggers trust faster than any other lever.
@@ -315,11 +315,11 @@ New + shiny = enticing.
 
 ### M13. Conviction bias (in sales)
 Confidence makes claims more believable.
-> "This will completely change your life" — when said with conviction, lands.
+> "This will completely change your life" - when said with conviction, lands.
 
 ### M14. Casual bias
 Casual conviction reads as authority.
-> "Yeah, 20 calls a month? That's 1 a day. Literally nothing — we book 20 per day. You'll be easy to please."
+> "Yeah, 20 calls a month? That's 1 a day. Literally nothing - we book 20 per day. You'll be easy to please."
 
 ### M15. Tried-and-tested bias
 Old + proven feels safer.
@@ -335,7 +335,7 @@ Inbuilt pattern recognition rejects familiar-looking inputs.
 
 ### M18. Mystery bias
 Mystery creates demand for more information.
-> "It's a bit of a secret — happy to share on the demo."
+> "It's a bit of a secret - happy to share on the demo."
 
 ### M19. Politeness bias
 Respect and warmth go a long way.
@@ -363,7 +363,7 @@ Show beats tell.
 
 ### M25. Lil' bonus bias
 A small extra incentive can break a stalemate.
-> "Oh, one thing — if you book, I'll tell you my best niche-related joke. Won't help your business, but you'll laugh."
+> "Oh, one thing - if you book, I'll tell you my best niche-related joke. Won't help your business, but you'll laugh."
 
 ### M26. One-of-a-kind bias
 "You can only get this from us" drives purchase.
@@ -379,7 +379,7 @@ Exclusive access feels valuable.
 
 ### M29. Hard work bias
 Business owners overestimate their work ethic. Validate it.
-> "I know you're a hard worker — that's why I want to work with you."
+> "I know you're a hard worker - that's why I want to work with you."
 
 ### M30. Trend bias (don't get left behind)
 Catching the trend feels like opportunity.
@@ -401,10 +401,10 @@ Bias leverage can be taken too far. A piece of copy that weaponises every princi
 
 - Click-whirr conditioning (looking like every persuasion-saturated email)
 - Disliking / hating tendency (they sense manipulation and hate you for it)
-- Authority misinfluence (overclaim authority — backfires)
+- Authority misinfluence (overclaim authority - backfires)
 - Conviction bias (overstated certainty becomes incredible)
 
-**The rule:** pick 3-5 biases per piece. Leave the rest. Pass the bar test — could you say this out loud at a bar without sounding like a salesperson?
+**The rule:** pick 3-5 biases per piece. Leave the rest. Pass the bar test - could you say this out loud at a bar without sounding like a salesperson?
 
 If a piece of copy reads as slimy when read aloud, you have overdone it. Cut.
 
@@ -412,7 +412,7 @@ If a piece of copy reads as slimy when read aloud, you have overdone it. Cut.
 
 ## Source Material
 
-- [Cognitive Bias Codex](https://upload.wikimedia.org/wikipedia/commons/6/65/Cognitive_bias_codex_en.svg) — Wikimedia Commons
-- Morgan's Heuristics — practitioner observations from ~1,000 client signings (provided by Harry)
+- [Cognitive Bias Codex](https://upload.wikimedia.org/wikipedia/commons/6/65/Cognitive_bias_codex_en.svg) - Wikimedia Commons
+- Morgan's Heuristics - practitioner observations from ~1,000 client signings (provided by Harry)
 - Cross-referenced with Charlie Munger's "Psychology of Human Misjudgment" lecture
 - Specific examples adapted to B2B cold outreach context

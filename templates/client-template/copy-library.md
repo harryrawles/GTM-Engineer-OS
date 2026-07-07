@@ -1,4 +1,4 @@
-# Copy Library — {{CLIENT_NAME}}
+# Copy Library - {{CLIENT_NAME}}
 
 Archive of top-performing emails and a graveyard of underperformers for this client. Read before writing any new copy.
 
@@ -18,13 +18,13 @@ Before writing any new copy:
 
 ## Top Performers
 
-### {{Variant name — e.g. "{{CLIENT_NAME}} Email 1 v3 — Hiring Signal"}}
+### {{Variant name - e.g. "{{CLIENT_NAME}} Email 1 v3 - Hiring Signal"}}
 
 | Field | Detail |
 |-------|--------|
 | Date added | {{Date}} |
 | Signal | {{What triggered this outreach}} |
-| Target ICP | {{Who received this — title, company type, size}} |
+| Target ICP | {{Who received this - title, company type, size}} |
 | Sequence step | Email {{1 / 2 / 3}} |
 | Sends | {{n}} |
 | Reply rate | {{%}} |
@@ -37,7 +37,7 @@ Before writing any new copy:
 > {{Full email body}}
 
 **Why it worked:**
-- {{Specific reason 1 — e.g. the icebreaker was hyper-relevant to the signal}}
+- {{Specific reason 1 - e.g. the icebreaker was hyper-relevant to the signal}}
 - {{Specific reason 2}}
 
 **What to steal:**

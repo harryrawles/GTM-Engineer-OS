@@ -1,6 +1,6 @@
-# MEMORY — {{CLIENT_NAME}}
+# MEMORY - {{CLIENT_NAME}}
 
-**Always-loaded scratchpad.** This file is read at the start of every Claude session for this client. It is the "what is currently top of mind" working memory — distinct from the structured logs.
+**Always-loaded scratchpad.** This file is read at the start of every Claude session for this client. It is the "what is currently top of mind" working memory - distinct from the structured logs.
 
 **This file is intentionally lightweight.** It is NOT a permanent archive. Old entries get pruned or moved to `clients/{slug}/decision-log.md` if they become permanent learnings.
 
@@ -24,9 +24,9 @@ If something belongs in one of the other files, write it there. Only use MEMORY 
 
 What is currently top of mind for this account. Update when priorities shift.
 
-- {{e.g. "Funding v2 PRR declining — running T-006 reframe test this week"}}
-- {{e.g. "Renewal in 47 days — need a strong week to set up {{PRIMARY_CONTACT}}'s confidence"}}
-- {{e.g. "Client just hired a new VP Marketing — may want to brief them on outbound approach"}}
+- {{e.g. "Funding v2 PRR declining - running T-006 reframe test this week"}}
+- {{e.g. "Renewal in 47 days - need a strong week to set up {{PRIMARY_CONTACT}}'s confidence"}}
+- {{e.g. "Client just hired a new VP Marketing - may want to brief them on outbound approach"}}
 
 ---
 
@@ -50,8 +50,8 @@ Cleared from this section when:
 Things the client mentioned that should shape how we operate but are not formal SLAs. Lighter than overview.md SLA section.
 
 - {{e.g. "{{PRIMARY_CONTACT}} prefers async Slack updates over scheduled calls"}}
-- {{e.g. "{{PRIMARY_CONTACT}} dislikes when reports lead with bad news — frame issues with the fix attached"}}
-- {{e.g. "Harrison is the data person — copy him on any number-heavy update"}}
+- {{e.g. "{{PRIMARY_CONTACT}} dislikes when reports lead with bad news - frame issues with the fix attached"}}
+- {{e.g. "Harrison is the data person - copy him on any number-heavy update"}}
 
 ---
 
@@ -59,9 +59,9 @@ Things the client mentioned that should shape how we operate but are not formal 
 
 Things to remember when working on this account. Patterns that surprised us, edge cases, sensitivities.
 
-- {{e.g. "{{PRIMARY_CONTACT}} is sensitive about 'agency churn' framing — many of his prospects have been burned by recruiters before"}}
-- {{e.g. "Avoid 'cold' language — {{PRIMARY_CONTACT}} wants outbound positioned as warm and signal-driven"}}
-- {{e.g. "Crypto industries are off limits — they had two payment disputes in 2025"}}
+- {{e.g. "{{PRIMARY_CONTACT}} is sensitive about 'agency churn' framing - many of his prospects have been burned by recruiters before"}}
+- {{e.g. "Avoid 'cold' language - {{PRIMARY_CONTACT}} wants outbound positioned as warm and signal-driven"}}
+- {{e.g. "Crypto industries are off limits - they had two payment disputes in 2025"}}
 
 ---
 
@@ -71,7 +71,7 @@ Things waiting on the client, on Harry, or on a future event.
 
 - [ ] {{e.g. "Waiting on {{PRIMARY_CONTACT}} to approve T-006 variant copy by Monday"}}
 - [ ] {{e.g. "Renewal discussion scheduled for 2026-07-01"}}
-- [ ] {{e.g. "Reviewing new champion job change source — Champify vs LoneScale, decision by Friday"}}
+- [ ] {{e.g. "Reviewing new champion job change source - Champify vs LoneScale, decision by Friday"}}
 
 ---
 
@@ -79,8 +79,8 @@ Things waiting on the client, on Harry, or on a future event.
 
 Insights that have emerged but are not yet promoted to permanent files. Promote to decision-log or copy-library when confidence increases.
 
-- {{e.g. "The 'sample shortlist' CTA pattern may work across multiple clients — observed lifting reply rate on {{CLIENT_NAME}}. Try on Client B's next campaign."}}
-- {{e.g. "Negative replies cluster around 'we use Greenhouse' objection — may need to refine ICP to exclude companies with active Greenhouse subscriptions"}}
+- {{e.g. "The 'sample shortlist' CTA pattern may work across multiple clients - observed lifting reply rate on {{CLIENT_NAME}}. Try on Client B's next campaign."}}
+- {{e.g. "Negative replies cluster around 'we use Greenhouse' objection - may need to refine ICP to exclude companies with active Greenhouse subscriptions"}}
 
 
 ---
@@ -108,17 +108,17 @@ Skills auto-created by `gtm-skills/skill-forge.md` from detected patterns. Each 
 
 Older entries moved here when no longer top of mind but worth keeping searchable. Prune entries older than 90 days unless they capture something not already in permanent files.
 
-- {{date}} — {{archived note}}
+- {{date}} - {{archived note}}
 
 ---
 
 ## How Skills Update This File
 
-- **`weekly-reviewer.md`** — at end of review, prompts Harry to update Active Focus and Recent Learnings
-- **`reply-handler.md`** — when a reply contains a client preference signal, captures to Client Preferences
-- **`client-request-handler.md`** — adds to Open Questions when a request needs client response
-- **`inbound-activator.md`** — adds to Active Inbound Watch
-- **`incident-responder.md`** — adds to Active Focus if incident is unresolved
+- **`weekly-reviewer.md`** - at end of review, prompts Harry to update Active Focus and Recent Learnings
+- **`reply-handler.md`** - when a reply contains a client preference signal, captures to Client Preferences
+- **`client-request-handler.md`** - adds to Open Questions when a request needs client response
+- **`inbound-activator.md`** - adds to Active Inbound Watch
+- **`incident-responder.md`** - adds to Active Focus if incident is unresolved
 
 ## Auto-Pruning Rules
 

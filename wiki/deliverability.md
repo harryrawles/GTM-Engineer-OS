@@ -9,18 +9,18 @@ Deliverability is upstream of every metric. Bad deliverability = nothing else ma
 - 4-8 weeks warmup before any cold send
 - 100% email verification before every campaign
 - Bounce rate under 2%
-- Plain text only — no HTML, no images
+- Plain text only - no HTML, no images
 - Reply rate above 5% to sustain sending
 
 ---
 
 ## 1. Email Authentication (SPF / DKIM / DMARC)
 
-### SPF — Sender Policy Framework
+### SPF - Sender Policy Framework
 
 Tells receiving servers which IPs are authorised to send for the domain.
 
-**Setup — TXT record at root:**
+**Setup - TXT record at root:**
 ```
 Host: @
 Type: TXT
@@ -33,11 +33,11 @@ v=spf1 include:_spf.google.com include:spf.protection.outlook.com -all
 ```
 
 **Common mistakes:**
-- Multiple SPF records (only ONE allowed per domain — merge them)
+- Multiple SPF records (only ONE allowed per domain - merge them)
 - Using `+all` instead of `~all` or `-all`
 - Exceeding 10 DNS lookups (each `include:` counts)
 
-### DKIM — DomainKeys Identified Mail
+### DKIM - DomainKeys Identified Mail
 
 Adds a cryptographic signature proving emails were not tampered with.
 
@@ -49,7 +49,7 @@ Adds a cryptographic signature proving emails were not tampered with.
 
 **Verify:** Send test email → check headers for `dkim=pass`.
 
-### DMARC — Domain-based Message Authentication
+### DMARC - Domain-based Message Authentication
 
 Tells receiving servers what to do when SPF or DKIM fails.
 
@@ -144,7 +144,7 @@ COLD OUTREACH DOMAINS (3-5):
 - 2-3 mailboxes per domain
 - Domain naming clearly related to brand
 - Let domains age 2-4 weeks before warmup
-- One sending tool per domain — never mix providers on same domain
+- One sending tool per domain - never mix providers on same domain
 
 ### Provider limits
 
@@ -196,10 +196,10 @@ Reply rate is the single most powerful positive signal.
 
 | Reply rate | Status |
 |-----------|--------|
-| Over 15% | Excellent — strong positive reputation |
-| Over 10% | Good — inbox placement stable |
+| Over 15% | Excellent - strong positive reputation |
+| Over 10% | Good - inbox placement stable |
 | Over 5% | Minimum for sustained sending |
-| Under 3% | Danger zone — deliverability will degrade |
+| Under 3% | Danger zone - deliverability will degrade |
 
 ---
 
@@ -209,8 +209,8 @@ Reply rate is the single most powerful positive signal.
 
 | Type | Definition | Action |
 |------|-----------|--------|
-| Hard (5xx) | Permanent — address invalid | Remove immediately. Never retry. |
-| Soft (4xx) | Temporary — server issue | Retry 2-3 times over 24-72 hours |
+| Hard (5xx) | Permanent - address invalid | Remove immediately. Never retry. |
+| Soft (4xx) | Temporary - server issue | Retry 2-3 times over 24-72 hours |
 
 ### Acceptable bounce rates
 
@@ -295,8 +295,8 @@ CAN-SPAM does NOT require prior consent. B2B cold email is compliant with unsubs
 ### GDPR (EU/UK)
 
 **Legal bases for B2B cold email:**
-- Legitimate Interest (Article 6(1)(f)) — most common. Conduct an LIA. Email must be relevant to professional role.
-- Consent (Article 6(1)(a)) — required in some countries (notably Germany).
+- Legitimate Interest (Article 6(1)(f)) - most common. Conduct an LIA. Email must be relevant to professional role.
+- Consent (Article 6(1)(a)) - required in some countries (notably Germany).
 
 **Country-specific:**
 
@@ -304,7 +304,7 @@ CAN-SPAM does NOT require prior consent. B2B cold email is compliant with unsubs
 |---------|---------------|
 | UK | Permitted (legitimate interest) |
 | France | Permitted if relevant to professional role |
-| Germany | Very restrictive — consent generally required |
+| Germany | Very restrictive - consent generally required |
 | Netherlands | Permitted with legitimate interest |
 | Nordics | Generally permit with legitimate interest |
 
@@ -317,7 +317,7 @@ Privacy policy: [link]
 
 **Penalties:** Up to 4% of global annual revenue or EUR 20M.
 
-### RFC 8058 — One-click unsubscribe
+### RFC 8058 - One-click unsubscribe
 
 Required since February 2024 for bulk senders (5,000+/day to Gmail/Yahoo).
 
@@ -376,7 +376,7 @@ Only ONE SPF record allowed per domain. Delete duplicates. Common with GoDaddy a
 
 ### "DKIM authentication failed"
 1. Re-generate the DKIM key
-2. Copy the EXACT value — no extra spaces
+2. Copy the EXACT value - no extra spaces
 3. Verify host: `google._domainkey` (Google) or `selector1._domainkey` / `selector2._domainkey` (Microsoft)
 4. Wait 24 hours
 5. Re-start authentication in admin panel
@@ -393,7 +393,7 @@ Add manually. Never auto-configured.
 **Cause:** high bounce rate on warmup emails. Usually a DNS problem.
 
 **Recovery:**
-1. Run "Test domain setup" — fix red items
+1. Run "Test domain setup" - fix red items
 2. Verify SPF, DKIM, DMARC
 3. Check blacklists (MXToolbox)
 4. Request reactivation code in Instantly → enter when received
@@ -403,9 +403,9 @@ Add manually. Never auto-configured.
 2. Re-verify remaining list
 3. Check if domain is blacklisted
 4. Pause new sends for 7 days, run warmup at 10-20/day only
-5. Resume slowly — 5-10 cold per mailbox per day, build back up
+5. Resume slowly - 5-10 cold per mailbox per day, build back up
 
 ---
 
 ## Source Material
-Synthesised from ColdIQ GTM Skills cold-email master skill — deliverability-guide, email-infra-guide, and email-infra-troubleshooting resources.
+Synthesised from ColdIQ GTM Skills cold-email master skill - deliverability-guide, email-infra-guide, and email-infra-troubleshooting resources.

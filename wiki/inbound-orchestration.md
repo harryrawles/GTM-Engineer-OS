@@ -26,19 +26,19 @@ The inbound-led outbound model: detect intent signals, enrich them, qualify them
 Detect → Enrich → Qualify → Activate
 ```
 
-### Stage 1 — Detect
+### Stage 1 - Detect
 
 Capture signals from these sources:
 
-- **Website visitor identification** — de-anonymise company / person visiting your site
-- **Content engagement** — downloads, pricing page views, case study reads
-- **Social engagement** — LinkedIn post interactions, ad engagement
-- **Intent data providers** — 6sense, Bombora (category research)
-- **Job change monitoring** — champions moving to new companies
-- **Hiring signals** — companies posting roles your solution supports
-- **Funding / news** — Crunchbase, press releases, Claygent monitoring
+- **Website visitor identification** - de-anonymise company / person visiting your site
+- **Content engagement** - downloads, pricing page views, case study reads
+- **Social engagement** - LinkedIn post interactions, ad engagement
+- **Intent data providers** - 6sense, Bombora (category research)
+- **Job change monitoring** - champions moving to new companies
+- **Hiring signals** - companies posting roles your solution supports
+- **Funding / news** - Crunchbase, press releases, Claygent monitoring
 
-### Stage 2 — Enrich
+### Stage 2 - Enrich
 
 Run detected signals through Clay (or equivalent):
 
@@ -47,18 +47,18 @@ Run detected signals through Clay (or equivalent):
 - Email waterfall (verify contact info)
 - ICP fit scoring (A/B/C/D tier)
 
-### Stage 3 — Qualify
+### Stage 3 - Qualify
 
 Apply the 100-point ICP scoring from `wiki/list-building.md` to determine priority:
 
 | Tier | Score | Action |
 |------|-------|--------|
-| **A** | 80-100 | Hot — route to sales immediately, trigger personalised sequence |
-| **B** | 60-79 | Warm — add to nurture sequence with signal-based messaging |
-| **C** | 40-59 | Cool — add to content / awareness campaigns |
-| **D** | <40 | Disqualify — do not waste outreach |
+| **A** | 80-100 | Hot - route to sales immediately, trigger personalised sequence |
+| **B** | 60-79 | Warm - add to nurture sequence with signal-based messaging |
+| **C** | 40-59 | Cool - add to content / awareness campaigns |
+| **D** | <40 | Disqualify - do not waste outreach |
 
-### Stage 4 — Activate
+### Stage 4 - Activate
 
 Match the tier and signal to the right outbound motion:
 
@@ -72,7 +72,7 @@ Match the tier and signal to the right outbound motion:
 
 ---
 
-## Signal Stacking — The Heat Score Multiplier
+## Signal Stacking - The Heat Score Multiplier
 
 The more signals overlap, the hotter the lead:
 
@@ -84,11 +84,11 @@ The more signals overlap, the hotter the lead:
 
 **Example:** Company visited pricing page (signal 1) + recently raised Series B (signal 2) + hiring for the role your product serves (signal 3) = immediate, personalised outreach.
 
-See `wiki/signal-sourcing.md` Step 2 — Signal Scoring for the point-by-point heat score.
+See `wiki/signal-sourcing.md` Step 2 - Signal Scoring for the point-by-point heat score.
 
 ---
 
-## Speed-to-Lead — The Single Biggest Conversion Lever
+## Speed-to-Lead - The Single Biggest Conversion Lever
 
 Response time impact on conversion (Velocify, ColdIQ benchmarks):
 
@@ -97,7 +97,7 @@ Response time impact on conversion (Velocify, ColdIQ benchmarks):
 | Within 5 minutes | 21x more likely to qualify | Live demo / pricing inquiry |
 | Within 1 minute | 391% higher conversion | Demo desk inbound |
 | Within 1 hour | 53% conversion | Standard SLA for A-tier |
-| After 24 hours | 17% conversion | Industry average — but punishes hard |
+| After 24 hours | 17% conversion | Industry average - but punishes hard |
 
 **The 36-point gap between 1-hour and 24-hour response is the single biggest controllable factor in funnel conversion.**
 
@@ -179,10 +179,10 @@ For clients with structured funnels:
 ### BANT qualification
 
 To convert an MQL to an Opportunity, gather on the call:
-- **Budget** — Do they have budget allocated?
-- **Authority** — Are you talking to the decision-maker?
-- **Need** — Do they have the problem your client solves?
-- **Timeline** — When are they looking to act?
+- **Budget** - Do they have budget allocated?
+- **Authority** - Are you talking to the decision-maker?
+- **Need** - Do they have the problem your client solves?
+- **Timeline** - When are they looking to act?
 
 ---
 

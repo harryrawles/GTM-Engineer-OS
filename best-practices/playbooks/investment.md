@@ -2,12 +2,12 @@
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable across any client raising capital who can lead
 with **credibility and social proof** (notable backers, a marquee recent investment, proprietary tech).
-**Origin:** Abstracted from an early-stage fundraising campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from an early-stage fundraising campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. Investor-facing claims (backers, investment amounts, traction) are **regulated territory** — never
+> Claims*. Investor-facing claims (backers, investment amounts, traction) are **regulated territory** - never
 > state a backer, figure, or raise detail that is not verified and approved in the client's files. Never carry
 > one client's specifics into another.
 
@@ -36,7 +36,7 @@ tight, discreet, low-friction ask** (intro / deck share / private overview).
 
 ## Core Messaging Strategy
 
-- Lead with **social proof** ({{NOTABLE_BACKERS}} — only verified, approved names)
+- Lead with **social proof** ({{NOTABLE_BACKERS}} - only verified, approved names)
 - Position the remaining allocation as **scarce and final**
 - Keep communication **tight, discreet, and investor-friendly**
 - CTA stays low friction: intro, deck share, or private overview
@@ -46,16 +46,16 @@ tight, discreet, low-friction ask** (intro / deck share / private overview).
 
 ## Sequence
 
-Merge fields are Instantly spintax — keep them as-is. `{{COMPANY}}` = the active client's brand,
+Merge fields are Instantly spintax - keep them as-is. `{{COMPANY}}` = the active client's brand,
 `{{NOTABLE_BACKERS}}` / `{{ANCHOR_INVESTMENT}}` / `{{SECTOR}}` / `{{TECH_DESCRIPTION}}` = their verified,
 approved raise details.
 
-### Email 1 — Initial Outreach
+### Email 1 - Initial Outreach
 
 ```
 Hi {{FirstName}},
 
-We're introducing conviction-led investors to {{COMPANY}} — a {{SECTOR}} company backed by {{NOTABLE_BACKERS}}. Limited pre-seed allocation left. {{ANCHOR_INVESTMENT}}.
+We're introducing conviction-led investors to {{COMPANY}} - a {{SECTOR}} company backed by {{NOTABLE_BACKERS}}. Limited pre-seed allocation left. {{ANCHOR_INVESTMENT}}.
 
 Interested in a quick intro or deck share?
 
@@ -68,7 +68,7 @@ Interested in a quick intro or deck share?
 ```
 Hi {{FirstName}},
 
-Quick context — {{COMPANY}} is building {{TECH_DESCRIPTION}}. Backed by {{NOTABLE_BACKERS}}. {{ANCHOR_INVESTMENT}}.
+Quick context - {{COMPANY}} is building {{TECH_DESCRIPTION}}. Backed by {{NOTABLE_BACKERS}}. {{ANCHOR_INVESTMENT}}.
 
 Would you like a private overview?
 
@@ -107,7 +107,7 @@ Would you like a private overview?
 - [ ] `{{COMPANY}}` → client brand (from `clients/{slug}/_config.md`)
 - [ ] `{{SECTOR}}` / `{{TECH_DESCRIPTION}}` → client's real category and one-line tech description (`offer.md`)
 - [ ] `{{NOTABLE_BACKERS}}` → only backers verified and approved in `clients/{slug}/voice.md` → Approved Claims
-- [ ] `{{ANCHOR_INVESTMENT}}` → only a real, approved, verifiable investment/figure — no invented amounts
-- [ ] Confirm every investor-facing claim (backers, figures, raise stage) is approved — this is regulated territory
+- [ ] `{{ANCHOR_INVESTMENT}}` → only a real, approved, verifiable investment/figure - no invented amounts
+- [ ] Confirm every investor-facing claim (backers, figures, raise stage) is approved - this is regulated territory
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`
 - [ ] Log the resulting variants and PRR to `clients/{slug}/copy-library.md`

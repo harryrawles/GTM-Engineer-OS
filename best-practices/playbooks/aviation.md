@@ -1,15 +1,15 @@
 # Playbook: HNWI / Private-Aviation Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling a discreet,
-high-consideration service to **high-net-worth individuals and executives** — led by a helpful,
+high-consideration service to **high-net-worth individuals and executives** - led by a helpful,
 low-commitment "pricing overview" hook rather than a hard sell. Written around private aviation, but the
 *offer-a-helpful-overview / opt-out / concierge* structure adapts to other HNWI concierge offers.
-**Origin:** Abstracted from a private-flight campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a private-flight campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. Keep the opt-out line — it builds trust with this audience. Never carry one client's specifics
+> Claims*. Keep the opt-out line - it builds trust with this audience. Never carry one client's specifics
 > into another.
 
 ---
@@ -17,7 +17,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Start high-intent conversations with HNWIs by offering a **pricing / service overview** that feels helpful,
-discreet, and low-commitment — not a hard sell.
+discreet, and low-commitment - not a hard sell.
 
 ## Ideal Customer Profile (ICP)
 
@@ -47,10 +47,10 @@ discreet, and low-commitment — not a hard sell.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{City2}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{City2}}`,
 `{{SendingAccountFirstName}}`). `{{COMPANY}}` = the active client's brand.
 
-### Email 1 — Pricing Overview Hook
+### Email 1 - Pricing Overview Hook
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -65,14 +65,14 @@ Would you like me to send it your way?
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 1 — Service Context + Flexibility
+### Follow Up 1 - Service Context + Flexibility
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
 I put together a private flight overview outlining typical pricing from {{City2}} to destinations our executive clients book most often for short-notice and business travel.
 
-{{COMPANY}} operates without memberships or ongoing commitments. You simply reach out when a flight is needed and we handle everything — with full coordination and coverage across key private aviation routes.
+{{COMPANY}} operates without memberships or ongoing commitments. You simply reach out when a flight is needed and we handle everything - with full coordination and coverage across key private aviation routes.
 
 Can I send it over?
 
@@ -82,7 +82,7 @@ Can I send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Follow Up 2 — Simplicity & No-Commitment Angle
+### Follow Up 2 - Simplicity & No-Commitment Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -110,7 +110,7 @@ Hi {{FirstName}}, I put together private flight pricing from {{City2}} to common
 
 **LinkedIn DM:**
 ```
-Hi {{FirstName}}, quick note — I built a private flight pricing overview for routes execs often book from {{City2}}. Happy to share if helpful.
+Hi {{FirstName}}, quick note - I built a private flight pricing overview for routes execs often book from {{City2}}. Happy to share if helpful.
 ```
 
 **SMS:**
@@ -147,8 +147,8 @@ Hi {{FirstName}}, quick note — I built a private flight pricing overview for r
 ## Adapting for a client (checklist)
 
 - [ ] `{{COMPANY}}` → client brand (from `clients/{slug}/_config.md`)
-- [ ] `{{FirstName}}` / `{{City2}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped (`{{City2}}` is a custom lead field — verify it's populated)
+- [ ] `{{FirstName}}` / `{{City2}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped (`{{City2}}` is a custom lead field - verify it's populated)
 - [ ] Confirm pricing/route/coverage claims appear in `clients/{slug}/voice.md` → Approved Claims
-- [ ] Keep the opt-out line — it's core to trust with this audience
+- [ ] Keep the opt-out line - it's core to trust with this audience
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`
 - [ ] Log the resulting variants and PRR to `clients/{slug}/copy-library.md`

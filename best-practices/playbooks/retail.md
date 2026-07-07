@@ -1,14 +1,14 @@
 # Playbook: Retail / Shelf-Expansion Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable across any client selling **retail expansion**
-to F&B / CPG brands — positioning an AI-driven platform as a faster, cheaper alternative to brokers or a
+to F&B / CPG brands - positioning an AI-driven platform as a faster, cheaper alternative to brokers or a
 sales team, especially around seasonal buying windows.
-**Origin:** Abstracted from a CPG shelf-expansion campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a CPG shelf-expansion campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. The numbers below (retailers/week, network size, client count) are illustrative — replace with the
+> Claims*. The numbers below (retailers/week, network size, client count) are illustrative - replace with the
 > client's actual, approved figures. Never carry one client's specifics into another.
 
 ---
@@ -16,7 +16,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Help F&B / CPG brands get into more retail stores by positioning the client's AI platform as a **faster,
-cheaper alternative to brokers or sales teams** — leaning on **seasonal buying urgency** to drive replies.
+cheaper alternative to brokers or sales teams** - leaning on **seasonal buying urgency** to drive replies.
 
 ## Ideal Customer Profile (ICP)
 
@@ -36,32 +36,32 @@ cheaper alternative to brokers or sales teams** — leaning on **seasonal buying
 
 ## Core Messaging Strategy
 
-- Position the offer as **speed + cost efficiency** — retail expansion without brokers or a sales team
+- Position the offer as **speed + cost efficiency** - retail expansion without brokers or a sales team
 - Emphasise AI-driven discovery ({{RETAILERS_PER_WEEK}} ideal retailers per week)
 - Stress **seasonal urgency** (e.g. holiday stocking window)
-- Ask for the right contact — an easy, soft CTA
+- Ask for the right contact - an easy, soft CTA
 - Tone: helpful, relevant, consultative (defer to `clients/{slug}/voice.md`)
 
 ---
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{companyName}}`, `{{accountSignature}}`, and any
+Merge fields are Instantly variables - keep them as-is (`{{companyName}}`, `{{accountSignature}}`, and any
 custom lead field like `{{Product Type}}`). `{{RETAILERS_PER_WEEK}}` / `{{RETAIL_NETWORK_SIZE}}` /
 `{{CLIENT_COUNT}}` = the active client's real, approved figures.
 
-### Email 1 — Initial Outreach
+### Email 1 - Initial Outreach
 
 ```
 Hi / Hey there,
 
 Came across {{companyName}} earlier and wanted to reach out while retailers are planning their holiday {{Product Type}} inventory.
 
-Our team built a platform that helps CPG brands in the F&B space get into more stores — without using brokers or hiring a sales team. It uses AI to match you with {{RETAILERS_PER_WEEK}} ideal retailers per week (from our network of {{RETAIL_NETWORK_SIZE}} stores) and automate all outreach and follow-up messages to those stores.
+Our team built a platform that helps CPG brands in the F&B space get into more stores - without using brokers or hiring a sales team. It uses AI to match you with {{RETAILERS_PER_WEEK}} ideal retailers per week (from our network of {{RETAIL_NETWORK_SIZE}} stores) and automate all outreach and follow-up messages to those stores.
 
-Thought this could help get your products on more shelves faster and cheaper — and before this holiday restocking window closes.
+Thought this could help get your products on more shelves faster and cheaper - and before this holiday restocking window closes.
 
-If this sounds helpful, could you connect me with your founder/CEO/head of sales — or whoever handles retail partnerships?
+If this sounds helpful, could you connect me with your founder/CEO/head of sales - or whoever handles retail partnerships?
 
 Thanks,
 {{accountSignature}}
@@ -72,13 +72,13 @@ Thanks,
 ```
 Hi / Hey again,
 
-Retail buyers are making final holiday selections right now — didn't want {{companyName}} to miss this window to get your products on shelves before the holiday rush kicks off.
+Retail buyers are making final holiday selections right now - didn't want {{companyName}} to miss this window to get your products on shelves before the holiday rush kicks off.
 
-The brands we work with ({{CLIENT_COUNT}} currently) land new retail partnerships without expensive brokers or sales teams — just automated AI matching and store outreach running in the background.
+The brands we work with ({{CLIENT_COUNT}} currently) land new retail partnerships without expensive brokers or sales teams - just automated AI matching and store outreach running in the background.
 
 If retail expansion fits your growth strategy, could you point me to the right person for a quick chat?
 
-But totally understand if timing isn't right — happy to follow up closer to the holidays if that works better.
+But totally understand if timing isn't right - happy to follow up closer to the holidays if that works better.
 
 {{accountSignature}}
 ```

@@ -1,19 +1,19 @@
 # Integrations Setup (Instantly API + optional MCPs)
 
 How to connect the integrations the OS uses. **Instantly is now called directly via its v2 API, per
-client — not via MCP.** Each client has its own Instantly workspace + API key; when a client is active,
+client - not via MCP.** Each client has its own Instantly workspace + API key; when a client is active,
 the OS uses **that client's** key (from `clients/{slug}/secrets/credentials.md`). Never share one key
 across clients.
 
 **Connections:**
-- **Instantly API v2** — required. Per-client API key. See §1 and `sops/instantly-api.md`.
-- **Notion MCP** — optional (client briefs / call notes).
-- **Clay MCP** — optional (enrichment).
-- **Slack MCP** — optional (alerts / comms). Sends are gated by `safety-guard.sh`.
+- **Instantly API v2** - required. Per-client API key. See §1 and `sops/instantly-api.md`.
+- **Notion MCP** - optional (client briefs / call notes).
+- **Clay MCP** - optional (enrichment).
+- **Slack MCP** - optional (alerts / comms). Sends are gated by `safety-guard.sh`.
 
 ---
 
-## 1. Instantly API v2 (per client — the important one)
+## 1. Instantly API v2 (per client - the important one)
 
 Without this, `weekly-reviewer`, `campaign-optimiser`, and `client-report-writer` can't pull live metrics.
 
@@ -25,7 +25,7 @@ store the key.
 
 1. **Generate this client's Instantly API key:**
    - Log in to the **client's** Instantly workspace → Settings → API Keys
-   - Generate a new key labelled `Claude Code — {{CLIENT_NAME}}`
+   - Generate a new key labelled `Claude Code - {{CLIENT_NAME}}`
    - Scope it: campaign + analytics **read** at minimum; add lead/campaign **write** only if you want the
      OS to action changes directly (writes are still gated by the safety guard).
 
@@ -53,7 +53,7 @@ store the key.
 ### How isolation is guaranteed
 
 - The wrapper uses **only the active client's** key (or an explicit `--client SLUG`). One key per call.
-- Switching clients (`switch to {client}`) switches the key automatically — there is no shared connection
+- Switching clients (`switch to {client}`) switches the key automatically - there is no shared connection
   and no "wrong workspace" ambiguity, because the key *is* the workspace selector.
 - Raw `curl` to `api.instantly.ai` is blocked by `safety-guard.sh` (it would leak the key); everything
   goes through the wrapper.
@@ -69,7 +69,7 @@ For client briefs, call notes, and context.
 1. In Claude Code MCP settings, add `notion` (Type: HTTP / OAuth) and complete the OAuth flow for Harry's
    Notion workspace.
 2. Verify: `Search Notion for {{CLIENT_NAME}} page` → returns the client page.
-3. Optional — pin the client's Notion page URL in `clients/{slug}/overview.md` under "External resources."
+3. Optional - pin the client's Notion page URL in `clients/{slug}/overview.md` under "External resources."
 
 ---
 
@@ -77,7 +77,7 @@ For client briefs, call notes, and context.
 
 Only if Clay is used for enrichment on this client.
 
-1. Get the Clay API key from Clay settings; store in 1Password under "Clay — {{CLIENT_NAME}}".
+1. Get the Clay API key from Clay settings; store in 1Password under "Clay - {{CLIENT_NAME}}".
 2. Add the `clay` MCP in Claude Code settings.
 3. Mark Clay connected in `clients/{slug}/campaign-state.md` "Tools & Tech Stack".
 
@@ -93,7 +93,7 @@ Only if Harry uses Slack for client comms or alerts.
 2. Configure alert channels in `clients/{slug}/overview.md`.
 
 Note: Slack **sends** (`slack_send_message`, `slack_schedule_message`, …) are blocked by
-`safety-guard.sh` until Harry approves — reads are automatic.
+`safety-guard.sh` until Harry approves - reads are automatic.
 
 ---
 
@@ -110,19 +110,19 @@ Note: Slack **sends** (`slack_send_message`, `slack_schedule_message`, …) are 
   with a real `instantly_api_key`, not a `{{placeholder}}`).
 
 ### Worried about hitting the wrong client's workspace
-- You can't share a key here — the wrapper only ever loads the active client's (or `--client`) key. Confirm
+- You can't share a key here - the wrapper only ever loads the active client's (or `--client`) key. Confirm
   the active client (`_state/active-client`) and, if in doubt, pass `--client SLUG` explicitly.
 
 ---
 
 ## Security
 
-- **API keys live only in `clients/{slug}/secrets/credentials.md`** (git-ignored) — never in any tracked
+- **API keys live only in `clients/{slug}/secrets/credentials.md`** (git-ignored) - never in any tracked
   file. The only tracked secrets file is the shape-only `templates/client-template/secrets/credentials.template.md`.
 - **One key per client.** No shared credentials, ever. The wrapper enforces this by construction.
 - **The key never appears in logs.** The wrapper passes it to curl via stdin config; raw curl to the API
   is blocked; printing a real `credentials.md` via bash is blocked.
-- **Rotate API keys quarterly** or after any team change — just replace the value in the secrets file.
+- **Rotate API keys quarterly** or after any team change - just replace the value in the secrets file.
 - **Review API-key scopes** periodically; revoke keys for offboarded clients (see `client-offboarder`).
 
 ---

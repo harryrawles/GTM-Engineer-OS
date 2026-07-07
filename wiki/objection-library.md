@@ -8,13 +8,13 @@ The 15 most common objections in B2B cold email, with pattern recognition, respo
 
 ---
 
-> **Bias annotations added in v1.2.0.** Each response template below now shows which biases from `wiki/psychological-principles.md` it leverages. Use this to understand WHY each response works — and to compose your own when an objection does not match the pre-built patterns.
+> **Bias annotations added in v1.2.0.** Each response template below now shows which biases from `wiki/psychological-principles.md` it leverages. Use this to understand WHY each response works - and to compose your own when an objection does not match the pre-built patterns.
 
 ## How to Use
 
-1. **Identify the objection type** — match the reply to one of the 15 patterns below
-2. **Customise the response template** — pull proof points from `clients/{slug}/offer.md`, voice from `clients/{slug}/voice.md`
-3. **Send the response** — always show Harry the draft first
+1. **Identify the objection type** - match the reply to one of the 15 patterns below
+2. **Customise the response template** - pull proof points from `clients/{slug}/offer.md`, voice from `clients/{slug}/voice.md`
+3. **Send the response** - always show Harry the draft first
 4. **Log** to `clients/{slug}/comms-log.md` and (if patterned) to `clients/{slug}/decision-log.md`
 5. **Escalate** per the rules below
 
@@ -55,7 +55,7 @@ Harry
 ```
 {{firstName}},
 
-Good — [competitor] is solid.
+Good - [competitor] is solid.
 
 Most teams using [competitor] tell me they hit a ceiling around [specific pain point]. If that ever surfaces, worth knowing we approach it differently via [single specific differentiator].
 
@@ -74,7 +74,7 @@ Harry
 
 ## 3. "Send me a deck" / "Send me a one-pager"
 
-**Pattern:** stall — they want to defer commitment. Sending a deck rarely converts.
+**Pattern:** stall - they want to defer commitment. Sending a deck rarely converts.
 
 **Response template:**
 ```
@@ -91,7 +91,7 @@ Harry
 
 **When to use:** prospect asks for materials before committing.
 
-**Biases leveraged:** Pattern break (decks are expected — Loom is not), Disarming honesty (decks are pages of skim), Curiosity tendency (2-min Loom), Effort perception bias (Loom feels custom).
+**Biases leveraged:** Pattern break (decks are expected - Loom is not), Disarming honesty (decks are pages of skim), Curiosity tendency (2-min Loom), Effort perception bias (Loom feels custom).
 
 **Escalation:** if Loom is the recurring ask → consider productising a templated Loom in `assets/`.
 
@@ -105,7 +105,7 @@ Harry
 ```
 {{firstName}},
 
-Will do — diaried for [specific date in Q3].
+Will do - diaried for [specific date in Q3].
 
 Quick check before then: is there anything specific that would need to be true for this to be a priority?
 
@@ -127,7 +127,7 @@ Harry
 
 ## 5. "Not the right person" / "Try X instead"
 
-**Pattern:** routing — they're either redirecting accurately or deflecting.
+**Pattern:** routing - they're either redirecting accurately or deflecting.
 
 **Response template:**
 ```
@@ -161,7 +161,7 @@ Harry
 ```
 {{firstName}},
 
-Understood — appreciate the reply.
+Understood - appreciate the reply.
 
 If timing changes, you can find us anytime.
 
@@ -186,7 +186,7 @@ Harry
 ```
 {{firstName}},
 
-Fair question — found you via [LinkedIn / company website / public source].
+Fair question - found you via [LinkedIn / company website / public source].
 
 Reaching out because [specific reason tied to ICP / signal]. If it's not relevant, happy to drop.
 
@@ -195,11 +195,11 @@ Harry
 
 **When to use:** prospect asks about data source.
 
-**Biases leveraged:** Disarming honesty (lead with the truth — never lie about data source), Justification bias (clear reason for the outreach), Politeness.
+**Biases leveraged:** Disarming honesty (lead with the truth - never lie about data source), Justification bias (clear reason for the outreach), Politeness.
 
 **Rules:**
 - Never lie about data source
-- Never name third-party tools (RB2B, Trigify, etc.) — sounds invasive
+- Never name third-party tools (RB2B, Trigify, etc.) - sounds invasive
 - Reference public source even if data came from enrichment ("found via LinkedIn" is true if the chain started there)
 
 **Escalation:** if reply is hostile / mentions GDPR → check `wiki/deliverability.md` compliance, escalate to Harry, do not auto-respond beyond the first reply.
@@ -210,7 +210,7 @@ Harry
 
 **Pattern:** opt-out request. Must be honoured.
 
-**Response:** none — do not reply.
+**Response:** none - do not reply.
 
 **Action:**
 - Add to Instantly suppression list IMMEDIATELY
@@ -231,7 +231,7 @@ Harry
 ```
 {{firstName}},
 
-Pricing depends on [scope variable — volume, complexity, etc.].
+Pricing depends on [scope variable - volume, complexity, etc.].
 
 Quickest path is a 15-min call to scope, then I can quote precisely.
 
@@ -263,7 +263,7 @@ Harry
 ```
 {{firstName}},
 
-Closest fit: [client name from clients/{slug}/offer.md case studies] — [specific result + timeframe].
+Closest fit: [client name from clients/{slug}/offer.md case studies] - [specific result + timeframe].
 
 Two-page write-up here: [link]
 
@@ -293,7 +293,7 @@ Harry
 ```
 {{firstName}},
 
-Hear that often. Usually fails because of [specific common reason — e.g. wrong ICP, wrong signal, weak follow-up].
+Hear that often. Usually fails because of [specific common reason - e.g. wrong ICP, wrong signal, weak follow-up].
 
 What part broke last time?
 
@@ -315,13 +315,13 @@ Harry
 
 ## 12. "We do this in-house"
 
-**Pattern:** ownership signal — they have internal capability.
+**Pattern:** ownership signal - they have internal capability.
 
 **Response template:**
 ```
 {{firstName}},
 
-Good — in-house gives you control.
+Good - in-house gives you control.
 
 Where most {{ICP_function}} teams land is they hit a ceiling at [specific scale or specific blocker]. If that point arrives, worth knowing we offload the [specific task] piece without disrupting the in-house workflow.
 
@@ -364,19 +364,19 @@ Harry
 - Set sequence to pause
 - 2 weeks before the date, send a check-in tailored to whatever changed
 
-**Escalation:** real signal — convert this into a known opportunity. Add to pipeline tracker.
+**Escalation:** real signal - convert this into a known opportunity. Add to pipeline tracker.
 
 ---
 
 ## 14. "Can we connect on LinkedIn instead?"
 
-**Pattern:** soft positive — they want lower-pressure relationship.
+**Pattern:** soft positive - they want lower-pressure relationship.
 
 **Response template:**
 ```
 {{firstName}},
 
-Sure — just sent the request.
+Sure - just sent the request.
 
 Quick note attached so it makes sense out of context.
 
@@ -397,7 +397,7 @@ Harry
 
 ---
 
-## 15. "We're a [size/stage] — not big enough" or "Too small for us"
+## 15. "We're a [size/stage] - not big enough" or "Too small for us"
 
 **Pattern:** ICP mismatch from their side. Either they're disqualifying themselves correctly or wrongly.
 
@@ -407,7 +407,7 @@ Harry
 
 Hear that often.
 
-Specifically: at [their stage / size], the issue is usually [specific stage-appropriate problem]. We work with [smaller similar company from offer.md] and [bigger similar company] — both end up needing the same thing.
+Specifically: at [their stage / size], the issue is usually [specific stage-appropriate problem]. We work with [smaller similar company from offer.md] and [bigger similar company] - both end up needing the same thing.
 
 Quick call to scope fit before assuming?
 
@@ -430,7 +430,7 @@ Harry
 
 ### Always
 - Match voice in `clients/{slug}/voice.md`
-- Use proof points from `clients/{slug}/offer.md` only — never invent
+- Use proof points from `clients/{slug}/offer.md` only - never invent
 - Keep response under 75 words (default), 60 for ATL
 - One CTA per response
 - Log to `clients/{slug}/comms-log.md`
@@ -454,7 +454,7 @@ Harry
 When the same objection appears 3+ times on the same campaign, log to `clients/{slug}/decision-log.md`:
 
 ```
-### {{date}} — Pattern: {{objection type}} recurring on {{campaign}}
+### {{date}} - Pattern: {{objection type}} recurring on {{campaign}}
 
 **Frequency:** {{n}} times in {{period}}
 **Context:** {{what the campaign was}}

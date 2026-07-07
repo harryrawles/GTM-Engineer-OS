@@ -1,4 +1,4 @@
-# Client Communications Log — {{CLIENT_NAME}}
+# Client Communications Log - {{CLIENT_NAME}}
 
 Captures every meaningful interaction with the client. Used by:
 - `gtm-skills/client-health-scorer.md` to assess sentiment
@@ -12,12 +12,12 @@ Captures every meaningful interaction with the client. Used by:
 ## How to Read
 
 Each entry:
-- **Date** — when it happened
-- **Channel** — email / call / Slack / Notion / in-person
-- **Direction** — inbound (from client) / outbound (from Harry)
-- **Summary** — 1-3 lines, what was said
-- **Action needed** — what Harry has to do next, with deadline
-- **Outcome** — filled in once resolved
+- **Date** - when it happened
+- **Channel** - email / call / Slack / Notion / in-person
+- **Direction** - inbound (from client) / outbound (from Harry)
+- **Summary** - 1-3 lines, what was said
+- **Action needed** - what Harry has to do next, with deadline
+- **Outcome** - filled in once resolved
 
 ---
 
@@ -25,7 +25,7 @@ Each entry:
 
 <!-- Newest entries first. Append above older ones. -->
 
-### {{YYYY-MM-DD HH:MM}} — {{Channel}} {{Direction}}
+### {{YYYY-MM-DD HH:MM}} - {{Channel}} {{Direction}}
 
 **With:** {{Contact name}}
 **Topic:** {{1-line topic}}
@@ -34,8 +34,8 @@ Each entry:
 {{2-4 sentences of what was discussed or sent. Include any specific commitments made.}}
 
 **Action needed:**
-- [ ] {{Specific action}} — by {{date}}
-- [ ] {{Specific action}} — by {{date}}
+- [ ] {{Specific action}} - by {{date}}
+- [ ] {{Specific action}} - by {{date}}
 
 **Outcome:** {{filled in once resolved}}
 
@@ -51,7 +51,7 @@ Each entry:
 
 When 3+ entries surface the same theme (frustration, recurring question, positive feedback area), log here:
 
-- **{{Pattern}}** — observed across {{n}} interactions. Implication: {{what this tells us}}
+- **{{Pattern}}** - observed across {{n}} interactions. Implication: {{what this tells us}}
 
 ## Unresolved Items
 

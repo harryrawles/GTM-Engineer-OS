@@ -1,15 +1,15 @@
-# Playbook: Gaming — Gamified Classroom / Teacher Outreach
+# Playbook: Gaming - Gamified Classroom / Teacher Outreach
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client offering a gamified /
-engagement product to teachers — led by a **low-friction free pilot** and role relevance, kept simple and
+engagement product to teachers - led by a **low-friction free pilot** and role relevance, kept simple and
 non-technical. Example built around a classroom behaviour/engagement tool.
-**Origin:** Abstracted from a teacher-outreach campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a teacher-outreach campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
 > Claims*. The email below is an **illustrative starter draft** built from the strategy (the source provided
-> no copy) — rewrite it in the client's voice. Keep it simple; teachers skim. Never carry one client's
+> no copy) - rewrite it in the client's voice. Keep it simple; teachers skim. Never carry one client's
 > specifics into another.
 
 ---
@@ -51,15 +51,15 @@ engagement and behaviour.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{firstName}}`, `{{sendingAccountName}}`).
+Merge fields are Instantly variables - keep them as-is (`{{firstName}}`, `{{sendingAccountName}}`).
 `{{COMPANY}}` = the active client's brand; `{{GradeOrSubject}}` = a personalisation field if available.
 
-### Email 1 — Free Pilot Offer (illustrative starter draft — rewrite in client voice)
+### Email 1 - Free Pilot Offer (illustrative starter draft - rewrite in client voice)
 
 ```
 Hi {{firstName}},
 
-Saw you teach {{GradeOrSubject}} — I built a simple tool that turns everyday behaviour and progress into little rewards kids actually get excited about, without adding to your plate.
+Saw you teach {{GradeOrSubject}} - I built a simple tool that turns everyday behaviour and progress into little rewards kids actually get excited about, without adding to your plate.
 
 It's free to try while we're in early access.
 
@@ -105,7 +105,7 @@ Open to taking a look?
 - Avoid buzzwords like "AI", "platform", "solution"
 - If possible, mention grade level or subject
 - Follow up with a quick demo or visual example
-- Don't over-randomise — keep it natural
+- Don't over-randomise - keep it natural
 
 ---
 
@@ -113,7 +113,7 @@ Open to taking a look?
 
 - [ ] `{{COMPANY}}` → client brand (from `clients/{slug}/_config.md`)
 - [ ] `{{firstName}}` / `{{sendingAccountName}}` / `{{GradeOrSubject}}` → confirm these Instantly fields exist and are mapped
-- [ ] Rewrite the illustrative email in the client's real voice — the source provided no copy
+- [ ] Rewrite the illustrative email in the client's real voice - the source provided no copy
 - [ ] Strip edtech buzzwords; keep it plain and teacher-friendly
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`

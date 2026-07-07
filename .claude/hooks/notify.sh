@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-# Notify — Desktop Notification Hook
+# Notify - Desktop Notification Hook
 # =============================================================================
 # Desktop notification when Claude finishes, needs approval, or starts/ends.
 # Cross-platform: macOS (osascript), Linux (notify-send), Windows (PowerShell).
@@ -12,7 +12,7 @@ EVENT=$(echo "$INPUT" | jq -r '.hook_event_name // "unknown"' 2>/dev/null)
 
 case "$EVENT" in
   Stop)              TITLE="Claude finished"      ; MSG="Response complete" ;;
-  PermissionRequest) TITLE="Claude needs approval" ; MSG="Permission requested — check Claude Code" ;;
+  PermissionRequest) TITLE="Claude needs approval" ; MSG="Permission requested - check Claude Code" ;;
   SessionStart)      TITLE="Claude session started"; MSG="Client OS active" ;;
   SessionEnd)        TITLE="Claude session ended"  ; MSG="Session complete" ;;
   SubagentStop)      TITLE="Sub-agent finished"    ; MSG="Background task complete" ;;

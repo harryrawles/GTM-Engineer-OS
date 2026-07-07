@@ -1,14 +1,14 @@
 # Playbook: Influencer-Marketing / Curated-Creator-List Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling influencer-marketing
-tools or services to SaaS / SI founders and marketing leaders — led by a **hand-curated creator list**
+tools or services to SaaS / SI founders and marketing leaders - led by a **hand-curated creator list**
 offered as value-first, with no upfront pitch.
-**Origin:** Abstracted from an influencer-partnerships campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from an influencer-partnerships campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. If you promise a hand-curated list, actually build it — the whole angle rests on real, personal
+> Claims*. If you promise a hand-curated list, actually build it - the whole angle rests on real, personal
 > effort. Keep the opt-out line. Never carry one client's specifics into another.
 
 ---
@@ -16,7 +16,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Start conversations with SaaS / SI founders and marketing leaders by offering **hand-curated influencer
-partner lists** aligned to their brand, audience, and growth goals — without pitching upfront.
+partner lists** aligned to their brand, audience, and growth goals - without pitching upfront.
 
 ## Ideal Customer Profile (ICP)
 
@@ -46,10 +46,10 @@ partner lists** aligned to their brand, audience, and growth goals — without p
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{CompanyName}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{CompanyName}}`,
 `{{SendingAccountFirstName}}`, and the custom category field `{{SI}}`).
 
-### Email 1 — Curated List Hook
+### Email 1 - Curated List Hook
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -64,7 +64,7 @@ Would you like me to send the list over?
 If this list isn't relevant, just let me know.
 ```
 
-### Follow Up 1 — Alignment & Relevance
+### Follow Up 1 - Alignment & Relevance
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -79,7 +79,7 @@ Would a list like this be relevant for {{CompanyName}}?
 Not the right fit? Just reply "no thanks" and I'll make sure you're not contacted again.
 ```
 
-### Follow Up 2 — Founder-Focused
+### Follow Up 2 - Founder-Focused
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -94,7 +94,7 @@ Can I send the list over for your thoughts?
 Not the right fit? Just reply "no thanks" and I'll make sure you're not contacted again.
 ```
 
-### Follow Up 3 — List + Education Angle
+### Follow Up 3 - List + Education Angle
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -120,7 +120,7 @@ Hey {{FirstName}}, I reviewed your site and handpicked a few creators that align
 
 **LinkedIn DM:**
 ```
-Hi {{FirstName}}, quick one — I curated a list of creators that match {{CompanyName}}'s brand and audience. Happy to send if helpful.
+Hi {{FirstName}}, quick one - I curated a list of creators that match {{CompanyName}}'s brand and audience. Happy to send if helpful.
 ```
 
 **SMS:**
@@ -164,8 +164,8 @@ Hi {{FirstName}}, quick one — I curated a list of creators that match {{Compan
 ## Adapting for a client (checklist)
 
 - [ ] `{{FirstName}}` / `{{CompanyName}}` / `{{SI}}` / `{{SendingAccountFirstName}}` → confirm these Instantly lead/account fields exist and are mapped
-- [ ] You can actually deliver a real, hand-curated list before sending the hook — the angle collapses if the list is scraped or fake
+- [ ] You can actually deliver a real, hand-curated list before sending the hook - the angle collapses if the list is scraped or fake
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims
-- [ ] Keep the opt-out line — it's core to the trust-first tone
+- [ ] Keep the opt-out line - it's core to the trust-first tone
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`
 - [ ] Log the resulting variants and PRR to `clients/{slug}/copy-library.md`

@@ -23,7 +23,7 @@ writes:
 
 **Trigger:** "Launch the next test", "What should I test next", "Run test-launcher", "Queue next test for [client]", "Promote the queued test to live"
 
-**Context:** A test queued in `test-log.md` does nothing until it's launched. This skill closes the gap — picks the next test by priority, generates the variant, updates state, and instructs Harry on the Instantly setup.
+**Context:** A test queued in `test-log.md` does nothing until it's launched. This skill closes the gap - picks the next test by priority, generates the variant, updates state, and instructs Harry on the Instantly setup.
 
 ---
 
@@ -33,15 +33,15 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `wiki/scientific-method.md` — the canonical 4-step framework (READ FIRST every time)
-- `gtm-skills/test-readiness-check.md` — invoked as a hard gate before launch
-- `clients/{slug}/test-log.md` — testing roadmap (Queued tests at the top)
-- `clients/{slug}/copy-library.md` — current control (the existing winner)
-- `clients/{slug}/campaign-state.md` — which campaigns are eligible, active-test flags
+- `wiki/scientific-method.md` - the canonical 4-step framework (READ FIRST every time)
+- `gtm-skills/test-readiness-check.md` - invoked as a hard gate before launch
+- `clients/{slug}/test-log.md` - testing roadmap (Queued tests at the top)
+- `clients/{slug}/copy-library.md` - current control (the existing winner)
+- `clients/{slug}/campaign-state.md` - which campaigns are eligible, active-test flags
 
 ---
 
-## STEP 0 — Run Test Readiness Check (MANDATORY)
+## STEP 0 - Run Test Readiness Check (MANDATORY)
 
 **Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | test-launcher | (filled at end) |`. Then proceed with the readiness check below.
 
@@ -56,9 +56,9 @@ Verdict rules:
 - **READY WITH WARNINGS** → require Harry to explicitly say "proceed with warnings"; log warnings to `clients/{slug}/decision-log.md`
 - **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct Harry to fix `clients/{slug}/test-log.md` for that test.
 
-**No exceptions.** The OS does not launch tests that fail this gate. Skipping it means tests get launched with vague hypotheses, drifting constants, and no backtrack plan — the result is unattributable data.
+**No exceptions.** The OS does not launch tests that fail this gate. Skipping it means tests get launched with vague hypotheses, drifting constants, and no backtrack plan - the result is unattributable data.
 
-## STEP 1 — Identify Next Test
+## STEP 1 - Identify Next Test
 
 Read `clients/{slug}/test-log.md` testing roadmap. Filter to:
 - Status: "Queued"
@@ -72,7 +72,7 @@ If multiple tests are queued, prioritise by:
 
 Output the candidate test:
 ```
-NEXT TEST CANDIDATE — T-{{ID}}
+NEXT TEST CANDIDATE - T-{{ID}}
 
 Variable being tested: {{variable}}
 Campaign: {{campaign}}
@@ -93,12 +93,12 @@ Recommend proceeding? (Y/N)
 
 ---
 
-## STEP 2 — Generate the Variant
+## STEP 2 - Generate the Variant
 
 If Harry confirms:
 
 1. **Invoke `gtm-skills/cold-email-writer.md`** to generate the variant copy.
-2. Use the variable being tested as the ONE thing that changes — everything else is constant.
+2. Use the variable being tested as the ONE thing that changes - everything else is constant.
 3. Apply the modification level from `wiki/scientific-method.md`:
    - PRR close to target → slight modification
    - PRR moderate gap → moderate modification
@@ -128,32 +128,32 @@ What is the same (constants): {{list}}
 
 ---
 
-## STEP 3 — Pre-Launch Verification
+## STEP 3 - Pre-Launch Verification
 
 Before queuing in Instantly:
 
 - [ ] Variant approved by Harry
 - [ ] Variant passes QA checklist
-- [ ] Constants verified (lead source, ICP, sending domain, time of day, follow-up sequence — all unchanged)
+- [ ] Constants verified (lead source, ICP, sending domain, time of day, follow-up sequence - all unchanged)
 - [ ] Sample size and timing realistic (test will hit 300 sends within stated timeframe)
 - [ ] Stop conditions defined and recorded in `clients/{slug}/campaign-state.md`
-- [ ] Client approval if required (some clients want sign-off on test variants — check `clients/{slug}/overview.md` SLA section)
+- [ ] Client approval if required (some clients want sign-off on test variants - check `clients/{slug}/overview.md` SLA section)
 
 If anything fails → fix before proceeding.
 
 ---
 
-## STEP 4 — Launch in Instantly
+## STEP 4 - Launch in Instantly
 
 Output Instantly setup instructions for Harry:
 
 ```
-=== Instantly Setup Instructions — Test T-{{ID}} ===
+=== Instantly Setup Instructions - Test T-{{ID}} ===
 
 1. Open campaign: {{campaign_name}}
 2. Duplicate the existing Email {{step}}:
    - Right-click sequence step → Duplicate
-   - Rename copy: "Email {{step}} VARIANT — T-{{ID}}"
+   - Rename copy: "Email {{step}} VARIANT - T-{{ID}}"
 3. Edit the duplicate with the new variant copy (paste below)
 4. Configure split:
    - Set to A/B split 50/50
@@ -162,7 +162,7 @@ Output Instantly setup instructions for Harry:
    - Subject and body match the approved variant exactly
    - No HTML formatting added accidentally
    - Liquid syntax / spintax preserved
-6. Send a test email to harry@refineflow.co — verify rendering
+6. Send a test email to harry@refineflow.co - verify rendering
 7. Launch the split
 
 Variant copy to paste:
@@ -176,7 +176,7 @@ Harry actions this manually in Instantly. The skill does not have write access t
 
 ---
 
-## STEP 5 — Update State
+## STEP 5 - Update State
 
 After Harry confirms the test is live in Instantly:
 
@@ -188,13 +188,13 @@ After Harry confirms the test is live in Instantly:
    - Note expected completion date
 
 2. **Update `clients/{slug}/campaign-state.md`:**
-   - Add note to the campaign: **"TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED."**
+   - Add note to the campaign: **"TEST ACTIVE - T-{{ID}} testing {{variable}}. Constants LOCKED."**
    - This flag is the trigger for strict-block guards in cold-email-writer, client-request-handler, and campaign-optimiser.
    - Any skill attempting to modify constants of this campaign during the test will refuse without explicit override.
 
 3. **Write to `clients/{slug}/decision-log.md`:**
 ```
-### {{date}} — Launched test T-{{ID}}: {{variable}}
+### {{date}} - Launched test T-{{ID}}: {{variable}}
 
 **Context:**
 - Campaign: {{name}}
@@ -221,13 +221,13 @@ Launched A/B split between current control and variant.
 
 ---
 
-## STEP 6 — Schedule Review
+## STEP 6 - Schedule Review
 
 The next weekly review will check whether the test has hit sample size + latency. The reviewer will surface it for confirmation and update.
 
 If test completes mid-week (rare for high-volume clients) → harry can manually trigger:
 ```
-Run weekly review for {{client}} — focus on tests
+Run weekly review for {{client}} - focus on tests
 ```
 
 ---
@@ -246,19 +246,19 @@ Run weekly review for {{client}} — focus on tests
 
 ## EXAMPLES
 
-### Example — launching next queued test
+### Example - launching next queued test
 
 ```
 Harry: Launch the next test for {{CLIENT_NAME}}
 
 Claude:
-=== Next Test Candidate — T-006 ===
+=== Next Test Candidate - T-006 ===
 
 Variable being tested: Email 1 offer framing for Funding campaign
 Campaign: Series A-C Funding v2
 Hypothesis: Current offer leads with "hiring strategy for post-raise." Hypothesis: leading with "scale without headcount" angle resonates more with post-raise context. Expected PRR lift: 0.6% → 1.2%.
 
-Current control PRR: 0.6% (declining 4 weeks straight — root cause likely offer framing)
+Current control PRR: 0.6% (declining 4 weeks straight - root cause likely offer framing)
 
 Sample target: 300 sends per variant (1,500 sends total before significance)
 Estimated time to complete: 6 days at current 240/day rate, plus 7 days latency = 13 days to results
@@ -279,11 +279,11 @@ Generating variant via cold-email-writer...
 
 CONTROL (current Email 1):
 Subject: runway math
-Saw you raised your Series B in March. Most VPs of Eng I talk to at this stage are mapping out a 30-50% headcount increase over 12 months — but the math gets ugly fast. We helped {{NAMED_PROOF_COMPANY_2}} close 4 senior eng roles in 14 days, saved $80k vs in-house. Worth a quick chat on the hiring strategy?
+Saw you raised your Series B in March. Most VPs of Eng I talk to at this stage are mapping out a 30-50% headcount increase over 12 months - but the math gets ugly fast. We helped {{NAMED_PROOF_COMPANY_2}} close 4 senior eng roles in 14 days, saved $80k vs in-house. Worth a quick chat on the hiring strategy?
 
 VARIANT (T-006):
 Subject: scale without headcount
-Saw the Series B. Most teams post-raise default to "hire faster" — but at $5M-15M ARR, most engineering bottlenecks are about throughput per engineer, not headcount. We work with VC-backed product teams to scale eng velocity without the linear hire spend. Worth a quick chat?
+Saw the Series B. Most teams post-raise default to "hire faster" - but at $5M-15M ARR, most engineering bottlenecks are about throughput per engineer, not headcount. We work with VC-backed product teams to scale eng velocity without the linear hire spend. Worth a quick chat?
 
 Variables tested: Offer framing (Part 3 of formula)
 What is different: Reframed from "hiring strategy" to "scale without headcount"

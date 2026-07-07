@@ -11,11 +11,11 @@ desktop.ini
 *.key
 credentials.json
 
-# Multi-client — per-client secrets are NEVER committed
-# (only templates/client-template/secrets/credentials.template.md — the shape — is tracked)
+# Multi-client - per-client secrets are NEVER committed
+# (only templates/client-template/secrets/credentials.template.md - the shape - is tracked)
 clients/*/secrets/
 
-# Local session state — the active-client pointer is machine-local, not shared
+# Local session state - the active-client pointer is machine-local, not shared
 _state/active-client
 
 # Editor
@@ -39,5 +39,5 @@ __pycache__/
 .venv/
 venv/
 
-# Claude Code session logs (local audit trail — do not commit)
+# Claude Code session logs (local audit trail - do not commit)
 .claude/sessions/

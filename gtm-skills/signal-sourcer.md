@@ -5,12 +5,12 @@
 **Context:** Signal-based outbound is the highest lever on PRR. Cold lists = 6-8% reply. Single-signal = 18-22%. Multi-signal (3+) = 35-40%. This skill designs and scores signal strategy for a client.
 
 **Read before responding:**
-- `wiki/signal-sourcing.md` — the 6 core signals, scoring framework, freshness rules, 11 GTM plays
-- `wiki/buying-triggers.md` — 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
-- `clients/{slug}/icp.md` — client ICP to filter which signals apply
-- `clients/{slug}/offer.md` — what the client sells to map signal → angle
-- `best-practices/playbooks/` — check for a reusable playbook matching the client's offer/angle to start the campaign from (adapt per client; never use verbatim)
-- `wiki/email-benchmarks.md` — response time SLAs and performance benchmarks
+- `wiki/signal-sourcing.md` - the 6 core signals, scoring framework, freshness rules, 11 GTM plays
+- `wiki/buying-triggers.md` - 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
+- `clients/{slug}/icp.md` - client ICP to filter which signals apply
+- `clients/{slug}/offer.md` - what the client sells to map signal → angle
+- `best-practices/playbooks/` - check for a reusable playbook matching the client's offer/angle to start the campaign from (adapt per client; never use verbatim)
+- `wiki/email-benchmarks.md` - response time SLAs and performance benchmarks
 
 ---
 
@@ -21,12 +21,12 @@
 | "Which signals should we target?" | Signal selection (Step 1 below) |
 | "Score these leads / build a scoring system" | Scoring framework (Step 2) |
 | "Design a play for {{signal}}" | Play design (Step 3) |
-| "Outbound feels saturated, what is next?" | Read `wiki/buying-triggers.md` — escalate to bridgebound triggers |
+| "Outbound feels saturated, what is next?" | Read `wiki/buying-triggers.md` - escalate to bridgebound triggers |
 | "How fast do we need to act on {{signal}}?" | Freshness rules in `wiki/signal-sourcing.md` |
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -35,8 +35,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -44,7 +44,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Signal Selection
+## STEP 1 - Signal Selection
 
 For a new campaign, work through this:
 
@@ -67,7 +67,7 @@ Output: 2-3 ranked signals with detection tool, timing window, and copy angle fo
 
 ---
 
-## STEP 2 — Scoring Framework
+## STEP 2 - Scoring Framework
 
 For a client with multiple signals firing per lead:
 
@@ -84,17 +84,17 @@ Output: a scoring rubric in `clients/{slug}/test-log.md` or as a Clay formula.
 
 ---
 
-## STEP 3 — Signal-to-Play Design
+## STEP 3 - Signal-to-Play Design
 
 For each signal, design a play with these 7 components:
 
-1. **Trigger** — exactly what fires it
-2. **Qualification** — does the account match `clients/{slug}/icp.md`?
-3. **Timing** — response SLA (see `wiki/email-benchmarks.md`)
-4. **Sequence** — channel and step count
-5. **Messaging template** — angle tied to the signal (not the signal itself)
-6. **Owner** — who actions it (Harry vs automated)
-7. **Escalation** — what happens if no response
+1. **Trigger** - exactly what fires it
+2. **Qualification** - does the account match `clients/{slug}/icp.md`?
+3. **Timing** - response SLA (see `wiki/email-benchmarks.md`)
+4. **Sequence** - channel and step count
+5. **Messaging template** - angle tied to the signal (not the signal itself)
+6. **Owner** - who actions it (Harry vs automated)
+7. **Escalation** - what happens if no response
 
 Use the 11 plug-and-play plays in `wiki/signal-sourcing.md` as starting points.
 

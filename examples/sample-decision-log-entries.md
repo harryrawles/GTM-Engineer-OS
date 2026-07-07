@@ -6,7 +6,7 @@ Example entries showing what good decision log entries look like. Reference thes
 
 ## Sample Winner Entry
 
-### 2026-05-29 — Logged Hiring v4 Email 1 as canonical winner
+### 2026-05-29 - Logged Hiring v4 Email 1 as canonical winner
 
 **Context:**
 - Campaign: Hiring Signal v4
@@ -19,12 +19,12 @@ Promoted Email 1 of Hiring v4 to canonical Email 1 pattern. Will adopt the struc
 
 **Why:**
 - "Saw the senior eng hires coming in" feels personalised without naming specific roles (lighter touch, less creepy)
-- Part 2 leads with daily pain ("10-15 hrs/week interviewing low-signal candidates") — recognised immediately by VP Eng audience
-- Part 3 names {{NAMED_PROOF_COMPANY}} + $100k saved + 4 hires in 14 days — specific, verifiable, comparable
-- CTA "Want a sample shortlist?" — zero commitment, lower friction than "15-min call?"
+- Part 2 leads with daily pain ("10-15 hrs/week interviewing low-signal candidates") - recognised immediately by VP Eng audience
+- Part 3 names {{NAMED_PROOF_COMPANY}} + $100k saved + 4 hires in 14 days - specific, verifiable, comparable
+- CTA "Want a sample shortlist?" - zero commitment, lower friction than "15-min call?"
 
 **Most stealable element:**
-The "sample shortlist" CTA pattern (or its equivalent — sample audit, sample analysis, sample list). Beats time-asks for first-touch outbound where prospect has no relationship yet.
+The "sample shortlist" CTA pattern (or its equivalent - sample audit, sample analysis, sample list). Beats time-asks for first-touch outbound where prospect has no relationship yet.
 
 **Do NOT carry over to other clients:**
 - The $100k {{NAMED_PROOF_COMPANY}} figure is {{CLIENT_NAME}}-specific
@@ -41,7 +41,7 @@ The "sample shortlist" CTA pattern (or its equivalent — sample audit, sample a
 
 ## Sample Loser / Graveyard Entry
 
-### 2026-05-29 — Funding v2 Email 1 to graveyard
+### 2026-05-29 - Funding v2 Email 1 to graveyard
 
 **Context:**
 - Campaign: Series A-C Funding v2
@@ -53,25 +53,25 @@ The "sample shortlist" CTA pattern (or its equivalent — sample audit, sample a
 Pausing Funding v2 Email 1. Replacing via test T-006 with reframed offer.
 
 **Why it failed:**
-- "Saw you raised your Series B" is the exact opening every recruiter uses post-funding — pattern-matched as cold outbound immediately
-- "Hiring strategy" offer is too generic — sounds like every other agency pitch
+- "Saw you raised your Series B" is the exact opening every recruiter uses post-funding - pattern-matched as cold outbound immediately
+- "Hiring strategy" offer is too generic - sounds like every other agency pitch
 - Part 2 with "30-50% headcount increase" prediction landed as a guess, not insight
 - Long sentence structure (Part 2 had 25+ words) lost reader before getting to value
 
 **What NOT to repeat:**
 - Don't reference the funding event directly in Part 1 (mention the implication: scaling pressure, hiring velocity, etc.)
-- Don't lead with "hiring strategy" — too generic
+- Don't lead with "hiring strategy" - too generic
 - Sentences over 18 words lose attention in cold
 
 **Linked entries:**
 - `clients/{slug}/copy-library.md` → Graveyard: Funding v2 Email 1
-- `clients/{slug}/test-log.md` → T-006 (queued — reframe to "scale without headcount" angle)
+- `clients/{slug}/test-log.md` → T-006 (queued - reframe to "scale without headcount" angle)
 
 ---
 
 ## Sample Strategic Decision Entry
 
-### 2026-04-12 — Tightened ICP size from 1-500 to 1-200
+### 2026-04-12 - Tightened ICP size from 1-500 to 1-200
 
 **Context:**
 - Q1 review showed 60% of negative replies were from 200+ employee companies
@@ -83,7 +83,7 @@ Updated `clients/{slug}/icp.md` lead filter: maxHeadcount changed from 500 to 20
 
 **Why:**
 - {{CLIENT_NAME}}'s wedge (sourcing from VC-backed product companies) matters more to smaller, faster-moving teams
-- 200+ companies typically have established internal recruiting + ATS (Greenhouse, Lever) and use {{CLIENT_NAME}} only for specific senior roles — too narrow to scale
+- 200+ companies typically have established internal recruiting + ATS (Greenhouse, Lever) and use {{CLIENT_NAME}} only for specific senior roles - too narrow to scale
 - Sourcing cost-per-meeting on 200+ was 3.2x higher than 1-200 segment
 
 **Alternatives considered:**
@@ -93,7 +93,7 @@ Updated `clients/{slug}/icp.md` lead filter: maxHeadcount changed from 500 to 20
 
 **Trade-offs:**
 - We exclude ~30% of previous TAM
-- We may miss large-company wins (acceptable — they're not our wedge)
+- We may miss large-company wins (acceptable - they're not our wedge)
 - Sales cycle should compress (faster decisions at smaller orgs)
 
 **Outcome (updated 2026-05-15):**
@@ -103,7 +103,7 @@ After 30 days post-change: PRR up 0.6% across portfolio. Meetings up 28%. Decisi
 
 ## Sample Client Request Decision
 
-### 2026-05-12 — Client requested change to Email 2 copy ({{CLIENT_NAME}})
+### 2026-05-12 - Client requested change to Email 2 copy ({{CLIENT_NAME}})
 
 **Context:**
 - {{PRIMARY_CONTACT}} ({{CLIENT_NAME}}) Slacked: "Email 2 isn't landing for me. Wants something more about the candidate quality story, not the timeline."
@@ -114,26 +114,26 @@ After 30 days post-change: PRR up 0.6% across portfolio. Meetings up 28%. Decisi
 Reframed Email 2 to lead with candidate provenance ("only VC-backed product companies, no outsourcing firms"). {{PRIMARY_CONTACT}} approved within 4 hours. Replaced in Instantly same day.
 
 **Why:**
-- {{PRIMARY_CONTACT}}'s instinct aligned with the data — Email 2 was the weak link in sequence
+- {{PRIMARY_CONTACT}}'s instinct aligned with the data - Email 2 was the weak link in sequence
 - Candidate quality is the most differentiated thing about {{CLIENT_NAME}} vs other agencies (sourcing pool)
 - Email 1 already covers timeline ("72-hour shortlist") so Email 2 doesn't need to repeat
 
 **Outcome (updated 2026-05-26):**
-Email 2 PRR went from 0.4% to 0.9% (2 weeks data). Still below Email 1 but materially better. {{PRIMARY_CONTACT}} confirmed he likes the new version. Pattern: client instinct on "what's not working" is often correct — act fast.
+Email 2 PRR went from 0.4% to 0.9% (2 weeks data). Still below Email 1 but materially better. {{PRIMARY_CONTACT}} confirmed he likes the new version. Pattern: client instinct on "what's not working" is often correct - act fast.
 
 ---
 
 ## Notes on Quality
 
 Good decision log entries:
-- **Have specific numbers** — not "PRR was bad" but "PRR was 0.5%"
-- **Capture the alternative considered** — what we did NOT choose, and why
-- **State trade-offs explicitly** — every decision has a cost
-- **Update outcomes** — the entry isn't done at decision time
-- **Link to related artifacts** — copy-library entries, test results, comms-log
+- **Have specific numbers** - not "PRR was bad" but "PRR was 0.5%"
+- **Capture the alternative considered** - what we did NOT choose, and why
+- **State trade-offs explicitly** - every decision has a cost
+- **Update outcomes** - the entry isn't done at decision time
+- **Link to related artifacts** - copy-library entries, test results, comms-log
 
 Bad entries:
 - Vague summaries without numbers
-- Missing the "why" — just the "what"
+- Missing the "why" - just the "what"
 - No alternatives considered
 - Never updated with outcomes

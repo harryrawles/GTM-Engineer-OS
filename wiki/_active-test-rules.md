@@ -4,7 +4,7 @@ Canonical rules for handling changes to a campaign that has an **active test** r
 
 **Used by:** `gtm-skills/cold-email-writer.md`, `gtm-skills/client-request-handler.md`, `gtm-skills/campaign-optimiser.md`. Any future skill that could modify a running campaign should reference this file.
 
-**Why this exists:** the scientific method only works if Ceteris Paribus is enforced — all other things equal during the test. The OS is the enforcer. Without this gate, mid-test changes silently invalidate data and the iteration loop stops compounding.
+**Why this exists:** the scientific method only works if Ceteris Paribus is enforced - all other things equal during the test. The OS is the enforcer. Without this gate, mid-test changes silently invalidate data and the iteration loop stops compounding.
 
 ---
 
@@ -12,9 +12,9 @@ Canonical rules for handling changes to a campaign that has an **active test** r
 
 Before making any change to a campaign or its sequence, **read `clients/{slug}/campaign-state.md`** and check whether the campaign has a `TEST ACTIVE` flag.
 
-If `TEST ACTIVE — T-{{ID}} testing {{variable}}. Constants LOCKED.` is present, apply the rules below.
+If `TEST ACTIVE - T-{{ID}} testing {{variable}}. Constants LOCKED.` is present, apply the rules below.
 
-If no `TEST ACTIVE` flag is present, proceed normally — these rules do not apply.
+If no `TEST ACTIVE` flag is present, proceed normally - these rules do not apply.
 
 ---
 
@@ -30,7 +30,7 @@ If no `TEST ACTIVE` flag is present, proceed normally — these rules do not app
 3. **Refusal output format:**
 
 ```
-⚠️ STRICT BLOCK — Active test T-{{ID}} on this campaign
+⚠️ STRICT BLOCK - Active test T-{{ID}} on this campaign
 
 The requested change touches: {{constant_name OR variable_under_test}}
 Locked since: {{launch_date}}

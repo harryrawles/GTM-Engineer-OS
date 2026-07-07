@@ -1,8 +1,8 @@
-# Buying Triggers — Complete Taxonomy
+# Buying Triggers - Complete Taxonomy
 
 137 triggers across 4 outreach categories, from Sam Nelson's "Flip the Script" methodology. Use this as an angle-generator when standard signals are exhausted or a client needs fresh thinking.
 
-> Standard signal sourcing methodology lives in [wiki/signal-sourcing.md](./signal-sourcing.md). This file is the encyclopedia of every possible trigger — for inspiration, not daily reference.
+> Standard signal sourcing methodology lives in [wiki/signal-sourcing.md](./signal-sourcing.md). This file is the encyclopedia of every possible trigger - for inspiration, not daily reference.
 
 ---
 
@@ -61,7 +61,7 @@
 
 ## BRIDGEBOUND Triggers (101)
 
-### Category I — Relationship-Based (39)
+### Category I - Relationship-Based (39)
 
 **Share a common VC:**
 1. Common VC with your company
@@ -112,7 +112,7 @@
 38. Prospects met at a networking event
 39. Engaged with your personal page
 
-### Category II — History-Based (16)
+### Category II - History-Based (16)
 
 **Demo pipeline:**
 1. Requested demo but did not schedule
@@ -140,7 +140,7 @@
 15. Companies that sold you their product
 16. Competitors of your current customers
 
-### Category III — "In Market" (20)
+### Category III - "In Market" (20)
 
 **Adjacent vendors:**
 1-7. Recent purchase, current customers, in-cycle, engagement, followers, mutual connections
@@ -154,7 +154,7 @@
 19. Seasonal needs (e.g. summer for HVAC)
 20. Act of God (one-time event)
 
-### Category IV — Symptoms and Signs (11)
+### Category IV - Symptoms and Signs (11)
 
 **Has an overt negative:**
 1. Output (business problem)
@@ -169,7 +169,7 @@
 **Industry influencers (unsponsored):**
 7-11. Engagement, followers, mutual connections with personal / company pages
 
-### Category V — Firmographic (15)
+### Category V - Firmographic (15)
 
 **Financial events:**
 1. Companies that went public (IPO)
@@ -213,9 +213,9 @@
 
 ## How to Use This File
 
-1. **When a client says "I cannot think of new angles"** — scan the list for the relevant category and pick 2-3 triggers you have not yet tested.
-2. **When designing a new campaign** — read the right category (Inbound vs Bridgebound vs Outbound) and pick triggers that map to data you can detect.
-3. **When migrating a client up the value chain** — Bridgebound triggers (especially Relationship and History) usually outperform pure Outbound. Look for ways to upgrade campaigns from Outbound to Bridgebound.
+1. **When a client says "I cannot think of new angles"** - scan the list for the relevant category and pick 2-3 triggers you have not yet tested.
+2. **When designing a new campaign** - read the right category (Inbound vs Bridgebound vs Outbound) and pick triggers that map to data you can detect.
+3. **When migrating a client up the value chain** - Bridgebound triggers (especially Relationship and History) usually outperform pure Outbound. Look for ways to upgrade campaigns from Outbound to Bridgebound.
 
 ---
 

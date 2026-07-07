@@ -1,9 +1,9 @@
-# Playbook: Marketing 2 — Local Traffic & Website-Conversion Campaign
+# Playbook: Marketing 2 - Local Traffic & Website-Conversion Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling marketing / SEO / CRO /
-traffic-partnership services to **local businesses, trades, and professional service firms** — led by
+traffic-partnership services to **local businesses, trades, and professional service firms** - led by
 local relevance + a value-first resource (traffic opportunities or a website-conversion guide), no hard sell.
-**Origin:** Abstracted from a local-marketing campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a local-marketing campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
@@ -17,7 +17,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 
 Start warm, value-first conversations with local businesses and professional service firms by offering
 either **qualified inbound-traffic opportunities** or **simple website-conversion insights** that uncover
-lost leads. No hard sell — relevance + utility.
+lost leads. No hard sell - relevance + utility.
 
 ## Ideal Customer Profile (ICP)
 
@@ -48,11 +48,11 @@ lost leads. No hard sell — relevance + utility.
 
 ## Sequences
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{City}}`, `{{CompanyName}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{City}}`, `{{CompanyName}}`,
 `{{SendingAccountFirstName}}`, and the custom industry field `{{lcsi}}`). Pick the angle that fits the
 target segment; each ships with an A/B variant to test.
 
-### Angle 1 — Local Traffic Partnerships
+### Angle 1 - Local Traffic Partnerships
 
 **Version A**
 ```
@@ -86,7 +86,7 @@ Would you like me to send over the top options that make the most sense?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Website Readiness / Inbound Guide (Trade Businesses)
+### Angle 2 - Website Readiness / Inbound Guide (Trade Businesses)
 
 **Version A**
 ```
@@ -94,7 +94,7 @@ Hey / Hi / Hello {{FirstName}},
 
 I created a simple website readiness guide for trade businesses like {{CompanyName}} that want inbound calls coming from their site instead of relying only on referrals.
 
-It flags gaps in messaging, design, speed, mobile experience, SEO basics, and calls to action — all with quick yes/no checks.
+It flags gaps in messaging, design, speed, mobile experience, SEO basics, and calls to action - all with quick yes/no checks.
 
 Want a copy?
 
@@ -120,7 +120,7 @@ Should I send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Professional Services Conversion Gaps
+### Angle 3 - Professional Services Conversion Gaps
 
 **Version A**
 ```

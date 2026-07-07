@@ -17,9 +17,9 @@ assignees: harryrawles
 
 ## Severity
 
-- [ ] Critical — campaigns paused, immediate action
-- [ ] High — investigating, contained
-- [ ] Medium — monitoring
+- [ ] Critical - campaigns paused, immediate action
+- [ ] High - investigating, contained
+- [ ] Medium - monitoring
 
 ## Affected
 

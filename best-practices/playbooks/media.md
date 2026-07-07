@@ -1,15 +1,15 @@
-# Playbook: Media Placement — Trusted Distribution → Target Audience
+# Playbook: Media Placement - Trusted Distribution → Target Audience
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling **media placements /
 content partnerships** by positioning an owned audience as a high-trust distribution channel (not ad
-inventory) — example built around education brands reaching parents.
-**Origin:** Abstracted from a media-placement campaign. All brand-specific values are placeholders —
+inventory) - example built around education brands reaching parents.
+**Origin:** Abstracted from a media-placement campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
 > Claims*. Audience-size claims (`{{AUDIENCE_SIZE}}`) and credibility mentions (`{{CREDIBILITY_MENTION}}`)
-> must be real and approved. The founder-led signature is core to the angle — fill the founder block with the
+> must be real and approved. The founder-led signature is core to the angle - fill the founder block with the
 > client's real signatory. Never carry one client's specifics into another.
 
 ---
@@ -21,7 +21,7 @@ Start warm, credibility-driven conversations by showing how the target audience 
 
 ## Ideal Customer Profile (ICP)
 
-**Targets (example — education brands; re-skin per client):**
+**Targets (example - education brands; re-skin per client):**
 - Education brands
 - EdTech companies
 - Enrichment programs
@@ -52,11 +52,11 @@ Start warm, credibility-driven conversations by showing how the target audience 
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{CompanyName}}`). The signature is
-founder-led — fill `{{FOUNDER_NAME}}` / `{{FOUNDER_TITLE}}` / `{{CREDIBILITY_MENTION}}` and `{{AUDIENCE_SIZE}}`
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{CompanyName}}`). The signature is
+founder-led - fill `{{FOUNDER_NAME}}` / `{{FOUNDER_TITLE}}` / `{{CREDIBILITY_MENTION}}` and `{{AUDIENCE_SIZE}}`
 from the client's approved details.
 
-### Angle 1 — Audience Discovery Behaviour
+### Angle 1 - Audience Discovery Behaviour
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -75,7 +75,7 @@ Want me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Visibility Examples
+### Angle 2 - Visibility Examples
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -94,7 +94,7 @@ Should I send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Curated Brand Group
+### Angle 3 - Curated Brand Group
 
 ```
 Hey / Hi / Hello {{FirstName}},

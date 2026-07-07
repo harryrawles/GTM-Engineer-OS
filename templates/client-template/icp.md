@@ -1,4 +1,4 @@
-# ICP — {{CLIENT_NAME}}
+# ICP - {{CLIENT_NAME}}
 
 ## Target Profile
 
@@ -7,7 +7,7 @@
 | Company type | {{e.g. VC-backed SaaS, B2B services, ecommerce}} |
 | Company size | {{e.g. 10-200 employees, Series A-C}} |
 | Industries | {{e.g. SaaS, Fintech, Healthcare}} |
-| Geography | {{e.g. US — NY, SF, Austin}} |
+| Geography | {{e.g. US - NY, SF, Austin}} |
 | Decision-maker titles | {{e.g. CEO, CTO, VP Sales, Head of Ops}} |
 | Signals to target | See signal priority table below |
 
@@ -15,7 +15,7 @@
 
 | Signal | Source | Priority | Why it works |
 |--------|--------|----------|-------------|
-| {{Signal 1}} | {{Trigify / LinkedIn / other}} | 1 — highest PRR | {{Why this signal indicates buying intent}} |
+| {{Signal 1}} | {{Trigify / LinkedIn / other}} | 1 - highest PRR | {{Why this signal indicates buying intent}} |
 | {{Signal 2}} | {{Source}} | 2 | {{Why}} |
 | {{Signal 3}} | {{Source}} | 3 | {{Why}} |
 

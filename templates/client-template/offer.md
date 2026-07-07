@@ -1,4 +1,4 @@
-# Offer — {{CLIENT_NAME}}
+# Offer - {{CLIENT_NAME}}
 
 What {{CLIENT_NAME}} sells, how it is positioned, and the proof points that make it credible. This is the primary source of truth for copy.
 
@@ -6,9 +6,9 @@ What {{CLIENT_NAME}} sells, how it is positioned, and the proof points that make
 
 ## The Offer in One Line
 
-{{Write the offer as a single sentence: [Outcome] for [ICP] in [Timeframe] — [Risk reversal / guarantee]}}
+{{Write the offer as a single sentence: [Outcome] for [ICP] in [Timeframe] - [Risk reversal / guarantee]}}
 
-**Example:** "We place vetted engineers from VC-backed product companies within 72 hours — no hire, no fee."
+**Example:** "We place vetted engineers from VC-backed product companies within 72 hours - no hire, no fee."
 
 ---
 
@@ -16,14 +16,14 @@ What {{CLIENT_NAME}} sells, how it is positioned, and the proof points that make
 
 **Product / service:** {{Name of what they sell}}
 **Category:** {{How the market would describe this}}
-**Delivery model:** {{How it works — subscription, project, retainer, success-fee, etc.}}
+**Delivery model:** {{How it works - subscription, project, retainer, success-fee, etc.}}
 **Pricing:** {{Pricing model and range}}
 
 ---
 
 ## The Outcome Promise
 
-**Big claim:** {{The bold outcome they deliver — specific and measurable}}
+**Big claim:** {{The bold outcome they deliver - specific and measurable}}
 **Timeframe:** {{How long it takes to get the result}}
 **Guarantee / risk reversal:** {{What happens if it does not work}}
 
@@ -47,7 +47,7 @@ Numbers and named logos beat vague claims. Use these in copy.
 
 What makes this offer different from every other option the prospect has.
 
-1. {{Differentiator 1 — what it is and why it matters}}
+1. {{Differentiator 1 - what it is and why it matters}}
 2. {{Differentiator 2}}
 3. {{Differentiator 3}}
 
@@ -69,16 +69,16 @@ Every B2B offer does one of three things. Assign each value prop a specific angl
 
 | CTA | When to use |
 |-----|------------|
-| {{e.g. "Want me to send over a sample?"}} | Email 1 — low friction opener |
-| {{e.g. "Worth a 15-min call?"}} | Email 2 — direct ask |
-| {{e.g. "Is this even on your radar?"}} | Email 3 — hail mary |
+| {{e.g. "Want me to send over a sample?"}} | Email 1 - low friction opener |
+| {{e.g. "Worth a 15-min call?"}} | Email 2 - direct ask |
+| {{e.g. "Is this even on your radar?"}} | Email 3 - hail mary |
 
 ---
 
 ## Positioning
 
-**Against the market:** {{How they are positioned vs. alternatives — what category do they own?}}
-**Who they are not for:** {{Who they explicitly exclude — polarisation makes the offer stronger}}
+**Against the market:** {{How they are positioned vs. alternatives - what category do they own?}}
+**Who they are not for:** {{Who they explicitly exclude - polarisation makes the offer stronger}}
 
 ---
 

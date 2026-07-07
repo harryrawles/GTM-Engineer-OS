@@ -5,13 +5,13 @@
 **Context:** Harry sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
 
 **Read before writing:**
-- `clients/{slug}/overview.md` — client name and reporting day
-- `clients/{slug}/campaign-state.md` — active campaigns and benchmarks
-- `clients/{slug}/test-log.md` — what is currently being tested (to include in "what is next")
+- `clients/{slug}/overview.md` - client name and reporting day
+- `clients/{slug}/campaign-state.md` - active campaigns and benchmarks
+- `clients/{slug}/test-log.md` - what is currently being tested (to include in "what is next")
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -20,8 +20,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -80,25 +80,25 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 
 **What is working**
 
-{{1-3 bullets. Specific observations — not vague positives. e.g. "Email 1 on the hiring signal is at 2.1% PRR — above benchmark. The offer framing around time-to-hire is resonating."}}
+{{1-3 bullets. Specific observations - not vague positives. e.g. "Email 1 on the hiring signal is at 2.1% PRR - above benchmark. The offer framing around time-to-hire is resonating."}}
 
 ---
 
 **What we are watching / testing**
 
-{{1-2 bullets. What is underperforming and what is being done about it. e.g. "Email 2 reply rate is low. Testing a shorter CTA this week — will have data by [date]."}}
+{{1-2 bullets. What is underperforming and what is being done about it. e.g. "Email 2 reply rate is low. Testing a shorter CTA this week - will have data by [date]."}}
 
 ---
 
 **Next week**
 
-{{2-3 bullets. What is happening next week — new campaigns, test launches, volume changes, etc.}}
+{{2-3 bullets. What is happening next week - new campaigns, test launches, volume changes, etc.}}
 
 ---
 
 **Anything you need from me**
 
-{{If Harry needs something from the client — approval, assets, contacts. Leave blank if nothing needed.}}
+{{If Harry needs something from the client - approval, assets, contacts. Leave blank if nothing needed.}}
 
 ---
 
@@ -107,7 +107,7 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 - Under 300 words total.
 - No corporate filler. No "hope you are well". No "please do not hesitate to contact me".
 - Data from Instantly is the source of truth. Do not round numbers.
-- If a campaign is Red (PRR under 0.5%), name the root cause and the fix — do not hide it.
+- If a campaign is Red (PRR under 0.5%), name the root cause and the fix - do not hide it.
 - If something worked, say specifically why (not just "good results this week").
 - The "What is next" section should make the client feel like there is always a plan.
 - Sign off as Harry, not as the company.

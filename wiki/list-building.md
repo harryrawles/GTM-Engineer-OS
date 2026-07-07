@@ -2,27 +2,27 @@
 
 ICP definition with 100-point scoring, ABM tier system, account qualification, contact mapping, list hygiene, and data validation. Read before sourcing leads or qualifying accounts.
 
-> Client-specific ICP lives in [clients/{slug}/icp.md](../clients/{slug}/icp.md). This file is the methodology — how to build, score, qualify, and clean.
+> Client-specific ICP lives in [clients/{slug}/icp.md](../clients/{slug}/icp.md). This file is the methodology - how to build, score, qualify, and clean.
 
 ---
 
-## ICP Framework — 3 Layers
+## ICP Framework - 3 Layers
 
 A precise ICP has three layers. Define all three for every client.
 
 ### 1. Firmographic (company level)
-- **Industry** — primary vertical(s) and adjacent industries
-- **Company size** — employee headcount sweet spot (e.g. 51-500)
-- **Revenue** — annual revenue range
-- **Geography** — HQ location, target markets
-- **Growth rate** — headcount growth signals
-- **Funding stage** — seed, Series A-C, PE-backed, public
+- **Industry** - primary vertical(s) and adjacent industries
+- **Company size** - employee headcount sweet spot (e.g. 51-500)
+- **Revenue** - annual revenue range
+- **Geography** - HQ location, target markets
+- **Growth rate** - headcount growth signals
+- **Funding stage** - seed, Series A-C, PE-backed, public
 
 ### 2. Technographic
-- **Tech stack** — what they currently use (Sales Nav has 35,000+ technology filters)
-- **CRM used** — Salesforce, HubSpot, Pipedrive
-- **Marketing automation** — Marketo, Pardot, Mailchimp
-- **Competitive tools** — using a competitor's product
+- **Tech stack** - what they currently use (Sales Nav has 35,000+ technology filters)
+- **CRM used** - Salesforce, HubSpot, Pipedrive
+- **Marketing automation** - Marketo, Pardot, Mailchimp
+- **Competitive tools** - using a competitor's product
 
 ### 3. Behavioural / intent signals
 - Job postings (hiring for roles your product supports)
@@ -62,9 +62,9 @@ Score every account on these dimensions.
 
 | Tier | Accounts | Approach | Resources |
 |------|----------|----------|-----------|
-| **Tier 1 (1:1)** | 10-50 | Fully custom, multi-threaded | Maximum — custom content, executive outreach, direct mail |
-| **Tier 2 (1:Few)** | 50-200 | Segment-based personalisation | Medium — industry/persona templates, targeted ads |
-| **Tier 3 (1:Many)** | 200-1,000 | Programmatic, automated | Low — automated sequences, broad messaging |
+| **Tier 1 (1:1)** | 10-50 | Fully custom, multi-threaded | Maximum - custom content, executive outreach, direct mail |
+| **Tier 2 (1:Few)** | 50-200 | Segment-based personalisation | Medium - industry/persona templates, targeted ads |
+| **Tier 3 (1:Many)** | 200-1,000 | Programmatic, automated | Low - automated sequences, broad messaging |
 
 ---
 
@@ -154,7 +154,7 @@ Process for building lookalike lists from best customers:
 | Risky / accept-all (catch-all) | Send cautiously or sub-verify with ListKit |
 | Unknown | Treat as risky, do not send |
 | Disposable | Remove (temporary email) |
-| Role-based (info@, sales@) | Remove — higher spam complaint risk |
+| Role-based (info@, sales@) | Remove - higher spam complaint risk |
 | Toxic / spam trap | Remove immediately |
 
 ### Verification tools
@@ -187,7 +187,7 @@ Email Sent → Delivered → Track engagement
 
 ## Worked Examples
 
-### Example 1 — HR software to mid-market
+### Example 1 - HR software to mid-market
 ICP definition:
 - **Firmographic:** 200-2,000 employees, $20M-$500M revenue, US/Canada
 - **Technographic:** Using BambooHR, Workday, or ADP
@@ -195,7 +195,7 @@ ICP definition:
 
 Score: Industry (SaaS/Tech = 20) + Size (200-2K = 15) + Revenue ($20-500M = 15) + Geo (US = 10) + Tech (legacy HR tool = 15) + Growth (hiring = 10) + Intent (HR job posts = 15) = **100 pts, Tier A**
 
-### Example 2 — Prioritising 500 accounts
+### Example 2 - Prioritising 500 accounts
 1. Apply ICP scoring matrix across all 500
 2. Sort by score
 3. Top 10-50 (Tier A, 90+ pts) = Tier 1 ABM with custom outreach
@@ -204,7 +204,7 @@ Score: Industry (SaaS/Tech = 20) + Size (200-2K = 15) + Revenue ($20-500M = 15) 
 6. Below 50 = exclude
 7. Layer intent data from G2 / Bombora to re-rank
 
-### Example 3 — Building from best customers
+### Example 3 - Building from best customers
 1. Export top 20 customers by ARR
 2. Identify patterns (e.g. all SaaS, 100-500 employees, US-based, using HubSpot, Series A-C funded)
 3. Build Sales Nav search matching these attributes
@@ -214,4 +214,4 @@ Score: Industry (SaaS/Tech = 20) + Size (200-2K = 15) + Revenue ($20-500M = 15) 
 ---
 
 ## Source Material
-Synthesised from ColdIQ GTM Skills list-building master skill — define-icp, qualify-accounts, clean-validate sub-skills and data-validation resource.
+Synthesised from ColdIQ GTM Skills list-building master skill - define-icp, qualify-accounts, clean-validate sub-skills and data-validation resource.

@@ -1,8 +1,8 @@
 ---
 name: pattern-detector
-description: Runs FIRST at every Claude Code session. Scans clients/{slug}/session-log.md for repeating prompts/intents. Surfaces a soft one-line note at 3+ matching intents in 30 days, and proposes forging a new skill via skill-forge at 5+. Does not block work — surfaces and proceeds.
+description: Runs FIRST at every Claude Code session. Scans clients/{slug}/session-log.md for repeating prompts/intents. Surfaces a soft one-line note at 3+ matching intents in 30 days, and proposes forging a new skill via skill-forge at 5+. Does not block work - surfaces and proceeds.
 triggers:
-  - "(automatic — runs at every session start per CLAUDE.md Session Start Protocol)"
+  - "(automatic - runs at every session start per CLAUDE.md Session Start Protocol)"
   - "Detect patterns"
   - "Scan for repeating prompts"
   - "What am I doing repeatedly"
@@ -31,21 +31,21 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Resolve Active Client, then Read State
+## STEP 0 - Resolve Active Client, then Read State
 
 0. **Resolve the active client** (per `wiki/_skill-context.md` → *Resolve the Active Client*). Read `_state/active-client` for the `{slug}`; honour an inline "for [client]" override; in portfolio mode ("for all clients") run this detection once per client folder in isolation. If client-specific work is requested and no client is resolved → stop and ask. Pattern detection is always scoped to the resolved client's own log.
 1. Read `clients/{slug}/session-log.md` Active Log (last 90 days)
-2. Read `clients/{slug}/session-log.md` "Rejected pattern suggestions" — skip any pattern signature here
-3. Read `clients/{slug}/session-log.md` "Forged skills" — skip patterns already forged
+2. Read `clients/{slug}/session-log.md` "Rejected pattern suggestions" - skip any pattern signature here
+3. Read `clients/{slug}/session-log.md` "Forged skills" - skip patterns already forged
 4. Read the current user prompt
 
 If `session-log.md` is empty or only has a few entries (under 10) → skip detection. Not enough data yet. Just write a session-log entry for the current invocation and return control to the actual request.
 
 ---
 
-## STEP 1 — Categorise the Current Prompt's Intent
+## STEP 1 - Categorise the Current Prompt's Intent
 
-Identify the abstract intent of the user's current prompt. Not the verbatim words — the underlying intent.
+Identify the abstract intent of the user's current prompt. Not the verbatim words - the underlying intent.
 
 Examples of intent categorisation:
 
@@ -61,7 +61,7 @@ The intent should be **abstract enough** that variations of the same underlying 
 
 ---
 
-## STEP 2 — Match Against Session Log
+## STEP 2 - Match Against Session Log
 
 Scan the Active Log (last 90 days) for entries with the same intent category.
 
@@ -74,7 +74,7 @@ Count matches. Apply these rules:
 | 5-9 matches | **Confirmed pattern.** Surface explicitly: "You've asked variants of this N times in last 30 days. Want me to forge a skill that automates this? Reply 'forge it' to proceed." |
 | 10+ matches | **Strong pattern.** Same as 5-9 but with stronger language: "You've made this request N times. There is clear ROI in automating it. Recommend forging a skill." |
 
-**Hook-backstop rows (`via:hook`):** the `session-logger.sh` hook writes one deterministic row per user prompt (skill column = `via:hook`) so the log is never empty even if a skill forgets its STEP-0 row. When counting matches, **dedupe skill rows against hook rows** for the same prompt/timestamp — a prompt logged by both a named skill AND `via:hook` is ONE occurrence, not two. Use hook rows only to fill gaps (a prompt with a `via:hook` row but no skill row still counts as one occurrence of that intent). Skill rows remain the richer record for naming what ran.
+**Hook-backstop rows (`via:hook`):** the `session-logger.sh` hook writes one deterministic row per user prompt (skill column = `via:hook`) so the log is never empty even if a skill forgets its STEP-0 row. When counting matches, **dedupe skill rows against hook rows** for the same prompt/timestamp - a prompt logged by both a named skill AND `via:hook` is ONE occurrence, not two. Use hook rows only to fill gaps (a prompt with a `via:hook` row but no skill row still counts as one occurrence of that intent). Skill rows remain the richer record for naming what ran.
 
 **Rejected pattern check:** if the matching pattern's signature is in the "Rejected pattern suggestions" table → SKIP this detection. Harry already said no. Do not re-suggest.
 
@@ -82,12 +82,12 @@ Count matches. Apply these rules:
 
 ---
 
-## STEP 3 — Surface the Detection
+## STEP 3 - Surface the Detection
 
 Output format (prepended to the response, then proceed with the actual task):
 
 ```
-🔍 PATTERN DETECTED — {{pattern intent name}}
+🔍 PATTERN DETECTED - {{pattern intent name}}
 
 You've asked variants of this {{N}} times in the last {{period}}.
 Recent examples:
@@ -96,7 +96,7 @@ Recent examples:
 - [date] "{{prompt summary}}"
 
 Want me to forge a skill that automates this? Reply "forge it" and I'll invoke skill-forge.
-(Or "skip this" to dismiss permanently — added to rejected patterns.)
+(Or "skip this" to dismiss permanently - added to rejected patterns.)
 
 ---
 
@@ -109,7 +109,7 @@ If user replies "skip this" → add to `clients/{slug}/session-log.md` Rejected 
 
 ---
 
-## STEP 4 — Log This Session
+## STEP 4 - Log This Session
 
 Append a new row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -124,7 +124,7 @@ If pattern-detector found a pattern AND surfaced it, also write to `clients/{slu
 
 ---
 
-## STEP 5 — Hand Off to the Actual Skill
+## STEP 5 - Hand Off to the Actual Skill
 
 Pattern-detector NEVER takes over the user's actual request. After surfacing detection (if any), it cedes control to whatever skill should handle the original prompt.
 
@@ -148,25 +148,25 @@ User then sees:
 ## RULES
 
 - **Run FIRST every session.** No exceptions. CLAUDE.md mandates this.
-- **Never block work.** Surface and proceed. Harry's response to the pattern is asynchronous — can come this session or later.
+- **Never block work.** Surface and proceed. Harry's response to the pattern is asynchronous - can come this session or later.
 - **Be specific, not vague.** "You've asked similar things" is useless. "You've asked to diagnose campaign performance 7 times in 30 days" is actionable.
 - **Respect rejections.** Once Harry rejects a pattern, the signature lives in rejected patterns forever. Do not re-suggest.
 - **Skip detection for under-10-entry session logs.** Not enough data to be useful.
-- **Cost-conscious.** Pattern matching should be fast. Do not invoke sub-agents for this — pattern-detector itself runs in main thread, every session.
-- **Do not auto-forge.** Never invoke skill-forge without Harry's explicit "forge it" response. This is a safety rail — forged skills land in the OS as files; Harry needs to opt in.
+- **Cost-conscious.** Pattern matching should be fast. Do not invoke sub-agents for this - pattern-detector itself runs in main thread, every session.
+- **Do not auto-forge.** Never invoke skill-forge without Harry's explicit "forge it" response. This is a safety rail - forged skills land in the OS as files; Harry needs to opt in.
 
 ---
 
 ## EXAMPLES
 
-### Example — Pattern detected, surfaced, Harry forges
+### Example - Pattern detected, surfaced, Harry forges
 
 ```
 Harry: Diagnose {{CLIENT_NAME}}'s hiring campaign
 
 [pattern-detector runs first]
 
-🔍 PATTERN DETECTED — diagnose-campaign-performance
+🔍 PATTERN DETECTED - diagnose-campaign-performance
 
 You've asked variants of this 7 times in the last 30 days.
 Recent examples:
@@ -186,27 +186,27 @@ Harry: forge it
 [skill-forge drafts gtm-skills/forged-quick-diagnose.md, surfaces for review]
 ```
 
-### Example — No pattern, just logs
+### Example - No pattern, just logs
 
 ```
 Harry: Run pre-launch check for {{CLIENT_NAME}} hiring v5
 
 [pattern-detector runs first]
 [scans session-log: 0 matches for "pre-launch-check" intent in 30 days]
-[no detection surfaced — proceeds silently to actual skill]
+[no detection surfaced - proceeds silently to actual skill]
 
 [pre-launch-check output]
 [session-log row added with no detection]
 ```
 
-### Example — Pattern rejected previously
+### Example - Pattern rejected previously
 
 ```
 Harry: Show me Vector Health's pipeline
 
 [pattern-detector runs first]
 [scans: 5 matches for "show-pipeline" intent, but signature is in Rejected patterns from 2026-04-10]
-[skips detection — Harry already said no]
+[skips detection - Harry already said no]
 [proceeds to actual skill]
-[session-log row added with note "pattern matched but rejected previously — skipped"]
+[session-log row added with note "pattern matched but rejected previously - skipped"]
 ```

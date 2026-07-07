@@ -2,7 +2,7 @@
 
 The meta-framework underneath every other file in this wiki. `wiki/offer-creation-theory.md` explains offer
 psychology, `wiki/psychological-principles.md` catalogues copy-level biases, `wiki/scientific-method.md`
-explains how to test — this file explains *why those files exist at all*, and how to keep generating new
+explains how to test - this file explains *why those files exist at all*, and how to keep generating new
 ones once the current ones stop working.
 
 The rule this file exists to enforce: the less you think you need theory, the more you need it. If you
@@ -12,11 +12,11 @@ already understood the fundamentals, you'd have already built your own system fr
 
 ## How to Use This File
 
-- **Read once, fully** — it's a way of thinking, not a checklist to run per task.
-- **When a proven stimulus stops working** — check Stimuli Entropy before assuming the copy is simply bad.
-- **When every angle feels used up** — read Multi-Disciplinary Thinking and The Major Disciplines; the
+- **Read once, fully** - it's a way of thinking, not a checklist to run per task.
+- **When a proven stimulus stops working** - check Stimuli Entropy before assuming the copy is simply bad.
+- **When every angle feels used up** - read Multi-Disciplinary Thinking and The Major Disciplines; the
   next unused fundamental usually comes from a discipline nobody in the niche has borrowed from yet.
-- **When stuck reasoning through a hard call** — scan Thinking Fundamentals for the mental model that fits.
+- **When stuck reasoning through a hard call** - scan Thinking Fundamentals for the mental model that fits.
 
 ---
 
@@ -46,7 +46,7 @@ Examples of stimulus → action pairs:
 
 ### The Micro-Action-Chain
 
-A full acquisition system is not one stimulus — it's a chain of them, each producing the micro-action that
+A full acquisition system is not one stimulus - it's a chain of them, each producing the micro-action that
 enables the next. Example chain, YouTube organic:
 
 ```
@@ -59,7 +59,7 @@ clicking link to pay > filling out card information > pressing button to pay
 ```
 
 Diagnosing a broken funnel means finding the exact link in this chain where the action stops firing, and
-fixing the stimulus at that link — not rewriting the whole system.
+fixing the stimulus at that link - not rewriting the whole system.
 
 ---
 
@@ -67,14 +67,14 @@ fixing the stimulus at that link — not rewriting the whole system.
 
 | Term | Definition | Examples |
 |------|-----------|---------|
-| **Stimuli** | The building blocks of an attraction system — the concrete artefact | Email body copy, landing pages, follow-up messages, Loom videos, cold call scripts, LinkedIn connection messages, evergreen videos |
+| **Stimuli** | The building blocks of an attraction system - the concrete artefact | Email body copy, landing pages, follow-up messages, Loom videos, cold call scripts, LinkedIn connection messages, evergreen videos |
 | **Fundamentals** | What stimuli are *built on* | Models, truths, heuristics, values, theories, assumptions, philosophies, concepts |
 
 Fundamentals explain **why** a stimulus is built, designed, or structured the way it is.
 
-> **Example.** Fundamental: *Simplicity* — simple words and structure make a message easier to
+> **Example.** Fundamental: *Simplicity* - simple words and structure make a message easier to
 > understand, and what's easier to understand is easier to believe and act on. Applied to a stimulus: we
-> keep email copy simple *because* simplicity is the fundamental producing the result — not because
+> keep email copy simple *because* simplicity is the fundamental producing the result - not because
 > "simple copy" is a rule someone handed down.
 
 Stimuli that get results are built on sound fundamentals. Stimuli that don't work are built on weak
@@ -89,23 +89,23 @@ The single biggest mistake in learning client acquisition: looking for stimuli i
 
 | | Stimulus Hunters | Fundamental Seekers |
 |---|---|---|
-| **What they want** | The newest copy, script, or "hot" stimulus — a copy-pasteable fix | The fundamental a working stimulus is built on, so they can build their own |
-| **Short term** | Fast wins from shiny objects | Slower — feels painful, no instant win |
-| **Long term** | Suffer — constantly "stimulus hopping" as each one dies | Win — can generate new stimuli indefinitely once the old ones die |
+| **What they want** | The newest copy, script, or "hot" stimulus - a copy-pasteable fix | The fundamental a working stimulus is built on, so they can build their own |
+| **Short term** | Fast wins from shiny objects | Slower - feels painful, no instant win |
+| **Long term** | Suffer - constantly "stimulus hopping" as each one dies | Win - can generate new stimuli indefinitely once the old ones die |
 
 To win long-term, be a Fundamental Seeker. Every skill and wiki file in this OS is written to encode
-fundamentals, not just hand over stimuli — treat any copy example in this repo as an illustration of the
+fundamentals, not just hand over stimuli - treat any copy example in this repo as an illustration of the
 fundamental behind it, not a template to copy verbatim.
 
 ---
 
 ## 4. Stimuli Entropy
 
-All stimuli die — they stop producing results with time and repeated exposure. Two mechanisms:
+All stimuli die - they stop producing results with time and repeated exposure. Two mechanisms:
 
 ### Stimulus Hypoesthesia
 
-The niche goes numb to a stimulus after enough repeated exposure — "hypoesthesia" being the medical term
+The niche goes numb to a stimulus after enough repeated exposure - "hypoesthesia" being the medical term
 for a loss of sensation. Known elsewhere as banner blindness or ad fatigue:
 
 - That style of ad copy fatigues
@@ -114,17 +114,17 @@ for a loss of sensation. Known elsewhere as banner blindness or ad fatigue:
 - That subject line stops getting opened
 
 This is also why certain words become permanently weaker in cold copy once the niche has been
-over-exposed to them (see `wiki/copywriting-101.md` — vanity personalisation, and
+over-exposed to them (see `wiki/copywriting-101.md` - vanity personalisation, and
 `wiki/psychological-principles.md` #39 Click-whirr conditioning, which is the bias-level mechanism behind
 this same effect).
 
 ### Classical Conditioning
 
 A prospect purchases from a similar-looking provider, has a bad experience, and then avoids anything that
-pattern-matches to that experience — even from an unrelated, competent vendor. Using the same stimuli as
+pattern-matches to that experience - even from an unrelated, competent vendor. Using the same stimuli as
 everyone else means inheriting the scar tissue everyone else in the niche has already caused.
 
-**Net effect:** a stimulus must be novel, unique, original, or creative to keep working — or enough time
+**Net effect:** a stimulus must be novel, unique, original, or creative to keep working - or enough time
 has to pass for Hypoesthesia and Classical Conditioning to fade, which they do with reduced exposure.
 
 ---
@@ -138,36 +138,36 @@ on the same handful of tactics at any given time. That's reliable enough to buil
 Classical Conditioning kill it → everyone "stimulus hops" to the next shiny one → time passes → the niche
 forgets being burned → the original stimulus feels novel again → the cycle repeats.
 
-> **Illustrative example (historical, mechanism only — not current tactical advice):** at one point,
+> **Illustrative example (historical, mechanism only - not current tactical advice):** at one point,
 > e-commerce agencies shifted from Facebook Ads messaging to TikTok messaging as Facebook angles became
 > over-exposed. TikTok was temporarily novel; given enough repeated exposure it would eventually become
 > the "worst" stimulus, and Facebook messaging would become viable again once the niche forgot. The
-> platforms are interchangeable — the cycle is the point, not the specific channel named at the time.
+> platforms are interchangeable - the cycle is the point, not the specific channel named at the time.
 
 **Contrarian Attraction:** deliberately doing the opposite of the 95% by reading where a stimulus sits in
-this cycle. You don't need a groundbreaking new idea — often the highest-leverage move is taking something
+this cycle. You don't need a groundbreaking new idea - often the highest-leverage move is taking something
 that already works and applying a fundamental nobody else in the niche has thought to apply to it yet.
 Stimuli with genuine longevity are, almost by definition, used by very few people at any given time.
 
 **How this shows up in the OS:** this is the theoretical reason `wiki/scientific-method.md` insists on
 testing rather than copying "what's working" wholesale, and why `wiki/copywriting-101.md` calls for pattern
-breaks — a pattern break is Contrarian Attraction applied at the subject-line level.
+breaks - a pattern break is Contrarian Attraction applied at the subject-line level.
 
 ---
 
 ## 6. Multi-Disciplinary Thinking
 
-Fundamentals are rules that help explain reality within a discipline — natural selection explains
+Fundamentals are rules that help explain reality within a discipline - natural selection explains
 evolution, gravity explains physics. They transfer: a fundamental discovered in one discipline can be
 borrowed and applied inside another. That transfer is Multi-Disciplinary Thinking.
 
-> **Alloying** (chemistry) — combining two metals to make one stronger, more durable metal.
-> **Alloying** (client acquisition) — combining two email copy styles to make a stronger one.
+> **Alloying** (chemistry) - combining two metals to make one stronger, more durable metal.
+> **Alloying** (client acquisition) - combining two email copy styles to make a stronger one.
 >
-> **Osmosis** (biology) — water moves across a membrane from high concentration to low concentration.
-> **Osmosis** (niche strategy) — agencies move from a high-competition niche toward a low-competition one.
+> **Osmosis** (biology) - water moves across a membrane from high concentration to low concentration.
+> **Osmosis** (niche strategy) - agencies move from a high-competition niche toward a low-competition one.
 
-**Client Acquisition is not itself a discipline.** It doesn't exist as a field you can study directly — it
+**Client Acquisition is not itself a discipline.** It doesn't exist as a field you can study directly - it
 is an interlacing of other disciplines (Philosophy, Psychology, Statistics, Economics, Game Theory, and
 more). You cannot "get good" at client acquisition in the abstract; you get good at the disciplines
 underneath it, then weave their fundamentals together into your own strategy.
@@ -177,26 +177,26 @@ Strategy + Stimuli = Result
 ```
 
 Using the same strategy and the same stimuli as everyone else produces the same result as everyone else.
-The only way to get a different result is to change one of the two — informed by a fundamental you know,
+The only way to get a different result is to change one of the two - informed by a fundamental you know,
 from some discipline, actually works.
 
 Two categories of fundamental, in this OS's terms:
 
 | Category | Covers | Where it lives in this OS |
 |----------|--------|---------------------------|
-| **Strategy-Based (Worldly)** | Fundamentals from general disciplines — used to build *strategy* | This file, Sections 6-9 |
-| **Stimuli-Based (Psychological)** | Fundamentals specifically from psychology — used to build the *stimulus itself* | `wiki/psychological-principles.md` |
+| **Strategy-Based (Worldly)** | Fundamentals from general disciplines - used to build *strategy* | This file, Sections 6-9 |
+| **Stimuli-Based (Psychological)** | Fundamentals specifically from psychology - used to build the *stimulus itself* | `wiki/psychological-principles.md` |
 
 ---
 
 ## 7. Learning Strategy-Based Fundamentals
 
-You don't need deep expertise in a discipline — just enough to grasp the fundamentals underneath it.
+You don't need deep expertise in a discipline - just enough to grasp the fundamentals underneath it.
 Entry-level material is usually sufficient. A reliable shortcut: find the discipline's founding figure and
 study their core idea directly, since most of the discipline is fleshed out around it (Adam Smith for
 economics, Darwin for evolution, Watson & Crick for genetics, Jay Forrester for systems thinking).
 
-Once a fundamental is understood, actively look for how it maps onto client acquisition — the Alloying and
+Once a fundamental is understood, actively look for how it maps onto client acquisition - the Alloying and
 Osmosis examples above are exactly this kind of mapping exercise, done deliberately.
 
 ---
@@ -204,7 +204,7 @@ Osmosis examples above are exactly this kind of mapping exercise, done deliberat
 ## 8. The Major Disciplines
 
 Disciplines worth drawing fundamentals from. Asterisks mark the ones most directly useful for client
-acquisition — but the exercise of finding an unused fundamental in an *un*-starred discipline is itself a
+acquisition - but the exercise of finding an unused fundamental in an *un*-starred discipline is itself a
 Contrarian Attraction move, since nobody else in the niche will have looked there.
 
 | Category | Disciplines |
@@ -216,25 +216,25 @@ Contrarian Attraction move, since nobody else in the niche will have looked ther
 
 ---
 
-## 9. Thinking Fundamentals — a Mental Models Toolkit
+## 9. Thinking Fundamentals - a Mental Models Toolkit
 
-General-purpose reasoning tools, useful for any hard call in client acquisition — diagnosing a dead
+General-purpose reasoning tools, useful for any hard call in client acquisition - diagnosing a dead
 campaign, deciding whether to trust a data point, or reasoning about a client's objection.
 
 | Model | Definition | Applied to client acquisition |
 |-------|-----------|-------------------------------|
 | **Map-territory relation** | A model of reality is not reality itself | Don't confuse a dashboard metric, a persona, or a "proven" script with the actual prospect in front of you |
-| **Circle of competence** | Know what you don't know | Being excellent at copy doesn't make you right about deliverability infrastructure — seek the relevant expertise first |
-| **First principles thinking** | Reduce to what's true and can't be further disputed, then reason up | Section 1 of this file — Human + Stimulus = Action — is the first-principles floor everything else is reasoned up from |
-| **Thought experiments** | Imagine an outcome before it happens | "What would this prospect say if I handled that objection this way?" — before the call, not during it |
+| **Circle of competence** | Know what you don't know | Being excellent at copy doesn't make you right about deliverability infrastructure - seek the relevant expertise first |
+| **First principles thinking** | Reduce to what's true and can't be further disputed, then reason up | Section 1 of this file - Human + Stimulus = Action - is the first-principles floor everything else is reasoned up from |
+| **Thought experiments** | Imagine an outcome before it happens | "What would this prospect say if I handled that objection this way?" - before the call, not during it |
 | **Second-order thinking** | Consequences have their own consequences | A discount books more calls now, but what does it do to perceived value next quarter? |
-| **Probabilistic thinking** | Reason in likelihoods, not certainties | No single test result is "the truth" — see the sample-size discipline in `wiki/scientific-method.md` |
-| **Inversion** | Reach the goal via its opposite | Instead of asking how to get more replies, ask what's currently causing prospects to ignore the email — then remove it |
+| **Probabilistic thinking** | Reason in likelihoods, not certainties | No single test result is "the truth" - see the sample-size discipline in `wiki/scientific-method.md` |
+| **Inversion** | Reach the goal via its opposite | Instead of asking how to get more replies, ask what's currently causing prospects to ignore the email - then remove it |
 | **Occam's razor** | The simpler explanation is usually the correct one | If a campaign underperforms, check the obvious cause (deliverability, targeting) before inventing an exotic one |
-| **Hanlon's razor** | Don't attribute to malice what's better explained by carelessness or oversight | A prospect ignoring your email isn't a personal rejection — assume competence and busyness, not spite |
+| **Hanlon's razor** | Don't attribute to malice what's better explained by carelessness or oversight | A prospect ignoring your email isn't a personal rejection - assume competence and busyness, not spite |
 | **Falsifiability** | If a claim can't be proven wrong, it can't be proven right either | A "proven" script that's never been tested against an alternative hasn't actually been proven anything |
-| **Correlation vs causation** | Two things co-occurring doesn't mean one causes the other | A campaign improved the same week a client's brand also got press — don't credit the copy without isolating the variable (see `wiki/scientific-method.md` Ceteris Paribus) |
-| **Non-binary thinking** | Reality is greyscale, not black-and-white; sometimes the answer is "both" | A KPI is a measuring stick, not a hard pass/fail gate — see `wiki/scientific-method.md` Step 3, Q5 |
+| **Correlation vs causation** | Two things co-occurring doesn't mean one causes the other | A campaign improved the same week a client's brand also got press - don't credit the copy without isolating the variable (see `wiki/scientific-method.md` Ceteris Paribus) |
+| **Non-binary thinking** | Reality is greyscale, not black-and-white; sometimes the answer is "both" | A KPI is a measuring stick, not a hard pass/fail gate - see `wiki/scientific-method.md` Step 3, Q5 |
 
 ---
 
@@ -242,7 +242,7 @@ campaign, deciding whether to trust a data point, or reasoning about a client's 
 
 The other half of the fundamentals split (Section 6): fundamentals drawn specifically from psychology,
 used to construct the stimulus itself rather than the surrounding strategy. This is fully catalogued
-separately — see `wiki/psychological-principles.md` for the complete bias reference and how to apply it at
+separately - see `wiki/psychological-principles.md` for the complete bias reference and how to apply it at
 each stage of a cold email.
 
 ---
@@ -257,4 +257,4 @@ schedule (Section 4). Fundamentals are not.
 
 ## Source Material
 
-Primary methodology (per `CLAUDE.md` → Source Knowledge) — provided by Harry Rawles.
+Primary methodology (per `CLAUDE.md` → Source Knowledge) - provided by Harry Rawles.

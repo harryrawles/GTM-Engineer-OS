@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# test-safety-guard.sh — block/allow matrix for the PreToolUse safety guard
+# test-safety-guard.sh - block/allow matrix for the PreToolUse safety guard
 # =============================================================================
 # Feeds synthetic tool-call payloads to .claude/hooks/safety-guard.sh and
 # asserts the exit code (2 = block, 0 = allow). Covers both connected Instantly
@@ -72,13 +72,13 @@ bash_expect() {   # desc, command, block|allow
   fi
 }
 
-# reads — allow
+# reads - allow
 bash_expect "wrapper GET campaigns"        ".claude/bin/instantly.sh GET /campaigns"                       allow
 bash_expect "wrapper GET analytics"        ".claude/bin/instantly.sh GET /campaigns/abc/analytics"         allow
 bash_expect "wrapper POST leads/list read" ".claude/bin/instantly.sh POST /leads/list '{}'"                allow
 bash_expect "wrapper --client GET"         ".claude/bin/instantly.sh --client acme GET /campaigns"         allow
 
-# writes / sends — block
+# writes / sends - block
 bash_expect "wrapper POST activate"        ".claude/bin/instantly.sh POST /campaigns/abc/activate"         block
 bash_expect "wrapper POST pause"           ".claude/bin/instantly.sh POST /campaigns/abc/pause"            block
 bash_expect "wrapper PATCH campaign"       ".claude/bin/instantly.sh PATCH /campaigns/abc"                 block
@@ -86,11 +86,11 @@ bash_expect "wrapper DELETE lead"          ".claude/bin/instantly.sh DELETE /lea
 bash_expect "wrapper POST create lead"     ".claude/bin/instantly.sh POST /leads '{}'"                     block
 bash_expect "wrapper --client POST write"  ".claude/bin/instantly.sh --client acme POST /campaigns/x/activate" block
 
-# raw HTTP to the API — block (key-leak protection; forces the wrapper)
+# raw HTTP to the API - block (key-leak protection; forces the wrapper)
 bash_expect "raw curl to API"              "curl https://api.instantly.ai/api/v2/campaigns"                block
 bash_expect "raw curl POST to API"         "curl -X POST https://api.instantly.ai/api/v2/campaigns/x/activate" block
 
-# printing a real credentials file — block (key-leak protection)
+# printing a real credentials file - block (key-leak protection)
 bash_expect "cat credentials"              "cat clients/acme/secrets/credentials.md"                       block
 bash_expect "grep credentials"             "grep instantly_api_key clients/acme/secrets/credentials.md"    block
 

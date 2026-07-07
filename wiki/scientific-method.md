@@ -1,19 +1,19 @@
 # Scientific Method
 
-How we iterate copy, sequences, signals, and any tested stimulus. **Every change to an active campaign should pass through this framework.** Without it, we are guessing — and guessing does not compound.
+How we iterate copy, sequences, signals, and any tested stimulus. **Every change to an active campaign should pass through this framework.** Without it, we are guessing - and guessing does not compound.
 
 The principle, in one sentence: **define a hypothesis, hold every other variable constant, test it long enough to be real, then iterate one variable toward fitness.**
 
 > **Why we test instead of copying "what's working":** see `wiki/first-principles-client-acquisition.md`
-> Section 5 (Cyclical Stimulus Effectiveness) — any stimulus that's visibly working niche-wide is already
+> Section 5 (Cyclical Stimulus Effectiveness) - any stimulus that's visibly working niche-wide is already
 > partway through its decay curve.
 >
 > **Why sample size and latency rules exist:** see `wiki/acquisition-systems-theory.md` Section 8
-> (Regression to the Mean) — small samples don't distribute evenly even when the underlying rate is fixed,
+> (Regression to the Mean) - small samples don't distribute evenly even when the underlying rate is fixed,
 > which is exactly what makes early results misleading.
 >
 > **Why "genotype" and "fitness" are the right words for this:** this file's entire Step 1-4 process is
-> the applied procedure for `wiki/darwinian-acquisition-theory.md` — that file explains the biological
+> the applied procedure for `wiki/darwinian-acquisition-theory.md` - that file explains the biological
 > reasoning underneath every rule here (Ceteris Paribus, needle-movers, V-numbering) and adds techniques
 > beyond single-variable iteration (splicing, cross-pollination, sharing wins across a network).
 
@@ -32,7 +32,7 @@ The principle, in one sentence: **define a hypothesis, hold every other variable
 
 ---
 
-# Step 1 — Formulate Hypothesis
+# Step 1 - Formulate Hypothesis
 
 > Take a guess as to which variable genotype has fitness.
 
@@ -42,13 +42,13 @@ Think of a stimulus (a cold email, a Loom, a video pitch, a subject line) as a *
 
 Ask: *what are the 2-4 key variables making up this stimulus?*
 
-**Example — initial cold email:**
+**Example - initial cold email:**
 ```
 Content - Subject - CTA = Email
   V1       V1       V1     V1
 ```
 
-**Example — initial video pitch:**
+**Example - initial video pitch:**
 ```
 Content - CTA - Delivery = Initial Video
   V1       V1     V1          V1
@@ -58,7 +58,7 @@ Variable 2 (CTA):      what action you're asking them to take
 Variable 3 (Delivery): are you delivering enthusiastically? Seriously?
 ```
 
-Pick 2-4 variables that actually drive performance for the stimulus type. Resist the urge to call ten things "variables" — most are constants in disguise.
+Pick 2-4 variables that actually drive performance for the stimulus type. Resist the urge to call ten things "variables" - most are constants in disguise.
 
 ### 1.2 Define metrics and KPIs
 
@@ -66,10 +66,10 @@ Identify the **primary** and **secondary** metrics that reflect the performance 
 
 | Metric | Role | Example KPI |
 |--------|------|-------------|
-| **Primary — PRR (positive reply rate)** | Directly attributable to THIS stimulus | 1% target |
-| **Secondary — ABR (appointment booking rate)** | Polaris — upstream of PRR, influenced by the whole sequence | 3.5% target |
+| **Primary - PRR (positive reply rate)** | Directly attributable to THIS stimulus | 1% target |
+| **Secondary - ABR (appointment booking rate)** | Polaris - upstream of PRR, influenced by the whole sequence | 3.5% target |
 
-**Rule:** if the secondary (ABR) is at or above KPI, do NOT look at the primary (PRR). ABR is downstream of the entire system — if Polaris is hitting, the system is working. Touch nothing.
+**Rule:** if the secondary (ABR) is at or above KPI, do NOT look at the primary (PRR). ABR is downstream of the entire system - if Polaris is hitting, the system is working. Touch nothing.
 
 ### 1.3 Establish sample size
 
@@ -94,7 +94,7 @@ Ask: *how long will I run this experiment, and how long will I wait for the syst
 
 Every system has latency.
 
-**Example — cold email:**
+**Example - cold email:**
 - Send 20 emails/day with simple follow-ups Mon-Fri
 - Friday's follow-ups go Saturday
 - Sunday is the latency window
@@ -105,13 +105,13 @@ Every system has latency.
 
 ### 1.5 Make the test airtight
 
-Ask: *what could go wrong during this experiment in a way that biases the outcome — and how do I prevent it?*
+Ask: *what could go wrong during this experiment in a way that biases the outcome - and how do I prevent it?*
 
 Common test integrity threats:
 
 | Channel | What could break |
 |---------|-----------------|
-| Cold email | Deliverability — 30% landing in spam |
+| Cold email | Deliverability - 30% landing in spam |
 | Cold message | Videos failing to deliver 25% of the time |
 | Ads | Form on funnel does not redirect to scheduler |
 | Any channel | Tracking misattribution (human error) |
@@ -140,8 +140,8 @@ V-number notation is mandatory in `clients/{slug}/test-log.md`. Without it, you 
 
 A **constant** is a part of the system that affects performance but is held fixed during the test.
 
-**Example — cold email constants:**
-- Lead source (big one — change this and the test is invalid)
+**Example - cold email constants:**
+- Lead source (big one - change this and the test is invalid)
 - ICP definition
 - Sending domain / mailbox
 - Send time of day
@@ -149,13 +149,13 @@ A **constant** is a part of the system that affects performance but is held fixe
 - Daily send volume
 - All variables not under test
 
-**Rule:** do not vary constants while a test is running. If a constant changes mid-test, you cannot attribute results to any specific variable. This is Ceteris Paribus — *all other things equal*. Without it, the test is noise.
+**Rule:** do not vary constants while a test is running. If a constant changes mid-test, you cannot attribute results to any specific variable. This is Ceteris Paribus - *all other things equal*. Without it, the test is noise.
 
-See also `gtm-skills/cold-email-writer.md` and `gtm-skills/client-request-handler.md` — both will refuse to modify a constant of a running test without explicit override.
+See also `gtm-skills/cold-email-writer.md` and `gtm-skills/client-request-handler.md` - both will refuse to modify a constant of a running test without explicit override.
 
 ---
 
-# Step 2 — Test Hypothesis
+# Step 2 - Test Hypothesis
 
 > Run the genotype in the environment. Does it produce fitness?
 
@@ -175,13 +175,13 @@ This is the hardest discipline in client acquisition. The OS enforces it: skills
 
 Every day, log the metrics. Verify each data point. Make no judgements until the test is complete.
 
-**Daily logging rule:** report on **yesterday's** results. If you log today at 3pm, 24 hours have not elapsed — that is not a real test data point. Log yesterday only.
+**Daily logging rule:** report on **yesterday's** results. If you log today at 3pm, 24 hours have not elapsed - that is not a real test data point. Log yesterday only.
 
 Log goes into `clients/{slug}/test-log.md` under the active test's "Running data" section.
 
 ---
 
-# Step 3 — Observe Results
+# Step 3 - Observe Results
 
 A test is only complete when **ALL SIX** of the following are true. Before drawing any conclusion, verify each one.
 
@@ -200,7 +200,7 @@ If any rule failed → the test is invalid. Restart with a clean version. Do not
 
 Before deciding, verify the data once more against the source (the Instantly API, tracking platform, spreadsheet).
 
-### 3.2 Determine success — the 5-question tree
+### 3.2 Determine success - the 5-question tree
 
 Work through these questions in order:
 
@@ -229,7 +229,7 @@ Do not become emotionally or binarily attached to the KPI number. Move what is m
 
 ---
 
-# Step 4 — Iterate Hypothesis
+# Step 4 - Iterate Hypothesis
 
 > Once you are certain the genotype has not produced fitness, iterate.
 
@@ -270,9 +270,9 @@ How heavily do you modify the needle-mover? Three levels, picked by how far from
 
 | Modification level | Affinity to V(x) | When to pick (PRR vs 1% KPI) |
 |--------------------|-----------------|-------------------------------|
-| **Slight** | High — V(x+1) feels similar to V(x) | Close to KPI (e.g. 0.7% vs 1%) |
-| **Moderate** | Some — same direction, different execution | Off (e.g. 0.4% vs 1%) |
-| **Complete** | Zero — start from a blank page | Dead in the water (e.g. 0.1% vs 1%) |
+| **Slight** | High - V(x+1) feels similar to V(x) | Close to KPI (e.g. 0.7% vs 1%) |
+| **Moderate** | Some - same direction, different execution | Off (e.g. 0.4% vs 1%) |
+| **Complete** | Zero - start from a blank page | Dead in the water (e.g. 0.1% vs 1%) |
 
 **Rule of thumb:** the worse the result, the bigger the swing. A slight modification to a dead variant is wasted volume.
 
@@ -298,7 +298,7 @@ Run the new hypothesis through the same test cycle. Honour all 6 rules from Step
 
 ---
 
-# Managing Future Experiments — The Feedback Loop
+# Managing Future Experiments - The Feedback Loop
 
 Every test should move you **closer to KPI**, not further away. After every completed test, ask:
 
@@ -310,7 +310,7 @@ Every test should move you **closer to KPI**, not further away. After every comp
 - **Yes** → revert to V(x-1) and iterate in a different direction
 - **No** → continue iterating in this direction
 
-This is enforced by `gtm-skills/weekly-reviewer.md` — when a completed test shows regression, it explicitly recommends the revert and surfaces V(x-1) as the proposed next control.
+This is enforced by `gtm-skills/weekly-reviewer.md` - when a completed test shows regression, it explicitly recommends the revert and surfaces V(x-1) as the proposed next control.
 
 ### Why this matters
 
@@ -330,19 +330,19 @@ There is no magic copy variant. There is only the cycle: hypothesis → test →
 | Testing too short | Killing a variant on day 3 | Honour latency window |
 | Testing multiple variables | Cannot attribute the result | One variable per test, always |
 | Drifting constants | Lead source changed mid-test | Restart |
-| Ignoring Polaris | PRR up but ABR flat — iterating PRR copy | Stop iterating copy. Fix downstream. |
+| Ignoring Polaris | PRR up but ABR flat - iterating PRR copy | Stop iterating copy. Fix downstream. |
 | Emotional reaction to early data | Changing variant on day 2 | Do nothing until complete |
 | Over-modifying when close | Complete rewrite when slight would do | Match modification level to distance from KPI |
 | Under-modifying when dead | Slight tweak when result is 0.3% vs 3.5% | Complete rewrite. Slight modifications cannot rescue dead variants. |
 | Not logging V-numbers | Cannot reason about regression | Mandatory V(n) notation in test-log |
-| Not respecting "do nothing" | Adjusting copy mid-test | OS enforces this — skills refuse to modify active-test constants |
+| Not respecting "do nothing" | Adjusting copy mid-test | OS enforces this - skills refuse to modify active-test constants |
 
 ---
 
 # Source Material
 
 Synthesised from practitioner methodology (Refine Flow / Harry's iteration process). Cross-referenced with:
-- `wiki/copywriting-101.md` — the canonical formula being iterated
-- `wiki/email-benchmarks.md` — KPI reference points
-- `clients/{slug}/test-log.md` — where each test is captured
-- `gtm-skills/test-readiness-check.md` — the gate that enforces Step 1 completion
+- `wiki/copywriting-101.md` - the canonical formula being iterated
+- `wiki/email-benchmarks.md` - KPI reference points
+- `clients/{slug}/test-log.md` - where each test is captured
+- `gtm-skills/test-readiness-check.md` - the gate that enforces Step 1 completion

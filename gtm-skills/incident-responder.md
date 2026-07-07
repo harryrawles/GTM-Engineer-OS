@@ -26,7 +26,7 @@ writes:
 
 **Context:** When something breaks badly. This skill runs the right protocol, escalates appropriately, manages client communication, and logs the post-mortem so it never happens the same way again.
 
-**The incident responder's job is calm, structured action — not heroics.**
+**The incident responder's job is calm, structured action - not heroics.**
 
 ---
 
@@ -36,7 +36,7 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -45,8 +45,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -54,7 +54,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Classify the Incident
+## STEP 1 - Classify the Incident
 
 Identify the type:
 
@@ -71,7 +71,7 @@ If multiple types active → handle the most severe first.
 
 ---
 
-## STEP 2 — Assess Severity
+## STEP 2 - Assess Severity
 
 | Severity | Definition | Notification | Time horizon |
 |----------|-----------|--------------|--------------|
@@ -84,7 +84,7 @@ Default to higher severity if unsure. Easier to step down than escalate late.
 
 ---
 
-## PROTOCOL A — Domain Blacklisted
+## PROTOCOL A - Domain Blacklisted
 
 ### Immediate (first 30 minutes)
 
@@ -93,7 +93,7 @@ Default to higher severity if unsure. Easier to step down than escalate late.
 3. **Identify scope:**
    - Which domain(s)?
    - Which IPs?
-   - Which clients affected (if domains shared across clients — they shouldn't be, but check)?
+   - Which clients affected (if domains shared across clients - they shouldn't be, but check)?
 4. **Notify Harry** with: domain, blacklist name, scope, time first detected
 
 ### Within 2 hours
@@ -107,7 +107,7 @@ Default to higher severity if unsure. Easier to step down than escalate late.
 7. **Notify affected client(s)** with the standard template:
 
 ```
-Subject: [Important] Brief deliverability pause — {{CLIENT_NAME}} campaigns
+Subject: [Important] Brief deliverability pause - {{CLIENT_NAME}} campaigns
 
 {{firstName}},
 
@@ -134,7 +134,7 @@ Harry
 
 8. **Post-mortem** logged to `clients/{slug}/decision-log.md`:
 ```
-### {{date}} — Incident: Blacklist on {{domain}}
+### {{date}} - Incident: Blacklist on {{domain}}
 
 **What happened:**
 - Detected: {{time}}
@@ -162,7 +162,7 @@ Harry
 
 ---
 
-## PROTOCOL B — Bounce Rate Spike
+## PROTOCOL B - Bounce Rate Spike
 
 ### Immediate (first 15 minutes)
 
@@ -205,14 +205,14 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 
 ---
 
-## PROTOCOL C — Bad Reply Going Public / Brand Risk
+## PROTOCOL C - Bad Reply Going Public / Brand Risk
 
 ### Immediate (first 10 minutes)
 
 1. **DO NOT respond** to the original prospect
 2. **DO NOT delete or edit** the original cold email (audit trail)
 3. **Screenshot or save** the public post / threat
-4. **Notify Harry IMMEDIATELY** — this is a brand risk, not a deliverability issue
+4. **Notify Harry IMMEDIATELY** - this is a brand risk, not a deliverability issue
 5. **Notify client** ONLY after Harry has reviewed and agreed on the response
 
 ### Within 1 hour
@@ -246,7 +246,7 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 ### Post-mortem
 
 ```
-### {{date}} — Incident: Public negative reply / brand risk
+### {{date}} - Incident: Public negative reply / brand risk
 
 **What happened:**
 - Prospect: {{name, role, company}} (do not name in public docs unless required)
@@ -256,25 +256,25 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 - Legal action threatened: {{Y/N}}
 
 **Root cause:**
-{{e.g. ICP miss — they were on a "no contact" list we didn't have; aggressive Email 3 angle landed wrong; etc.}}
+{{e.g. ICP miss - they were on a "no contact" list we didn't have; aggressive Email 3 angle landed wrong; etc.}}
 
 **Resolution:**
 {{What we did}}
 
 **Prevention:**
-- {{Specific change — e.g. add this list to suppression; soften Email 3; etc.}}
+- {{Specific change - e.g. add this list to suppression; soften Email 3; etc.}}
 ```
 
 ---
 
-## PROTOCOL D — Sender Platform Outage (e.g. Instantly down)
+## PROTOCOL D - Sender Platform Outage (e.g. Instantly down)
 
 ### Immediate (first 30 minutes)
 
 1. **Verify it's a platform issue:** check status page (status.instantly.ai), Twitter mentions
 2. **Identify scope:** which clients affected
 3. **Notify Harry** with: confirmed outage, expected duration if known, affected clients
-4. **Do NOT switch to backup tool reactively** — most outages resolve in <2 hours and switching causes more harm
+4. **Do NOT switch to backup tool reactively** - most outages resolve in <2 hours and switching causes more harm
 
 ### During outage
 
@@ -282,14 +282,14 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 6. **If outage >4 hours** → notify affected clients with:
 
 ```
-Subject: [Heads-up] Brief Instantly outage — campaigns paused
+Subject: [Heads-up] Brief Instantly outage - campaigns paused
 
 {{firstName}},
 
 Quick note: Instantly is experiencing a brief outage. Campaigns are paused while the platform comes back up.
 
 Expected resolution: {{from status page}}
-Replies in your inbox are unaffected — they keep coming through as normal.
+Replies in your inbox are unaffected - they keep coming through as normal.
 
 I'll send an update once resolved.
 
@@ -304,15 +304,15 @@ Harry
 
 ---
 
-## PROTOCOL E — Client Data Exposure / GDPR Breach
+## PROTOCOL E - Client Data Exposure / GDPR Breach
 
-### CRITICAL — escalate immediately
+### CRITICAL - escalate immediately
 
 1. **Stop all sends** from affected client immediately
-2. **Notify Harry within 5 minutes** — no other notifications until Harry reviews
+2. **Notify Harry within 5 minutes** - no other notifications until Harry reviews
 3. **Do NOT notify the client** until Harry has assessed legal posture
 4. **Preserve evidence:** screenshots, access logs, the exposed data itself
-5. **Do not attempt to "fix"** by deleting data — preserve for legal
+5. **Do not attempt to "fix"** by deleting data - preserve for legal
 
 ### Within 1 hour
 
@@ -336,7 +336,7 @@ Required. Comprehensive. May involve legal counsel. Stored separately from norma
 
 ---
 
-## PROTOCOL F — Other Incident
+## PROTOCOL F - Other Incident
 
 Use this when the type doesn't match A-E. Template:
 
@@ -363,13 +363,13 @@ Use this when the type doesn't match A-E. Template:
 
 ## EXAMPLES
 
-### Example — domain blacklisted
+### Example - domain blacklisted
 
 ```
 Harry: Incident: {{SENDING_DOMAIN}} just appeared on Spamhaus
 
 Claude:
-=== INCIDENT — Severity Critical ===
+=== INCIDENT - Severity Critical ===
 Protocol A activated.
 
 Immediate actions taken:
@@ -381,7 +381,7 @@ Immediate actions taken:
 Diagnosis (preliminary):
 - Bounce rate spiked to 5.8% in last 48h (was 1.2% prior)
 - Recent change: lead list refresh on 2026-05-27
-- Likely root cause: list quality regression — bad enrichment source
+- Likely root cause: list quality regression - bad enrichment source
 
 Next actions:
 1. Submit Spamhaus removal request (you confirm)
@@ -400,7 +400,7 @@ Confirm Harry to proceed with each step.
 
 For Protocols A (blacklist) and D (platform outage), spawn a general-purpose sub-agent for external fact lookups. See wiki/_subagent-patterns.md Pattern 2.
 
-### Protocol A — blacklist lookup
+### Protocol A - blacklist lookup
 
 Spawn sub-agent with prompt:
 ```
@@ -408,12 +408,12 @@ Look up current status of {{domain}} on the following blacklists: Spamhaus ZEN, 
 
 For each: report listing status (LISTED / CLEAN) and, if listed, the exact removal procedure and expected timeline.
 
-Use public lookup tools (MXToolbox blacklist check, MultiRBL, individual blacklist sites). Do NOT submit removal requests — just gather information.
+Use public lookup tools (MXToolbox blacklist check, MultiRBL, individual blacklist sites). Do NOT submit removal requests - just gather information.
 
 Return as a table.
 ```
 
-### Protocol D — platform outage
+### Protocol D - platform outage
 
 Spawn sub-agent with prompt:
 ```

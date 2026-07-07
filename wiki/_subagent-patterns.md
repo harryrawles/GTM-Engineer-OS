@@ -20,17 +20,17 @@ How skills use Claude Code's `Agent` tool to spawn isolated agents for specific 
 
 | Use case | Why not |
 |----------|---------|
-| Pulling current Instantly campaign metrics | Call the Instantly API directly (`.claude/bin/instantly.sh`) — a sub-agent adds latency for no benefit |
-| Writing the actual email copy | Main thread has all the client context — sub-agent would have to reload it all |
+| Pulling current Instantly campaign metrics | Call the Instantly API directly (`.claude/bin/instantly.sh`) - a sub-agent adds latency for no benefit |
+| Writing the actual email copy | Main thread has all the client context - sub-agent would have to reload it all |
 | Logging to OS files | Main thread should own writes for atomicity |
 | Routine reply categorisation | Pattern matching, doesn't benefit from fresh eyes |
-| Quick clarification questions to Harry | Conversational — sub-agents can't do back-and-forth with Harry |
+| Quick clarification questions to Harry | Conversational - sub-agents can't do back-and-forth with Harry |
 
 ---
 
 ## Standard sub-agent invocation pattern
 
-### Pattern 1 — Read-only research (`Explore` agent)
+### Pattern 1 - Read-only research (`Explore` agent)
 
 ```
 Spawn Explore agent with:
@@ -42,7 +42,7 @@ Returns: structured findings.
 
 **Always tell the Explore agent:** what to search for, where to look, what format to return. It cannot ask follow-up questions.
 
-### Pattern 2 — General-purpose research (`general-purpose` agent)
+### Pattern 2 - General-purpose research (`general-purpose` agent)
 
 ```
 Spawn general-purpose agent with:
@@ -54,7 +54,7 @@ Returns: detailed analysis or research output.
 
 Use when the task needs more than just reading files (e.g. WebFetch, multi-step lookup).
 
-### Pattern 3 — Code review (`code-reviewer` agent)
+### Pattern 3 - Code review (`code-reviewer` agent)
 
 ```
 Spawn code-reviewer agent with:
@@ -82,11 +82,11 @@ Use for any non-trivial code or script that lands in the OS.
 
 The single biggest failure mode is under-briefing the sub-agent. It has no context from the main session. Always pass:
 
-1. **The specific task** — what you want it to produce
-2. **The relevant inputs** — files to read, data to evaluate
-3. **The output format** — exactly what shape the return should take
-4. **The constraints** — what it should NOT do (e.g. "do not invent claims not in offer.md")
-5. **The success criterion** — how it knows when it's done
+1. **The specific task** - what you want it to produce
+2. **The relevant inputs** - files to read, data to evaluate
+3. **The output format** - exactly what shape the return should take
+4. **The constraints** - what it should NOT do (e.g. "do not invent claims not in offer.md")
+5. **The success criterion** - how it knows when it's done
 
 Bad prompt: `"Review this copy."`
 Good prompt: `"Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then review the email below against (a) banned words list, (b) approved claims list, (c) word count rules for the recipient register, and (d) voice tone. Return a structured list: PASS items and FAIL items. Do NOT rewrite the copy. Do NOT suggest alternatives. Just flag failures."`
@@ -99,7 +99,7 @@ Good prompt: `"Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then re
 |-------|---------------|-----------|---------|
 | `cold-email-writer.md` | After draft, before final output | `Explore` | Fresh-eyes QA against voice + offer rules |
 | `incident-responder.md` | During Protocol A (blacklist) and D (outage) | `general-purpose` | External fact lookup (blacklist status, platform status) |
-| `weekly-reviewer.md` | During Step 7 (synthesis) | `general-purpose` | Optional — research industry-wide trends if pattern is unclear |
+| `weekly-reviewer.md` | During Step 7 (synthesis) | `general-purpose` | Optional - research industry-wide trends if pattern is unclear |
 | `fresh-eyes-reviewer.md` | The skill itself IS the sub-agent invocation | `Explore` | Explicit manual request for review |
 
 ---
@@ -107,5 +107,5 @@ Good prompt: `"Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then re
 ## Source
 
 Synthesised from:
-- ColdIQ frameworks docs (https://ivangfalco.github.io/claude-code-frameworks/) — sub-agent pattern section
+- ColdIQ frameworks docs (https://ivangfalco.github.io/claude-code-frameworks/) - sub-agent pattern section
 - Claude Code Agent tool documentation

@@ -1,4 +1,4 @@
-# Index — GTM Engineer OS (Multi-Client)
+# Index - GTM Engineer OS (Multi-Client)
 
 Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); this is the map.
 
@@ -6,9 +6,9 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 
 | File | When to use |
 |------|------------|
-| gtm-skills/chain-build-campaign.md | "Build a campaign" — smart-routes through 4-7 skills with conditional skipping |
-| gtm-skills/chain-diagnose-campaign.md | "Diagnose [campaign]" — primary diagnostic + routes to right specialist |
-| gtm-skills/chain-weekly-review-full.md | "Friday review for [client]" — end-to-end weekly compounding loop |
+| gtm-skills/chain-build-campaign.md | "Build a campaign" - smart-routes through 4-7 skills with conditional skipping |
+| gtm-skills/chain-diagnose-campaign.md | "Diagnose [campaign]" - primary diagnostic + routes to right specialist |
+| gtm-skills/chain-weekly-review-full.md | "Friday review for [client]" - end-to-end weekly compounding loop |
 
 ## Quick Links
 
@@ -25,17 +25,17 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | Path | What it contains |
 |------|----------------|
 | clients/{slug}/ | One isolated folder per client (created from the template). Git-tracked EXCEPT `secrets/`. |
-| clients/{slug}/secrets/ | GIT-IGNORED — this client's Instantly API key, workspace id/url. Never committed. |
+| clients/{slug}/secrets/ | GIT-IGNORED - this client's Instantly API key, workspace id/url. Never committed. |
 | clients/_archived/ | Offboarded clients (skipped by portfolio sweeps). Created on first offboard. |
 | _state/active-client | Git-ignored pointer to the current active client slug. |
 | templates/client-template/ | The skeleton every new client is copied from (run `client-onboarder`). |
 
-## Per-Client Context — files inside each `clients/{slug}/`
+## Per-Client Context - files inside each `clients/{slug}/`
 
 | File | What it contains |
 |------|----------------|
-| _config.md | Central config (slug, tier, industry, Instantly workspace) — referenced by other files |
-| MEMORY.md | Always-loaded scratchpad — current focus, watch-outs, client preferences |
+| _config.md | Central config (slug, tier, industry, Instantly workspace) - referenced by other files |
+| MEMORY.md | Always-loaded scratchpad - current focus, watch-outs, client preferences |
 | session-log.md | Per-client invocation log. Powers pattern-detector. Auto-written by every skill. |
 | overview.md | Identity, contract, SLA, success criteria |
 | icp.md | Target ICP, signal priority, lead filters, avoid list, DM mapping |
@@ -48,23 +48,23 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | copy-library.md | Top performers + graveyard for this client |
 | test-log.md | Split test history |
 
-## Shared Layer — folders available to every client
+## Shared Layer - folders available to every client
 
 | Path | What it contains |
 |------|----------------|
 | gtm-skills/ | Skill + chain definitions, pattern-detector, skill-forge |
 | wiki/ | Shared knowledge base (see below) |
-| frameworks/ | Strategic frameworks & mental models — index in `frameworks/README.md`; also the promotion destination for de-identified learnings |
+| frameworks/ | Strategic frameworks & mental models - index in `frameworks/README.md`; also the promotion destination for de-identified learnings |
 | sops/ | Standard operating procedures. `sops/instantly-api.md` = how the OS calls each client's Instantly workspace via the API wrapper `.claude/bin/instantly.sh` (per-client keys, read/write gating). Add more runbooks over time (`sops/README.md`). |
 | best-practices/ | Best-practice references & checklists |
-| best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) — start-points for any client's campaign |
+| best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) - start-points for any client's campaign |
 | templates/ | Reusable output templates + `client-template/` skeleton |
 
-## Shared Knowledge — Copywriting
+## Shared Knowledge - Copywriting
 
 | File | What it contains |
 |------|----------------|
-| wiki/_skill-context.md | Standard skill preamble (every skill loads this — includes active-client resolution) |
+| wiki/_skill-context.md | Standard skill preamble (every skill loads this - includes active-client resolution) |
 | wiki/copywriting-101.md | Canonical rules + 4-part formula + sequence structure |
 | wiki/copywriting-frameworks.md | 13 alternative named frameworks + ColdIQ playbook |
 | wiki/first-principles-client-acquisition.md | Meta-framework: Human+Stimulus=Action, Stimuli vs Fundamentals, Stimuli Entropy, Multi-Disciplinary Thinking, mental models toolkit |
@@ -80,7 +80,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/atl-btl-messaging.md | VP/C-Level vs Manager/IC messaging |
 | wiki/objection-library.md | Top 15 objections with response templates |
 
-## Shared Knowledge — Strategy and Sourcing
+## Shared Knowledge - Strategy and Sourcing
 
 | File | What it contains |
 |------|----------------|
@@ -91,7 +91,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/industry-vernacular.md | Language guides per industry |
 | wiki/inbound-orchestration.md | Detecting and activating inbound signals before cold outreach |
 
-## Shared Knowledge — Operations and Reference
+## Shared Knowledge - Operations and Reference
 
 | File | What it contains |
 |------|----------------|
@@ -101,7 +101,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/diagrams.md | Mermaid flowcharts of OS workflows |
 | wiki/_subagent-patterns.md | When and how skills spawn isolated sub-agents |
 
-## Skills — Setup and Cadence
+## Skills - Setup and Cadence
 
 | File | When to use |
 |------|------------|
@@ -111,21 +111,21 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/weekly-reviewer.md | **Run every Friday** (per client or portfolio). Compounding loop. |
 | gtm-skills/client-health-scorer.md | Monday portfolio health check + at-risk flagging |
 | gtm-skills/pre-launch-check.md | Gate against unresolved placeholders |
-| gtm-skills/test-readiness-check.md | Pre-test gate — validates a Queued test against Step 1 of the scientific method before launching |
+| gtm-skills/test-readiness-check.md | Pre-test gate - validates a Queued test against Step 1 of the scientific method before launching |
 
-## Skills — Copy and Campaigns
+## Skills - Copy and Campaigns
 
 | File | When to use |
 |------|------------|
-| gtm-skills/chain-build-campaign.md | **Use this for full-cycle campaign builds** — smart-routes through up to 7 skills |
-| gtm-skills/chain-diagnose-campaign.md | **Use this for performance diagnostics** — routes to right specialist |
+| gtm-skills/chain-build-campaign.md | **Use this for full-cycle campaign builds** - smart-routes through up to 7 skills |
+| gtm-skills/chain-diagnose-campaign.md | **Use this for performance diagnostics** - routes to right specialist |
 | gtm-skills/cold-email-writer.md | Writing new email sequences (invoked inside chain-build-campaign) |
 | gtm-skills/campaign-launcher.md | Pre-flight checklist before launch (invoked inside chain-build-campaign) |
 | gtm-skills/campaign-optimiser.md | Diagnose underperforming campaigns (invoked inside chain-diagnose-campaign) |
 | gtm-skills/campaign-analyst.md | Performance analysis |
 | gtm-skills/test-launcher.md | Fire the next queued split test (invoked inside chains) |
 
-## Skills — Strategy and Sourcing
+## Skills - Strategy and Sourcing
 
 | File | When to use |
 |------|------------|
@@ -134,7 +134,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/list-builder.md | ICP scoring, ABM tiers, list hygiene |
 | gtm-skills/icp-builder.md | Building or refining ICP |
 
-## Skills — Operations and Crises
+## Skills - Operations and Crises
 
 | File | When to use |
 |------|------------|
@@ -145,12 +145,12 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/inbound-activator.md | Detect inbound signal → enrich → qualify → activate outbound |
 | gtm-skills/fresh-eyes-reviewer.md | Spawn independent sub-agent for unbiased QA on any artefact |
 
-## Skills — Reporting and Relationship
+## Skills - Reporting and Relationship
 
 | File | When to use |
 |------|------------|
 | gtm-skills/client-report-writer.md | Weekly client performance reports |
-| gtm-skills/eod-report-writer.md | Daily end-of-day report (portfolio-wide) — MOVED / BLOCKED / NEXT, posted to team Slack |
+| gtm-skills/eod-report-writer.md | Daily end-of-day report (portfolio-wide) - MOVED / BLOCKED / NEXT, posted to team Slack |
 | gtm-skills/qbr-writer.md | Quarterly Business Reviews |
 | gtm-skills/client-offboarder.md | End-of-engagement workflow (archives the client folder, promotes abstracted learnings) |
 
@@ -172,7 +172,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | tests/ci/check-links.sh | CI: every referenced `.md` path resolves (link integrity) |
 | tests/ci/check-secrets.sh | CI: no tracked secrets, credentials, or key material |
 | tests/ci/test-safety-guard.sh | CI: safety-guard block/allow matrix |
-| .github/workflows/ci.yml | CI runner — shellcheck + the three checks above, on every push/PR |
+| .github/workflows/ci.yml | CI runner - shellcheck + the three checks above, on every push/PR |
 
 ## Raw Inputs
 

@@ -1,14 +1,14 @@
-# Playbook: Home Services — Google Reviews & Local Visibility
+# Playbook: Home Services - Google Reviews & Local Visibility
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling review management,
-local SEO, or reputation tools to home-service / trades businesses — led by **analysis and pattern
+local SEO, or reputation tools to home-service / trades businesses - led by **analysis and pattern
 recognition** and small practical wins, not an upfront pitch.
-**Origin:** Abstracted from a reviews/local-visibility campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a reviews/local-visibility campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. If you claim to have "reviewed hundreds of businesses" or run an audit, that work must be real —
+> Claims*. If you claim to have "reviewed hundreds of businesses" or run an audit, that work must be real -
 > and if Angle 4 offers a business-specific audit, actually run it before sending. Swap `{{AUDIT_TOOL}}` for
 > the client's real tool. Keep the opt-out line. Never carry one client's specifics into another.
 
@@ -17,7 +17,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Start value-first conversations with home-service businesses by showing how reviews actually influence local
-visibility and bookings, and offering **simple, practical ways to improve ratings over time** — without
+visibility and bookings, and offering **simple, practical ways to improve ratings over time** - without
 selling upfront.
 
 ## Ideal Customer Profile (ICP)
@@ -55,10 +55,10 @@ selling upfront.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{firstname}}`, `{{SendingAccountFirstName}}`).
+Merge fields are Instantly variables - keep them as-is (`{{firstname}}`, `{{SendingAccountFirstName}}`).
 `{{AUDIT_TOOL}}` = the client's real audit/reputation tool. Pick the angle that fits the target.
 
-### Angle 1 — Ratings Influence Audit
+### Angle 1 - Ratings Influence Audit
 
 ```
 Hi {{firstname}},
@@ -75,7 +75,7 @@ Want me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Trades Review Patterns
+### Angle 2 - Trades Review Patterns
 
 ```
 Hi {{firstname}},
@@ -92,7 +92,7 @@ Would you like me to share it?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Checklist + Homeowner Choice
+### Angle 3 - Checklist + Homeowner Choice
 
 ```
 Hi {{firstname}},
@@ -109,7 +109,7 @@ Want me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 4 — Business-Specific Review Audit
+### Angle 4 - Business-Specific Review Audit
 
 ```
 Hi {{firstname}},
@@ -134,7 +134,7 @@ Not relevant? Just let me know.
 - Focuses on booking impact, not just star count
 - Simple actions teams can implement immediately
 - Competitive benchmarking included
-- No pitch — just insight
+- No pitch - just insight
 
 ## When to Use This Playbook
 
@@ -155,7 +155,7 @@ Not relevant? Just let me know.
 
 - [ ] `{{firstname}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped
 - [ ] `{{AUDIT_TOOL}}` → the client's real audit/reputation tool (`offer.md`)
-- [ ] "Reviewed hundreds of businesses" / audit claims are real — and for Angle 4, the business-specific audit is actually run before sending
+- [ ] "Reviewed hundreds of businesses" / audit claims are real - and for Angle 4, the business-specific audit is actually run before sending
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims
 - [ ] Keep the opt-out line
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`

@@ -25,7 +25,7 @@ writes:
   - "clients/{slug}/MEMORY.md (active focus update)"
 ---
 
-# Skill: Chain — Build Campaign
+# Skill: Chain - Build Campaign
 
 **Trigger:** "Build a campaign", "Run /build-campaign", "Build the [signal] campaign for [client]", "Build [client] [signal] campaign"
 
@@ -34,7 +34,7 @@ writes:
 **Why this exists:** running each skill individually for a full-cycle campaign means 6+ explicit invocations and manual context-passing between them. This chain assesses what is missing, invokes only those skills, and threads context through automatically without sacrificing operator visibility (you can pause and edit between stages).
 
 This chain is the cold-email channel's answer to the general 7-step build process in
-`wiki/system-design-process.md` — see that file's Section 8 for exactly which sub-skill answers which
+`wiki/system-design-process.md` - see that file's Section 8 for exactly which sub-skill answers which
 step. Building a second channel for a client (LinkedIn, ads, organic) means re-deriving that same table
 from scratch for the new channel.
 
@@ -45,25 +45,25 @@ from scratch for the new channel.
 See `wiki/_skill-context.md` and `wiki/_subagent-patterns.md`.
 
 Before building, check `best-practices/playbooks/` for a reusable playbook matching the active client's
-offer/angle (e.g. funding). If one fits, start the campaign from its structure and adapt it to the client —
+offer/angle (e.g. funding). If one fits, start the campaign from its structure and adapt it to the client -
 fill placeholders from `clients/{slug}/` and use only Approved Claims from `voice.md`. Never drop playbook
 copy in verbatim.
 
 ---
 
-## STEP 0 — Assess State (always)
+## STEP 0 - Assess State (always)
 
 **Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-build-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows. Without this step, `gtm-skills/pattern-detector.md` cannot find repeating prompts.
 
 Then read the following and produce an assessment:
 
-- `clients/{slug}/_config.md` — client identity
-- `clients/{slug}/MEMORY.md` — current focus, active inbound, watch-outs
-- `clients/{slug}/icp.md` — does the ICP look complete and current?
-- `clients/{slug}/offer.md` — does the offer look complete and current?
-- `clients/{slug}/campaign-state.md` — what is active, what is paused, what has been tried
-- `clients/{slug}/copy-library.md` — do we have prior winners on the proposed signal?
-- `clients/{slug}/test-log.md` — any active tests on this campaign that would conflict?
+- `clients/{slug}/_config.md` - client identity
+- `clients/{slug}/MEMORY.md` - current focus, active inbound, watch-outs
+- `clients/{slug}/icp.md` - does the ICP look complete and current?
+- `clients/{slug}/offer.md` - does the offer look complete and current?
+- `clients/{slug}/campaign-state.md` - what is active, what is paused, what has been tried
+- `clients/{slug}/copy-library.md` - do we have prior winners on the proposed signal?
+- `clients/{slug}/test-log.md` - any active tests on this campaign that would conflict?
 
 Also clarify intent with Harry if not already stated:
 - **Signal:** what triggers this campaign? (e.g. hiring, funding, champion job change)
@@ -101,13 +101,13 @@ Then produce a **chain plan** as the next output. Always show the chain plan fir
 - Harry has not asked for a custom personalisation approach
 
 ### NEVER skip:
-- Step 5 (cold-email-writer) — the core artefact
-- Step 6 (pre-launch-check) — the placeholder gate
-- Step 7 (campaign-launcher) — the launch gate
+- Step 5 (cold-email-writer) - the core artefact
+- Step 6 (pre-launch-check) - the placeholder gate
+- Step 7 (campaign-launcher) - the launch gate
 
 ---
 
-## STEP 1 — ICP Refinement (conditional)
+## STEP 1 - ICP Refinement (conditional)
 
 If required: invoke `gtm-skills/icp-builder.md`.
 
@@ -117,7 +117,7 @@ If required: invoke `gtm-skills/icp-builder.md`.
 
 ---
 
-## STEP 2 — Lead List (conditional)
+## STEP 2 - Lead List (conditional)
 
 If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or current `clients/{slug}/icp.md` if Step 1 skipped).
 
@@ -127,7 +127,7 @@ If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or cu
 
 ---
 
-## STEP 3 — Signal Strategy (conditional)
+## STEP 3 - Signal Strategy (conditional)
 
 If required: invoke `gtm-skills/signal-sourcer.md`.
 
@@ -137,7 +137,7 @@ If required: invoke `gtm-skills/signal-sourcer.md`.
 
 ---
 
-## STEP 4 — Personalisation Tier (conditional)
+## STEP 4 - Personalisation Tier (conditional)
 
 If required: invoke `gtm-skills/personalization-strategist.md`.
 
@@ -147,7 +147,7 @@ If required: invoke `gtm-skills/personalization-strategist.md`.
 
 ---
 
-## STEP 5 — Write Copy (always)
+## STEP 5 - Write Copy (always)
 
 Invoke `gtm-skills/cold-email-writer.md` with all gathered context:
 - Signal from Step 3 (or current state)
@@ -162,18 +162,18 @@ Invoke `gtm-skills/cold-email-writer.md` with all gathered context:
 
 ---
 
-## STEP 6 — Pre-Launch Check (always)
+## STEP 6 - Pre-Launch Check (always)
 
 Invoke `gtm-skills/pre-launch-check.md`. This is the placeholder gate.
 
 - If READY: proceed to Step 7.
 - If NOT READY: stop, output gaps, return to relevant prior step.
 
-This step does not pause for Harry's approval — it auto-proceeds on READY and auto-blocks on NOT READY.
+This step does not pause for Harry's approval - it auto-proceeds on READY and auto-blocks on NOT READY.
 
 ---
 
-## STEP 7 — Launch (always)
+## STEP 7 - Launch (always)
 
 Invoke `gtm-skills/campaign-launcher.md`. Full 10-category pre-flight checklist.
 

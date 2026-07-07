@@ -5,10 +5,10 @@
 **Context:** Personalisation is the difference between 6% and 22% reply rate. Over-personalisation kills scale. This skill picks the right tier of personalisation, sources the right data bucket, and writes the prompts.
 
 **Read before responding:**
-- `wiki/personalization-at-scale.md` — 6 buckets, hook types, playbooks by category, 6 AI prompts
-- `clients/{slug}/icp.md` — to know who is being personalised to
-- `clients/{slug}/offer.md` — to know what the personalisation should connect to
-- `wiki/atl-btl-messaging.md` — for register-appropriate personalisation
+- `wiki/personalization-at-scale.md` - 6 buckets, hook types, playbooks by category, 6 AI prompts
+- `clients/{slug}/icp.md` - to know who is being personalised to
+- `clients/{slug}/offer.md` - to know what the personalisation should connect to
+- `wiki/atl-btl-messaging.md` - for register-appropriate personalisation
 
 ---
 
@@ -24,7 +24,7 @@
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -33,8 +33,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -42,7 +42,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Should We Personalise?
+## STEP 1 - Should We Personalise?
 
 Decision matrix from `wiki/personalization-at-scale.md`:
 
@@ -58,19 +58,19 @@ If skipping personalisation: use **No Personalisation Playbook** in `wiki/person
 
 ---
 
-## STEP 2 — Pick the Bucket
+## STEP 2 - Pick the Bucket
 
 Read the 6 buckets in `wiki/personalization-at-scale.md`. Choose by:
 
-1. **What data is reliably available?** (Bucket 6 — company level — scales infinitely)
-2. **What is most valuable for this persona?** (Bucket 1 — self-authored content — for thought-leader prospects)
-3. **What will not feel creepy?** (Avoid Bucket 4 — junk drawer — unless rapport is the entire goal)
+1. **What data is reliably available?** (Bucket 6 - company level - scales infinitely)
+2. **What is most valuable for this persona?** (Bucket 1 - self-authored content - for thought-leader prospects)
+3. **What will not feel creepy?** (Avoid Bucket 4 - junk drawer - unless rapport is the entire goal)
 
 Default order to try: **Bucket 6 → Bucket 3 → Bucket 1 → Bucket 2 → Bucket 5 → Bucket 4**.
 
 ---
 
-## STEP 3 — Strong Hook or Lite Hook?
+## STEP 3 - Strong Hook or Lite Hook?
 
 | Situation | Hook | Effort |
 |-----------|------|--------|
@@ -82,7 +82,7 @@ Default order to try: **Bucket 6 → Bucket 3 → Bucket 1 → Bucket 2 → Buck
 
 ---
 
-## STEP 4 — Write the Prompt
+## STEP 4 - Write the Prompt
 
 Use the 6 ready-to-deploy AI prompts in `wiki/personalization-at-scale.md`:
 

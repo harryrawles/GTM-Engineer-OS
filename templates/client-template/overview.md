@@ -1,4 +1,4 @@
-# Client Overview — {{CLIENT_NAME}}
+# Client Overview - {{CLIENT_NAME}}
 
 ## Identity
 
@@ -70,7 +70,7 @@ Defined targets. Used by `gtm-skills/client-health-scorer.md` to score performan
 ## Context Notes
 
 {{Any additional context Harry needs to manage this account well. Quirks, sensitivities, preferences, things they care about beyond metrics. Examples:
-- Primary contact is data-driven — always cite specific numbers
+- Primary contact is data-driven - always cite specific numbers
 - They are sensitive about [X] because of past experience
 - They prefer async Slack over calls
 - They have a strong opinion on [topic]

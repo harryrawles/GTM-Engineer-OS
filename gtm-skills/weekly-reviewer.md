@@ -2,39 +2,39 @@
 
 **Trigger:** "Run weekly review for {{client}}", "Weekly sweep", "Run weekly review for all clients", "End of week review", "Friday review"
 
-**Context:** The compounding loop of the OS. Without this skill running consistently, `clients/{slug}/copy-library.md`, `clients/{slug}/test-log.md`, and `clients/{slug}/decision-log.md` stay empty — meaning every campaign starts from scratch. It is also where **Confirmed** learnings get abstracted, de-identified, and promoted up into the shared layer (Step 8) so a lesson learned on one client improves the OS for *all* clients. **This is the single most important recurring skill in the OS.**
+**Context:** The compounding loop of the OS. Without this skill running consistently, `clients/{slug}/copy-library.md`, `clients/{slug}/test-log.md`, and `clients/{slug}/decision-log.md` stay empty - meaning every campaign starts from scratch. It is also where **Confirmed** learnings get abstracted, de-identified, and promoted up into the shared layer (Step 8) so a lesson learned on one client improves the OS for *all* clients. **This is the single most important recurring skill in the OS.**
 
 **Cadence:** every Friday afternoon (or first thing Monday). Skipping a week is fine. Skipping a month means the compounding effect is dead.
 
 **Two modes:**
-- **Single client:** "Run weekly review for {{client}}" — full deep review of one client (~15-20 min)
-- **Batch / portfolio:** "Run weekly review for all clients" — sweeps every client OS, surfaces portfolio summary, then runs the deep review on flagged accounts
+- **Single client:** "Run weekly review for {{client}}" - full deep review of one client (~15-20 min)
+- **Batch / portfolio:** "Run weekly review for all clients" - sweeps every client OS, surfaces portfolio summary, then runs the deep review on flagged accounts
 
 ---
 
 ## READS
 
-- Instantly API (via `.claude/bin/instantly.sh`) — last 7 days per campaign per client
-- `clients/{slug}/campaign-state.md` — current campaign list and health
-- `clients/{slug}/icp.md` — to check signal alignment
-- `clients/{slug}/copy-library.md` — prior winners (do not re-log)
-- `clients/{slug}/test-log.md` — currently running tests
-- `wiki/signal-sourcing.md` — signal performance benchmarks
-- `wiki/email-benchmarks.md` — what good looks like
-- `clients/{slug}/decision-log.md` — prior decision rationale (read for context)
+- Instantly API (via `.claude/bin/instantly.sh`) - last 7 days per campaign per client
+- `clients/{slug}/campaign-state.md` - current campaign list and health
+- `clients/{slug}/icp.md` - to check signal alignment
+- `clients/{slug}/copy-library.md` - prior winners (do not re-log)
+- `clients/{slug}/test-log.md` - currently running tests
+- `wiki/signal-sourcing.md` - signal performance benchmarks
+- `wiki/email-benchmarks.md` - what good looks like
+- `clients/{slug}/decision-log.md` - prior decision rationale (read for context)
 
 ## WRITES (now includes the canonical scientific-method discipline)
 
-- `clients/{slug}/copy-library.md` — new winners (with why-it-worked notes)
-- `clients/{slug}/copy-library.md` graveyard section — new losers
-- `clients/{slug}/decision-log.md` — rationale for every winner logged
-- `clients/{slug}/test-log.md` — completed test results, next test queued
-- `clients/{slug}/campaign-state.md` — refreshed health rating per campaign
-- **Shared layer — Step 8, DE-IDENTIFIED ONLY, and only on `Confirmed` patterns:** `best-practices/` (won copy *structures* + graveyard *anti-patterns*), `frameworks/` (strategic mental models), or `wiki/objection-library.md` (reusable objections). Never a client's raw copy, numbers, or named prospects.
+- `clients/{slug}/copy-library.md` - new winners (with why-it-worked notes)
+- `clients/{slug}/copy-library.md` graveyard section - new losers
+- `clients/{slug}/decision-log.md` - rationale for every winner logged
+- `clients/{slug}/test-log.md` - completed test results, next test queued
+- `clients/{slug}/campaign-state.md` - refreshed health rating per campaign
+- **Shared layer - Step 8, DE-IDENTIFIED ONLY, and only on `Confirmed` patterns:** `best-practices/` (won copy *structures* + graveyard *anti-patterns*), `frameworks/` (strategic mental models), or `wiki/objection-library.md` (reusable objections). Never a client's raw copy, numbers, or named prospects.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -43,8 +43,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -59,7 +59,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 Before running any review, determine which mode applies:
 
-**Quick-review (default — Friday triage pass):**
+**Quick-review (default - Friday triage pass):**
 - Use when: routine Friday sweep across all clients
 - Time: ~2 min per client
 - Escalates automatically to full review if any triage gate fires
@@ -72,11 +72,11 @@ The portfolio triage pattern: run quick-review on every client first, collect th
 
 ---
 
-## QUICK-REVIEW MODE — Triage Pass
+## QUICK-REVIEW MODE - Triage Pass
 
 **Trigger:** "Quick review for {{client}}", "Triage {{client}}", or called from portfolio triage in `gtm-skills/chain-weekly-review-full.md`
 
-**Purpose:** 2-minute health stamp. Determines whether this client needs a full review this Friday. Does not log winners, diagnose losers, or analyse tests — it only checks whether those things need doing.
+**Purpose:** 2-minute health stamp. Determines whether this client needs a full review this Friday. Does not log winners, diagnose losers, or analyse tests - it only checks whether those things need doing.
 
 ### Pull data
 
@@ -86,31 +86,31 @@ Pull last 7 days from the Instantly API (via `.claude/bin/instantly.sh`). If it 
 
 | Gate | Check | Flag if... |
 |------|-------|------------|
-| G1 — Winner candidate | Any campaign PRR ≥ 1% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Top Performers |
-| G2 — Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Graveyard |
-| G3 — Test completing | Any Running test in `clients/{slug}/test-log.md` | Sample size hit AND latency window elapsed this week |
-| G4 — Signal declining | Any signal in `clients/{slug}/icp.md` signal table | PRR down 30%+ week-over-week |
+| G1 - Winner candidate | Any campaign PRR ≥ 1% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Top Performers |
+| G2 - Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Graveyard |
+| G3 - Test completing | Any Running test in `clients/{slug}/test-log.md` | Sample size hit AND latency window elapsed this week |
+| G4 - Signal declining | Any signal in `clients/{slug}/icp.md` signal table | PRR down 30%+ week-over-week |
 
 ### Output and routing
 
 **All four gates NO:**
 ```
-{{client_name}} — Green pass. PRR {{x}}%, {{n}} meetings. No action this Friday.
+{{client_name}} - Green pass. PRR {{x}}%, {{n}} meetings. No action this Friday.
 ```
 - Update health to Green in `clients/{slug}/campaign-state.md` (or preserve current rating if already higher)
 - Update `clients/{slug}/_config.md` `last_review_date` to today
 - Write session-log row (see below)
-- Done — move to next client
+- Done - move to next client
 
 **Any gate YES:**
 ```
-{{client_name}} — Flagged for full review.
-G1 Winner: [YES/NO] — [campaign name if yes]
-G2 Loser:  [YES/NO] — [campaign name if yes]
-G3 Test:   [YES/NO] — [T-ID if yes]
-G4 Signal: [YES/NO] — [signal name if yes]
+{{client_name}} - Flagged for full review.
+G1 Winner: [YES/NO] - [campaign name if yes]
+G2 Loser:  [YES/NO] - [campaign name if yes]
+G3 Test:   [YES/NO] - [T-ID if yes]
+G4 Signal: [YES/NO] - [signal name if yes]
 ```
-Escalate to SINGLE-CLIENT MODE — Full Flow below.
+Escalate to SINGLE-CLIENT MODE - Full Flow below.
 
 ### Session-log entry
 
@@ -121,9 +121,9 @@ Write one row to `clients/{slug}/session-log.md` Active Log:
 
 ---
 
-## SINGLE-CLIENT MODE — Full Flow
+## SINGLE-CLIENT MODE - Full Flow
 
-### Step 1 — Pull data from Instantly
+### Step 1 - Pull data from Instantly
 
 For the past 7 days, per campaign:
 - Sends, replies, positive reply rate (PRR), meetings booked
@@ -133,7 +133,7 @@ For the past 7 days, per campaign:
 
 If the Instantly API can't be reached (missing/invalid key) → ask Harry to paste the data. Continue from Step 2.
 
-### Step 2 — Surface signal performance trends
+### Step 2 - Surface signal performance trends
 
 For each active signal in `clients/{slug}/icp.md`:
 - 7-day PRR vs prior 7 days
@@ -146,19 +146,19 @@ Output a signal trends table:
 Signal           | 7-day PRR | Prior week | Trend  | Status
 ---------------- | --------- | ---------- | ------ | ------
 Hiring intent    | 2.3%      | 2.1%       | ↑ 10%  | Healthy
-Funding (Series A)| 0.6%      | 1.8%       | ↓ 67%  | DECLINING — flag
+Funding (Series A)| 0.6%      | 1.8%       | ↓ 67%  | DECLINING - flag
 Tech change      | 1.2%      | 1.1%       | ↔      | Stable
 ```
 
 If a signal is flagged: recommend either pause + iterate, or rotate in a new signal from `wiki/signal-sourcing.md`.
 
-### Step 3 — Identify winners (PRR ≥ 1%, sample ≥ 300 sends)
+### Step 3 - Identify winners (PRR ≥ 1%, sample ≥ 300 sends)
 
 For each campaign / variant hitting the winner threshold AND not already in `clients/{slug}/copy-library.md`:
 
 1. Output the candidate winner:
 ```
-WINNER CANDIDATE — {{campaign_name}} / Email {{n}}
+WINNER CANDIDATE - {{campaign_name}} / Email {{n}}
 - Sends: {{n}}
 - PRR: {{pct}}
 - Reply rate: {{pct}}
@@ -184,7 +184,7 @@ Subject: {{subject}}
 
 6. Confirm both writes to Harry.
 
-### Step 4 — Identify losers (PRR < 0.5%, sample ≥ 300 sends)
+### Step 4 - Identify losers (PRR < 0.5%, sample ≥ 300 sends)
 
 For each campaign / variant hitting the loser threshold AND not already in the graveyard:
 
@@ -193,7 +193,7 @@ For each campaign / variant hitting the loser threshold AND not already in the g
 3. Write to `clients/{slug}/copy-library.md` graveyard section with: variant name, signal, PRR, why it failed, what NOT to repeat.
 4. Write to `clients/{slug}/decision-log.md` capturing the lesson.
 
-### Step 5 — Update completed tests in `clients/{slug}/test-log.md` (apply scientific method)
+### Step 5 - Update completed tests in `clients/{slug}/test-log.md` (apply scientific method)
 
 For each test currently in "Running" status, run the **six-rule completion check** from `wiki/scientific-method.md` Step 3:
 
@@ -230,7 +230,7 @@ T-{{ID}} regression check: V(2) vs V(1)
 - V(1) PRR: 1.8%
 - V(2) PRR: 0.5%
 - Backtrack threshold: V(2) <50% of V(1) PRR
-- VERDICT: REGRESSED — recommend revert to V(1), iterate CTA next instead of Content
+- VERDICT: REGRESSED - recommend revert to V(1), iterate CTA next instead of Content
 ```
 
 #### Active-test awareness
@@ -246,7 +246,7 @@ For each test currently in "Running" status:
 If yes:
 1. Output the test result:
 ```
-TEST {{ID}} COMPLETE — {{variable_tested}}
+TEST {{ID}} COMPLETE - {{variable_tested}}
 Control:  {{name}} | Sends: {{n}} | PRR: {{pct}}
 Variant:  {{name}} | Sends: {{n}} | PRR: {{pct}}
 Winner: {{Control / Variant / Inconclusive}}
@@ -263,16 +263,16 @@ Winner: {{Control / Variant / Inconclusive}}
 
 5. Queue the recommended next test in `clients/{slug}/test-log.md` testing roadmap.
 
-### Step 6 — Update campaign health in `clients/{slug}/campaign-state.md`
+### Step 6 - Update campaign health in `clients/{slug}/campaign-state.md`
 
 For each active campaign, set health:
-- **Green** — PRR ≥ 1%, bounce < 2%, all sequence steps performing
-- **Amber** — PRR 0.5-1%, OR bounce 2-3%, OR signal declining
-- **Red** — PRR < 0.5%, OR bounce > 3%, OR warmup disabled
+- **Green** - PRR ≥ 1%, bounce < 2%, all sequence steps performing
+- **Amber** - PRR 0.5-1%, OR bounce 2-3%, OR signal declining
+- **Red** - PRR < 0.5%, OR bounce > 3%, OR warmup disabled
 
 Update the "current metrics" and "health" fields per campaign. Add a state note if anything changed materially.
 
-### Step 7 — Synthesise the Week's Insight
+### Step 7 - Synthesise the Week's Insight
 
 After all individual winners, losers, and tests are logged, zoom out and capture the meta-takeaway.
 
@@ -287,9 +287,9 @@ Then classify the pattern type:
 Format the entry as:
 
 ```
-### {{date}} — {{Pattern name in 6 words}}
+### {{date}} - {{Pattern name in 6 words}}
 
-**Observed:** {{What happened — specific data points across multiple entries}}
+**Observed:** {{What happened - specific data points across multiple entries}}
 **Sample size:** {{n campaigns / n decisions / n weeks supporting this}}
 **Implication:** {{What this tells us}}
 **Action:** {{What we change because of this}}
@@ -302,9 +302,9 @@ Format the entry as:
 - **Confirmed:** 6+ data points across 3+ weeks. Adopt as new default.
 
 
-### Sub-Agent — Optional Research Lookup
+### Sub-Agent - Optional Research Lookup
 
-If during synthesis the pattern is unclear (e.g. "PRR dropped — is this industry-wide or just us?"), spawn a general-purpose sub-agent for external research. See `wiki/_subagent-patterns.md` Pattern 2.
+If during synthesis the pattern is unclear (e.g. "PRR dropped - is this industry-wide or just us?"), spawn a general-purpose sub-agent for external research. See `wiki/_subagent-patterns.md` Pattern 2.
 
 Example prompt:
 ```
@@ -323,20 +323,20 @@ Cite sources.
 
 Use sub-agent here only when the synthesis genuinely requires external context. Most weeks the pattern is internal and the sub-agent isn't needed.
 
-**Skip rule:** if no pattern emerged this week, write to decision-log: `### {{date}} — No emergent pattern this week — continue current defaults`. Do NOT invent patterns from noise.
+**Skip rule:** if no pattern emerged this week, write to decision-log: `### {{date}} - No emergent pattern this week - continue current defaults`. Do NOT invent patterns from noise.
 
 This is the compounding step. Skipping it means individual entries pile up without ever connecting into insight.
 
 ---
-### Step 8 — Promote Generalisable Learnings to the Shared Layer
+### Step 8 - Promote Generalisable Learnings to the Shared Layer
 
 This is the **system-wide** half of the compounding loop (root `CLAUDE.md` → *The Compounding Loop*). Steps 3-7 compound *within* the client; this step lifts de-identified methodology *up* so every client benefits. Runs after the week's patterns are logged.
 
 **When it fires:** only for a pattern that reached **`Confirmed`** confidence in Step 7 (6+ data points across 3+ weeks). Tentative/Emerging patterns stay client-local until they mature. If nothing is Confirmed this week, skip this step and say so.
 
-**Isolation guardrail (critical — same rule as `gtm-skills/client-offboarder.md` STEP 3):** only promote **abstracted, generalisable patterns** — never a client's raw private data. Strip the client's specific numbers, named prospects, proof points, and verbatim copy. If a learning cannot be stated without the client's private data, it is NOT promotable — it stays in `clients/{slug}/`. See root `CLAUDE.md` → *Golden Rules* (no cross-client sharing of data, ever).
+**Isolation guardrail (critical - same rule as `gtm-skills/client-offboarder.md` STEP 3):** only promote **abstracted, generalisable patterns** - never a client's raw private data. Strip the client's specific numbers, named prospects, proof points, and verbatim copy. If a learning cannot be stated without the client's private data, it is NOT promotable - it stays in `clients/{slug}/`. See root `CLAUDE.md` → *Golden Rules* (no cross-client sharing of data, ever).
 
-**Flow — for each Confirmed pattern:**
+**Flow - for each Confirmed pattern:**
 
 1. Restate the pattern in **client-agnostic form** (the transferable lesson, not the client's exact email). Do not copy `copy-library.md` / `decision-log.md` entries verbatim.
 2. Classify the destination:
@@ -344,20 +344,20 @@ This is the **system-wide** half of the compounding loop (root `CLAUDE.md` → *
    - Graveyard **anti-pattern** (the structural mistake to avoid) → `best-practices/`.
    - Strategic **mental model** / signal-health / offer-framing / register insight → `frameworks/`.
    - Reusable **objection + response** → `wiki/objection-library.md`.
-3. Show Harry the exact de-identified text and target file. **Ask: "Promote this to `{path}`? (Y/N)"** Wait for confirmation (per the RULES below — never write without confirmation).
+3. Show Harry the exact de-identified text and target file. **Ask: "Promote this to `{path}`? (Y/N)"** Wait for confirmation (per the RULES below - never write without confirmation).
 4. On yes: write the abstracted entry to the target file. If a *new* shared file was created, add it to `INDEX.md`.
-5. Record the promotion in `clients/{slug}/decision-log.md` (one line: what was promoted, to where, on what date) for traceability — so the client folder shows what left it, without the shared file ever pointing back to the client.
+5. Record the promotion in `clients/{slug}/decision-log.md` (one line: what was promoted, to where, on what date) for traceability - so the client folder shows what left it, without the shared file ever pointing back to the client.
 
 **Output:**
 ```
-Step 8 — Shared-layer promotions this week: {{n}}
+Step 8 - Shared-layer promotions this week: {{n}}
 - "{{pattern name}}" → {{best-practices/frameworks/wiki path}} (de-identified) [pending Harry Y/N]
 ```
 
 If a promotion is declined, leave the learning in the client folder and note the decline in `decision-log.md`.
 
 ---
-### Step 9 — Hand off to client-report-writer
+### Step 9 - Hand off to client-report-writer
 
 Once all writes are confirmed, output:
 
@@ -382,27 +382,27 @@ If yes → invoke `gtm-skills/client-report-writer.md` using the data just analy
 
 Housekeeping so the compounding substrate stays clean:
 
-- **Prune the session log.** In `clients/{slug}/session-log.md`, move Active Log rows older than 90 days into the Archive table — including the deterministic `via:hook` backstop rows, which accrue one per prompt and are the fastest-growing entries. Never delete; archive only.
+- **Prune the session log.** In `clients/{slug}/session-log.md`, move Active Log rows older than 90 days into the Archive table - including the deterministic `via:hook` backstop rows, which accrue one per prompt and are the fastest-growing entries. Never delete; archive only.
 - **Refresh dates.** Set `clients/{slug}/_config.md` `last_review_date` to today.
 - **INDEX.** If Step 8 promoted a learning into a *new* shared file, confirm it is listed in `INDEX.md`.
 
-(The portfolio chain `gtm-skills/chain-weekly-review-full.md` performs the equivalent as its STEP 5 — Update OS Hygiene.)
+(The portfolio chain `gtm-skills/chain-weekly-review-full.md` performs the equivalent as its STEP 5 - Update OS Hygiene.)
 
 ---
 
-## BATCH MODE — Portfolio Sweep
+## BATCH MODE - Portfolio Sweep
 
 Triggered by "Run weekly review for all clients" or "Weekly portfolio sweep."
 
-This is the multi-client OS — no separate meta-OS repo is needed. The portfolio **is** the set of folders
+This is the multi-client OS - no separate meta-OS repo is needed. The portfolio **is** the set of folders
 under `clients/`.
 
 **How the client list is resolved:**
-- Enumerate every active folder in `clients/` — each is one client (its slug is the folder name). Skip any subfolder whose name starts with `_` or `.` (e.g. `clients/_archived/`).
+- Enumerate every active folder in `clients/` - each is one client (its slug is the folder name). Skip any subfolder whose name starts with `_` or `.` (e.g. `clients/_archived/`).
 - Run the sweep once per client, in **full isolation**: read/write only that client's `clients/{slug}/`
   files. Never carry one client's copy, ICP, or data into another's review.
 - Cross-client *patterns* (e.g. a winning Email 1 framework working across 3 clients) may be surfaced in
-  the aggregate summary as an observation — but never by copying one client's private data into another.
+  the aggregate summary as an observation - but never by copying one client's private data into another.
 
 **Total time guide:** ~15 min per client if run as full deep reviews; use Portfolio Triage first (quick
 one-line health per client, then deep-dive only flagged accounts) to keep the whole sweep to 2.5-4 hours.
@@ -415,13 +415,13 @@ For each client folder under `clients/` in sequence:
 1. Pull last 7 days of Instantly data
 2. Output a one-line health summary per client:
 ```
-{{client_name}} — PRR {{pct}} | {{n}} meetings | {{health}} | {{signal alert if any}}
+{{client_name}} - PRR {{pct}} | {{n}} meetings | {{health}} | {{signal alert if any}}
 ```
 3. Skip clients that are green and have no winners/losers to log
 
 Output the portfolio summary:
 ```
-=== Portfolio Weekly Sweep — Week ending {{date}} ===
+=== Portfolio Weekly Sweep - Week ending {{date}} ===
 
 | Client | Sends | PRR | Meetings | Health | Action |
 |--------|-------|-----|----------|--------|--------|
@@ -447,7 +447,7 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 - **Never invent metrics.** If the Instantly API fails or numbers are missing, ask Harry to paste them. Do not estimate.
 - **Sample size is non-negotiable.** Do not log a winner or loser with fewer than 300 sends per variant. Flag as "pending sample size" instead.
 - **Latency rule.** Do not call a test complete until 7 days post-send. Reply latency can rescue a "loser" verdict.
-- **Decision log is non-skippable for winners.** Every winner logged must have a why captured. Otherwise the OS does not compound — it just stores artefacts.
+- **Decision log is non-skippable for winners.** Every winner logged must have a why captured. Otherwise the OS does not compound - it just stores artefacts.
 - **Push back on vague "why" answers.** "It worked because the offer was good" is not a steal-worthy insight. Push for specifics: which phrase, which structure, which data point.
 - **Surface anomalies you do not understand.** If a campaign hit 4% PRR with no clear signal, flag it. Do not log a winner you cannot explain.
 - **Update INDEX.md if new wiki entries cause a structural change.** Otherwise leave it.
@@ -455,29 +455,29 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 
 ---
 
-## OUTPUT EXAMPLE — Single Client
+## OUTPUT EXAMPLE - Single Client
 
 ```
 Harry: Run weekly review for {{CLIENT_NAME}}
 
 Claude:
-=== Weekly Review — {{CLIENT_NAME}} — Week ending 2026-05-29 ===
+=== Weekly Review - {{CLIENT_NAME}} - Week ending 2026-05-29 ===
 
 Pulling Instantly data... done.
 
-[Step 2 — Signal trends]
+[Step 2 - Signal trends]
 
 Signal              | 7-day PRR | Prior week | Trend  | Status
 ------------------- | --------- | ---------- | ------ | ------
 Hiring intent       | 2.3%      | 2.1%       | ↑ 10%  | Healthy
-Funding (Series A)  | 0.6%      | 1.8%       | ↓ 67%  | DECLINING — flag
+Funding (Series A)  | 0.6%      | 1.8%       | ↓ 67%  | DECLINING - flag
 Tech change         | 1.2%      | 1.1%       | ↔      | Stable
 
 ⚠ Funding signal declining sharply. Recommend pausing and rotating in M&A or expansion signal from wiki/signal-sourcing.md. Discuss after winners logged.
 
-[Step 3 — Winner candidates]
+[Step 3 - Winner candidates]
 
-WINNER CANDIDATE — Hiring Signal v4 / Email 1
+WINNER CANDIDATE - Hiring Signal v4 / Email 1
 - Sends: 423
 - PRR: 2.4%
 - Reply rate: 5.1%
@@ -488,7 +488,7 @@ WINNER CANDIDATE — Hiring Signal v4 / Email 1
 Copy:
 Subject: hiring speed
 Saw you posted 5 senior eng roles in the last 30 days.
-I run engineering placement for 3 VC-backed SaaS teams — last quarter we got {{NAMED_PROOF_COMPANY}} fully staffed in 18 days and saved them $100k vs in-house recruiting.
+I run engineering placement for 3 VC-backed SaaS teams - last quarter we got {{NAMED_PROOF_COMPANY}} fully staffed in 18 days and saved them $100k vs in-house recruiting.
 Want me to send a sample shortlist?
 
 Log this as a winner?
@@ -498,7 +498,7 @@ Harry: Yes
 Claude:
 Why do you think this worked?
 
-Harry: The specific number (5 roles), the named client + $ saved, and the "send a sample shortlist" CTA — much lower friction than asking for a call.
+Harry: The specific number (5 roles), the named client + $ saved, and the "send a sample shortlist" CTA - much lower friction than asking for a call.
 
 Claude:
 What is the most stealable element?

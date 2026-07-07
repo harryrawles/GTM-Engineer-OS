@@ -1,6 +1,6 @@
 ---
 name: Client request
-about: A request from {{CLIENT_NAME}} — change ICP, test new angle, custom ask
+about: A request from {{CLIENT_NAME}} - change ICP, test new angle, custom ask
 title: '[CLIENT REQUEST] '
 labels: client-request
 assignees: harryrawles

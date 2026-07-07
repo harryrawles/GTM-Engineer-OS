@@ -5,13 +5,13 @@
 **Context:** Deliverability is upstream of every metric. If emails are not landing, nothing else matters. This skill diagnoses and recovers deliverability problems before they kill a campaign.
 
 **Read before diagnosing:**
-- `wiki/deliverability.md` — infrastructure, DNS, warmup, monitoring, troubleshooting
-- `wiki/email-benchmarks.md` — what deliverability metrics should look like
-- `clients/{slug}/campaign-state.md` — current infrastructure status
+- `wiki/deliverability.md` - infrastructure, DNS, warmup, monitoring, troubleshooting
+- `wiki/email-benchmarks.md` - what deliverability metrics should look like
+- `clients/{slug}/campaign-state.md` - current infrastructure status
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -20,8 +20,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -29,9 +29,9 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## TRIAGE — Run This First
+## TRIAGE - Run This First
 
-Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`):
 - Current bounce rate (last 7 days)
 - Spam complaint rate
 - Open rate trend (last 30 days vs prior 30)
@@ -53,7 +53,7 @@ Ask Harry to paste if MCP unavailable.
 
 ## DIAGNOSIS DECISION TREE
 
-### Step 1 — Is it infrastructure?
+### Step 1 - Is it infrastructure?
 
 Check:
 - DNS records: SPF, DKIM, DMARC (use mail-tester.com)
@@ -63,7 +63,7 @@ Check:
 
 If any fail → fix infrastructure first.
 
-### Step 2 — Is it list quality?
+### Step 2 - Is it list quality?
 
 Check:
 - When was the list last verified?
@@ -73,7 +73,7 @@ Check:
 
 If list is older than 30 days → re-verify before any more sends.
 
-### Step 3 — Is it volume / pacing?
+### Step 3 - Is it volume / pacing?
 
 Check:
 - Sends per mailbox per day (over 50 = risk)
@@ -82,7 +82,7 @@ Check:
 
 If pushing volume too hard → throttle to 30-40/day and reactivate warmup.
 
-### Step 4 — Is it content?
+### Step 4 - Is it content?
 
 Check:
 - Plain text only? (HTML triggers spam filters)
@@ -94,7 +94,7 @@ Check:
 
 ## RECOVERY PROTOCOLS
 
-### Protocol A — Domain blacklisted
+### Protocol A - Domain blacklisted
 
 1. Identify which blacklist (MXToolbox shows all)
 2. Submit removal request per blacklist (see `wiki/deliverability.md`)
@@ -103,25 +103,25 @@ Check:
 5. Resume at 5-10 cold per mailbox per day
 6. Build back up over 2-3 weeks
 
-### Protocol B — Bounce rate over 5%
+### Protocol B - Bounce rate over 5%
 
 1. Pause all campaigns from affected mailboxes immediately
 2. Re-verify remaining list with ZeroBounce or NeverBounce
-3. Identify list source — flag for review or remove entirely
+3. Identify list source - flag for review or remove entirely
 4. Pause new sends for 7 days, warmup only at 10-20/day
 5. Resume slowly at 5-10 cold per mailbox per day
 6. Monitor daily until back under 1%
 
-### Protocol C — Warmup disabled (red flame in Instantly)
+### Protocol C - Warmup disabled (red flame in Instantly)
 
-1. Run "Test domain setup" in Instantly — fix any red items
+1. Run "Test domain setup" in Instantly - fix any red items
 2. Verify SPF, DKIM, DMARC correctly configured
 3. Check domain against blacklists
 4. Click red flame → request reactivation code
 5. Enter code → warmup re-enables
 6. Run warmup-only for 7 days before resuming cold
 
-### Protocol D — Open rate dropped sharply
+### Protocol D - Open rate dropped sharply
 
 1. Check sender reputation (Google Postmaster Tools, Microsoft SNDS)
 2. Check subject lines for spam triggers

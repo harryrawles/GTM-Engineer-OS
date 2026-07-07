@@ -38,10 +38,10 @@ If a test fails after an OS change:
 
 ## When to Run Tests
 
-- **After every CHANGELOG.md bump** — run the full suite before tagging the version
-- **After any skill file is edited** — run the corresponding test
-- **Before onboarding a new client** — run test-onboarding.md to verify the flow is intact
-- **Monthly** — run the full suite as a sanity check
+- **After every CHANGELOG.md bump** - run the full suite before tagging the version
+- **After any skill file is edited** - run the corresponding test
+- **Before onboarding a new client** - run test-onboarding.md to verify the flow is intact
+- **Monthly** - run the full suite as a sanity check
 
 ---
 

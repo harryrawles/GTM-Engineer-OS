@@ -1,14 +1,14 @@
-# Playbook: SaaS 3 — Dev-Tools Curiosity Hook (QA Accuracy & Regression Risk)
+# Playbook: SaaS 3 - Dev-Tools Curiosity Hook (QA Accuracy & Regression Risk)
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling a testing / reliability
-tool to **QA and test engineers** — led by a specific, curiosity-driven insight ("the 3 test paths where
+tool to **QA and test engineers** - led by a specific, curiosity-driven insight ("the 3 test paths where
 accuracy drops fastest") and a near-zero-friction CTA. Knowledge first, no selling.
-**Origin:** Abstracted from a QA-accuracy campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a QA-accuracy campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. If you promise a list of high-risk test paths, actually have it — QA buyers value signal and will
+> Claims*. If you promise a list of high-risk test paths, actually have it - QA buyers value signal and will
 > spot a hollow hook instantly. Keep the opt-out line. Never carry one client's specifics into another.
 
 ---
@@ -42,7 +42,7 @@ positioning the client's tool as a way to catch regressions early without expand
 - Lead with a **specific insight** (3 test paths)
 - Create **curiosity, not explanation**
 - Keep the message extremely short
-- Avoid selling — offer knowledge first
+- Avoid selling - offer knowledge first
 - Reinforce relevance with opt-out respect
 - Tone: precise, QA-native, efficient (defer to `clients/{slug}/voice.md`)
 
@@ -50,9 +50,9 @@ positioning the client's tool as a way to catch regressions early without expand
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{firstName}}`, `{{SendingAccountFirstName}}`).
+Merge fields are Instantly variables - keep them as-is (`{{firstName}}`, `{{SendingAccountFirstName}}`).
 
-### Email 1 — Primary Outreach
+### Email 1 - Primary Outreach
 
 ```
 Hi {{firstName}},

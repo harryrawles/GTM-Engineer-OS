@@ -15,20 +15,20 @@ invokes:
   - "gtm-skills/deliverability-doctor.md (conditional)"
   - "gtm-skills/list-builder.md (conditional)"
   - "gtm-skills/signal-sourcer.md (conditional)"
-  - "gtm-skills/cold-email-writer.md (conditional — if new variant recommended)"
-  - "gtm-skills/test-readiness-check.md (conditional — if test recommended)"
-  - "gtm-skills/test-launcher.md (conditional — if test approved)"
+  - "gtm-skills/cold-email-writer.md (conditional - if new variant recommended)"
+  - "gtm-skills/test-readiness-check.md (conditional - if test recommended)"
+  - "gtm-skills/test-launcher.md (conditional - if test approved)"
 writes:
   - "clients/{slug}/decision-log.md (diagnosis + action taken)"
   - "clients/{slug}/campaign-state.md (health rating update)"
   - "clients/{slug}/test-log.md (if test queued)"
 ---
 
-# Skill: Chain — Diagnose Campaign
+# Skill: Chain - Diagnose Campaign
 
 **Trigger:** "Diagnose [client] [campaign]", "Why is [campaign] underperforming", "Run /diagnose-campaign", "Investigate [campaign] performance"
 
-**Context:** Campaign performance diagnostic chain. Runs the primary `campaign-optimiser` diagnosis first to identify root cause category, then conditionally invokes the right specialist skill — without making Harry manually route between deliverability-doctor, list-builder, signal-sourcer, etc.
+**Context:** Campaign performance diagnostic chain. Runs the primary `campaign-optimiser` diagnosis first to identify root cause category, then conditionally invokes the right specialist skill - without making Harry manually route between deliverability-doctor, list-builder, signal-sourcer, etc.
 
 **Why this exists:** when a campaign tanks, root cause could be deliverability, list quality, signal saturation, or copy fatigue. Manually invoking each diagnostic in turn wastes time. This chain runs the primary diagnosis once, then routes intelligently.
 
@@ -40,13 +40,13 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Pull Metrics (always)
+## STEP 0 - Pull Metrics (always)
 
 **Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | chain-diagnose-campaign | (filled at end) |`. Sub-skills invoked later will write their own rows.
 
 Then read:
-- `clients/{slug}/campaign-state.md` — which campaign, what is the recent trend
-- `clients/{slug}/MEMORY.md` — any prior watch-outs on this campaign
+- `clients/{slug}/campaign-state.md` - which campaign, what is the recent trend
+- `clients/{slug}/MEMORY.md` - any prior watch-outs on this campaign
 - Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): last 14 days metrics per campaign
 
 Output a quick metric snapshot:
@@ -56,32 +56,32 @@ Campaign: [name]
 Last 7 days: PRR [X]%, reply rate [Y]%, bounce [Z]%, meetings [n]
 Last 30 days trend: [improving / flat / declining]
 Health rating per campaign-state.md: [Green/Amber/Red]
-Active test: [yes/no — if yes, note T-ID]
+Active test: [yes/no - if yes, note T-ID]
 ```
 
-If active test is running on this campaign — surface the strict-block constraint immediately. Diagnose is read-only against active tests; any recommended fix that touches constants requires the override pattern.
+If active test is running on this campaign - surface the strict-block constraint immediately. Diagnose is read-only against active tests; any recommended fix that touches constants requires the override pattern.
 
 ---
 
-## STEP 1 — Run Primary Diagnostic (always)
+## STEP 1 - Run Primary Diagnostic (always)
 
 Invoke `gtm-skills/campaign-optimiser.md`. This produces a root cause hypothesis with confidence level.
 
 The optimiser's decision tree categorises root cause as one of:
-1. **Deliverability** — bounce/spam/warmup issues
-2. **List quality** — ICP drift, stale list, false-positive signals
-3. **Signal** — signal saturated, signal type fatiguing, wrong signal for current ICP
-4. **Offer** — Part 3 of formula not landing
-5. **Copy** — Part 1/2/4 issues, register mismatch, banned words slipped through
-6. **Sequence** — value props not rotating, follow-up timing wrong, Email 1 vs Email 2/3 imbalance
-7. **Personalisation** — tier wrong for volume × ACV
-8. **Volume / pacing** — sending too fast, list too small for sustainable pace
+1. **Deliverability** - bounce/spam/warmup issues
+2. **List quality** - ICP drift, stale list, false-positive signals
+3. **Signal** - signal saturated, signal type fatiguing, wrong signal for current ICP
+4. **Offer** - Part 3 of formula not landing
+5. **Copy** - Part 1/2/4 issues, register mismatch, banned words slipped through
+6. **Sequence** - value props not rotating, follow-up timing wrong, Email 1 vs Email 2/3 imbalance
+7. **Personalisation** - tier wrong for volume × ACV
+8. **Volume / pacing** - sending too fast, list too small for sustainable pace
 
 Optimiser output: one root cause + confidence + recommended next action.
 
 ---
 
-## STEP 2 — Route to Specialist (conditional)
+## STEP 2 - Route to Specialist (conditional)
 
 Based on the optimiser's root cause:
 
@@ -110,7 +110,7 @@ Based on the optimiser's root cause:
 
 ---
 
-## STEP 3 — Queue Corrective Test (conditional)
+## STEP 3 - Queue Corrective Test (conditional)
 
 If Step 2's specialist recommends a corrective test (e.g. new variant, signal pivot, list segment), invoke `gtm-skills/test-readiness-check.md` on the proposed test.
 
@@ -121,7 +121,7 @@ This ensures any diagnostic-driven fix gets tested under the scientific method, 
 
 ---
 
-## STEP 4 — Update State + Logs (always)
+## STEP 4 - Update State + Logs (always)
 
 After diagnosis + action:
 
@@ -143,7 +143,7 @@ After diagnosis + action:
 ## CHAIN OUTPUT FORMAT
 
 ```
-=== Chain Complete: Diagnose Campaign — [campaign] ===
+=== Chain Complete: Diagnose Campaign - [campaign] ===
 
 Primary diagnosis: [root cause category]
 Confidence: [High/Medium/Low]
@@ -153,21 +153,21 @@ Specialist invoked: [which skill]
 Recommendation: [specific change]
 Expected impact: [PRR lift / cost reduction / etc.]
 
-Test queued: [yes/no — if yes T-ID and readiness verdict]
+Test queued: [yes/no - if yes T-ID and readiness verdict]
 
 Files updated:
 - campaign-state.md (health → [rating])
 - decision-log.md (diagnosis entry)
 - test-log.md (if test queued)
 
-Next: [what Harry should action — manual step in Instantly, await test result, etc.]
+Next: [what Harry should action - manual step in Instantly, await test result, etc.]
 ```
 
 ---
 
 ## RULES
 
-- **Run primary diagnostic first, every time.** Do not skip campaign-optimiser to "save time" — its root cause categorisation is what makes routing intelligent.
+- **Run primary diagnostic first, every time.** Do not skip campaign-optimiser to "save time" - its root cause categorisation is what makes routing intelligent.
 - **One specialist per chain run.** If diagnosis surfaces multiple issues, action the highest-confidence one first. Subsequent runs handle the others.
 - **Respect active-test strict block.** If a test is running and the recommended fix touches a constant, surface the override pattern. Do not auto-invalidate tests.
 - **Pause at every specialist invocation.** The chain is decision support, not auto-execution.

@@ -1,6 +1,6 @@
-# Test Log — {{CLIENT_NAME}}
+# Test Log - {{CLIENT_NAME}}
 
-Record of every split test for this client. Every test must follow the scientific method (see `wiki/scientific-method.md`). Every entry must capture all Step 1 sub-steps explicitly — `gtm-skills/test-readiness-check.md` enforces this before any test launches.
+Record of every split test for this client. Every test must follow the scientific method (see `wiki/scientific-method.md`). Every entry must capture all Step 1 sub-steps explicitly - `gtm-skills/test-readiness-check.md` enforces this before any test launches.
 
 **V-number notation is mandatory.** Without it, regression checks in weekly-reviewer cannot run.
 
@@ -23,21 +23,21 @@ Tests progress through four statuses:
 
 For each running test, the **full Step 1 block** is mandatory.
 
-### Test {{T-XXX}} — {{Short description}}
+### Test {{T-XXX}} - {{Short description}}
 
 **Status:** Running
 **Launched:** {{YYYY-MM-DD}}
 **Expected completion:** {{YYYY-MM-DD}}
 
-#### Step 1 — Hypothesis
+#### Step 1 - Hypothesis
 
 **1.1 Genotype (variables of this stimulus):**
 ```
 {{Variable_1}}(V?) - {{Variable_2}}(V?) - {{Variable_3}}(V?) = {{Stimulus name}} V?
 ```
 
-**1.2 Primary KPI:** {{e.g. PRR}} — target {{X}}%
-**1.2 Secondary KPI (Polaris):** {{e.g. ABR}} — target {{X}}%
+**1.2 Primary KPI:** {{e.g. PRR}} - target {{X}}%
+**1.2 Secondary KPI (Polaris):** {{e.g. ABR}} - target {{X}}%
 
 **1.3 Sample size target:** {{n}} sends per variant ({{ minimum 300 for cold email}})
 
@@ -53,19 +53,19 @@ For each running test, the **full Step 1 block** is mandatory.
 
 **1.6 Variable under test (the needle-mover):** {{ONE variable name, e.g. Content / Subject / CTA}}
 **1.6 Modification level:** Slight / Moderate / Complete
-**1.6 Justification:** {{Why this modification level — distance from KPI}}
+**1.6 Justification:** {{Why this modification level - distance from KPI}}
 
-**1.6 Control (current best) — {{Stimulus name}} V({{n}})}}:**
+**1.6 Control (current best) - {{Stimulus name}} V({{n}})}}:**
 ```
 {{Paste exact control copy / configuration here}}
 ```
 
-**1.6 Variant being tested — {{Stimulus name}} V({{n+1}})}}:**
+**1.6 Variant being tested - {{Stimulus name}} V({{n+1}})}}:**
 ```
 {{Paste exact variant copy / configuration here}}
 ```
 
-**1.7 Constants (LOCKED — any modification invalidates the test):**
+**1.7 Constants (LOCKED - any modification invalidates the test):**
 - Lead source: {{value}}
 - ICP: {{value}}
 - Sending domain / mailbox: {{value}}
@@ -74,7 +74,7 @@ For each running test, the **full Step 1 block** is mandatory.
 - Daily send volume: {{value}}
 - Variables NOT under test: {{list with V-numbers}}
 
-#### Step 1 — Stop Conditions
+#### Step 1 - Stop Conditions
 
 Pause this test if:
 - Bounce rate on either variant > {{X}}%
@@ -83,20 +83,20 @@ Pause this test if:
 - Constants drift detected
 - Test integrity compromised (anything from 1.5 fails mid-run)
 
-#### Step 1 — Backtrack Plan
+#### Step 1 - Backtrack Plan
 
-If V({{n+1}}) regresses from V({{n}}) — defined as performing worse on the primary KPI by more than {{X}}%:
+If V({{n+1}}) regresses from V({{n}}) - defined as performing worse on the primary KPI by more than {{X}}%:
 - Revert to V({{n}}) as the control
 - Next iteration: modify a different needle-mover (NOT the same variable again)
 - Log the regression as a learning in `clients/{slug}/decision-log.md`
 
-#### Step 2 — Running Data (yesterday's results, logged daily)
+#### Step 2 - Running Data (yesterday's results, logged daily)
 
 | Date logged | Sends control | Sends variant | PRR control | PRR variant | Bounce control | Bounce variant | Notes |
 |------------|--------------|--------------|-------------|-------------|---------------|---------------|-------|
 | | | | | | | | |
 
-#### Step 2 — Do-Nothing Verification
+#### Step 2 - Do-Nothing Verification
 
 - [ ] No constants modified since launch
 - [ ] Copy unchanged since launch
@@ -110,7 +110,7 @@ If V({{n+1}}) regresses from V({{n}}) — defined as performing worse on the pri
 
 For each complete test: keep the full Step 1 block above, plus add Step 3 (Observe Results) and Step 4 (Iteration decision).
 
-### Test {{T-XXX}} — {{Short description}}
+### Test {{T-XXX}} - {{Short description}}
 
 **Status:** Complete
 **Launched:** {{YYYY-MM-DD}}
@@ -118,7 +118,7 @@ For each complete test: keep the full Step 1 block above, plus add Step 3 (Obser
 
 (All Step 1 fields preserved from when this was Running.)
 
-#### Step 3 — Observe Results
+#### Step 3 - Observe Results
 
 **3.0 Six-rule completion check:**
 - [ ] Sample size hit
@@ -147,7 +147,7 @@ If any rule failed → mark this test as INVALID and restart. Do not draw conclu
 
 **Verdict:** Control won / Variant won / Inconclusive (test was compromised, restart)
 
-#### Step 4 — Iteration Decision
+#### Step 4 - Iteration Decision
 
 **Needle-mover for next test:** {{variable name}}
 **Modification level:** Slight / Moderate / Complete
@@ -155,7 +155,7 @@ If any rule failed → mark this test as INVALID and restart. Do not draw conclu
 
 **Next test queued:** T-{{XXX}}
 
-**Decision-log entry:** see `clients/{slug}/decision-log.md` — `{{date}} — Test {{T-XXX}} {{outcome}}`
+**Decision-log entry:** see `clients/{slug}/decision-log.md` - `{{date}} - Test {{T-XXX}} {{outcome}}`
 
 ---
 
@@ -163,7 +163,7 @@ If any rule failed → mark this test as INVALID and restart. Do not draw conclu
 
 Tests where V(x+1) regressed from V(x) and we backtracked. Capture these so future iterations do not repeat the same misdirection.
 
-### Test {{T-XXX}} — {{Description}}
+### Test {{T-XXX}} - {{Description}}
 
 **Status:** Reverted
 **What we tried:** {{V(x+1) description}}
@@ -184,7 +184,7 @@ Next tests to run, in priority order. Each must pass `gtm-skills/test-readiness-
 | 3 | T-{{XXX}} | {{Icebreaker angle}} | {{Hypothesis}} | Queued |
 
 **Priority order reminder (from scientific-method.md):**
-1. Offer (Part 3 of formula) — highest impact
+1. Offer (Part 3 of formula) - highest impact
 2. ICP / targeting
 3. Icebreaker / personalisation angle
 4. CTA phrasing

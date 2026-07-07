@@ -9,23 +9,23 @@ When a skill or wiki file uses an unexplained term, look it up here.
 ## Performance Metrics
 
 > These map to specific stages of the 6-stage acquisition funnel (Latent Conditions → Attention →
-> Interest → Appointment → Show → Primed Prospect → Closed Deal) — see
+> Interest → Appointment → Show → Primed Prospect → Closed Deal) - see
 > `wiki/acquisition-systems-theory.md` Section 4.
 
 | Term | Stands for | Definition |
 |------|-----------|------------|
 | **PRR** | Positive Reply Rate | Replies expressing interest, excluding negatives and OOOs. Our primary KPI. |
-| **Reply rate** | — | Total replies / sends. Includes negatives and OOOs. Noisier than PRR. |
-| **Open rate** | — | Opens / sends. Heavily inflated by Apple Mail Privacy Protection. Largely vanity. |
+| **Reply rate** | - | Total replies / sends. Includes negatives and OOOs. Noisier than PRR. |
+| **Open rate** | - | Opens / sends. Heavily inflated by Apple Mail Privacy Protection. Largely vanity. |
 | **ABR** | Appointment Booking Rate | Meetings booked / sends. Downstream of PRR. |
-| **Bounce rate** | — | Hard bounces / sends. Must stay below 2%. |
+| **Bounce rate** | - | Hard bounces / sends. Must stay below 2%. |
 | **CTR** | Click-Through Rate | Clicks / opens. Rarely used in cold email (no links in body). |
 | **OOO** | Out of Office | Auto-reply during recipient absence. Re-queue, do not count as reply. |
 | **LVR** | Loom View Rate | Loom/video opens / sends. Used for video-first outreach. |
 | **SUR** | Show-Up Rate | Calls attended / appointments booked. Downstream of ABR. |
 | **SCR** | Sales Conversion Rate | Clients closed / calls attended (or / offers made). Downstream of SUR. |
 | **CTOR** | Call-to-Offer Rate | Offers made / calls attended. |
-| **FCR** | Funnel Conversion Rate | Overall macro conversion — clients closed / total top-of-funnel input. |
+| **FCR** | Funnel Conversion Rate | Overall macro conversion - clients closed / total top-of-funnel input. |
 
 ## Audience and Targeting
 
@@ -64,9 +64,9 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | **CAN-SPAM** | Controlling the Assault of Non-Solicited Pornography And Marketing Act | US email compliance law. |
 | **GDPR** | General Data Protection Regulation | EU data privacy law. |
 | **LIA** | Legitimate Interest Assessment | GDPR documentation for lawful basis. |
-| **RFC 8058** | — | One-click unsubscribe standard for bulk senders. |
-| **Warmup** | — | Gradual ramp of email volume to build sender reputation. |
-| **Catch-all** | — | Domain accepts all email; verification is unreliable. |
+| **RFC 8058** | - | One-click unsubscribe standard for bulk senders. |
+| **Warmup** | - | Gradual ramp of email volume to build sender reputation. |
+| **Catch-all** | - | Domain accepts all email; verification is unreliable. |
 
 ## Tools and Tech
 
@@ -115,6 +115,6 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | Term | Definition |
 |------|-----------|
 | **OS** | Operating System. This multi-client repo: a shared layer plus one isolated `clients/{slug}/` folder per client. |
-| **Wiki** | Shared knowledge base in `wiki/` — same for every client (part of the shared layer). |
+| **Wiki** | Shared knowledge base in `wiki/` - same for every client (part of the shared layer). |
 | **Skill** | A defined AI workflow in `gtm-skills/`. |
 | **Compounding loop** | The Friday weekly-reviewer flow that makes the OS smarter over time. |

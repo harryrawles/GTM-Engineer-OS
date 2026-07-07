@@ -32,16 +32,16 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-- `clients/{slug}/campaign-state.md` — current campaign metrics
-- `clients/{slug}/comms-log.md` — client sentiment proxy
-- `clients/{slug}/copy-library.md` — recent winners (good sign)
-- `clients/{slug}/overview.md` — SLA, success criteria
+- `clients/{slug}/campaign-state.md` - current campaign metrics
+- `clients/{slug}/comms-log.md` - client sentiment proxy
+- `clients/{slug}/copy-library.md` - recent winners (good sign)
+- `clients/{slug}/overview.md` - SLA, success criteria
 
-Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client — see `sops/instantly-api.md`): last 4 weeks of campaign data (need trend, not just snapshot).
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client - see `sops/instantly-api.md`): last 4 weeks of campaign data (need trend, not just snapshot).
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -50,8 +50,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -59,7 +59,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## SCORING — 100 POINTS
+## SCORING - 100 POINTS
 
 ### 1. Performance vs Target (40 points)
 
@@ -137,7 +137,7 @@ From `clients/{slug}/comms-log.md` (last 30 days):
 ### Single client
 
 ```
-=== Client Health Score — {{CLIENT_NAME}} — {{date}} ===
+=== Client Health Score - {{CLIENT_NAME}} - {{date}} ===
 
 OVERALL: {{n}}/100 → {{Band}} {{emoji}}
 
@@ -187,22 +187,22 @@ Last status: {{previous score}} → Change: {{+/- n}}
 ### Portfolio (all clients)
 
 ```
-=== Portfolio Health — {{date}} ===
+=== Portfolio Health - {{date}} ===
 
 | Client      | Score | Band  | Top risk                              | Action |
 |-------------|-------|-------|---------------------------------------|--------|
 | {{CLIENT_NAME}}  | 78    | Green-Amber | PRR trending down 2 weeks       | Run optimiser |
 | {{B}}       | 92    | Green | None                                  | Maintain |
 | {{C}}       | 41    | Amber | Client requested 2 changes unanswered | Address requests TODAY |
-| {{D}}       | 18    | Critical | Renewal in 14 days, no movement    | ESCALATE — direct call |
+| {{D}}       | 18    | Critical | Renewal in 14 days, no movement    | ESCALATE - direct call |
 ...
 
 Clients needing intervention (Amber or below): {{n}}
 Clients in critical band: {{n}}
 
 Suggested order of attention:
-1. {{Critical client}} — {{specific action}}
-2. {{Amber client}} — {{specific action}}
+1. {{Critical client}} - {{specific action}}
+2. {{Amber client}} - {{specific action}}
 3. ...
 ```
 
@@ -213,25 +213,25 @@ Suggested order of attention:
 - **Run weekly minimum.** Embedded in weekly-reviewer batch mode.
 - **Never report a score without breakdown.** A single number without context is noise.
 - **Surface trends, not just snapshots.** A 70 trending down to 50 is more urgent than a steady 60.
-- **Recommended interventions must be specific.** Not "improve performance" — "run campaign-optimiser on hiring campaign, the PRR drop is concentrated there."
+- **Recommended interventions must be specific.** Not "improve performance" - "run campaign-optimiser on hiring campaign, the PRR drop is concentrated there."
 - **Log status changes** to `clients/{slug}/decision-log.md`:
   - Going from Green → Amber
   - Going from Amber → Red
   - Going from Red → Critical
-  - Returning from Amber → Green (recovery — worth understanding why)
+  - Returning from Amber → Green (recovery - worth understanding why)
 - **Critical band triggers escalation.** Notify Harry separately, do not bury in batch output.
 
 ---
 
 ## EXAMPLES
 
-### Example — single client (Amber)
+### Example - single client (Amber)
 
 ```
 Harry: Score {{CLIENT_NAME}} health
 
 Claude:
-=== Client Health Score — {{CLIENT_NAME}} — 2026-05-29 ===
+=== Client Health Score - {{CLIENT_NAME}} - 2026-05-29 ===
 
 OVERALL: 52/100 → Amber
 
@@ -263,8 +263,8 @@ Key risks:
 Recommended interventions:
 - THIS WEEK: run campaign-optimiser on hiring campaign (root cause analysis)
 - THIS WEEK: queue a new test (priority order: offer framing)
-- THIS WEEK: run weekly review — restart cadence
+- THIS WEEK: run weekly review - restart cadence
 - NEXT 7 DAYS: schedule renewal prep call with client
 
-Last status: 71 → Change: -19 (significant decline — escalate to Harry)
+Last status: 71 → Change: -19 (significant decline - escalate to Harry)
 ```

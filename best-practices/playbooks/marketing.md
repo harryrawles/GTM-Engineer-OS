@@ -1,13 +1,13 @@
 # Playbook: Marketing / Competitor-Insights Campaign
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable across any client selling marketing services,
-demand gen, or growth consulting to B2B teams — leading with **competitor intelligence** as a curiosity hook.
+demand gen, or growth consulting to B2B teams - leading with **competitor intelligence** as a curiosity hook.
 **Origin:** Abstracted from a competitor-insights marketing campaign. All brand-specific values are
-placeholders — fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
+placeholders - fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. If you promise competitor tactics, you must actually have them — never offer research you can't
+> Claims*. If you promise competitor tactics, you must actually have them - never offer research you can't
 > deliver. Never carry one client's specifics into another.
 
 ---
@@ -15,7 +15,7 @@ placeholders — fill them from the active client's `clients/{slug}/offer.md`, `
 ## Campaign Goal
 
 Spark curiosity by offering **competitor intelligence and actionable tactics** B2B teams can implement
-immediately. Works because it feels helpful, relevant, and personalised — not salesy.
+immediately. Works because it feels helpful, relevant, and personalised - not salesy.
 
 ## Ideal Customer Profile (ICP)
 
@@ -35,7 +35,7 @@ immediately. Works because it feels helpful, relevant, and personalised — not 
 
 ## Core Messaging Strategy
 
-- Lead with **competitive insight** — frame the sender as someone who already did the work
+- Lead with **competitive insight** - frame the sender as someone who already did the work
 - Drive **curiosity** ("found tactics they're using that you're not")
 - Keep it short and value-forward
 - CTA is lightweight ("Should I send them your way?")
@@ -46,10 +46,10 @@ immediately. Works because it feels helpful, relevant, and personalised — not 
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{firstName}}`, `{{companyName}}`,
+Merge fields are Instantly variables - keep them as-is (`{{firstName}}`, `{{companyName}}`,
 `{{sendingAccountFirstName}}`, and the custom industry field `{{lcsi}}`).
 
-### Email 1 — Initial Outreach
+### Email 1 - Initial Outreach
 
 ```
 Hi / Hey {{firstName}},
@@ -87,7 +87,7 @@ I analysed top B2B competitors in {{lcsi}} and found three tactics they use that
 ## Adapting for a client (checklist)
 
 - [ ] `{{firstName}}` / `{{companyName}}` / `{{lcsi}}` / `{{sendingAccountFirstName}}` → confirm these Instantly lead/account fields exist and are mapped
-- [ ] You can actually deliver the promised competitor tactics before sending the ask — no research you can't back up
+- [ ] You can actually deliver the promised competitor tactics before sending the ask - no research you can't back up
 - [ ] Confirm the offer and any claims appear in `clients/{slug}/voice.md` → Approved Claims
 - [ ] Add a follow-up step if the client wants a 2–3 email sequence (this angle ships as a single high-curiosity email)
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`

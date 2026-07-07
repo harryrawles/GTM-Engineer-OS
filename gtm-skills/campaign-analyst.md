@@ -5,13 +5,13 @@
 **Context:** Pulling campaign data from Instantly, structuring it, identifying what is working, what is not, and making strategic recommendations. The goal is a clear view of performance and a prioritised action list.
 
 **Read before analysing:**
-- `clients/{slug}/campaign-state.md` — current benchmarks and infrastructure
-- `clients/{slug}/icp.md` — ICP to sanity-check list quality
-- `clients/{slug}/test-log.md` — what has been tested and what is currently running
+- `clients/{slug}/campaign-state.md` - current benchmarks and infrastructure
+- `clients/{slug}/icp.md` - ICP to sanity-check list quality
+- `clients/{slug}/test-log.md` - what has been tested and what is currently running
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -20,8 +20,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -31,7 +31,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## BEFORE YOU ANALYSE
 
-Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`):
 - All campaigns: sends, reply rate, PRR, bounce rate (last 30 days)
 - Per-campaign and per-step breakdown
 - Subject line performance
@@ -55,9 +55,9 @@ Ask Harry to paste data if MCP is unavailable.
 ### 2. Campaign-level breakdown
 
 Rank all active campaigns by PRR. Identify:
-- Top performer: highest PRR — what is driving it?
-- Bottom performer: lowest PRR — what is the root cause?
-- Any campaign with bounce rate over 4% — flag as deliverability issue
+- Top performer: highest PRR - what is driving it?
+- Bottom performer: lowest PRR - what is the root cause?
+- Any campaign with bounce rate over 4% - flag as deliverability issue
 
 ### 3. Signal analysis
 
@@ -76,7 +76,7 @@ Which signal type is generating the best PRR?
 ### 5. Strategic recommendations
 
 Output a prioritised list of 3 recommended actions. Each action should be:
-- Specific (not "improve copy" — "test a shorter CTA in Email 2")
+- Specific (not "improve copy" - "test a shorter CTA in Email 2")
 - Tied to a data point
 - Ranked by expected impact on PRR
 
@@ -87,7 +87,7 @@ Output a prioritised list of 3 recommended actions. Each action should be:
 **Period:** {{Date range}}
 **Client:** {{CLIENT_NAME}}
 
-**Summary in one sentence:** {{What is the overall picture — up, flat, declining, and why}}
+**Summary in one sentence:** {{What is the overall picture - up, flat, declining, and why}}
 
 **Top-level metrics:** [table]
 

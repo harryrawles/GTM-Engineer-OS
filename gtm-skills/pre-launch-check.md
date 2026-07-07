@@ -28,7 +28,7 @@ writes:
 
 See `wiki/_skill-context.md`.
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -37,8 +37,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -48,7 +48,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## CHECKS PERFORMED
 
-### Block-level (CRITICAL — fail = stop)
+### Block-level (CRITICAL - fail = stop)
 
 1. **No unresolved `{{PLACEHOLDER}}` strings** in:
    - `CLAUDE.md`
@@ -70,7 +70,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 4. **Instantly API key configured** (`instantly_api_configured: true` in config; test: `.claude/bin/instantly.sh GET /campaigns`).
 
-### Warn-level (HIGH — fail = warn, can override)
+### Warn-level (HIGH - fail = warn, can override)
 
 5. **`clients/{slug}/offer.md` has at least:**
    - One named case study with a specific number
@@ -92,9 +92,9 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
    - At least one campaign or planning entry
    - Infrastructure section filled (domains, mailboxes, warmup status)
 
-### Soft-level (LOW — informational)
+### Soft-level (LOW - informational)
 
-9. `clients/{slug}/decision-log.md` exists (even if empty — should have header)
+9. `clients/{slug}/decision-log.md` exists (even if empty - should have header)
 10. `clients/{slug}/comms-log.md` exists
 11. `clients/{slug}/copy-library.md` exists
 12. `clients/{slug}/test-log.md` exists
@@ -106,7 +106,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 ## OUTPUT FORMAT
 
 ```
-=== Pre-Launch Check — {{CLIENT_NAME}} — {{date}} ===
+=== Pre-Launch Check - {{CLIENT_NAME}} - {{date}} ===
 
 BLOCKING ISSUES: {{n}}
 [ ] / [X] No unresolved {{PLACEHOLDER}} strings  | Found: {{file:line}}
@@ -157,13 +157,13 @@ last_pre_launch_check: {{YYYY-MM-DD}}
 
 ## EXAMPLES
 
-### Example — pre-launch check during campaign launch
+### Example - pre-launch check during campaign launch
 
 ```
 Harry: Run pre-launch check before launching the hiring campaign
 
 Claude:
-=== Pre-Launch Check — {{CLIENT_NAME}} — 2026-05-29 ===
+=== Pre-Launch Check - {{CLIENT_NAME}} - 2026-05-29 ===
 
 BLOCKING ISSUES: 1
 [X] No unresolved {{PLACEHOLDER}} strings  | Found: clients/{slug}/voice.md:14 "{{Tone}}"

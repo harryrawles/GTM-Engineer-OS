@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-# Session Logger — Claude Code Event Logger
+# Session Logger - Claude Code Event Logger
 # =============================================================================
 # Two independent outputs:
 #

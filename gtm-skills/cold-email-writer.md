@@ -13,27 +13,27 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 ## SKILL-SPECIFIC READS
 
 **MUST READ (every time):**
-- `clients/{slug}/copy-library.md` — past top-performing variants for this client
-- `wiki/copywriting-101.md` — canonical rules, 4-part formula
-- `wiki/psychological-principles.md` — bias mapping per copy stage (which to leverage, which to avoid)
+- `clients/{slug}/copy-library.md` - past top-performing variants for this client
+- `wiki/copywriting-101.md` - canonical rules, 4-part formula
+- `wiki/psychological-principles.md` - bias mapping per copy stage (which to leverage, which to avoid)
 
 **READ IF CONDITION:**
-- `clients/{slug}/decision-log.md` — if optimising or building on a prior decision
-- `wiki/atl-btl-messaging.md` — if recipient register (ATL vs BTL) is unclear
-- `wiki/personalization-at-scale.md` — if personalisation tier needs to be decided
-- `wiki/signal-sourcing.md` — if mapping a signal to a copy angle
+- `clients/{slug}/decision-log.md` - if optimising or building on a prior decision
+- `wiki/atl-btl-messaging.md` - if recipient register (ATL vs BTL) is unclear
+- `wiki/personalization-at-scale.md` - if personalisation tier needs to be decided
+- `wiki/signal-sourcing.md` - if mapping a signal to a copy angle
 
 **REFERENCE (consult when needed):**
-- `best-practices/playbooks/` — reusable campaign playbooks. Check for one matching the client's offer/angle and start from its structure; adapt to the client (fill placeholders from their files, use only Approved Claims from `voice.md`). Never drop playbook copy in verbatim.
-- `wiki/copywriting-frameworks.md` — 13 named frameworks for when the default formula has plateaued
-- `wiki/subject-lines.md` — 4 subject line formulas
-- `wiki/email-benchmarks.md` — what good looks like
-- `gtm-skills/personalization-strategist.md` — full personalisation flow
-- `gtm-skills/signal-sourcer.md` — full signal analysis
+- `best-practices/playbooks/` - reusable campaign playbooks. Check for one matching the client's offer/angle and start from its structure; adapt to the client (fill placeholders from their files, use only Approved Claims from `voice.md`). Never drop playbook copy in verbatim.
+- `wiki/copywriting-frameworks.md` - 13 named frameworks for when the default formula has plateaued
+- `wiki/subject-lines.md` - 4 subject line formulas
+- `wiki/email-benchmarks.md` - what good looks like
+- `gtm-skills/personalization-strategist.md` - full personalisation flow
+- `gtm-skills/signal-sourcer.md` - full signal analysis
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -42,8 +42,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution
 
@@ -55,9 +55,9 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 Run this before writing any copy. Do not skip.
 
-### Step 1 — Pull Instantly data
+### Step 1 - Pull Instantly data
 
-Call the Instantly API for this client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`), pulling campaign performance:
+Call the Instantly API for this client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`), pulling campaign performance:
 - All active and completed campaigns
 - Per campaign: sends, reply rate, PRR, meetings booked
 - Per sequence step: which email step is driving the most replies
@@ -65,7 +65,7 @@ Call the Instantly API for this client (via `.claude/bin/instantly.sh` — see `
 
 If the Instantly API can't be reached (missing/invalid key), ask Harry to paste the metrics before continuing.
 
-### Step 2 — Surface winning copy
+### Step 2 - Surface winning copy
 
 Read `clients/{slug}/copy-library.md`. Find entries matching:
 - Same signal type
@@ -75,30 +75,30 @@ Read `clients/{slug}/copy-library.md`. Find entries matching:
 If a match exists: state what you are building from and what you are stealing.
 If no match exists: state you are starting fresh.
 
-### Step 3 — Check the graveyard
+### Step 3 - Check the graveyard
 
 Read the Graveyard section in `clients/{slug}/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
 
-### Step 4 — Decide register (ATL vs BTL)
+### Step 4 - Decide register (ATL vs BTL)
 
 Check the recipient title:
 - VP / C-Level / Director / Head of → ATL → read `wiki/atl-btl-messaging.md` ATL section
 - Manager / Specialist / Analyst / Coordinator / IC → BTL → read BTL section
 
-### Step 5 — Decide personalisation tier
+### Step 5 - Decide personalisation tier
 
 Use the matrix in `wiki/personalization-at-scale.md`:
 - Deal size over $25K + low volume → personalise
 - High volume + strong signal → skip personalisation, rely on the signal
 
-### Step 6 — State your starting point
+### Step 6 - State your starting point
 
 Before writing, output one line:
-"Starting point: [building from X / starting fresh — reason]. Register: [ATL/BTL]. Personalisation: [strong hook / lite hook / none]."
+"Starting point: [building from X / starting fresh - reason]. Register: [ATL/BTL]. Personalisation: [strong hook / lite hook / none]."
 
-### Step 7 — Map biases per part of the formula
+### Step 7 - Map biases per part of the formula
 
-Read `wiki/psychological-principles.md` — specifically the "Biases by Copy Stage" table. For each of the 4 parts of the email, decide:
+Read `wiki/psychological-principles.md` - specifically the "Biases by Copy Stage" table. For each of the 4 parts of the email, decide:
 
 - **Which 2-3 biases to deliberately leverage** (based on signal × persona × offer context)
 - **Which 1-2 biases to avoid triggering** (especially Click-whirr conditioning and Egocentric bias)
@@ -116,7 +116,7 @@ Bias plan:
 
 This planning step keeps bias application intentional. Without it, copy tends to default to whatever bias the writer is most familiar with (usually social proof + scarcity) rather than the optimal combination for the specific context.
 
-**The hard rule — Overdone-It bias:** pick at most 12-15 total biases across the whole email. More than that = manipulative. Less than 6 = bland and forgettable.
+**The hard rule - Overdone-It bias:** pick at most 12-15 total biases across the whole email. More than that = manipulative. Less than 6 = bland and forgettable.
 
 ---
 
@@ -124,10 +124,10 @@ This planning step keeps bias application intentional. Without it, copy tends to
 
 Confirm these inputs. Ask if not already provided:
 
-1. **Signal** — what triggered this outreach? (e.g. company posted 5+ jobs, raised Series A)
-2. **Target** — who is the recipient? Title, company type, size
-3. **Sequence step** — Email 1, 2, or 3?
-4. **Goal of this email** — which value prop to lead with? (make money / save time / save money)
+1. **Signal** - what triggered this outreach? (e.g. company posted 5+ jobs, raised Series A)
+2. **Target** - who is the recipient? Title, company type, size
+3. **Sequence step** - Email 1, 2, or 3?
+4. **Goal of this email** - which value prop to lead with? (make money / save time / save money)
 
 ---
 
@@ -164,9 +164,9 @@ Default formula tested + PRR >= 1%
 - Subject line: 2-4 words, lowercase, no spam triggers.
 - No links in the body.
 - No attachments.
-- One CTA only — the prospect should reply in 5 words or less.
-- 2:1 ratio — more about them than about you.
-- Passes the bar test — could you read this out loud at a bar?
+- One CTA only - the prospect should reply in 5 words or less.
+- 2:1 ratio - more about them than about you.
+- Passes the bar test - could you read this out loud at a bar?
 - PRR is the north star. Not open rate. Not reply rate.
 - No vanity personalisation. "Saw you hired 3 AEs" not "I admire your passion".
 - Each follow-up tests a different cognitive mechanism. Never just bump.
@@ -189,7 +189,7 @@ Default: the 4-part formula (Personalisation → Who Am I → The Offer → CTA)
 | 1 | Day 0 | Net new | Best angle, strongest offer | Lead value prop |
 | 2 | Day 3 | Threaded | Different value prop, shorter | Second value prop |
 | 3 | Day 7 | Net new | Completely different angle | Third value prop |
-| 4 | Optional | Threaded | Hail mary — low friction | "Is this even on your radar?" |
+| 4 | Optional | Threaded | Hail mary - low friction | "Is this even on your radar?" |
 
 Rotate across the 3 value props (make money / save time / save money). Never repeat the same one.
 
@@ -199,10 +199,10 @@ Rotate across the 3 value props (make money / save time / save money). Never rep
 
 Before outputting any copy, run two passes:
 
-### Pass 1 — Self-check (main thread)
+### Pass 1 - Self-check (main thread)
 Check every item below. Catches obvious issues.
 
-### Pass 2 — Fresh-eyes review (sub-agent, when output matters)
+### Pass 2 - Fresh-eyes review (sub-agent, when output matters)
 
 For any of these conditions, spawn an `Explore` sub-agent for independent QA before output:
 - High-stakes campaign launch (first email to a Tier 1 / A-tier prospect)
@@ -218,7 +218,7 @@ Skip Pass 2 for: routine sequence variants, Email 2/3 follow-ups when Email 1 al
 
 - [ ] Within word count limits (ATL 60 / BTL 90 / default 75-100)?
 - [ ] Passes the bar test?
-- [ ] Part 1 specific to the signal — not generic?
+- [ ] Part 1 specific to the signal - not generic?
 - [ ] Part 2 uses "I" with a specific number?
 - [ ] Part 3 has outcome + timeframe + risk reversal?
 - [ ] CTA is one binary question?

@@ -19,7 +19,7 @@ Claude should:
 - Read clients/{slug}/*.md and detect all blank/template
 - Output a state report
 
-### 2. Start Phase 1 — Identity
+### 2. Start Phase 1 - Identity
 - Ask about client name (Acme Health)
 - Ask about website
 - Ask about industry (HR tech for healthcare)
@@ -30,22 +30,22 @@ Claude should:
   - clients/{slug}/_config.md
 - Confirm Phase 1 complete
 
-### 3. Continue Phase 2 — Offer (15 min)
+### 3. Continue Phase 2 - Offer (15 min)
 - Ask 12 offer questions
 - Push back if answers are vague ("better hiring" → "by how much, by what date?")
 - Write to clients/{slug}/offer.md
 
-### 4. Continue Phase 3 — ICP (15 min)
+### 4. Continue Phase 3 - ICP (15 min)
 - Ask 13 ICP questions
 - Cross-reference with wiki/signal-sourcing.md to propose 2-3 signals
 - Write to clients/{slug}/icp.md
 
-### 5. Continue Phase 4 — Voice (10 min)
+### 5. Continue Phase 4 - Voice (10 min)
 - Ask 11 voice questions including spelling default
 - For Acme Health (US-based healthcare client) → set American English
 - Write to clients/{slug}/voice.md
 
-### 6. Continue Phase 5 — Infrastructure (5 min)
+### 6. Continue Phase 5 - Infrastructure (5 min)
 - Ask 8 infrastructure questions
 - Note tools used per client
 - Write infrastructure section to clients/{slug}/campaign-state.md
@@ -73,4 +73,4 @@ Claude should:
 - Files written to wrong location (e.g. clients/{slug}/copy-library to wiki/)
 - Placeholders left unresolved without flagging
 - Onboarder writes vague content without pushback
-- Resume fails — restarts from Phase 1 after interruption
+- Resume fails - restarts from Phase 1 after interruption

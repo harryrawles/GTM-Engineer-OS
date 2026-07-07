@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# check-secrets.sh — isolation & secret-tracking guard
+# check-secrets.sh - isolation & secret-tracking guard
 # =============================================================================
 # Fails CI if the repo ever starts tracking a client's secrets, a real
 # credentials file, or anything that looks like an API key / private key.

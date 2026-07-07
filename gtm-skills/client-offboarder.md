@@ -20,7 +20,7 @@ writes:
 
 **Trigger:** "Offboard {{client}}", "{{client}} is churning", "End engagement with {{client}}", "Archive {{client}} OS"
 
-**Context:** When a client engagement ends — churn, expiry, mutual transition — this skill runs the close-out flow. Captures learnings for the portfolio, generates a final report for the client, decommissions assets cleanly.
+**Context:** When a client engagement ends - churn, expiry, mutual transition - this skill runs the close-out flow. Captures learnings for the portfolio, generates a final report for the client, decommissions assets cleanly.
 
 ---
 
@@ -30,7 +30,7 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 — Log Invocation (mandatory)
+## STEP 0 - Log Invocation (mandatory)
 
 Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
 
@@ -39,8 +39,8 @@ Before any other step, append one row to `clients/{slug}/session-log.md` Active 
 ```
 
 Rules (per `wiki/_skill-context.md` "Session-Log Write"):
-- Write at START, not end — captures the attempt even if the skill fails mid-execution
-- Paraphrase the prompt — no raw prospect names, emails, or sensitive data
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
 - Skill name only (no path)
 - Outcome column filled at end of execution (e.g. "Drafted Email 1 + 2 follow-ups", "Diagnosed: deliverability issue", "Pattern detected: diagnose-campaign-performance")
 
@@ -48,14 +48,14 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ---
 
-## STEP 1 — Confirm Offboarding Scope
+## STEP 1 - Confirm Offboarding Scope
 
 Ask Harry:
 1. **Reason for offboarding:**
    - Voluntary churn (client chose to leave)
    - Involuntary churn (we chose to end)
    - Engagement expired (planned)
-   - Pause (will resume) — different workflow, escalate
+   - Pause (will resume) - different workflow, escalate
 
 2. **Effective end date:** when do campaigns actually stop?
 
@@ -69,12 +69,12 @@ If pause (not churn) → use a separate "Pause" workflow (not this skill).
 
 ---
 
-## STEP 2 — Generate Final Report
+## STEP 2 - Generate Final Report
 
 Create `FINAL-REPORT.md` in the client folder (`clients/{slug}/FINAL-REPORT.md`). Contents:
 
 ```
-# Final Report — {{CLIENT_NAME}} | {{date_range}}
+# Final Report - {{CLIENT_NAME}} | {{date_range}}
 
 ## Engagement Summary
 
@@ -132,19 +132,19 @@ If amicable churn, include 2-3 specific recommendations for the client to contin
 
 ## Closing
 
-{{Short closing paragraph — match the tone from Step 1}}
+{{Short closing paragraph - match the tone from Step 1}}
 ```
 
 Show the draft to Harry. Confirm before sending.
 
 ---
 
-## STEP 3 — Promote Abstracted Learnings to the Shared Layer
+## STEP 3 - Promote Abstracted Learnings to the Shared Layer
 
 This repo **is** the multi-client OS. The place for cross-client learning is the shared layer
 (`best-practices/`, `frameworks/`), not a separate meta-OS repo.
 
-**Isolation rule (critical):** only promote **abstracted, generalisable patterns** — never a client's raw
+**Isolation rule (critical):** only promote **abstracted, generalisable patterns** - never a client's raw
 private data. Strip the client's specific numbers, named prospects, proof points, and verbatim copy. If a
 learning cannot be stated without the client's private data, it stays in `clients/{slug}/` and is not
 promoted. See root `CLAUDE.md` → *Golden Rules* (no cross-client sharing of data, ever).
@@ -154,14 +154,14 @@ What to promote (abstracted only):
 - Graveyard *anti-patterns* (the structural mistake to avoid, not the client's copy) → `best-practices/`
 - Strategic *insights / mental models* from `clients/{slug}/decision-log.md` → `frameworks/`
 
-Do **not** copy `copy-library.md` / `decision-log.md` entries verbatim into shared files — extract the
+Do **not** copy `copy-library.md` / `decision-log.md` entries verbatim into shared files - extract the
 transferable lesson and write it in the client-agnostic form.
 
 ---
 
-## STEP 4 — Decommission Assets
+## STEP 4 - Decommission Assets
 
-- [ ] Pause all active campaigns in Instantly (don't delete — preserve for audit)
+- [ ] Pause all active campaigns in Instantly (don't delete - preserve for audit)
 - [ ] Revoke this client's Instantly API key in their workspace, then clear it from `clients/{slug}/secrets/credentials.md`
 - [ ] Remove sending domains from active rotation (keep aged for 30 days then evaluate)
 - [ ] Cancel any client-specific subscriptions / tools (Clay enrichment, etc.)
@@ -176,19 +176,19 @@ transferable lesson and write it in the client-agnostic form.
 
 ---
 
-## STEP 5 — Close Billing
+## STEP 5 - Close Billing
 
 - [ ] Verify all invoices issued for active period
-- [ ] If pro-rated final month — calculate and invoice
-- [ ] If refunds due — issue per contract
-- [ ] If retainer credit owed back — process
+- [ ] If pro-rated final month - calculate and invoice
+- [ ] If refunds due - issue per contract
+- [ ] If retainer credit owed back - process
 - [ ] Mark contract as terminated in 1Password / contract storage
 
 If complex billing situation → escalate to Harry for manual handling. Do not auto-process refunds.
 
 ---
 
-## STEP 6 — Final Communication
+## STEP 6 - Final Communication
 
 Draft a closing email to client. Match the tone from Step 1.
 
@@ -205,7 +205,7 @@ Numbers at a glance:
 - Peak PRR: {{X}}%
 - {{n}} reusable winning copy variants captured
 
-I've paused all sequences. Sending domains will stay live for 30 days in case you want to spin up something new with another partner — happy to make that handoff smooth.
+I've paused all sequences. Sending domains will stay live for 30 days in case you want to spin up something new with another partner - happy to make that handoff smooth.
 
 Thanks for the run.
 
@@ -244,7 +244,7 @@ Show draft to Harry. Do not auto-send.
 
 ---
 
-## STEP 7 — Archive the Client Folder
+## STEP 7 - Archive the Client Folder
 
 A client is a folder under `clients/`, not a separate repo. Archiving keeps the record without leaving the
 client in the active portfolio (so portfolio sweeps and `clients/` enumeration skip it).
@@ -253,7 +253,7 @@ After all above complete:
 
 1. **Add an archival notice** to the top of `clients/{slug}/overview.md`:
 ```
-> ⚠️ ARCHIVED — engagement ended {{date}}.
+> ⚠️ ARCHIVED - engagement ended {{date}}.
 > Preserved for reference; not actively maintained. Last template_version: {{template_version}}.
 ```
 
@@ -269,17 +269,17 @@ After all above complete:
 
 5. **Final commit:**
 ```
-chore: archive {{slug}} — engagement ended, final state preserved
+chore: archive {{slug}} - engagement ended, final state preserved
 ```
 
 ---
 
-## STEP 8 — Log to Decision Log
+## STEP 8 - Log to Decision Log
 
 Final entry in `clients/{slug}/decision-log.md`:
 
 ```
-### {{date}} — Engagement Ended
+### {{date}} - Engagement Ended
 
 **Context:**
 - Duration: {{months}} months
@@ -292,7 +292,7 @@ Final entry in `clients/{slug}/decision-log.md`:
 - Peak campaign: {{name}} at {{X}}% PRR
 
 **Wins promoted to shared layer (abstracted):**
-- {{list — client-agnostic patterns only}}
+- {{list - client-agnostic patterns only}}
 
 **Open lessons:**
 - {{anything we still don't understand about why this ended}}
@@ -348,6 +348,6 @@ Total Engagement Outcome:
 - **Never auto-send the closing email.** Always Harry's review.
 - **Never auto-process refunds.** Escalate.
 - **Preserve all data.** Pause campaigns, don't delete them. Audit trail matters if a dispute arises later.
-- **Migrate learnings.** This is the most valuable part — what we learned at this client should benefit the next one.
+- **Migrate learnings.** This is the most valuable part - what we learned at this client should benefit the next one.
 - **Tone matters.** Even strained offboardings should leave a professional impression. Don't burn bridges.
 - **Log everything.** The decision-log entry is the last thing future-Harry will see about this client. Make it useful.

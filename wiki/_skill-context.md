@@ -12,8 +12,8 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 
 1. Read `_state/active-client` (git-ignored). Its contents are the active `{slug}`.
 2. If it names a slug → that is the active client. State it: "Active client: {Name}."
-3. **Inline override:** if the user's request names a client ("… for acme"), use that slug for this request only — do not change `_state/active-client`.
-4. **Portfolio mode:** if the request says "for all clients", loop every **active** client folder in `clients/` — that is, every direct subfolder whose name does **not** start with `_` or `.` (so `clients/_archived/` and `clients/.gitkeep` are skipped). Run the skill once per client with full isolation (never mix one client's context into another).
+3. **Inline override:** if the user's request names a client ("… for acme"), use that slug for this request only - do not change `_state/active-client`.
+4. **Portfolio mode:** if the request says "for all clients", loop every **active** client folder in `clients/` - that is, every direct subfolder whose name does **not** start with `_` or `.` (so `clients/_archived/` and `clients/.gitkeep` are skipped). Run the skill once per client with full isolation (never mix one client's context into another).
 5. If no active client is set and none is named, and the task is client-specific → **stop and ask which client.** Never guess.
 
 **Isolation rule:** only ever read/write files under the resolved `clients/{slug}/`. Never read another client's folder in the same run.
@@ -22,7 +22,7 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 
 ## Instantly Access (how skills pull data and make changes)
 
-The OS talks to each client's Instantly workspace by calling the **Instantly API v2 directly** — there is
+The OS talks to each client's Instantly workspace by calling the **Instantly API v2 directly** - there is
 no MCP server. All access goes through one wrapper:
 
 ```
@@ -30,13 +30,13 @@ no MCP server. All access goes through one wrapper:
 ```
 
 - It uses **only the active client's** API key (from `clients/{slug}/secrets/credentials.md`), or the
-  client named by `--client`. One key per call — never shared, never cross-client.
-- **Reads are automatic:** any `GET` (and the read-only `POST /leads/list`) runs without asking — e.g.
+  client named by `--client`. One key per call - never shared, never cross-client.
+- **Reads are automatic:** any `GET` (and the read-only `POST /leads/list`) runs without asking - e.g.
   `.claude/bin/instantly.sh GET /campaigns/ID/analytics`.
 - **Writes are gated:** any `POST`/`PATCH`/`PUT`/`DELETE` (activate, pause, create/update/delete, reply,
   forward) is blocked by `safety-guard.sh` until Harry approves. State the action + workspace, then wait.
 - Never construct raw `curl` to `api.instantly.ai` (blocked, and would leak the key). Never print the key.
-- If a call returns `[HTTP 401]` or the wrapper says no key/active client, tell Harry — do **not**
+- If a call returns `[HTTP 401]` or the wrapper says no key/active client, tell Harry - do **not**
   fabricate metrics. Where a skill says "pull from Instantly," it means this wrapper.
 
 Full endpoint + read/write reference: `sops/instantly-api.md`.
@@ -48,7 +48,7 @@ Full endpoint + read/write reference: `sops/instantly-api.md`.
 | File | Why |
 |------|-----|
 | `clients/{slug}/_config.md` | Client name, industry, Instantly workspace |
-| `clients/{slug}/MEMORY.md` | **Always-loaded scratchpad — current focus, watch-outs, client preferences, recent learnings** |
+| `clients/{slug}/MEMORY.md` | **Always-loaded scratchpad - current focus, watch-outs, client preferences, recent learnings** |
 | `clients/{slug}/overview.md` | What the client does, SLA, success criteria |
 | `clients/{slug}/voice.md` | Tone, spelling default, banned words, approved claims |
 | `clients/{slug}/icp.md` | Who we target |
@@ -98,11 +98,11 @@ Every skill MUST append a row to `clients/{slug}/session-log.md` Active Log at t
 - **Write at the START, not the end.** If a skill fails mid-execution, the log still captures that it was attempted.
 - **Paraphrase the prompt.** Do not include verbatim sensitive data (prospect names, emails). Summarise the intent.
 - **One row per skill invocation.** If a chain invokes 5 sub-skills, each sub-skill writes its own row.
-- **The pattern-detector is NOT exempt** — it writes its own row too. Recursion is fine; the detector knows to recognise its own entries and not re-detect on itself.
+- **The pattern-detector is NOT exempt** - it writes its own row too. Recursion is fine; the detector knows to recognise its own entries and not re-detect on itself.
 
 ### Deterministic backstop (`via:hook`)
 The `.claude/hooks/session-logger.sh` hook independently appends **one row per user prompt** to the active client's `session-log.md` (skill column = `via:hook`, prompt redacted: emails stripped, truncated to 60 chars). This guarantees the compounding loop keeps a signal even if a skill forgets its STEP-0 row. Skill rows are still mandatory and are the richer record; `pattern-detector` dedupes skill rows against `via:hook` rows so nothing is double-counted.
 
-**Known limitation:** the hook keys off `_state/active-client`, so it correctly attributes rows after a "switch to {client}" but **cannot** attribute an *inline override* ("… for acme" without switching) — those still rely on the skill's STEP-0 row for correct client attribution.
+**Known limitation:** the hook keys off `_state/active-client`, so it correctly attributes rows after a "switch to {client}" but **cannot** attribute an *inline override* ("… for acme" without switching) - those still rely on the skill's STEP-0 row for correct client attribution.
 
 ---

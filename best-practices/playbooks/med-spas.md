@@ -1,14 +1,14 @@
-# Playbook: Med Spas — Wellness & Peptide Program Expansion
+# Playbook: Med Spas - Wellness & Peptide Program Expansion
 
 **Type:** Shared campaign playbook (client-agnostic). Reusable for any client selling wellness / peptide
-program support to med spas and wellness clinics — led by **education and industry-trend awareness**, with a
+program support to med spas and wellness clinics - led by **education and industry-trend awareness**, with a
 strong focus on patient trust, sourcing transparency, and program design. Not a hard sell.
-**Origin:** Abstracted from a med-spa wellness campaign. All brand-specific values are placeholders —
+**Origin:** Abstracted from a med-spa wellness campaign. All brand-specific values are placeholders -
 fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voice.md`.
 
 > **How to use:** this is a starting structure, not drop-in copy. Swap every `{{PLACEHOLDER}}` for the
 > active client's real values, and only make claims that appear in that client's `voice.md` → *Approved
-> Claims*. **This is a medical / health vertical — peptide, sourcing, and outcome claims are regulated.**
+> Claims*. **This is a medical / health vertical - peptide, sourcing, and outcome claims are regulated.**
 > Only make claims the client can substantiate and has approved; keep language educational and supportive,
 > never prescriptive or promissory. Have the guide ready before the hook. Never carry one client's specifics
 > into another.
@@ -18,7 +18,7 @@ fill them from the active client's `clients/{slug}/offer.md`, `icp.md`, and `voi
 ## Campaign Goal
 
 Start value-first conversations with med spas and wellness clinics by **educating** them on how wellness,
-recovery, and longevity peptides are being added alongside aesthetics — anchored in patient trust, sourcing
+recovery, and longevity peptides are being added alongside aesthetics - anchored in patient trust, sourcing
 transparency, and program design.
 
 ## Ideal Customer Profile (ICP)
@@ -50,10 +50,10 @@ transparency, and program design.
 
 ## Sequence
 
-Merge fields are Instantly variables — keep them as-is (`{{FirstName}}`, `{{CompanyName}}`, `{{City}}`,
+Merge fields are Instantly variables - keep them as-is (`{{FirstName}}`, `{{CompanyName}}`, `{{City}}`,
 `{{State}}`, `{{SendingAccountFirstName}}`). Pick the angle that fits the target segment / geo.
 
-### Angle 1 — Wellness Expansion Beyond Aesthetics
+### Angle 1 - Wellness Expansion Beyond Aesthetics
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -70,7 +70,7 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 2 — Local Market Context
+### Angle 2 - Local Market Context
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -87,12 +87,12 @@ Would you like me to share it?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 3 — Longevity & Recovery Add-Ons
+### Angle 3 - Longevity & Recovery Add-Ons
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
-I put together a short guide on how med spas like {{CompanyName}} add recovery and longevity peptides alongside aesthetics — and how they communicate quality and sourcing to patients.
+I put together a short guide on how med spas like {{CompanyName}} add recovery and longevity peptides alongside aesthetics - and how they communicate quality and sourcing to patients.
 
 Would you like me to send it over?
 
@@ -102,7 +102,7 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 4 — Metabolic Program Support
+### Angle 4 - Metabolic Program Support
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -119,7 +119,7 @@ Interested in taking a look?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 5 — Retention & Adherence Focus
+### Angle 5 - Retention & Adherence Focus
 
 ```
 Hey / Hi / Hello {{FirstName}},
@@ -136,12 +136,12 @@ Would you like me to send it over?
 If this isn't relevant, just let me know.
 ```
 
-### Angle 6 — Patient Experience & Expectations
+### Angle 6 - Patient Experience & Expectations
 
 ```
 Hey / Hi / Hello {{FirstName}},
 
-Many clinics are redesigning treatment programs to focus on comfort and early-stage adherence — not just numbers on a chart.
+Many clinics are redesigning treatment programs to focus on comfort and early-stage adherence - not just numbers on a chart.
 
 I created a short guide on how clinics layer in supportive peptides and set clear expectations with patients.
 
@@ -183,7 +183,7 @@ If this isn't relevant, just let me know.
 - [ ] `{{FirstName}}` / `{{CompanyName}}` / `{{City}}` / `{{State}}` / `{{SendingAccountFirstName}}` → confirm these Instantly fields exist and are mapped
 - [ ] Every peptide, sourcing, and outcome claim is substantiated and appears in `clients/{slug}/voice.md` → Approved Claims (regulated / medical territory)
 - [ ] The guide actually exists and is ready to send before the hook goes out
-- [ ] Language stays educational and supportive — never prescriptive or promissory
+- [ ] Language stays educational and supportive - never prescriptive or promissory
 - [ ] Keep the opt-out line
 - [ ] Match tone/spelling to `clients/{slug}/voice.md`
 - [ ] Log the resulting variants and PRR to `clients/{slug}/copy-library.md`

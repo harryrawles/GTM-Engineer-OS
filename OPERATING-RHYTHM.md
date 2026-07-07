@@ -6,7 +6,7 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 ---
 
-## Daily — Morning Check (10 min)
+## Daily - Morning Check (10 min)
 
 **When:** First thing, before any client work.
 
@@ -26,12 +26,12 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 ---
 
-## Daily — End of Day Wrap (5 min)
+## Daily - End of Day Wrap (5 min)
 
 **When:** Before logging off.
 
 **What:**
-0. Run `gtm-skills/eod-report-writer.md` ("wrap up my day") — generates the MOVED / BLOCKED / NEXT report from today's session trail, drafts it for Slack.
+0. Run `gtm-skills/eod-report-writer.md` ("wrap up my day") - generates the MOVED / BLOCKED / NEXT report from today's session trail, drafts it for Slack.
 1. Log any client comms sent today to `clients/{slug}/comms-log.md` (per client)
 2. Update any decision log entries if a decision was made
 3. Commit changes if any client files changed (one repo holds every client)
@@ -40,12 +40,12 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 ---
 
-## Monday — Week Planning (1 hour for 20 clients)
+## Monday - Week Planning (1 hour for 20 clients)
 
 **When:** First thing Monday morning.
 
 **What:**
-1. **Portfolio health pass** — run `gtm-skills/client-health-scorer.md` in portfolio mode. Get scores across all clients.
+1. **Portfolio health pass** - run `gtm-skills/client-health-scorer.md` in portfolio mode. Get scores across all clients.
 2. **Identify focus list for the week:**
    - All Red / Critical clients → top priority
    - All Amber clients → second priority
@@ -64,19 +64,19 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 
 ---
 
-## Friday — Weekly Review Sweep (2.5-4 hours for 20 clients)
+## Friday - Weekly Review Sweep (2.5-4 hours for 20 clients)
 
 **When:** Friday afternoon (default). Or Monday morning if Friday is impossible.
 
 **The single most important recurring activity.** Without this, the OS does not compound.
 
-**Two-tier approach — triage first, full review only for flagged clients.**
+**Two-tier approach - triage first, full review only for flagged clients.**
 
 Running full reviews on all 20 clients every Friday takes 5-6 hours. The triage approach cuts this to 2.5-4 hours by skipping full reviews on clients where nothing actionable happened that week.
 
 **What:**
 
-### Step 1 — Portfolio triage (~40 min)
+### Step 1 - Portfolio triage (~40 min)
 Run `gtm-skills/chain-weekly-review-full.md` in Portfolio Triage Mode:
 ```
 Friday portfolio triage for: [list all 20 clients]
@@ -85,7 +85,7 @@ This runs a 2-minute triage pass on each client via `gtm-skills/weekly-reviewer.
 
 **Typical outcome:** 5-8 clients flagged, 12-15 Green pass.
 
-### Step 2 — Full reviews (flagged clients only, ~15-20 min each)
+### Step 2 - Full reviews (flagged clients only, ~15-20 min each)
 For each flagged client, run full single-client review (chain-weekly-review-full Steps 1-5):
 - Winners to log (PRR ≥ 1%) → confirm "why it worked" → write to copy-library + decision-log
 - Losers to log (PRR < 0.5%) → confirm root cause → write to graveyard
@@ -94,7 +94,7 @@ For each flagged client, run full single-client review (chain-weekly-review-full
 
 Priority order: Red/Critical first → Amber → Green (if flagged).
 
-### Step 3 — Reports (~45 min across all 20)
+### Step 3 - Reports (~45 min across all 20)
 - Flagged clients → full weekly report via `gtm-skills/client-report-writer.md`
 - Green-pass clients → 3-line status update (PRR, meetings, no action)
 - Review before sending (never auto-send)
@@ -106,11 +106,11 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 - Every active test has progressed or completed
 - Every client has a report or status update
 
-**If skipped:** flag in Monday review. Skipping 2 weeks = OS stops compounding for that client. The triage stamp counts — even a Green pass is better than no review.
+**If skipped:** flag in Monday review. Skipping 2 weeks = OS stops compounding for that client. The triage stamp counts - even a Green pass is better than no review.
 
 ---
 
-## Monthly — ICP & Offer Review (per client, ~30 min)
+## Monthly - ICP & Offer Review (per client, ~30 min)
 
 **When:** First Monday of the month.
 
@@ -132,7 +132,7 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 
 ---
 
-## Quarterly — QBR (per client, ~2 hours)
+## Quarterly - QBR (per client, ~2 hours)
 
 **When:** Last week of each quarter (per client).
 
@@ -153,7 +153,7 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 
 ---
 
-## Ad-Hoc — When Things Happen
+## Ad-Hoc - When Things Happen
 
 ### Client request lands
 → Run `gtm-skills/client-request-handler.md`. Route, log, action.
@@ -211,9 +211,9 @@ Priority order: Red/Critical first → Amber → Green (if flagged).
 ## How to Start
 
 Week 1 of using this OS:
-- Day 1 (Monday) — set up morning routine, configure Instantly alerts
-- Day 5 (Friday) — first weekly review. Will take 4-5 hours because no patterns exist yet
-- Day 10 — second weekly review. Will be 3 hours because some patterns logged
-- By Day 20 — weekly review is 2-3 hours and getting easier
+- Day 1 (Monday) - set up morning routine, configure Instantly alerts
+- Day 5 (Friday) - first weekly review. Will take 4-5 hours because no patterns exist yet
+- Day 10 - second weekly review. Will be 3 hours because some patterns logged
+- By Day 20 - weekly review is 2-3 hours and getting easier
 
 After 8 weeks the routine is automatic. The OS does most of the cognitive work.

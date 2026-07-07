@@ -1,4 +1,4 @@
-# Client Config — {{CLIENT_NAME}}
+# Client Config - {{CLIENT_NAME}}
 
 Central source of truth for variables used across this OS. Other files reference this file rather than hardcoding values.
 
@@ -10,9 +10,9 @@ Central source of truth for variables used across this OS. Other files reference
 
 | Key | Value |
 |-----|-------|
-| `slug` | {{SLUG}} — lowercase-kebab folder name under `clients/` (e.g. `acme-corp`) |
+| `slug` | {{SLUG}} - lowercase-kebab folder name under `clients/` (e.g. `acme-corp`) |
 | `client_name` | {{CLIENT_NAME}} |
-| `tier` | {{TIER}} — e.g. DFY / DWY / Custom, or A/B/C priority |
+| `tier` | {{TIER}} - e.g. DFY / DWY / Custom, or A/B/C priority |
 | `industry` | {{INDUSTRY}} |
 | `website` | {{WEBSITE}} |
 | `geography` | {{GEOGRAPHY}} |
@@ -28,13 +28,13 @@ Central source of truth for variables used across this OS. Other files reference
 |-----|-------|
 | `instantly_workspace_url` | {{URL}} |
 | `instantly_workspace_id` | {{ID}} |
-| `instantly_api_configured` | {{true/false}} — is `instantly_api_key` filled in `secrets/credentials.md`? The OS calls the API v2 directly per client via `.claude/bin/instantly.sh`; there is no MCP server. See `sops/instantly-api.md`. |
+| `instantly_api_configured` | {{true/false}} - is `instantly_api_key` filled in `secrets/credentials.md`? The OS calls the API v2 directly per client via `.claude/bin/instantly.sh`; there is no MCP server. See `sops/instantly-api.md`. |
 
 ## OS
 
 | Key | Value |
 |-----|-------|
-| `template_version` | {{TEMPLATE_VERSION}} — copy from repo root `VERSION` at spin-up time |
+| `template_version` | {{TEMPLATE_VERSION}} - copy from repo root `VERSION` at spin-up time |
 | `os_setup_date` | {{YYYY-MM-DD}} |
 | `last_review_date` | {{YYYY-MM-DD}} |
 

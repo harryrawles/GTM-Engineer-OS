@@ -1,4 +1,4 @@
-# Pre-Call Client Worksheet — {{CLIENT_NAME}}
+# Pre-Call Client Worksheet - {{CLIENT_NAME}}
 
 **Purpose:** send this to the client BEFORE the kickoff call so they can prepare. The onboarder reads filled answers from this file when running and skips already-answered questions.
 
@@ -14,7 +14,7 @@
 ## How to use this file
 
 1. **Harry:** copy this template, send to the client before the kickoff call.
-2. **Client:** fills in as much as they can. No question is mandatory — skip what you do not know.
+2. **Client:** fills in as much as they can. No question is mandatory - skip what you do not know.
 3. **Harry:** review answers before the call. Identify gaps.
 4. **Onboarder:** during Phase 1 startup, reads this file. Already-filled answers populate the company files directly. Gaps become questions in the conversational flow.
 
@@ -105,7 +105,7 @@ If this file is empty, the onboarder runs in pure conversational mode.
 
 **Have you done cold outreach before?**
 
-**If yes — what worked? What did not?**
+**If yes - what worked? What did not?**
 
 **Do you have any existing campaigns running?**
 

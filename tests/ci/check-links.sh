@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# check-links.sh — shared-brain reference integrity
+# check-links.sh - shared-brain reference integrity
 # =============================================================================
 # Asserts that every repo-relative *.md path referenced from a skill, chain,
 # wiki page, or top-level doc actually resolves to a real file. This is the
@@ -11,7 +11,7 @@
 # Scope: all tracked *.md files EXCEPT CHANGELOG.md (a historical log that
 # intentionally names files that have since been renamed or removed).
 # Templated paths (containing { or }) such as clients/{slug}/... or
-# gtm-skills/forged-{name}.md are skipped — they are patterns, not real files.
+# gtm-skills/forged-{name}.md are skipped - they are patterns, not real files.
 # =============================================================================
 set -uo pipefail
 cd "$(dirname "$0")/../.." || exit 1

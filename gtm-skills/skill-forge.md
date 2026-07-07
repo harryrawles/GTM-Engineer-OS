@@ -46,7 +46,7 @@ From pattern-detector or direct invocation:
 
 ---
 
-## STEP 1 — Confirm Scope
+## STEP 1 - Confirm Scope
 
 Before drafting, confirm with Harry:
 
@@ -61,21 +61,21 @@ Before drafting, confirm with Harry:
 
 ---
 
-## STEP 2 — Study the Pattern
+## STEP 2 - Study the Pattern
 
 Read the example prompts in detail. Identify:
 
 1. **What does Harry do today** when this prompt fires? (Which sub-skills, which files, which manual steps?)
 2. **What are the inputs?** (Specific information Harry provides each time)
 3. **What is the output?** (What gets produced or decided)
-4. **What is the cognitive overhead?** (Why is this worth automating — what is slow without a skill?)
+4. **What is the cognitive overhead?** (Why is this worth automating - what is slow without a skill?)
 5. **What are the variations?** (How do the prompts differ? The skill must handle all variations.)
 
-Read existing skills that handle related work — both for inspiration on format AND to avoid duplication.
+Read existing skills that handle related work - both for inspiration on format AND to avoid duplication.
 
 ---
 
-## STEP 3 — Draft the Skill
+## STEP 3 - Draft the Skill
 
 Generate a new skill file following OS conventions. Required structure:
 
@@ -119,15 +119,15 @@ See ``wiki/_skill-context.md``.
 
 ---
 
-## STEP 1 — {{First step}}
+## STEP 1 - {{First step}}
 
 {{Step content based on what Harry actually does}}
 
-## STEP 2 — {{Second step}}
+## STEP 2 - {{Second step}}
 
 {{Step content}}
 
-## STEP N — {{Final step}}
+## STEP N - {{Final step}}
 
 {{Step content}}
 
@@ -135,7 +135,7 @@ See ``wiki/_skill-context.md``.
 
 ## RULES
 
-- {{Rules Harry should follow when this skill runs — derived from the pattern}}
+- {{Rules Harry should follow when this skill runs - derived from the pattern}}
 
 ---
 
@@ -150,7 +150,7 @@ The draft does NOT have to be perfect. It is a candidate. Harry will refine.
 
 ---
 
-## STEP 4 — Save with `forged-` Prefix
+## STEP 4 - Save with `forged-` Prefix
 
 Save the new file to:
 
@@ -165,7 +165,7 @@ The `forged-` prefix is **mandatory and load-bearing**:
 
 ---
 
-## STEP 5 — Log the Forging
+## STEP 5 - Log the Forging
 
 ### Update `clients/{slug}/session-log.md` Forged skills table:
 
@@ -176,13 +176,13 @@ The `forged-` prefix is **mandatory and load-bearing**:
 ### Update `clients/{slug}/MEMORY.md` Active Focus:
 
 ```
-- 🆕 Forged skill: `gtm-skills/forged-{{name}}.md` — created {{date}} from {{N}} repeating prompts. Review and either promote (rename to drop `forged-` prefix + add to CLAUDE.md routing) or delete.
+- 🆕 Forged skill: `gtm-skills/forged-{{name}}.md` - created {{date}} from {{N}} repeating prompts. Review and either promote (rename to drop `forged-` prefix + add to CLAUDE.md routing) or delete.
 ```
 
 ### Update `clients/{slug}/decision-log.md`:
 
 ```
-### {{date}} — Forged new skill: {{name}}
+### {{date}} - Forged new skill: {{name}}
 
 **Context:**
 - Pattern detected: {{N}} matching prompts in {{period}}
@@ -203,7 +203,7 @@ Forged `gtm-skills/forged-{{name}}.md` to automate this repeating workflow.
 
 ---
 
-## STEP 6 — Output to Harry
+## STEP 6 - Output to Harry
 
 Show Harry:
 
@@ -237,7 +237,7 @@ The next time you make a prompt matching this pattern, the OS will route to the 
 
 ## EXAMPLES
 
-### Example — Forging from a diagnose-campaign pattern
+### Example - Forging from a diagnose-campaign pattern
 
 ```
 Harry: forge it

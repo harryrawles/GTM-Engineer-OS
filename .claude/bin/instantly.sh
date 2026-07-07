@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # =============================================================================
-# instantly.sh — per-client Instantly API v2 caller
+# instantly.sh - per-client Instantly API v2 caller
 # =============================================================================
 # The OS talks to each client's Instantly workspace by calling the REST API v2
 # directly (https://developer.instantly.ai/) with THAT client's API key. There
@@ -10,14 +10,14 @@
 # to make those calls.
 #
 # WHY A WRAPPER (not raw curl):
-#   1. Isolation — it loads only the ACTIVE client's key (or an inline
+#   1. Isolation - it loads only the ACTIVE client's key (or an inline
 #      --client override). One key in memory at a time; no cross-client bleed.
-#   2. Security — the key is read from the file INSIDE this script and handed to
+#   2. Security - the key is read from the file INSIDE this script and handed to
 #      curl via a stdin config (`curl -K -`). The key therefore never appears in
 #      the command line, the process list (`ps`), the chat transcript, or the
 #      .claude/sessions/*.jsonl audit trail. Raw curl to api.instantly.ai is
 #      blocked by safety-guard.sh precisely so the key can never leak that way.
-#   3. Safety — safety-guard.sh gates THIS wrapper by HTTP verb: GET (and the
+#   3. Safety - safety-guard.sh gates THIS wrapper by HTTP verb: GET (and the
 #      read-only `POST /leads/list`) run automatically; every other verb
 #      (POST/PATCH/PUT/DELETE = a mutation or send) is blocked pending Harry's
 #      explicit approval, per CLAUDE.md → Safety Guard.
@@ -26,7 +26,7 @@
 #   .claude/bin/instantly.sh GET  /campaigns
 #   .claude/bin/instantly.sh GET  /campaigns/CAMPAIGN_ID/analytics
 #   .claude/bin/instantly.sh POST /leads/list '{"campaign_id":"..."}'      # read
-#   .claude/bin/instantly.sh POST /campaigns/CAMPAIGN_ID/activate          # WRITE — gated
+#   .claude/bin/instantly.sh POST /campaigns/CAMPAIGN_ID/activate          # WRITE - gated
 #   .claude/bin/instantly.sh --client acme GET /campaigns                  # inline override
 #
 # Endpoint reference + read/write map: sops/instantly-api.md
