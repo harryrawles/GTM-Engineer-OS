@@ -238,6 +238,10 @@ build, and clients feel more of that effort in the results, which builds more co
 
 (Credit: Alex Hormozi, *$100M Offers* - adapted here as the pricing layer of offer theory.)
 
+This is about the **client's own product's** pricing and guarantees, the thing GTME writes copy for, not
+Instantly's or GTME's own pricing (that's the AM's, per `sops/am-gtme-responsibility-split.md`). Read every
+"you/your" below as the client.
+
 ### Price-to-value discrepancy
 
 Buyers act when they believe the value received clearly exceeds the price paid. The goal is to maximise

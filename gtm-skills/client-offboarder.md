@@ -53,9 +53,10 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 Ask Harry:
 1. **Reason for offboarding:**
    - Voluntary churn (client chose to leave)
-   - Involuntary churn (we chose to end)
+   - Involuntary churn (Instantly chose to end - this decision is made by the AM/leadership, not Harry;
+     this skill executes it once made)
    - Engagement expired (planned)
-   - Pause (will resume) - different workflow, escalate
+   - Pause (will resume) - different workflow, escalate to the AM
 
 2. **Effective end date:** when do campaigns actually stop?
 
@@ -164,7 +165,8 @@ transferable lesson and write it in the client-agnostic form.
 - [ ] Pause all active campaigns in Instantly (don't delete - preserve for audit)
 - [ ] Revoke this client's Instantly API key in their workspace, then clear it from `clients/{slug}/secrets/credentials.md`
 - [ ] Remove sending domains from active rotation (keep aged for 30 days then evaluate)
-- [ ] Cancel any client-specific subscriptions / tools (Clay enrichment, etc.)
+- [ ] Flag any client-specific subscriptions / tools (Clay enrichment, etc.) to the AM for cancellation,
+  this is billing-adjacent (`sops/am-gtme-responsibility-split.md`)
 - [ ] Suppress all leads in this client's lists across Harry's other client workspaces (to avoid accidental cross-contamination)
 - [ ] Remove client from Slack channels / Notion / shared drives
 - [ ] Update `clients/{slug}/_config.md`:

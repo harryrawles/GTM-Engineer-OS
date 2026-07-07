@@ -100,7 +100,8 @@ Trigger Clay workflow for this signal type. Expected output:
 Manual enrichment via Apollo. Slower but workable.
 
 ### If no enrichment tools connected
-Note the gap. Use public data only. Quality will be lower. Recommend Harry connects Clay or Apollo for this client.
+Note the gap. Use public data only. Quality will be lower. Flag to Harry that Clay or Apollo would help for
+this client, new paid tools go through the AM/manager for procurement approval, not connected unilaterally.
 
 ---
 

@@ -6,6 +6,9 @@
 > sources, why raising price can raise perceived value, why "the gap" matters - lives in
 > [wiki/offer-creation-theory.md](./offer-creation-theory.md). Read it if a step below feels arbitrary.
 
+Every "you/your" below is the **client**, this builds the client's offer for their own product, not
+Instantly's or GTME's pricing (that's the AM's, `sops/am-gtme-responsibility-split.md`).
+
 ---
 
 ## Step 1: Define Who

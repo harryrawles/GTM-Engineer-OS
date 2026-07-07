@@ -18,7 +18,7 @@ day.
 | Be Consistent | Over-deliver within reason. If you make an exception once, the client will expect it forever. 5% of clients take 95% of your time, minimise this by sticking to scope. |
 | Be Proactive | Deal with errors before the client notices them. We don't want clients pushing us. If you spot a deliverability issue, get in front of it, fix it and report back, or flag it early. |
 | Professional Language | Every message represents Instantly as a brand. No poor grammar, no casual tone. Write as if a screenshot of your message could end up anywhere. |
-| Prioritise by Account Value | Weight your time by MRR. High-value accounts and churn-risk clients come first. If a client is stable and happy, focus your effort where it matters most. Structure your week with this in mind. |
+| Prioritise by Account Value | Weight your time by account value (tier/MRR, as the AM or your manager communicates it, not pulled from billing yourself, billing is AM-owned). High-value accounts and churn-risk clients come first. If a client is stable and happy, focus your effort where it matters most. Structure your week with this in mind. |
 | Don't Over-Extend | Your time is a finite resource. Avoid extra calls outside scope and unnecessary one-off work. Use Loom to solve problems efficiently. Only extend if it plays directly toward a high-value or churn-risk account. |
 | Don't Over-Communicate | Clients are busy. Update with sincerity and keep it short. Focus on the metrics they care about. Rambling damages trust faster than silence. |
 

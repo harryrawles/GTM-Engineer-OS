@@ -12,6 +12,8 @@ falls through the cracks.
 - Campaigns: building, testing, and optimising
 - Lead list building
 - Day-to-day client management and messaging
+- Quarterly/performance review calls with clients (the performance case: results, wins, lessons, next-
+  quarter strategy). The renewal terms discussed on that same call are the AM's, not GTME's.
 
 ---
 
@@ -21,6 +23,15 @@ falls through the cracks.
 - Workspace issues and email throttling
 - Domain-level problems (widespread issues, .co flags, etc.)
 - Billing
+- Renewal terms, contract negotiation, and pricing, including within a GTME-led performance review call
+
+---
+
+## Beyond the AM: Manager/Team Lead Owns
+
+Some things aren't the AM's either. Legal threats and GDPR/data-exposure incidents escalate to Harry's
+manager/team lead, not just to Harry, and not to the client until the manager has weighed in. See
+`gtm-skills/incident-responder.md` Protocols C and E.
 
 ---
 
@@ -63,4 +74,20 @@ is to detect, scope, notify, and manage the client relationship, then hand off e
   names the AM as the owner of that escalation.
 - **Onboarding stays GTME's.** `sops/daily-structure.md`'s Onboarding block (campaigns, lead lists, AI SDR
   configuration) does not include mailbox or domain provisioning, that runs on the AM's separate track in
-  parallel.
+  parallel. Contract terms (`gtm-skills/client-onboarder.md` Phase 1) come from the AM's already-signed
+  deal, GTME confirms them with the client rather than negotiating them.
+- **Renewals and QBRs.** `gtm-skills/qbr-writer.md`, `gtm-skills/client-health-scorer.md`, and
+  `templates/client-template/overview.md` previously had GTME personally recommending renewal terms,
+  running pricing review, and holding "Renewal signed" as a GTME success criterion. All three now treat the
+  QBR as GTME building the performance case and the AM leading the terms conversation, per "GTME Owns"
+  above.
+- **Legal and compliance escalation.** `gtm-skills/incident-responder.md` (Protocols C and E) and
+  `gtm-skills/reply-handler.md` previously modeled legal threats and GDPR breaches as Harry's call to make
+  with the client directly. Both now escalate to Harry's manager/team lead first; client notification
+  follows the manager's decision, not Harry's own judgment call.
+- **Wiki knowledge re-scoped to the GTME job.** `wiki/deliverability.md` was a hands-on infrastructure
+  manual (DNS setup, blacklist removal steps); it's now a diagnostic reference (benchmarks, symptom-to-
+  cause, list verification) with the AM-execution detail removed. `wiki/system-design-process.md` dropped
+  its "Recruit Team" step and the Refine Flow reference (Harry's own separate business, out of scope for
+  this repo); it's now a 6-step process instead of 7. `wiki/acquisition-systems-theory.md`'s framing no
+  longer assumes the reader manages team members or hiring capacity.
