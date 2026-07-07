@@ -19,6 +19,8 @@ to every client.
   as underperforming, and the internal-only figures that don't get shared with clients.
 - `gtme-unlock-ladder.md` - what to do when stuck on a client: query Cowork, then the support channel, then
   `#grill-my-campaigns`, before it becomes a call.
+- `client-not-getting-results.md` - the proactive-disclosure protocol when results are underperforming: get
+  ahead of it, always have a plan attached, work the Unlock Ladder if stuck, own it completely.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

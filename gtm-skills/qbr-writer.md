@@ -285,7 +285,7 @@ that's easier to schedule)
 ## Talking Points (Harry's notes)
 
 - Lead with the headline number. Don't bury it.
-- If a campaign underperformed, name it and the fix. Don't dodge.
+- If a campaign underperformed, name it and the fix. Don't dodge. This should already be old news to the client by QBR time, per `sops/client-not-getting-results.md`.
 - For the strategy section: be specific. "Test offer framing" is not a plan. "Test offer framing on Email 1 of funding campaign, hypothesis is X" is.
 - For renewal: make the performance case, then hand off. "Given these numbers, I'll let [AM] pick up the renewal conversation with you" is the line, not a personal recommendation on terms or price.
 

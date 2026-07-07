@@ -16,7 +16,7 @@ day.
 |---|---|
 | Document Your Work | Clients want to feel looked after at all times. Show your working, they often don't understand how much goes into building pipeline. Update them as you go. They will value it. |
 | Be Consistent | Over-deliver within reason. If you make an exception once, the client will expect it forever. 5% of clients take 95% of your time, minimise this by sticking to scope. |
-| Be Proactive | Deal with errors before the client notices them. We don't want clients pushing us. If you spot a deliverability issue, get in front of it, fix it and report back, or flag it early. |
+| Be Proactive | Deal with errors before the client notices them. We don't want clients pushing us. If you spot a deliverability issue, get in front of it, fix it and report back, or flag it early. When results are underperforming specifically, follow `sops/client-not-getting-results.md` in full. |
 | Professional Language | Every message represents Instantly as a brand. No poor grammar, no casual tone. Write as if a screenshot of your message could end up anywhere. |
 | Prioritise by Account Value | Weight your time by account value (tier/MRR, as the AM or your manager communicates it, not pulled from billing yourself, billing is AM-owned). High-value accounts and churn-risk clients come first. If a client is stable and happy, focus your effort where it matters most. Structure your week with this in mind. |
 | Don't Over-Extend | Your time is a finite resource. Avoid extra calls outside scope and unnecessary one-off work. Use Loom to solve problems efficiently. Only extend if it plays directly toward a high-value or churn-risk account. |
@@ -51,7 +51,8 @@ separate system outside this OS, do not try to resolve them yourself.
   RULES: "Push back on bad asks" and "Don't promise what you can't deliver."
 - **Be Proactive** is the client-facing half of `gtm-skills/deliverability-doctor.md` and
   `gtm-skills/incident-responder.md`, getting in front of an issue and reporting it, rather than waiting for
-  the client to spot it first.
+  the client to spot it first. When the issue is results underperforming specifically,
+  `sops/client-not-getting-results.md` is the full procedure this principle points to.
 - **Professional Language** is the Instantly-brand floor beneath `clients/{slug}/voice.md`. `voice.md` sets
   each client's specific tone; this principle is the baseline every client's voice sits on top of.
 - **Prioritise by Account Value** is exactly what `gtm-skills/client-health-scorer.md` operationalises:
