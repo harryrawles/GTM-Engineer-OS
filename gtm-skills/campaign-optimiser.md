@@ -21,6 +21,7 @@ funnel below.
 **Read before diagnosing - extended:**
 - `wiki/email-benchmarks.md` - symptom-to-cause diagnostic table and benchmark calibration
 - `sops/campaign-performance-standards.md` - the authoritative PRR tiers, and the escalation path at 1,000+ sends per positive reply
+- `sops/solving-campaign-issues.md` - the tactical fix playbook once a root cause is found below (low-risk CTA plays, deliverability recovery, ICP-miss recovery including the lookalike play)
 - `wiki/deliverability.md` - for any bounce / open rate / spam issues
 - `wiki/copywriting-frameworks.md` - alternative frameworks if the default formula has plateaued
 - `wiki/signal-sourcing.md` - for signal freshness and list quality issues

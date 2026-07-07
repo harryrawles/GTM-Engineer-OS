@@ -36,6 +36,8 @@ workspace-level throttling.
 | 3-5% | Dangerous | Could be list quality or infrastructure, pause and diagnose which before assuming either |
 | Over 5% | Critical | Pause immediately, flag the AM in case it's infrastructure-side |
 
+Bounce rate is one signal. Reply rate is the other, see the table below.
+
 ### Reply rate
 
 | Reply rate | Status |
@@ -43,7 +45,7 @@ workspace-level throttling.
 | Over 15% | Excellent |
 | Over 10% | Good |
 | Over 5% | Minimum for sustained sending |
-| Under 3% | Danger zone, deliverability will degrade |
+| Under 2.8% | Danger zone, mailboxes are decaying or falling into spam, see `sops/solving-campaign-issues.md` |
 
 ---
 
