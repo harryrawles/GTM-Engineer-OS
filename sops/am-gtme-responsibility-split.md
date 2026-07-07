@@ -43,6 +43,16 @@ manager/team lead, not just to Harry, and not to the client until the manager ha
 
 ---
 
+## Beyond the AM: CSM Owns
+
+The relationship layer, when it's under strain, isn't the AM's either. A client that's pushing back,
+losing confidence, or consuming disproportionate time gets flagged to the CSM per
+`sops/tough-client-involve-csm.md`. CSM provides air cover on the relationship so GTME stays on delivery.
+CSM's own process from there (cancellation-save, escalation routing) lives outside this repo entirely, do
+not add or link to CSM-owned SOPs here.
+
+---
+
 ## Situational Split
 
 **Client needs to set up Supersearch.** GTME leads the communication. If the client gets stuck with
@@ -58,7 +68,8 @@ it yourself.
 
 **Client is over-extending or being extremely demanding.** GTME leads using
 `sops/client-communication-principles.md`. If the client needs to be reminded of scope, bring in the AM to
-reinforce it.
+reinforce it. If it's the relationship itself under strain, not just a scope ask, flag the CSM per
+`sops/tough-client-involve-csm.md` instead, or as well.
 
 ---
 
@@ -99,3 +110,7 @@ is to detect, scope, notify, and manage the client relationship, then hand off e
   its "Recruit Team" step and the Refine Flow reference (Harry's own separate business, out of scope for
   this repo); it's now a 6-step process instead of 7. `wiki/acquisition-systems-theory.md`'s framing no
   longer assumes the reader manages team members or hiring capacity.
+- **The relationship layer belongs to CSM, not GTME or the AM.** `sops/tough-client-involve-csm.md` is the
+  third handoff this document names, alongside the AM (execution) and the manager (legal/compliance): CSM
+  owns the relationship when a client is difficult, disengaged, or consuming disproportionate time.
+  `gtm-skills/client-health-scorer.md`'s Red/Critical bands now flag it explicitly.

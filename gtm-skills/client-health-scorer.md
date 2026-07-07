@@ -131,8 +131,8 @@ pricing are the AM's (`sops/am-gtme-responsibility-split.md`).
 | 80-100 | **Green** | Healthy. Maintain rhythm. |
 | 60-79 | **Green-Amber** | Performing but watch trends. Consider increasing test cadence. |
 | 40-59 | **Amber** | At risk. Active intervention needed within 1 week. |
-| 20-39 | **Red** | Critical. Immediate action. Consider proactive client conversation. |
-| 0-19 | **Critical / Churn imminent** | Escalate. Crisis playbook. If renewal is near, loop in the AM immediately, that conversation is theirs. |
+| 20-39 | **Red** | Critical. Immediate action. Consider proactive client conversation. If the relationship itself is deteriorating, not just the numbers, flag the CSM per `sops/tough-client-involve-csm.md` rather than waiting for Critical. |
+| 0-19 | **Critical / Churn imminent** | Escalate. Crisis playbook. If renewal is near, loop in the AM immediately, that conversation is theirs. Flag the CSM per `sops/tough-client-involve-csm.md` if not already done. |
 
 ---
 

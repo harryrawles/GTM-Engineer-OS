@@ -21,6 +21,8 @@ to every client.
   `#grill-my-campaigns`, before it becomes a call.
 - `client-not-getting-results.md` - the proactive-disclosure protocol when results are underperforming: get
   ahead of it, always have a plan attached, work the Unlock Ladder if stuck, own it completely.
+- `tough-client-involve-csm.md` - when to flag the CSM on a difficult, disengaged, or time-consuming
+  client, before it becomes a cancellation situation, and what CSM does once flagged.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

@@ -19,7 +19,7 @@ day.
 | Be Proactive | Deal with errors before the client notices them. We don't want clients pushing us. If you spot a deliverability issue, get in front of it, fix it and report back, or flag it early. When results are underperforming specifically, follow `sops/client-not-getting-results.md` in full. |
 | Professional Language | Every message represents Instantly as a brand. No poor grammar, no casual tone. Write as if a screenshot of your message could end up anywhere. |
 | Prioritise by Account Value | Weight your time by account value (tier/MRR, as the AM or your manager communicates it, not pulled from billing yourself, billing is AM-owned). High-value accounts and churn-risk clients come first. If a client is stable and happy, focus your effort where it matters most. Structure your week with this in mind. |
-| Don't Over-Extend | Your time is a finite resource. Avoid extra calls outside scope and unnecessary one-off work. Use Loom to solve problems efficiently. Only extend if it plays directly toward a high-value or churn-risk account. |
+| Don't Over-Extend | Your time is a finite resource. Avoid extra calls outside scope and unnecessary one-off work. Use Loom to solve problems efficiently. Only extend if it plays directly toward a high-value or churn-risk account. If a client is consuming disproportionate time regardless of tier, that's `sops/tough-client-involve-csm.md`, not just a time-budgeting call. |
 | Don't Over-Communicate | Clients are busy. Update with sincerity and keep it short. Focus on the metrics they care about. Rambling damages trust faster than silence. |
 
 PRR is the north star metric for the OS, always, for every copy and campaign decision (`CLAUDE.md`,
@@ -36,6 +36,7 @@ separate system outside this OS, do not try to resolve them yourself.
 | Situation | Guidance |
 |---|---|
 | Client wants to cancel | Do not attempt to handle this independently. Buy time, stay warm, and flag to the CSM same day. |
+| Client is becoming difficult, disengaged, or consuming disproportionate time, before it's a cancellation | Follow `sops/tough-client-involve-csm.md`. Flag the CSM early, don't wait for it to escalate into the row above. |
 | Client wants a refund | Do not make any commitments or promises. Escalate immediately to the AM (billing is AM-owned, per `sops/am-gtme-responsibility-split.md`). Tag Aaron if the client has any public presence or significant following. |
 | Client wants everything completed "yesterday" | Explain that proper testing takes around a week to understand what is working. For scope demands, refer back to the agreement. For urgency: "I totally understand, to make sure this is done properly it will take {{ETA}}. Is it okay if we take a little extra care so we get a really strong result?" |
 | Client wants to write their own copy | Push back. 9 times out of 10 it does not work and they blame us. Explain how outbound copy is different from other channels. If they insist and have actual data showing their copy works, use it as a starting point and optimise from there. |
@@ -72,3 +73,6 @@ separate system outside this OS, do not try to resolve them yourself.
   internal PRR/sends-per-reply tiers never get shared with a client. What they see is their own actual
   performance (`gtm-skills/client-report-writer.md`) and the external "1 per 1,000" framing, not our
   internal floor.
+- **The new situational row above** is the earlier trigger for the same escalation the "Client wants to
+  cancel" row already names. `sops/tough-client-involve-csm.md` is the full procedure: what to flag, and
+  what CSM does once flagged.
