@@ -27,6 +27,14 @@ falls through the cracks.
 
 ---
 
+## Stuck, But Still Yours
+
+Not every block is an ownership question. If a campaign is stuck and the work is still GTME's, that's not
+an AM or manager handoff, it's `sops/gtme-unlock-ladder.md`: Cowork, then the support channel, then
+`#grill-my-campaigns`, before it becomes a call.
+
+---
+
 ## Beyond the AM: Manager/Team Lead Owns
 
 Some things aren't the AM's either. Legal threats and GDPR/data-exposure incidents escalate to Harry's

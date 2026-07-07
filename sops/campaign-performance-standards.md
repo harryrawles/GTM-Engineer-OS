@@ -17,7 +17,7 @@ Emails sent per positive reply, and what each range means:
 | 60-200 | 0.5%-1.67% | Great. Strong campaign, keep iterating. |
 | 200-500 | 0.2%-0.5% | Good. This is the internal floor we aim to hit for every client. |
 | 500-1,000 | 0.1%-0.2% | Below standard. Review copy, ICP targeting, and deliverability now. |
-| 1,000+ | Under 0.1% | Poor. Escalate immediately, follow `sops/gtme-unlock-ladder.md`. |
+| 1,000+ | Under 0.1% | Poor. Escalate immediately, work `sops/gtme-unlock-ladder.md`. |
 
 This is the same PRR scale used across the OS, just expressed as raw sends per reply instead of a
 percentage (see `wiki/email-benchmarks.md`). Use whichever framing is faster in the moment, they agree.
@@ -43,5 +43,5 @@ per reply, something needs fixing, escalate before the client notices.
   (`gtm-skills/client-report-writer.md`) is their own actual PRR, that stays exactly as reported. What
   stays internal is the floor/tier language above and the fact that our real bar is well ahead of the
   "1 per 1,000" figure we communicate externally.
-- **Escalation at 1,000+ sends per reply** routes through `sops/gtme-unlock-ladder.md`. That SOP has not
-  been added to the OS yet, this is a forward reference pending it.
+- **Escalation at 1,000+ sends per reply** routes through `sops/gtme-unlock-ladder.md`: Cowork, then the
+  support channel, then `#grill-my-campaigns`, before it becomes a call.

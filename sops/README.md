@@ -17,6 +17,8 @@ to every client.
   lists, and client comms are GTME's; technical setup, domain issues, and billing are the AM's.
 - `campaign-performance-standards.md` - the authoritative PRR/sends-per-reply benchmark tiers, what counts
   as underperforming, and the internal-only figures that don't get shared with clients.
+- `gtme-unlock-ladder.md` - what to do when stuck on a client: query Cowork, then the support channel, then
+  `#grill-my-campaigns`, before it becomes a call.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List
