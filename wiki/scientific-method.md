@@ -11,6 +11,11 @@ The principle, in one sentence: **define a hypothesis, hold every other variable
 > **Why sample size and latency rules exist:** see `wiki/acquisition-systems-theory.md` Section 8
 > (Regression to the Mean) — small samples don't distribute evenly even when the underlying rate is fixed,
 > which is exactly what makes early results misleading.
+>
+> **Why "genotype" and "fitness" are the right words for this:** this file's entire Step 1-4 process is
+> the applied procedure for `wiki/darwinian-acquisition-theory.md` — that file explains the biological
+> reasoning underneath every rule here (Ceteris Paribus, needle-movers, V-numbering) and adds techniques
+> beyond single-variable iteration (splicing, cross-pollination, sharing wins across a network).
 
 > Used by: `gtm-skills/test-launcher.md`, `gtm-skills/test-readiness-check.md`, `gtm-skills/weekly-reviewer.md`, `gtm-skills/campaign-optimiser.md`, `gtm-skills/cold-email-writer.md`. Test entries live in `clients/{slug}/test-log.md`.
 

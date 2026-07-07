@@ -12,6 +12,7 @@ them by their `wiki/` paths). This README is the index so "load the applicable f
 |-----------|------|
 | First principles of client acquisition (mental models, Stimuli Entropy, Multi-Disciplinary Thinking) | `wiki/first-principles-client-acquisition.md` |
 | Acquisition systems theory (sub-systems funnel, bottlenecks, scale, feedback loops) | `wiki/acquisition-systems-theory.md` |
+| Darwinian acquisition theory (genotypes, fitness, traits, splicing, network conjugation) | `wiki/darwinian-acquisition-theory.md` |
 | Offer creation theory (6 Pillars, Pools of Confidence/Pain, Action Thresholds, latent conditions) | `wiki/offer-creation-theory.md` |
 | Offer building (12-step) | `wiki/offer-framework.md` |
 | Scientific method (split-test methodology) | `wiki/scientific-method.md` |

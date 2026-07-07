@@ -69,6 +69,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/copywriting-frameworks.md | 13 alternative named frameworks + ColdIQ playbook |
 | wiki/first-principles-client-acquisition.md | Meta-framework: Human+Stimulus=Action, Stimuli vs Fundamentals, Stimuli Entropy, Multi-Disciplinary Thinking, mental models toolkit |
 | wiki/acquisition-systems-theory.md | Systems theory: sub-systems funnel, throughput/bottlenecks, Polaris/non-linear metrics, scale, entropy, feedback loops |
+| wiki/darwinian-acquisition-theory.md | Biological grounding for the scientific method: genotypes, fitness, traits, splicing, cross-pollination, network conjugation |
 | wiki/offer-creation-theory.md | Offer psychology: 6 Pillars, Pools of Confidence/Pain, Action Thresholds, latent conditions, pricing philosophy |
 | wiki/offer-framework.md | 12-step offer building |
 | wiki/psychological-principles.md | Cognitive biases for copy |

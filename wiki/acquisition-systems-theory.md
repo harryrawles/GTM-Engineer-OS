@@ -350,7 +350,7 @@ toolkit in `wiki/first-principles-client-acquisition.md` Section 9):
 | **Churn** (component wear) | Parts of a system wear out and need constant replenishment | A lead list depletes; a sending domain's reputation decays — budget for replacement as a standing cost, not an exception |
 | **Law of diminishing returns** | Beyond a point, more input stops producing proportionally more output | A rep given more than 7-8 calls a day gets less effective per call, not more effective overall |
 | **Sunk costs** | Prior investment doesn't establish current value | A script that cost real money to develop gets dropped the moment it stops converting — prior spend is not a reason to keep it (contrast with `wiki/psychological-principles.md` #29, which covers a *prospect's* sunk-cost bias during a sales call — this is the operator avoiding the same bias in their own decisions) |
-| **Butterfly effect** | Systems are sensitive to initial conditions; small early changes can have outsized downstream effects | A small change to Email 1 changes which prospects even reach Email 3 — early-stage changes compound further than late-stage ones |
+| **Butterfly effect** | Systems are sensitive to initial conditions; small early changes can have outsized downstream effects | A small change to Email 1 changes which prospects even reach Email 3 — early-stage changes compound further than late-stage ones. Full ships-crossing-the-ocean illustration: `wiki/darwinian-acquisition-theory.md` Section 10. |
 
 ---
 

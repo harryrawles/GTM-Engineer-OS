@@ -94,6 +94,10 @@ The OS must get measurably better every session. Compounding happens on two laye
 **Promotion rule:** only de-identified methodology moves up. Raw client data never leaves the client
 folder. When in doubt, keep it in the client folder.
 
+> This is Network Effect Conjugation, structurally — see `wiki/darwinian-acquisition-theory.md` Section
+> 11. `weekly-reviewer` is the conjugation mechanism; `wiki/`, `frameworks/`, and `best-practices/` are the
+> shared plasmid pool every client draws fitness from without re-discovering it independently.
+
 ---
 
 ## Repo Structure
