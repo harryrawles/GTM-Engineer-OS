@@ -94,6 +94,12 @@ Check:
 
 ## RECOVERY PROTOCOLS
 
+Domain-level and platform-infrastructure fixes (blacklist removal, DNS-level changes, workspace/throttling
+issues) are AM-owned, not GTME-owned (`sops/am-gtme-responsibility-split.md`). The protocols below are the
+reference runbook for what needs to happen, diagnose and flag to the AM to execute rather than running them
+solo by default. List-quality and volume/pacing fixes (Protocol B, and the volume-throttle step generally)
+stay GTME's, they're campaign decisions, not infrastructure ones.
+
 ### Protocol A - Domain blacklisted
 
 1. Identify which blacklist (MXToolbox shows all)

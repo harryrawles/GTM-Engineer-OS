@@ -86,6 +86,11 @@ Default to higher severity if unsure. Easier to step down than escalate late.
 
 ## PROTOCOL A - Domain Blacklisted
 
+Domain-level issues are AM-owned, not GTME-owned (`sops/am-gtme-responsibility-split.md`). GTME's job is
+the first four steps below (detect, pause, scope, notify) plus client communication; flag the AM
+immediately to own steps 5-6 (the actual removal-request execution and root-cause DNS diagnosis) rather
+than running them solo by default.
+
 ### Immediate (first 30 minutes)
 
 1. **Pause all campaigns** from affected sending domains

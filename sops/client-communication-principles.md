@@ -36,7 +36,7 @@ separate system outside this OS, do not try to resolve them yourself.
 | Situation | Guidance |
 |---|---|
 | Client wants to cancel | Do not attempt to handle this independently. Buy time, stay warm, and flag to the CSM same day. |
-| Client wants a refund | Do not make any commitments or promises. Escalate immediately. Tag Aaron if the client has any public presence or significant following. |
+| Client wants a refund | Do not make any commitments or promises. Escalate immediately to the AM (billing is AM-owned, per `sops/am-gtme-responsibility-split.md`). Tag Aaron if the client has any public presence or significant following. |
 | Client wants everything completed "yesterday" | Explain that proper testing takes around a week to understand what is working. For scope demands, refer back to the agreement. For urgency: "I totally understand, to make sure this is done properly it will take {{ETA}}. Is it okay if we take a little extra care so we get a really strong result?" |
 | Client wants to write their own copy | Push back. 9 times out of 10 it does not work and they blame us. Explain how outbound copy is different from other channels. If they insist and have actual data showing their copy works, use it as a starting point and optimise from there. |
 
@@ -59,7 +59,7 @@ separate system outside this OS, do not try to resolve them yourself.
 - **Refund handling** is the human script for a rule already enforced at the tooling level: `CLAUDE.md`
   Safety Guard item 4 blocks financial operations outright, and `.claude/hooks/safety-guard.sh` blocks
   `create_refund` and related calls in code. `gtm-skills/client-offboarder.md` also never auto-processes
-  refunds, it escalates.
+  refunds, it escalates, specifically to the AM, per `sops/am-gtme-responsibility-split.md`.
 - **Cancellation** here is the save attempt, before any decision is final. It is a different moment to
   `gtm-skills/client-offboarder.md`, which runs after the engagement has actually ended. If the save fails
   and the client leaves, offboarding is the next step, not this SOP.

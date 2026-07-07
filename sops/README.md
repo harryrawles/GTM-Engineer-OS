@@ -13,6 +13,8 @@ to every client.
 - `client-communication-principles.md` - the baseline standard for every client interaction (document work,
   be proactive, professional language, MRR-weighted prioritisation) plus situational guidance for
   cancellations, refunds, rush demands, and clients wanting to write their own copy.
+- `am-gtme-responsibility-split.md` - who owns what between the GTME (Harry) and the AM: campaigns, lead
+  lists, and client comms are GTME's; technical setup, domain issues, and billing are the AM's.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

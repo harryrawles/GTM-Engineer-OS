@@ -178,13 +178,16 @@ transferable lesson and write it in the client-agnostic form.
 
 ## STEP 5 - Close Billing
 
+Billing is AM-owned, not GTME-owned (`sops/am-gtme-responsibility-split.md`). This checklist is what needs
+to happen, hand it to the AM to execute rather than processing it yourself.
+
 - [ ] Verify all invoices issued for active period
 - [ ] If pro-rated final month - calculate and invoice
 - [ ] If refunds due - issue per contract
 - [ ] If retainer credit owed back - process
 - [ ] Mark contract as terminated in 1Password / contract storage
 
-If complex billing situation → escalate to Harry for manual handling. Do not auto-process refunds.
+If complex billing situation - loop in the AM and Harry for manual handling. Never auto-process refunds.
 
 ---
 

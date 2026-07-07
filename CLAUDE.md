@@ -6,7 +6,9 @@ A **living** operating system for running multiple Instantly GTM clients (target
 repo. A shared brain - skills, knowledge, frameworks, playbooks, best practices, templates - serves every
 client, while each client's own context and data stay fully isolated.
 
-**Managed by:** Harry Rawles - GTM Engineer.
+**Managed by:** Harry Rawles - GTM Engineer (GTME). A separate AM (Account Manager) role owns technical
+setup, domain issues, and billing, outside this repo, see `sops/am-gtme-responsibility-split.md` for the
+full split.
 
 This file is both the hub and the spec: it defines exactly how the OS must behave. **If the repo and this
 file ever disagree, this file is correct and the repo should be fixed to match it.**

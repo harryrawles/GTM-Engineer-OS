@@ -25,7 +25,9 @@ funnel below.
 - `wiki/signal-sourcing.md` - for signal freshness and list quality issues
 
 **Skills to invoke if needed:**
-- `gtm-skills/deliverability-doctor.md` - if the root cause is infrastructure
+- `gtm-skills/deliverability-doctor.md` - if the root cause is infrastructure. This is the "technical
+  fault, loop in the AM" branch of `sops/am-gtme-responsibility-split.md`: GTME still owns the diagnosis,
+  the AM owns the infrastructure-level fix once diagnosed.
 - `gtm-skills/list-builder.md` - if the root cause is list quality
 - `gtm-skills/signal-sourcer.md` - if the root cause is signal saturation
 

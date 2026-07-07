@@ -72,7 +72,7 @@ Ask Harry to confirm interpretation if ambiguous.
 | **G - Reporting question** | "What's our PRR this month", "How many meetings did we book", "Send me the data" | `gtm-skills/campaign-analyst.md` or `gtm-skills/client-report-writer.md` |
 | **H - Strategic / Q4 planning** | "Plan Q4", "What should we change", "What's working" | `gtm-skills/qbr-writer.md` or strategic discussion |
 | **I - Performance concern** | "PRR seems low", "Why are we underperforming" | `gtm-skills/campaign-optimiser.md` + diagnostic |
-| **J - Contract / billing** | "Renewal terms", "Invoice question", "I want a refund" | Manual - escalate to Harry, no auto-handling. Refund requests: follow `sops/client-communication-principles.md` situational guidance (no commitments, escalate immediately, tag Aaron if the client has public presence) |
+| **J - Contract / billing** | "Renewal terms", "Invoice question", "I want a refund" | Manual - escalate to the AM, not Harry (billing is AM-owned per `sops/am-gtme-responsibility-split.md`). Refund requests: follow `sops/client-communication-principles.md` situational guidance (no commitments, escalate immediately to the AM, tag Aaron if the client has public presence) |
 | **K - Asset request** | "Send the deck", "Share the case study" | Manual - pull from `assets/` and send |
 | **L - Custom / unclear** | Anything else | Capture and flag for Harry |
 
