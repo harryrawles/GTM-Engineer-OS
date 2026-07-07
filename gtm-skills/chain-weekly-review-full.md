@@ -79,7 +79,7 @@ Invoke `gtm-skills/weekly-reviewer.md`. This runs the full 9-step flow:
 
 1. Pull Instantly data (Step 0 of this chain already did this, weekly-reviewer can reuse)
 2. Signal trends — surface declining signals
-3. Identify winners (PRR ≥ 1.5%, sample ≥ 300) — confirm + capture "why" + log to copy-library + decision-log
+3. Identify winners (PRR ≥ 1%, sample ≥ 300) — confirm + capture "why" + log to copy-library + decision-log
 4. Identify losers (PRR < 0.5%, sample ≥ 300) — confirm root cause + log to graveyard
 5. Update completed tests (six-rule check + 5-question tree + regression check + recommend revert or promotion)
 6. Update campaign health in `clients/{slug}/campaign-state.md`

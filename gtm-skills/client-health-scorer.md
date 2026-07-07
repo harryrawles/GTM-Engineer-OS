@@ -237,7 +237,7 @@ OVERALL: 52/100 → Amber
 
 Breakdown:
 1. Performance vs Target    | 21/40
-   - PRR (target 2.0%, actual 1.1%)         | 11/20
+   - PRR (target 1.0%, actual 0.6%)         | 11/20
    - Meetings (target 8, actual 5)          | 9/15
    - Reply-to-meeting conversion 18%         | 1/5
 

@@ -47,7 +47,7 @@ Ask Harry to paste data if MCP is unavailable.
 
 | Metric | This period | Benchmark | Status |
 |--------|-------------|-----------|--------|
-| PRR | {{%}} | 1.5%+ | Green / Amber / Red |
+| PRR | {{%}} | 1%+ | Green / Amber / Red |
 | Reply rate | {{%}} | 3%+ | Green / Amber / Red |
 | Bounce rate | {{%}} | Under 2% | Green / Amber / Red |
 | Meetings booked | {{n}} | Client target | Green / Amber / Red |

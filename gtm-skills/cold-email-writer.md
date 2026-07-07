@@ -70,7 +70,7 @@ If the Instantly API can't be reached (missing/invalid key), ask Harry to paste 
 Read `clients/{slug}/copy-library.md`. Find entries matching:
 - Same signal type
 - Same sequence step (Email 1, 2, or 3)
-- PRR above 1.5%
+- PRR above 1%
 
 If a match exists: state what you are building from and what you are stealing.
 If no match exists: state you are starting fresh.
@@ -137,7 +137,7 @@ Confirm these inputs. Ask if not already provided:
 Email 1 of new campaign + no past data
   → Default: 4-part formula (wiki/copywriting-101.md)
 
-Default formula tested + PRR < 1.5% after 600+ sends
+Default formula tested + PRR < 1% after 600+ sends
   → Switch to named framework (wiki/copywriting-frameworks.md)
   → Pick by signal type below
 
@@ -151,7 +151,7 @@ Specific signal warrants specific framework:
   Executive (C-level)        → ATL formula (wiki/atl-btl-messaging.md)
   Champion job change        → Not Too Different Persona
 
-Default formula tested + PRR >= 1.5%
+Default formula tested + PRR >= 1%
   → Do not switch. Iterate on sub-variables only (offer phrasing, CTA wording).
 ```
 

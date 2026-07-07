@@ -2,7 +2,7 @@
 
 Archive of top-performing emails and a graveyard of underperformers for this client. Read before writing any new copy.
 
-**PRR threshold for archive entry:** 1.5%+
+**PRR threshold for archive entry:** 1%+
 
 ---
 

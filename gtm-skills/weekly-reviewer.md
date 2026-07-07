@@ -86,7 +86,7 @@ Pull last 7 days from the Instantly API (via `.claude/bin/instantly.sh`). If it 
 
 | Gate | Check | Flag if... |
 |------|-------|------------|
-| G1 — Winner candidate | Any campaign PRR ≥ 1.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Top Performers |
+| G1 — Winner candidate | Any campaign PRR ≥ 1% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Top Performers |
 | G2 — Loser candidate | Any campaign PRR < 0.5% with ≥ 300 sends | NOT already in `clients/{slug}/copy-library.md` Graveyard |
 | G3 — Test completing | Any Running test in `clients/{slug}/test-log.md` | Sample size hit AND latency window elapsed this week |
 | G4 — Signal declining | Any signal in `clients/{slug}/icp.md` signal table | PRR down 30%+ week-over-week |
@@ -152,7 +152,7 @@ Tech change      | 1.2%      | 1.1%       | ↔      | Stable
 
 If a signal is flagged: recommend either pause + iterate, or rotate in a new signal from `wiki/signal-sourcing.md`.
 
-### Step 3 — Identify winners (PRR ≥ 1.5%, sample ≥ 300 sends)
+### Step 3 — Identify winners (PRR ≥ 1%, sample ≥ 300 sends)
 
 For each campaign / variant hitting the winner threshold AND not already in `clients/{slug}/copy-library.md`:
 
@@ -221,7 +221,7 @@ If all 6 pass → proceed to the **5-question tree** (Step 3.2):
 If the completed variant V(n+1) was an iteration of V(n), compare PRR head-to-head:
 
 - **V(n+1) regressed from V(n) by more than the backtrack threshold defined in test-log** → recommend **REVERT** to V(n) and iterate a DIFFERENT needle-mover next. Log the regression as a learning in `clients/{slug}/decision-log.md` under "What we tried + what failed" and in `clients/{slug}/test-log.md` Reverted Tests section.
-- **V(n+1) improved over V(n)** → promote V(n+1) as the new control. Update `clients/{slug}/copy-library.md` if PRR ≥ 1.5%. Queue next test (different needle-mover, OR same needle-mover at a different modification level, OR same modification on a different variable per the priority order in `wiki/scientific-method.md` Step 4.2).
+- **V(n+1) improved over V(n)** → promote V(n+1) as the new control. Update `clients/{slug}/copy-library.md` if PRR ≥ 1%. Queue next test (different needle-mover, OR same needle-mover at a different modification level, OR same modification on a different variable per the priority order in `wiki/scientific-method.md` Step 4.2).
 - **V(n+1) inconclusive (within margin of V(n))** → re-test with a moderate modification of the same needle-mover.
 
 Output the regression verdict explicitly:
@@ -266,8 +266,8 @@ Winner: {{Control / Variant / Inconclusive}}
 ### Step 6 — Update campaign health in `clients/{slug}/campaign-state.md`
 
 For each active campaign, set health:
-- **Green** — PRR ≥ 1.5%, bounce < 2%, all sequence steps performing
-- **Amber** — PRR 0.5-1.5%, OR bounce 2-3%, OR signal declining
+- **Green** — PRR ≥ 1%, bounce < 2%, all sequence steps performing
+- **Amber** — PRR 0.5-1%, OR bounce 2-3%, OR signal declining
 - **Red** — PRR < 0.5%, OR bounce > 3%, OR warmup disabled
 
 Update the "current metrics" and "health" fields per campaign. Add a state note if anything changed materially.

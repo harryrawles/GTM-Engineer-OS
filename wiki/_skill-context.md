@@ -72,7 +72,7 @@ Full endpoint + read/write reference: `sops/instantly-api.md`.
 | `clients/{slug}/decision-log.md` | When a non-obvious choice is made |
 | `clients/{slug}/comms-log.md` | When client comms are sent |
 | `clients/{slug}/campaign-state.md` | When campaign state changes |
-| `clients/{slug}/copy-library.md` | When a winner emerges (PRR >= 1.5%) |
+| `clients/{slug}/copy-library.md` | When a winner emerges (PRR >= 1%) |
 
 ---
 

@@ -137,7 +137,7 @@ Any corrections?
 
 ## Rules
 
-- **PRR gate:** if PRR < 1.5%, ask Harry: "PRR is [x]% — below 1.5% threshold. Log anyway as a notable test result?" If yes, log under "Notable Results" subsection, not Top Performers.
+- **PRR gate:** if PRR < 1%, ask Harry: "PRR is [x]% — below 1% threshold. Log anyway as a notable test result?" If yes, log under "Notable Results" subsection, not Top Performers.
 - **Sample size note:** if sends < 300, append: "Warning: Sample size [n] — below 300-send threshold. Treat as directional until confirmed at scale."
 - **No duplicates:** check copy-library before writing. If a matching entry exists, ask: "Similar entry from [date] exists — update it or add as a new variant?"
 - **Never invent metrics.** Missing metrics get `{{CONFIRM}}` and are surfaced at the end.

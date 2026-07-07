@@ -76,7 +76,7 @@ flowchart TD
     D -->|Yes| E[Flag pivot recommendation]
     D -->|No| F[Step 3: Identify Winners]
     E --> F
-    F --> G{PRR >= 1.5% and sample >= 300?}
+    F --> G{PRR >= 1% and sample >= 300?}
     G -->|Yes| H[Confirm with Harry]
     G -->|No| I[Step 4: Identify Losers]
     H --> J{Confirmed?}

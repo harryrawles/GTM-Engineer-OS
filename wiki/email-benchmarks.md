@@ -21,11 +21,14 @@ Industry benchmarks for calibrating expectations, setting KPIs, and diagnosing p
 
 ## PRR Benchmarks (Primary KPI)
 
+**The KPI: PRR ≥ 1% → scale.** A 5% reply rate with 20% of those replies positive is a 1% PRR — that
+already clears the bar. Do not confuse the raw reply rate with PRR; PRR is the fraction of *sends* that
+are positive replies, not the fraction of *replies* that are positive.
+
 | Tier | PRR | Status |
 |------|-----|--------|
-| Excellent | 3%+ | Scale, do not change copy |
-| Strong | 1.5-3% | On track, optimise sub-variables |
-| Acceptable | 0.5-1.5% | Iterate primary variable |
+| Scale | 1%+ | Scale, do not change copy |
+| Acceptable | 0.5-1% | Iterate primary variable |
 | Underperforming | Under 0.5% | Diagnose root cause urgently |
 
 ---

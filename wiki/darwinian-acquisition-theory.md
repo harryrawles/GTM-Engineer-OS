@@ -150,9 +150,10 @@ transfers to another (an ad) for the same niche. This is the basis for Stimulus 
 A stimulus with variables producing traits (and specific execution) conducive to action has **fitness** —
 measured by whether it hits KPI, and by how much.
 
-> **Loom cold email, minimum KPIs:** LVR 15% (sent → viewed), PRR 5% (viewed → reply, ~30% of viewers),
-> ABR 3.5% (positive reply → booking, ~70% of positive repliers). These are guidelines, not universal —
-> some clients scale on a 40% LVR, others on a 1.5% ABR.
+> **Loom cold email, minimum KPIs:** LVR 15% (sent → viewed), PRR 1% (viewed → reply, ~7% of viewers —
+> PRR is always measured against total sends, not against views), ABR 3.5% (positive reply → booking,
+> ~70% of positive repliers). These are guidelines, not universal — some clients scale on a 40% LVR,
+> others on a 1.5% ABR.
 
 | Metric | Variables it measures |
 |--------|------------------------|

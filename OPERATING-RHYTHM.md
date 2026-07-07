@@ -87,7 +87,7 @@ This runs a 2-minute triage pass on each client via `gtm-skills/weekly-reviewer.
 
 ### Step 2 — Full reviews (flagged clients only, ~15-20 min each)
 For each flagged client, run full single-client review (chain-weekly-review-full Steps 1-5):
-- Winners to log (PRR ≥ 1.5%) → confirm "why it worked" → write to copy-library + decision-log
+- Winners to log (PRR ≥ 1%) → confirm "why it worked" → write to copy-library + decision-log
 - Losers to log (PRR < 0.5%) → confirm root cause → write to graveyard
 - Completed tests → confirm result → write to test-log → queue next test
 - Signal trends → diagnose decline → recommend pivots

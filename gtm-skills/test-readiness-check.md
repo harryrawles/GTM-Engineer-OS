@@ -130,8 +130,8 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 - Re-confirm only ONE variable changes between control and variant (manual review of copy diff)
 
 **12. Modification level appropriateness**
-- Slight modification on a dead variant (PRR <0.5% vs >2% target) → warn, recommend complete
-- Complete rewrite on a close-to-KPI variant (PRR 2.3% vs 3.5% target) → warn, recommend slight
+- Slight modification on a dead variant (PRR <0.5% vs 1% target) → warn, recommend complete
+- Complete rewrite on a close-to-KPI variant (PRR 0.8% vs 1% target) → warn, recommend slight
 
 **13. Constant overlap with another active test**
 - No other Running test in `clients/{slug}/test-log.md` uses the same campaign / mailbox / lead source

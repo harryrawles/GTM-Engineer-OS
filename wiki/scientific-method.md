@@ -66,7 +66,7 @@ Identify the **primary** and **secondary** metrics that reflect the performance 
 
 | Metric | Role | Example KPI |
 |--------|------|-------------|
-| **Primary — PRR (positive reply rate)** | Directly attributable to THIS stimulus | 5% target |
+| **Primary — PRR (positive reply rate)** | Directly attributable to THIS stimulus | 1% target |
 | **Secondary — ABR (appointment booking rate)** | Polaris — upstream of PRR, influenced by the whole sequence | 3.5% target |
 
 **Rule:** if the secondary (ABR) is at or above KPI, do NOT look at the primary (PRR). ABR is downstream of the entire system — if Polaris is hitting, the system is working. Touch nothing.
@@ -217,7 +217,7 @@ Document both. Then:
 
 **Q4: Is the primary (PRR) way below KPI?**
 - **Yes** → iterate the hypothesis (Step 4 below).
-- **No, but close** → consider scaling cautiously. A 2.7% PRR against a 3.5% KPI is often good enough for scale.
+- **No, but close** → consider scaling cautiously. A 0.8% PRR against a 1% KPI is often good enough for scale.
 
 **Q5 (the calibration question): Are you treating KPI as a hard rule or as a measuring stick?**
 
@@ -268,11 +268,11 @@ This is the core discipline. If you test two variables at once, you cannot attri
 
 How heavily do you modify the needle-mover? Three levels, picked by how far from KPI the current version is.
 
-| Modification level | Affinity to V(x) | When to pick (PRR vs 3.5% KPI) |
+| Modification level | Affinity to V(x) | When to pick (PRR vs 1% KPI) |
 |--------------------|-----------------|-------------------------------|
-| **Slight** | High — V(x+1) feels similar to V(x) | Close to KPI (e.g. 2.3% vs 3.5%) |
-| **Moderate** | Some — same direction, different execution | Off (e.g. 1.3% vs 3.5%) |
-| **Complete** | Zero — start from a blank page | Dead in the water (e.g. 0.3% vs 3.5%) |
+| **Slight** | High — V(x+1) feels similar to V(x) | Close to KPI (e.g. 0.7% vs 1%) |
+| **Moderate** | Some — same direction, different execution | Off (e.g. 0.4% vs 1%) |
+| **Complete** | Zero — start from a blank page | Dead in the water (e.g. 0.1% vs 1%) |
 
 **Rule of thumb:** the worse the result, the bigger the swing. A slight modification to a dead variant is wasted volume.
 
