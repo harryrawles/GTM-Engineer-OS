@@ -55,6 +55,9 @@ not add or link to CSM-owned SOPs here.
 
 ## Situational Split
 
+For the mechanics of any "bring in / flag / loop in the AM" instruction below, channel, message format,
+and who to tag, see `sops/gtme-escalation-to-am.md`.
+
 **Client needs to set up Supersearch.** GTME leads the communication. If the client gets stuck with
 sign-up or has issues, bring in the AM.
 
@@ -114,3 +117,7 @@ is to detect, scope, notify, and manage the client relationship, then hand off e
   third handoff this document names, alongside the AM (execution) and the manager (legal/compliance): CSM
   owns the relationship when a client is difficult, disengaged, or consuming disproportionate time.
   `gtm-skills/client-health-scorer.md`'s Red/Critical bands now flag it explicitly.
+- **AM escalation now has a concrete procedure.** `sops/gtme-escalation-to-am.md` is the channel
+  (#am-vip-handling-updates), message format, and tagging matrix behind every escalation named in this
+  document. It also codifies the one case that is a dual-flag rather than a handoff: a client losing
+  confidence goes to AM and CSM in parallel, each working their own lever.

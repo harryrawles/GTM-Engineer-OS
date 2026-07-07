@@ -37,7 +37,7 @@ separate system outside this OS, do not try to resolve them yourself.
 |---|---|
 | Client wants to cancel | Do not attempt to handle this independently. Buy time, stay warm, and flag to the CSM same day. |
 | Client is becoming difficult, disengaged, or consuming disproportionate time, before it's a cancellation | Follow `sops/tough-client-involve-csm.md`. Flag the CSM early, don't wait for it to escalate into the row above. |
-| Client wants a refund | Do not make any commitments or promises. Escalate immediately to the AM (billing is AM-owned, per `sops/am-gtme-responsibility-split.md`). Tag Aaron if the client has any public presence or significant following. |
+| Client wants a refund | Do not make any commitments or promises. Escalate immediately to the AM (billing is AM-owned, per `sops/am-gtme-responsibility-split.md`), using the channel and format in `sops/gtme-escalation-to-am.md`. Tag Aaron if the client has any public presence or significant following. |
 | Client wants everything completed "yesterday" | Explain that proper testing takes around a week to understand what is working. For scope demands, refer back to the agreement. For urgency: "I totally understand, to make sure this is done properly it will take {{ETA}}. Is it okay if we take a little extra care so we get a really strong result?" |
 | Client wants to write their own copy | Push back. 9 times out of 10 it does not work and they blame us. Explain how outbound copy is different from other channels. If they insist and have actual data showing their copy works, use it as a starting point and optimise from there. |
 
@@ -73,6 +73,9 @@ separate system outside this OS, do not try to resolve them yourself.
   internal PRR/sends-per-reply tiers never get shared with a client. What they see is their own actual
   performance (`gtm-skills/client-report-writer.md`) and the external "1 per 1,000" framing, not our
   internal floor.
-- **The new situational row above** is the earlier trigger for the same escalation the "Client wants to
+- **The situational row above** is the earlier trigger for the same escalation the "Client wants to
   cancel" row already names. `sops/tough-client-involve-csm.md` is the full procedure: what to flag, and
   what CSM does once flagged.
+- **The refund row's AM escalation** now has a concrete channel and message format,
+  `sops/gtme-escalation-to-am.md`. The "who" (Aaron, for public-presence situations) is unchanged, that
+  SOP just adds the "how."
