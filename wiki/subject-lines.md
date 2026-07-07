@@ -15,10 +15,13 @@ Subject lines decide whether the email gets opened. Preview text decides whether
 - **No question marks.** Question marks in subject lines signal "salesperson".
 - **Relevant to the body.** Deceptive subject lines destroy trust and trigger spam filters.
 - **Same thread for Email 2.** Email 2 uses `RE:` (same subject). Email 3 gets a new subject on a new thread.
+- **Spintax every 2-3 words.** Vary the subject at that cadence so each send reads as a natural variation,
+  not an identical copy. Same principle as the body-copy spintax rule in `wiki/copywriting-101.md` Hard
+  Rules, applied specifically to subjects.
 
 ---
 
-## 4 Subject Line Formulas
+## 5 Subject Line Formulas
 
 ### 1. Personalised (highest open rate)
 
@@ -76,6 +79,21 @@ Rules:
 - No spam triggers
 - Should flow into the email naturally
 ```
+
+### 5. Internal Stakeholder Mimicry
+
+Make the subject read like it came from inside the company: an employee, manager, investor, or contractor,
+without being dishonest about who you are. Boring beats clever here, the goal is to not look like a
+marketing email at all.
+
+```
+q3 candidate reviews
+employee bonus plans
+interview schedule
+```
+
+Best when the client's ICP gets flooded with obviously-promotional subject lines and needs a genuine pattern
+break. Combine with the spintax rule above so a whole send isn't identical.
 
 ---
 

@@ -24,9 +24,32 @@ Core principles for signal-based cold email. Read this before writing any copy.
 - **2:1 ratio** - more about them than about you
 - **Pattern breaks** - look different to every other cold email they receive
 - **Spintax and liquid syntax** - vary copy at scale to avoid spam filters
+- **No spam words in the body either** - same trigger list as `wiki/subject-lines.md` Hard Rules ("free", "guarantee", "limited time", "act now"), bend only when the client's own offer genuinely requires the word
 
 ---
 
+
+---
+
+## Choosing a Campaign Style
+
+Pick the campaign's overall angle before drafting individual emails - this decision shapes every email in
+the sequence, not just the first one.
+
+**Offer-Led.** Build a valuable offer tied into the client's core product. Ask: would someone actually pay
+for this? Does it feel like it was built specifically for them? Is saying no almost unreasonable? See
+`wiki/offer-creation-theory.md` and `wiki/offer-framework.md` for how to build the offer itself.
+
+**Pro-Bono Play.** Give something away for free as the hook. See `best-practices/playbooks/ai-calling.md`
+for a worked example (a pro-bono AI calling agent offer for dealerships) before writing one from scratch.
+
+**Three Ideas / Creative Angle.** Lead with insight or a framework rather than an offer. Works well for
+consultative or strategic clients. This is the strategic version of the "Information Arbitrage" and "Dream
+Client Identification" tactics under Winning Strategies below.
+
+**Exception - the client already has a strong offer.** A VC looking for acquisition targets, a podcast
+seeking speakers, an agency offering free leads: lead with that directly rather than forcing one of the
+three styles above onto an offer that's already sharp.
 
 ---
 
@@ -104,6 +127,16 @@ Lead with a give-first element: audit, teardown, sample, insight.
 Prospect should be able to reply in 5 words or less.
 - "Want me to send it over?" - good
 - "Feel free to reach out at your earliest convenience" - delete
+
+**Never lead with a meeting ask on Email 1.** Asking for a call before any value has landed is the highest-
+friction CTA available, save it for later in the sequence once the offer has proven itself. Use a
+low-resistance ask instead:
+- "Is this relevant to {{company}}?"
+- "Could I record a short video for you?"
+- "Could I send some more info?"
+
+The third option feeds directly into `gtm-skills/reply-handler.md` STEP 2F (Stall - "send more info"), which
+already has the decision tree for what happens when a prospect takes that option.
 
 *Biases to leverage:* Action bias, Reason-respecting tendency ("because…"), Permission-based mis-influence ("mind if…"), Lil' bonus, Instruction clarity, Curiosity tendency. *Avoid triggering:* Ambiguity effect, Cognitive closure (do not close the loop for them).
 

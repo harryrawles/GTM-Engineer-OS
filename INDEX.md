@@ -65,7 +65,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | File | What it contains |
 |------|----------------|
 | wiki/_skill-context.md | Standard skill preamble (every skill loads this - includes active-client resolution) |
-| wiki/copywriting-101.md | Canonical rules + 4-part formula + sequence structure |
+| wiki/copywriting-101.md | Canonical rules + 4-part formula + sequence structure + campaign style selection (Offer-Led/Pro-Bono/Three Ideas) + CTA ladder |
 | wiki/copywriting-frameworks.md | 13 alternative named frameworks + ColdIQ playbook |
 | wiki/first-principles-client-acquisition.md | Meta-framework: Human+Stimulus=Action, Stimuli vs Fundamentals, Stimuli Entropy, Multi-Disciplinary Thinking, mental models toolkit |
 | wiki/acquisition-systems-theory.md | Systems theory: sub-systems funnel, throughput/bottlenecks, Polaris/non-linear metrics, scale, entropy, feedback loops |
@@ -76,7 +76,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | wiki/psychological-principles.md | Cognitive biases for copy |
 | wiki/scientific-method.md | Split test methodology |
 | wiki/_active-test-rules.md | Guardrails for in-flight tests (do-not-touch rules while a test runs) |
-| wiki/subject-lines.md | 4 subject line formulas + A/B testing |
+| wiki/subject-lines.md | 5 subject line formulas + A/B testing |
 | wiki/atl-btl-messaging.md | VP/C-Level vs Manager/IC messaging |
 | wiki/objection-library.md | Top 15 objections with response templates |
 

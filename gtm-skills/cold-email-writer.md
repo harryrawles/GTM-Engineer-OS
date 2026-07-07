@@ -26,7 +26,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 **REFERENCE (consult when needed):**
 - `best-practices/playbooks/` - reusable campaign playbooks. Check for one matching the client's offer/angle and start from its structure; adapt to the client (fill placeholders from their files, use only Approved Claims from `voice.md`). Never drop playbook copy in verbatim.
 - `wiki/copywriting-frameworks.md` - 13 named frameworks for when the default formula has plateaued
-- `wiki/subject-lines.md` - 4 subject line formulas
+- `wiki/subject-lines.md` - 5 subject line formulas
 - `wiki/email-benchmarks.md` - what good looks like
 - `gtm-skills/personalization-strategist.md` - full personalisation flow
 - `gtm-skills/signal-sourcer.md` - full signal analysis
@@ -79,24 +79,31 @@ If no match exists: state you are starting fresh.
 
 Read the Graveyard section in `clients/{slug}/copy-library.md`. Identify angles or structures that have already underperformed. Do not repeat them.
 
-### Step 4 - Decide register (ATL vs BTL)
+### Step 4 - Decide the campaign style
+
+If this is a new campaign (not a follow-up email in an existing sequence), pick the overall angle using
+`wiki/copywriting-101.md` "Choosing a Campaign Style": Offer-Led, Pro-Bono Play, Three Ideas / Creative
+Angle, or lead directly with the client's offer if it's already strong. Skip this step when writing a
+follow-up email inside a sequence whose style is already set.
+
+### Step 5 - Decide register (ATL vs BTL)
 
 Check the recipient title:
 - VP / C-Level / Director / Head of → ATL → read `wiki/atl-btl-messaging.md` ATL section
 - Manager / Specialist / Analyst / Coordinator / IC → BTL → read BTL section
 
-### Step 5 - Decide personalisation tier
+### Step 6 - Decide personalisation tier
 
 Use the matrix in `wiki/personalization-at-scale.md`:
 - Deal size over $25K + low volume → personalise
 - High volume + strong signal → skip personalisation, rely on the signal
 
-### Step 6 - State your starting point
+### Step 7 - State your starting point
 
 Before writing, output one line:
-"Starting point: [building from X / starting fresh - reason]. Register: [ATL/BTL]. Personalisation: [strong hook / lite hook / none]."
+"Starting point: [building from X / starting fresh - reason]. Style: [Offer-Led/Pro-Bono/Three Ideas/N-A]. Register: [ATL/BTL]. Personalisation: [strong hook / lite hook / none]."
 
-### Step 7 - Map biases per part of the formula
+### Step 8 - Map biases per part of the formula
 
 Read `wiki/psychological-principles.md` - specifically the "Biases by Copy Stage" table. For each of the 4 parts of the email, decide:
 
