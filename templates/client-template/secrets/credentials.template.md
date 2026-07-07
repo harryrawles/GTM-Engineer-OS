@@ -24,7 +24,11 @@ Fill the real values there, never here.
 ## Notes
 
 - Each client has its **own** Instantly workspace + API key. Never reuse one client's key for another.
-- The non-secret shape of these values is mirrored in `clients/{slug}/_config.md` (workspace URL/ID,
-  `mcp_connected`) — but the API key lives **only** here, in the git-ignored `secrets/` folder.
+- **This key is consumed by `.claude/bin/instantly.sh`**, which reads `instantly_api_key` from this file
+  for the active client (or an inline `--client` override) and calls the Instantly API v2 directly. The
+  wrapper never prints the key, and raw `curl` to the API is blocked by `safety-guard.sh`. Keep the field
+  name `instantly_api_key` exactly — the wrapper matches on it. See `sops/instantly-api.md`.
+- The non-secret shape of these values is mirrored in `clients/{slug}/_config.md` (workspace URL/ID) — but
+  the API key lives **only** here, in the git-ignored `secrets/` folder.
 - To rotate: replace the value in `clients/{slug}/secrets/credentials.md`; no repo history is affected
   because the file is never tracked.

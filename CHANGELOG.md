@@ -6,6 +6,57 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.0.0] — 2026-07-07
+
+### Changed — BREAKING: Instantly access moves from MCP to the direct API v2, per client
+
+The OS no longer reaches Instantly through an MCP server. Each client's workspace is now called directly
+via the Instantly API v2 (<https://api.instantly.ai/api/v2>) using **that client's** API key, through a
+single wrapper. This is a better fit for the isolation model — only ever one client's key is loaded per
+call, and the key *is* the workspace selector, so the "wrong workspace" failure mode disappears.
+
+#### Added
+- **`.claude/bin/instantly.sh`** — per-client Instantly API wrapper. Usage:
+  `.claude/bin/instantly.sh [--client SLUG] METHOD PATH [JSON_BODY]`. Resolves the active client (or an
+  inline `--client` override), reads `instantly_api_key` from `clients/{slug}/secrets/credentials.md`
+  **inside the script**, and calls the API. The key is passed to curl via a stdin config, so it never
+  appears in argv, the process list, chat, or `.claude/sessions/*.jsonl`.
+- **`sops/instantly-api.md`** — endpoint reference + read/write map + per-client setup/rotation guide.
+
+#### Changed
+- **`.claude/hooks/safety-guard.sh`** — new verb-based gating for the wrapper: `GET` (and the read-only
+  `POST /leads/list`) run automatically; `POST`/`PATCH`/`PUT`/`DELETE` are blocked pending approval. Also
+  blocks raw `curl`/`wget` to `api.instantly.ai` (would leak the key) and blocks printing a real
+  `clients/*/secrets/credentials.md`. The existing MCP-operation and dangerous-bash gates are retained.
+- **`tests/ci/test-safety-guard.sh`** — 14 new cases covering the wrapper read/write matrix, the raw-curl
+  block, and the credentials-print block (passes on the no-jq regex path too).
+- **`.github/workflows/ci.yml`** — makes `.claude/bin/*.sh` executable and shellchecks it.
+- **`_config.md` schema:** `instantly_mcp_server` + `mcp_connected` → **`instantly_api_configured`**.
+  `credentials.template.md` notes the key is consumed by the wrapper (field name `instantly_api_key`
+  must stay exact).
+- **Docs + skills reworded** from "Instantly MCP" to the API wrapper: `CLAUDE.md` (Credentials & Instantly
+  Access, structure diagram), `wiki/_skill-context.md` (new *Instantly Access* section), `MCP-SETUP.md`
+  (Instantly section rewritten as API-first; Notion/Clay/Slack stay MCP), `HOOKS-SETUP.md`, `INDEX.md`,
+  `README.md`, and every skill that pulls Instantly data (`weekly-reviewer`, `cold-email-writer`,
+  `campaign-optimiser`, `campaign-analyst`, `campaign-launcher`, `client-report-writer`,
+  `client-health-scorer`, `chain-diagnose-campaign`, `chain-weekly-review-full`, `deliverability-doctor`,
+  `client-request-handler`, `qbr-writer`, `eod-report-writer`, `client-offboarder`, `client-onboarder`,
+  `pre-launch-check`) plus `wiki/scientific-method.md` and `wiki/_subagent-patterns.md`.
+
+#### Migration
+- For each existing client: generate an Instantly API key in that workspace, paste it into
+  `clients/{slug}/secrets/credentials.md → instantly_api_key` (git-ignored), set
+  `instantly_api_configured: true` in `_config.md`, and verify with
+  `switch to {client}` → `.claude/bin/instantly.sh GET /campaigns`.
+- No `.gitignore` change needed — `clients/*/secrets/` was already ignored.
+
+#### Verification
+- `bash tests/ci/test-safety-guard.sh` passes (reads allowed, writes/sends/raw-curl/credential-prints
+  blocked). Live smoke test: wrapper reached the API and returned `[HTTP 401]` on a bad key with the key
+  absent from output.
+
+---
+
 ## [2.26.0] — 2026-07-04
 
 ### Added — Recruitment / staffing MPC playbook

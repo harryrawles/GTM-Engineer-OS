@@ -88,7 +88,7 @@ Run every item. Each must pass before launch.
 
 ### 4. Sending Infrastructure
 
-From `clients/{slug}/campaign-state.md` and Instantly MCP:
+From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/instantly.sh`):
 - [ ] Sending domains assigned to campaign
 - [ ] Mailboxes warmed (warmup status green per mailbox)
 - [ ] Send volume per mailbox <50/day
@@ -119,7 +119,7 @@ From `clients/{slug}/campaign-state.md` and Instantly MCP:
 
 ### 8. Tracking and Reporting
 
-- [ ] Instantly MCP can pull campaign data (test query: list this campaign)
+- [ ] Instantly API reachable for this client (test: `.claude/bin/instantly.sh GET /campaigns`)
 - [ ] Custom tracking domain working (CNAME verified)
 - [ ] Reply categorisation enabled in Instantly (positive / negative / OOO)
 

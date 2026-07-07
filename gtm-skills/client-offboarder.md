@@ -85,7 +85,7 @@ Create `FINAL-REPORT.md` in the client folder (`clients/{slug}/FINAL-REPORT.md`)
 
 ## Performance Summary
 
-Pull from Instantly MCP for entire engagement:
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for this client) for the entire engagement:
 
 - Total sends: {{n}}
 - Total replies: {{n}}
@@ -162,7 +162,7 @@ transferable lesson and write it in the client-agnostic form.
 ## STEP 4 — Decommission Assets
 
 - [ ] Pause all active campaigns in Instantly (don't delete — preserve for audit)
-- [ ] Revoke Instantly MCP API key from this workspace
+- [ ] Revoke this client's Instantly API key in their workspace, then clear it from `clients/{slug}/secrets/credentials.md`
 - [ ] Remove sending domains from active rotation (keep aged for 30 days then evaluate)
 - [ ] Cancel any client-specific subscriptions / tools (Clay enrichment, etc.)
 - [ ] Suppress all leads in this client's lists across Harry's other client workspaces (to avoid accidental cross-contamination)

@@ -47,7 +47,7 @@ See `wiki/_skill-context.md`.
 Then read:
 - `clients/{slug}/campaign-state.md` — which campaign, what is the recent trend
 - `clients/{slug}/MEMORY.md` — any prior watch-outs on this campaign
-- Pull from Instantly MCP: last 14 days metrics per campaign
+- Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): last 14 days metrics per campaign
 
 Output a quick metric snapshot:
 

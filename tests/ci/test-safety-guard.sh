@@ -55,6 +55,45 @@ else
   echo "FAIL expected BLOCK for 'rm -rf' Bash command"; fail=1
 fi
 
+# --- Instantly API wrapper: verb-gated (commands carry no double-quotes) ---
+bash_run() {   # command -> exit code
+  local code
+  printf '{"tool_name":"Bash","tool_input":{"command":"%s"}}' "$1" | bash "$GUARD" >/dev/null 2>&1
+  code=$?
+  printf '%s' "$code"
+}
+bash_expect() {   # desc, command, block|allow
+  local desc="$1" cmd="$2" want="$3" code
+  code=$(bash_run "$cmd")
+  if [ "$want" = "block" ] && [ "$code" != "2" ]; then
+    echo "FAIL expected BLOCK, got exit $code: $desc"; fail=1
+  elif [ "$want" = "allow" ] && [ "$code" != "0" ]; then
+    echo "FAIL expected ALLOW, got exit $code: $desc"; fail=1
+  fi
+}
+
+# reads — allow
+bash_expect "wrapper GET campaigns"        ".claude/bin/instantly.sh GET /campaigns"                       allow
+bash_expect "wrapper GET analytics"        ".claude/bin/instantly.sh GET /campaigns/abc/analytics"         allow
+bash_expect "wrapper POST leads/list read" ".claude/bin/instantly.sh POST /leads/list '{}'"                allow
+bash_expect "wrapper --client GET"         ".claude/bin/instantly.sh --client acme GET /campaigns"         allow
+
+# writes / sends — block
+bash_expect "wrapper POST activate"        ".claude/bin/instantly.sh POST /campaigns/abc/activate"         block
+bash_expect "wrapper POST pause"           ".claude/bin/instantly.sh POST /campaigns/abc/pause"            block
+bash_expect "wrapper PATCH campaign"       ".claude/bin/instantly.sh PATCH /campaigns/abc"                 block
+bash_expect "wrapper DELETE lead"          ".claude/bin/instantly.sh DELETE /leads/abc"                    block
+bash_expect "wrapper POST create lead"     ".claude/bin/instantly.sh POST /leads '{}'"                     block
+bash_expect "wrapper --client POST write"  ".claude/bin/instantly.sh --client acme POST /campaigns/x/activate" block
+
+# raw HTTP to the API — block (key-leak protection; forces the wrapper)
+bash_expect "raw curl to API"              "curl https://api.instantly.ai/api/v2/campaigns"                block
+bash_expect "raw curl POST to API"         "curl -X POST https://api.instantly.ai/api/v2/campaigns/x/activate" block
+
+# printing a real credentials file — block (key-leak protection)
+bash_expect "cat credentials"              "cat clients/acme/secrets/credentials.md"                       block
+bash_expect "grep credentials"             "grep instantly_api_key clients/acme/secrets/credentials.md"    block
+
 if [ "$fail" -eq 0 ]; then
   echo "safety-guard: block/allow matrix passed ✓"
 fi

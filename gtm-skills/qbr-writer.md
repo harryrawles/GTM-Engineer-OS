@@ -38,7 +38,7 @@ See `wiki/_skill-context.md`.
 - `clients/{slug}/comms-log.md` — client sentiment over the quarter
 - `clients/{slug}/campaign-state.md` — current state
 
-Pull from Instantly MCP: full quarter of data per campaign.
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): full quarter of data per campaign.
 
 ---
 

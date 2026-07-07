@@ -19,7 +19,7 @@
 - `clients/{slug}/campaign-state.md` — health / state changes today (BLOCKED candidates: Red health, warmup disabled, paused campaigns).
 - `clients/{slug}/test-log.md` — tests launched or queued today (NEXT candidates).
 - `wiki/_skill-context.md` — session-log write rules (portfolio note below).
-- Instantly MCP — **optional, light touch only.** Confirm meetings/opps booked today for outcome bullets like "2 new opportunities came in off the back of it." Do **not** pull full metrics — that is `client-report-writer` / `weekly-reviewer` territory.
+- Instantly API (via `.claude/bin/instantly.sh`) — **optional, light touch only.** Confirm meetings/opps booked today for outcome bullets like "2 new opportunities came in off the back of it." Do **not** pull full metrics — that is `client-report-writer` / `weekly-reviewer` territory.
 
 ## WRITES
 

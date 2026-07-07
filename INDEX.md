@@ -15,7 +15,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 - **The hub / rules / routing:** [CLAUDE.md](./CLAUDE.md)
 - **Add a new client:** [BOOTSTRAP.md](./BOOTSTRAP.md)
 - **Daily operations & switching clients:** [OPERATING-RHYTHM.md](./OPERATING-RHYTHM.md)
-- **MCP connections (per-client Instantly):** [MCP-SETUP.md](./MCP-SETUP.md)
+- **Instantly API (per-client key) + optional MCPs:** [MCP-SETUP.md](./MCP-SETUP.md) · wrapper reference: [sops/instantly-api.md](./sops/instantly-api.md)
 - **Hooks + /gtm:compound:** [HOOKS-SETUP.md](./HOOKS-SETUP.md)
 - **Acronyms:** [wiki/glossary.md](./wiki/glossary.md)
 - **Diagrams:** [wiki/diagrams.md](./wiki/diagrams.md)
@@ -55,7 +55,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/ | Skill + chain definitions, pattern-detector, skill-forge |
 | wiki/ | Shared knowledge base (see below) |
 | frameworks/ | Strategic frameworks & mental models — index in `frameworks/README.md`; also the promotion destination for de-identified learnings |
-| sops/ | Standard operating procedures — staging area, populate as runbooks are written (`sops/README.md`) |
+| sops/ | Standard operating procedures. `sops/instantly-api.md` = how the OS calls each client's Instantly workspace via the API wrapper `.claude/bin/instantly.sh` (per-client keys, read/write gating). Add more runbooks over time (`sops/README.md`). |
 | best-practices/ | Best-practice references & checklists |
 | best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) — start-points for any client's campaign |
 | templates/ | Reusable output templates + `client-template/` skeleton |

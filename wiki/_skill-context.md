@@ -20,6 +20,29 @@ Every skill in `gtm-skills/` should load this context block before acting. Defin
 
 ---
 
+## Instantly Access (how skills pull data and make changes)
+
+The OS talks to each client's Instantly workspace by calling the **Instantly API v2 directly** — there is
+no MCP server. All access goes through one wrapper:
+
+```
+.claude/bin/instantly.sh [--client SLUG] METHOD PATH [JSON_BODY]
+```
+
+- It uses **only the active client's** API key (from `clients/{slug}/secrets/credentials.md`), or the
+  client named by `--client`. One key per call — never shared, never cross-client.
+- **Reads are automatic:** any `GET` (and the read-only `POST /leads/list`) runs without asking — e.g.
+  `.claude/bin/instantly.sh GET /campaigns/ID/analytics`.
+- **Writes are gated:** any `POST`/`PATCH`/`PUT`/`DELETE` (activate, pause, create/update/delete, reply,
+  forward) is blocked by `safety-guard.sh` until Harry approves. State the action + workspace, then wait.
+- Never construct raw `curl` to `api.instantly.ai` (blocked, and would leak the key). Never print the key.
+- If a call returns `[HTTP 401]` or the wrapper says no key/active client, tell Harry — do **not**
+  fabricate metrics. Where a skill says "pull from Instantly," it means this wrapper.
+
+Full endpoint + read/write reference: `sops/instantly-api.md`.
+
+---
+
 ## Standard Reads (every skill, every time)
 
 | File | Why |

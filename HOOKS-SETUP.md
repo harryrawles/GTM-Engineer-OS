@@ -8,7 +8,7 @@ Four Claude Code hooks and one slash command ship with this OS. Once installed, 
 
 | Hook | Fires on | What it does |
 |------|----------|-------------|
-| `safety-guard.sh` | Every tool call (PreToolUse) | Blocks dangerous Instantly mutations, external sends, financial ops, and destructive bash commands before they execute. Hard block — exit code 2. Matches on the **operation name** (the part after the last `__`), so it fires across any connected Instantly/Slack namespace without per-workspace customisation. |
+| `safety-guard.sh` | Every tool call (PreToolUse) | Blocks dangerous operations before they execute. Hard block — exit code 2. Three layers: (1) for the **Instantly API wrapper** (`.claude/bin/instantly.sh`), gates by **HTTP verb** — `GET` and the read-only `POST /leads/list` pass; `POST`/`PATCH`/`PUT`/`DELETE` are blocked; raw `curl` to `api.instantly.ai` and printing a real `credentials.md` are blocked (key-leak protection). (2) For any residual **MCP** tool, matches on the **operation name** (the part after the last `__`) across namespaces. (3) Destructive bash (`rm -rf`, `git push --force`, `curl\|sh`, …). |
 | `session-logger.sh` | Every event | (1) Logs events to `.claude/sessions/<session_id>.jsonl` (raw audit trail). (2) On UserPromptSubmit, appends one redacted `via:hook` row to the active client's `clients/{slug}/session-log.md` as a deterministic backstop for pattern-detector. |
 | `session-start-context.sh` | SessionStart (`startup`) | Injects a one-line reminder to run the Session Start Protocol — resolve the active client and run `pattern-detector` first — so the auto-improvement loop isn't left to chance. |
 | `notify.sh` | Stop, PermissionRequest, SessionStart, SessionEnd, SubagentStop | Desktop notification when Claude finishes or needs approval. macOS, Linux, and Windows. |
@@ -37,7 +37,12 @@ chmod +x .claude/hooks/safety-guard.sh
 chmod +x .claude/hooks/session-logger.sh
 chmod +x .claude/hooks/session-start-context.sh
 chmod +x .claude/hooks/notify.sh
+chmod +x .claude/bin/instantly.sh    # Instantly API v2 wrapper (per-client keys)
 ```
+
+> **Instantly is called via its API, not MCP.** `.claude/bin/instantly.sh` is the one sanctioned way to
+> reach a client's workspace — it loads only the active client's key and keeps it out of logs. See
+> `sops/instantly-api.md` and `MCP-SETUP.md` §1.
 
 ### Step 2 — Install jq (recommended)
 ```bash

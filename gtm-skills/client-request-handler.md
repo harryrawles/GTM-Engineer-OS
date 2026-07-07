@@ -143,7 +143,7 @@ Based on classification:
 3. Update `clients/{slug}/campaign-state.md`
 
 ### Type G — Reporting Question
-1. Pull data from Instantly MCP
+1. Pull data from the Instantly API (via `.claude/bin/instantly.sh`)
 2. Format response appropriate to question
 3. Send via reply
 

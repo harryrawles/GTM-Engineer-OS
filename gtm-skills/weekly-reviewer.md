@@ -14,7 +14,7 @@
 
 ## READS
 
-- Instantly MCP — last 7 days per campaign per client
+- Instantly API (via `.claude/bin/instantly.sh`) — last 7 days per campaign per client
 - `clients/{slug}/campaign-state.md` — current campaign list and health
 - `clients/{slug}/icp.md` — to check signal alignment
 - `clients/{slug}/copy-library.md` — prior winners (do not re-log)
@@ -80,7 +80,7 @@ The portfolio triage pattern: run quick-review on every client first, collect th
 
 ### Pull data
 
-Pull last 7 days from Instantly MCP. If MCP unavailable, read `clients/{slug}/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
+Pull last 7 days from the Instantly API (via `.claude/bin/instantly.sh`). If it can't be reached (missing/invalid key), read `clients/{slug}/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
 
 ### Four triage gates
 
@@ -131,7 +131,7 @@ For the past 7 days, per campaign:
 - Per-sequence-step breakdown (Email 1 / 2 / 3 PRR)
 - Top subject lines by open rate
 
-If Instantly MCP is unavailable → ask Harry to paste the data. Continue from Step 2.
+If the Instantly API can't be reached (missing/invalid key) → ask Harry to paste the data. Continue from Step 2.
 
 ### Step 2 — Surface signal performance trends
 
@@ -444,7 +444,7 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 ## RULES
 
 - **Never write without confirmation.** Every log to copy-library, decision-log, test-log, or campaign-state must be confirmed by Harry.
-- **Never invent metrics.** If Instantly MCP fails or numbers are missing, ask Harry to paste them. Do not estimate.
+- **Never invent metrics.** If the Instantly API fails or numbers are missing, ask Harry to paste them. Do not estimate.
 - **Sample size is non-negotiable.** Do not log a winner or loser with fewer than 300 sends per variant. Flag as "pending sample size" instead.
 - **Latency rule.** Do not call a test complete until 7 days post-send. Reply latency can rescue a "loser" verdict.
 - **Decision log is non-skippable for winners.** Every winner logged must have a why captured. Otherwise the OS does not compound — it just stores artefacts.

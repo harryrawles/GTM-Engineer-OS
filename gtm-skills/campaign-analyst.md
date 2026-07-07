@@ -31,7 +31,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## BEFORE YOU ANALYSE
 
-Pull from Instantly MCP:
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
 - All campaigns: sends, reply rate, PRR, bounce rate (last 30 days)
 - Per-campaign and per-step breakdown
 - Subject line performance

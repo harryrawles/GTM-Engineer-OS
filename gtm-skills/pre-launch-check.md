@@ -68,7 +68,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
    - `instantly_workspace_url`
    - `template_version`
 
-4. **Instantly MCP connection verified** (`mcp_connected: true` in config).
+4. **Instantly API key configured** (`instantly_api_configured: true` in config; test: `.claude/bin/instantly.sh GET /campaigns`).
 
 ### Warn-level (HIGH — fail = warn, can override)
 
@@ -112,7 +112,7 @@ BLOCKING ISSUES: {{n}}
 [ ] / [X] No unresolved {{PLACEHOLDER}} strings  | Found: {{file:line}}
 [ ] / [X] No unresolved {{TO CONFIRM}} markers   | Found: {{file:line}}
 [ ] / [X] _config.md fully populated             | Missing: {{field}}
-[ ] / [X] Instantly MCP connected                | Status: {{...}}
+[ ] / [X] Instantly API configured               | Status: {{...}}
 
 WARNINGS: {{n}}
 [ ] / [!] offer.md has named case study + number
@@ -169,7 +169,7 @@ BLOCKING ISSUES: 1
 [X] No unresolved {{PLACEHOLDER}} strings  | Found: clients/{slug}/voice.md:14 "{{Tone}}"
 [ ] No unresolved {{TO CONFIRM}} markers
 [ ] _config.md fully populated
-[ ] Instantly MCP connected
+[ ] Instantly API configured
 
 WARNINGS: 0
 
