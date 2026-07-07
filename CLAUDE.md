@@ -103,7 +103,7 @@ gtm-engineer-os/
 ├── CLAUDE.md              # This file — hub + spec (source of truth)
 ├── README.md             # Human-facing intro
 ├── OPERATING-RHYTHM.md   # Full daily / weekly / quarterly cadence
-├── MCP-SETUP.md          # Instantly MCP + per-client workspace setup
+├── MCP-SETUP.md          # Instantly API (per-client key) + optional MCPs
 ├── BOOTSTRAP.md          # How to add a new client
 ├── HOOKS-SETUP.md        # Claude Code hooks + /gtm:compound setup
 ├── INDEX.md              # Map of the entire OS — must stay current
@@ -125,7 +125,8 @@ gtm-engineer-os/
 ├── templates/            # Reusable outputs + client-template/ skeleton
 │
 ├── .claude/              # Claude Code config — hooks (safety-guard, session-logger,
-│                         #   notify, session-start-context), settings.json, commands/
+│                         #   notify, session-start-context), bin/instantly.sh (Instantly
+│                         #   API wrapper), settings.json, commands/
 └── examples/ tests/ assets/ raw/ .github/
 ```
 
@@ -174,12 +175,19 @@ specific client's private data. `INDEX.md` maps the whole OS and must be kept cu
   `clients/{slug}/secrets/credentials.md` (**git-ignored**).
 - Only the shape is committed: `templates/client-template/secrets/credentials.template.md`.
 - `.gitignore` MUST include: `clients/*/secrets/`, `**/.env`, `_state/active-client`.
-- **Reads are automatic.** Via the Instantly MCP, Claude may pull analytics, campaign status, and reply data
-  for the active client's workspace without asking.
-- **Writes are gated.** Pausing, editing, deleting, launching, or sending *anything* requires explicit
-  approval first — state the action and the workspace, then wait. (Enforced defensively by
-  `.claude/hooks/safety-guard.sh`; the model must still gate writes regardless.)
-- Never print a full API key in chat. Never commit secrets. If any action would commit one, stop and warn.
+- **The OS calls the Instantly API v2 directly, per client — no MCP server.** All access goes through
+  `.claude/bin/instantly.sh [--client SLUG] METHOD PATH [BODY]`, which loads **only the active client's**
+  key (or the inline `--client` override) and calls `https://api.instantly.ai/api/v2`. The key is read
+  inside the wrapper and never appears in argv, the process list, chat, or the session logs. `switch to
+  {client}` switches which key is used. Full reference: `sops/instantly-api.md`.
+- **Reads are automatic.** `GET` calls (analytics, campaign status, reply data) — and the read-only
+  `POST /leads/list` — run without asking, for the active client's workspace only.
+- **Writes are gated.** Any `POST`/`PATCH`/`PUT`/`DELETE` (pausing, editing, deleting, launching,
+  sending) requires explicit approval first — state the action and the workspace, then wait. (Enforced
+  defensively by `.claude/hooks/safety-guard.sh`, which gates the wrapper by HTTP verb and blocks raw
+  `curl` to the API; the model must still gate writes regardless.)
+- Never print a full API key in chat. Never commit secrets. If any action would commit or display one,
+  stop and warn.
 
 ---
 

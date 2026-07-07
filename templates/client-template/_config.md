@@ -28,8 +28,7 @@ Central source of truth for variables used across this OS. Other files reference
 |-----|-------|
 | `instantly_workspace_url` | {{URL}} |
 | `instantly_workspace_id` | {{ID}} |
-| `instantly_mcp_server` | {{MCP_SERVER_NAME}} — the exact MCP server this client's workspace is mounted as (e.g. the tool prefix `mcp__<server>__…`). Skills MUST target this server when multiple Instantly workspaces are connected. |
-| `mcp_connected` | {{true/false}} |
+| `instantly_api_configured` | {{true/false}} — is `instantly_api_key` filled in `secrets/credentials.md`? The OS calls the API v2 directly per client via `.claude/bin/instantly.sh`; there is no MCP server. See `sops/instantly-api.md`. |
 
 ## OS
 
@@ -55,5 +54,5 @@ This way: rename a client once (here), and the rest of the OS stays consistent.
 ## Setup Status
 
 - [ ] All placeholders resolved
-- [ ] Instantly MCP connected and verified
+- [ ] Instantly API key configured and verified (`.claude/bin/instantly.sh GET /campaigns`)
 - [ ] Reviewed by Harry before first campaign launch

@@ -37,7 +37,7 @@ See `wiki/_skill-context.md`.
 - `clients/{slug}/copy-library.md` — recent winners (good sign)
 - `clients/{slug}/overview.md` — SLA, success criteria
 
-Pull from Instantly MCP: last 4 weeks of campaign data (need trend, not just snapshot).
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client — see `sops/instantly-api.md`): last 4 weeks of campaign data (need trend, not just snapshot).
 
 ---
 

@@ -20,7 +20,7 @@ How skills use Claude Code's `Agent` tool to spawn isolated agents for specific 
 
 | Use case | Why not |
 |----------|---------|
-| Pulling current Instantly campaign metrics | Use the Instantly MCP directly — sub-agent adds latency for no benefit |
+| Pulling current Instantly campaign metrics | Call the Instantly API directly (`.claude/bin/instantly.sh`) — a sub-agent adds latency for no benefit |
 | Writing the actual email copy | Main thread has all the client context — sub-agent would have to reload it all |
 | Logging to OS files | Main thread should own writes for atomicity |
 | Routine reply categorisation | Pattern matching, doesn't benefit from fresh eyes |

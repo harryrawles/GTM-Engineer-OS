@@ -67,7 +67,7 @@ it asks. See [CLAUDE.md](./CLAUDE.md) → *The Active-Client Model*.
 ├── README.md              # This file
 ├── BOOTSTRAP.md           # How to add and set up a new client
 ├── OPERATING-RHYTHM.md    # Daily/weekly/monthly/quarterly cadence
-├── MCP-SETUP.md           # Connect the Instantly MCP (per-client workspaces)
+├── MCP-SETUP.md           # Instantly API (per-client key) + optional MCPs
 ├── HOOKS-SETUP.md         # Lifecycle hooks + /gtm:compound command
 ├── INDEX.md               # Content catalog
 ├── CHANGELOG.md / VERSION # Template version history

@@ -17,11 +17,11 @@ jobs:
       - name: Install jq + shellcheck
         run: sudo apt-get update && sudo apt-get install -y jq shellcheck
 
-      - name: Make hooks + CI scripts executable
-        run: chmod +x .claude/hooks/*.sh tests/ci/*.sh
+      - name: Make hooks + bin + CI scripts executable
+        run: chmod +x .claude/hooks/*.sh .claude/bin/*.sh tests/ci/*.sh
 
       - name: Shellcheck (errors only — style warnings don't fail CI)
-        run: shellcheck --severity=error .claude/hooks/*.sh tests/ci/*.sh
+        run: shellcheck --severity=error .claude/hooks/*.sh .claude/bin/*.sh tests/ci/*.sh
 
       - name: Link integrity (every referenced .md resolves)
         run: bash tests/ci/check-links.sh

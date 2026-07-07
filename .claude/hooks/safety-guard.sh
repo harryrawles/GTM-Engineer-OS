@@ -190,6 +190,45 @@ if [ "$TOOL_NAME" = "Bash" ]; then
     CMD=$(printf '%s' "$INPUT" | grep -oE '"command"[[:space:]]*:[[:space:]]*"[^"]*"' | head -1 | sed -E 's/.*:[[:space:]]*"([^"]*)".*/\1/')
   fi
 
+  # ─── Instantly API — per-client keys via .claude/bin/instantly.sh ───────────
+  # Raw curl/wget to the API is blocked outright: it would put the key in argv
+  # (and therefore in logs). All Instantly access must go through the wrapper.
+  if echo "$CMD" | grep -qiE '(curl|wget)\b[^|]*api\.instantly\.ai'; then
+    echo "SAFETY GUARD BLOCKED: raw HTTP call to api.instantly.ai."
+    echo "Use .claude/bin/instantly.sh — it loads the active client's key from the git-ignored"
+    echo "secrets file and keeps it out of argv/logs. If a mutation is intended, state the action"
+    echo "and workspace, then ask Harry for explicit approval."
+    exit 2
+  fi
+  # Gate the wrapper by HTTP verb. GET and the read-only 'POST /leads/list' run
+  # automatically; POST/PATCH/PUT/DELETE are mutations/sends and need approval
+  # (CLAUDE.md → Safety Guard #2). A bare mention (e.g. cat'ing the script, no
+  # verb) is ignored — only an actual verbed invocation is gated.
+  if echo "$CMD" | grep -qE 'instantly\.sh[[:space:]]'; then
+    VERB=$(echo "$CMD" | sed -nE 's|.*instantly\.sh[[:space:]]+(--client[[:space:]]+[^[:space:]]+[[:space:]]+)?([A-Za-z]+).*|\2|p' | tr '[:lower:]' '[:upper:]')
+    case "$VERB" in
+      POST|PATCH|PUT|DELETE)
+        if echo "$CMD" | grep -qE 'instantly\.sh([[:space:]]+--client[[:space:]]+[^[:space:]]+)?[[:space:]]+[Pp][Oo][Ss][Tt][[:space:]]+/leads/list([[:space:]]|$)'; then
+          : # read-only list endpoint (POST by API design) — allow
+        else
+          echo "SAFETY GUARD BLOCKED: Instantly API mutation via instantly.sh (verb: $VERB)."
+          echo "Details: $(printf '%s' "$CMD" | tr -d '\n' | head -c 200)"
+          echo ""
+          echo "State exactly what you were about to do, name the client/workspace, then ask Harry for explicit approval before retrying."
+          exit 2
+        fi
+        ;;
+      *) : ;;  # GET (or no clear verb) — reads are automatic
+    esac
+  fi
+
+  # ─── Never print a real per-client credentials file (would leak the key) ────
+  if echo "$CMD" | grep -qE '(cat|less|more|head|tail|bat|nl|xxd|od|strings|grep|egrep|awk|sed|cut|tr|rev|tac|sort|printf|echo)\b[^|]*clients/[^[:space:]]*/secrets/credentials\.md'; then
+    echo "SAFETY GUARD BLOCKED: printing a client's credentials.md would expose the API key in logs."
+    echo "The key is read internally by .claude/bin/instantly.sh — you never need to display it."
+    exit 2
+  fi
+
   if echo "$CMD" | grep -qE '\bgit\s+push\s+.*(-f|--force)\b'; then
     echo "SAFETY GUARD BLOCKED: git push --force rewrites remote history. Ask Harry for approval."; exit 2
   fi

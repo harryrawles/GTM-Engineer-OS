@@ -57,13 +57,13 @@ Run this before writing any copy. Do not skip.
 
 ### Step 1 — Pull Instantly data
 
-Using the Instantly MCP, pull campaign performance for this client workspace:
+Call the Instantly API for this client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`), pulling campaign performance:
 - All active and completed campaigns
 - Per campaign: sends, reply rate, PRR, meetings booked
 - Per sequence step: which email step is driving the most replies
 - Top-performing subject lines
 
-If Instantly MCP is unavailable, ask Harry to paste the metrics before continuing.
+If the Instantly API can't be reached (missing/invalid key), ask Harry to paste the metrics before continuing.
 
 ### Step 2 — Surface winning copy
 

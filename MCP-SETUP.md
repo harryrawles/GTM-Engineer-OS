@@ -1,80 +1,75 @@
-# MCP Setup
+# Integrations Setup (Instantly API + optional MCPs)
 
-Step-by-step guide for connecting the MCPs required to operate the OS. This is a **multi-client** OS: each
-client has its **own** Instantly workspace + API key. When a client is active, always target **that
-client's** workspace (from `clients/{slug}/secrets/credentials.md`). Never share one API key across clients.
+How to connect the integrations the OS uses. **Instantly is now called directly via its v2 API, per
+client — not via MCP.** Each client has its own Instantly workspace + API key; when a client is active,
+the OS uses **that client's** key (from `clients/{slug}/secrets/credentials.md`). Never share one key
+across clients.
 
-**Required MCPs:**
-- Instantly (the active client's workspace — one connection per client)
-- Notion (Harry's personal workspace)
-
-**Optional MCPs:**
-- Clay (for enrichment, if used for this client)
-- Slack (for alerts, if integrated)
-
----
-
-## 1. Instantly MCP
-
-The most important connection. Without it, the weekly-reviewer and report-writer cannot pull live metrics.
-
-### Setup steps
-
-1. **Get this client's Instantly API key:**
-   - Log in to the client's Instantly workspace
-   - Settings → API Keys
-   - Generate a new key labelled "Claude Code MCP — {{CLIENT_NAME}}"
-   - Store it in **`clients/{slug}/secrets/credentials.md`** (git-ignored — see `.gitignore` →
-     `clients/*/secrets/`). Optionally mirror to 1Password under "Instantly — {{CLIENT_NAME}}".
-   - **Never commit the key.** Never paste it into `_config.md` or any tracked file. Never print the full
-     key in chat.
-
-2. **Add the MCP to Claude Code:**
-   - Open Claude Code settings
-   - Add the MCP server with a **client-distinct name** (e.g. `instantly-{slug}`), NOT a generic `instantly`. When more than one client's Instantly workspace is connected, the tool names differ only by this server prefix (`mcp__<server>__…`), and that prefix is how a skill targets the right workspace.
-   - Type: HTTP
-   - Workspace URL: see `clients/{slug}/_config.md → instantly_workspace_url`
-   - API key: paste from `clients/{slug}/secrets/credentials.md`
-   - Record the server name in `clients/{slug}/_config.md → instantly_mcp_server` so skills know which server maps to this client.
-
-3. **Verify the connection:**
-   ```
-   List all campaigns in Instantly for {{CLIENT_NAME}}
-   ```
-   Expected: a list of campaigns with names, sends, reply rates. If error → check API key and workspace URL.
-
-4. **Update `clients/{slug}/_config.md`:**
-   - Set `mcp_connected: true`
-   - Set `instantly_workspace_id: [paste from URL]`
-   - Set `instantly_mcp_server: [the client-distinct server name you chose above]`
-
-### What this MCP enables
-
-- weekly-reviewer pulls last 7 days of data per campaign
-- campaign-optimiser pulls metrics for diagnosis
-- client-report-writer populates the weekly report
-- campaign-analyst surfaces performance trends
+**Connections:**
+- **Instantly API v2** — required. Per-client API key. See §1 and `sops/instantly-api.md`.
+- **Notion MCP** — optional (client briefs / call notes).
+- **Clay MCP** — optional (enrichment).
+- **Slack MCP** — optional (alerts / comms). Sends are gated by `safety-guard.sh`.
 
 ---
 
-## 2. Notion MCP
+## 1. Instantly API v2 (per client — the important one)
+
+Without this, `weekly-reviewer`, `campaign-optimiser`, and `client-report-writer` can't pull live metrics.
+
+There is **no MCP server to add**. The OS calls `https://api.instantly.ai/api/v2` through one wrapper,
+`.claude/bin/instantly.sh`, which loads the active client's key and keeps it out of logs. Setup is just:
+store the key.
+
+### Setup steps (once per client)
+
+1. **Generate this client's Instantly API key:**
+   - Log in to the **client's** Instantly workspace → Settings → API Keys
+   - Generate a new key labelled `Claude Code — {{CLIENT_NAME}}`
+   - Scope it: campaign + analytics **read** at minimum; add lead/campaign **write** only if you want the
+     OS to action changes directly (writes are still gated by the safety guard).
+
+2. **Store it (git-ignored):**
+   - Paste it into `clients/{slug}/secrets/credentials.md → instantly_api_key`
+     (git-ignored via `.gitignore → clients/*/secrets/`). Optionally mirror to 1Password.
+   - **Never** paste it into `_config.md` or any tracked file. **Never** print the full key in chat.
+
+3. **Record the non-secret shape** in `clients/{slug}/_config.md`:
+   - `instantly_workspace_url`, `instantly_workspace_id`
+   - `instantly_api_configured: true`
+
+4. **Verify:**
+   ```
+   switch to {{CLIENT_NAME}}
+   .claude/bin/instantly.sh GET /campaigns
+   ```
+   Expected: a campaign list and a trailing `[HTTP 200]`. `401` → key wrong/revoked/insufficient scope.
+
+### What this enables
+
+- `weekly-reviewer` pulls last 7 days per campaign · `campaign-optimiser` pulls metrics for diagnosis ·
+  `client-report-writer` populates the weekly report · `campaign-analyst` surfaces trends.
+
+### How isolation is guaranteed
+
+- The wrapper uses **only the active client's** key (or an explicit `--client SLUG`). One key per call.
+- Switching clients (`switch to {client}`) switches the key automatically — there is no shared connection
+  and no "wrong workspace" ambiguity, because the key *is* the workspace selector.
+- Raw `curl` to `api.instantly.ai` is blocked by `safety-guard.sh` (it would leak the key); everything
+  goes through the wrapper.
+
+Full endpoint list + read/write map: **`sops/instantly-api.md`**.
+
+---
+
+## 2. Notion MCP (optional)
 
 For client briefs, call notes, and context.
 
-### Setup steps
-
-1. **Authorise Notion:**
-   - In Claude Code MCP settings, add `notion`
-   - Type: HTTP / OAuth
-   - Follow OAuth flow to authorise Harry's Notion workspace
-
-2. **Verify:**
-   ```
-   Search Notion for {{CLIENT_NAME}} page
-   ```
-   Expected: returns Harry's client page in Notion.
-
-3. **Optional — pin the client's Notion page URL** in `clients/{slug}/overview.md` under "External resources."
+1. In Claude Code MCP settings, add `notion` (Type: HTTP / OAuth) and complete the OAuth flow for Harry's
+   Notion workspace.
+2. Verify: `Search Notion for {{CLIENT_NAME}} page` → returns the client page.
+3. Optional — pin the client's Notion page URL in `clients/{slug}/overview.md` under "External resources."
 
 ---
 
@@ -82,17 +77,11 @@ For client briefs, call notes, and context.
 
 Only if Clay is used for enrichment on this client.
 
-### Setup steps
+1. Get the Clay API key from Clay settings; store in 1Password under "Clay — {{CLIENT_NAME}}".
+2. Add the `clay` MCP in Claude Code settings.
+3. Mark Clay connected in `clients/{slug}/campaign-state.md` "Tools & Tech Stack".
 
-1. Get Clay API key from Clay settings
-2. Store in 1Password under "Clay — {{CLIENT_NAME}}"
-3. Add `clay` MCP in Claude Code settings
-4. Update `clients/{slug}/campaign-state.md` "Tools & Tech Stack" section to mark Clay as connected
-
-### What this enables
-
-- personalization-strategist can generate Clay prompts directly
-- signal-sourcer can recommend Clay-based detection workflows
+Enables: `personalization-strategist` Clay prompts, `signal-sourcer` Clay detection workflows.
 
 ---
 
@@ -100,50 +89,47 @@ Only if Clay is used for enrichment on this client.
 
 Only if Harry uses Slack for client comms or alerts.
 
-### Setup steps
+1. Add the Slack app to the workspace; authorise via OAuth in Claude Code.
+2. Configure alert channels in `clients/{slug}/overview.md`.
 
-1. Add Slack app to Harry's workspace (or the client's, if shared)
-2. Authorise via OAuth in Claude Code
-3. Configure alert channels in `clients/{slug}/overview.md`
+Note: Slack **sends** (`slack_send_message`, `slack_schedule_message`, …) are blocked by
+`safety-guard.sh` until Harry approves — reads are automatic.
 
 ---
 
 ## Troubleshooting
 
-### Instantly MCP returns 401 / unauthorised
-- API key expired or revoked. Regenerate.
-- Wrong workspace. Verify `instantly_workspace_id` in config.
+### Instantly returns `[HTTP 401]` / unauthorised
+- Key expired, revoked, or wrong. Regenerate and update `clients/{slug}/secrets/credentials.md`.
 
-### Instantly returns empty campaign list
-- API key may not have campaign read permission. Check API key scope in Instantly settings.
+### Instantly returns an empty campaign list
+- Key may lack campaign-read scope. Check the key's scopes in Instantly settings.
 
-### MCP server not appearing in Claude Code
-- Restart Claude Code after adding.
-- Check MCP server logs in Claude Code settings.
+### `instantly.sh` says "no active client" or "no credentials file"
+- Run `switch to {client}` first, and confirm the client was onboarded (its `secrets/credentials.md` exists
+  with a real `instantly_api_key`, not a `{{placeholder}}`).
 
-### Multiple clients confused (data crossover)
-- Each client should have its own Instantly MCP connection. Do NOT share a single API key across clients.
-- Use the workspace URL in `clients/{slug}/_config.md` to verify which client Claude is working on.
-- With multiple Instantly workspaces connected, always call the server named in `clients/{slug}/_config.md → instantly_mcp_server`. A generic "the Instantly MCP" is ambiguous when several are mounted (e.g. two servers with `mcp__…Instantly…__` prefixes) and can hit the wrong workspace.
+### Worried about hitting the wrong client's workspace
+- You can't share a key here — the wrapper only ever loads the active client's (or `--client`) key. Confirm
+  the active client (`_state/active-client`) and, if in doubt, pass `--client SLUG` explicitly.
 
 ---
 
 ## Security
 
 - **API keys live only in `clients/{slug}/secrets/credentials.md`** (git-ignored) — never in any tracked
-  file or comment. Mirror to 1Password if you like. The only tracked secrets file is the shape-only
-  `templates/client-template/secrets/credentials.template.md`.
-- **One Instantly MCP connection per client.** No shared credentials, ever.
-- **Rotate API keys quarterly** or after any team change.
-- **Review MCP access list monthly** — remove any no-longer-needed connections.
+  file. The only tracked secrets file is the shape-only `templates/client-template/secrets/credentials.template.md`.
+- **One key per client.** No shared credentials, ever. The wrapper enforces this by construction.
+- **The key never appears in logs.** The wrapper passes it to curl via stdin config; raw curl to the API
+  is blocked; printing a real `credentials.md` via bash is blocked.
+- **Rotate API keys quarterly** or after any team change — just replace the value in the secrets file.
+- **Review API-key scopes** periodically; revoke keys for offboarded clients (see `client-offboarder`).
 
 ---
 
-## What happens if MCP is not connected
+## What happens if the key is not set
 
 The OS still works in degraded mode:
-- weekly-reviewer will ask Harry to paste metrics
-- campaign-optimiser will request data manually
-- client-report-writer will need a Postman / spreadsheet export
+- `weekly-reviewer` / `campaign-optimiser` / `client-report-writer` will ask Harry to paste metrics.
 
-But the friction is high. Connecting Instantly MCP is the single biggest time saver after onboarding.
+But friction is high. Setting the per-client Instantly key is the single biggest time-saver after onboarding.

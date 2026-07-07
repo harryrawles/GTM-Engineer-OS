@@ -185,7 +185,7 @@ If any rule failed → the test is invalid. Restart with a clean version. Do not
 
 ### 3.1 Verify data
 
-Before deciding, verify the data once more against the source (Instantly MCP, tracking platform, spreadsheet).
+Before deciding, verify the data once more against the source (the Instantly API, tracking platform, spreadsheet).
 
 ### 3.2 Determine success — the 5-question tree
 

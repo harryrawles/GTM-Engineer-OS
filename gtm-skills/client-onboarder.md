@@ -197,7 +197,7 @@ Ask in this order:
 
 Ask in this order:
 
-1. **Instantly workspace:** URL or name of the workspace. Are you connected via MCP?
+1. **Instantly workspace:** URL or name of the workspace. Do you have this client's API key ready? (Stored in `secrets/credentials.md`; the OS calls the API directly — see `sops/instantly-api.md`.)
 2. **Sending domains:** how many, what are they, are they warmed?
 3. **Mailboxes:** how many per domain? Already provisioned?
 4. **Warmup status:** all warmed / some warming / not started?
@@ -208,7 +208,7 @@ Ask in this order:
 
 **After Phase 5:**
 - Seed `clients/{slug}/campaign-state.md` with infrastructure detail
-- Write the Instantly workspace URL/ID and `mcp_connected` into `clients/{slug}/_config.md`
+- Write the Instantly workspace URL/ID and `instantly_api_configured` into `clients/{slug}/_config.md`
 - Write the Instantly **API key** into `clients/{slug}/secrets/credentials.md` only (git-ignored) — never into `_config.md` or any committed file. Never print the full key in chat.
 - Leave campaign performance metrics blank — populate after first campaign runs
 - Confirm: "Phase 5 complete. Infrastructure captured."

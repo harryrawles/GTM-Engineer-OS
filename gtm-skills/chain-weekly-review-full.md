@@ -55,9 +55,9 @@ Then verify:
 - This is the Friday routine for the active client only (not a portfolio sweep — for all clients, use `weekly-reviewer.md` batch mode / Portfolio Triage Mode below, which loops every folder in `clients/`)
 - Last weekly review date (per `clients/{slug}/_config.md` `last_review_date`) — flag if more than 14 days ago (skipped weeks compound problems)
 
-Pull from Instantly MCP: last 7 days of campaign data per active campaign.
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): last 7 days of campaign data per active campaign.
 
-If Instantly MCP unavailable → ask Harry to paste the metrics.
+If the Instantly API can't be reached (missing/invalid key) → ask Harry to paste the metrics.
 
 ---
 

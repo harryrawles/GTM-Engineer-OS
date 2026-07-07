@@ -31,7 +31,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## TRIAGE — Run This First
 
-Pull from Instantly MCP:
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
 - Current bounce rate (last 7 days)
 - Spam complaint rate
 - Open rate trend (last 30 days vs prior 30)

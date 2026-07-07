@@ -31,14 +31,14 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## BEFORE YOU WRITE
 
-Pull from Instantly MCP for the past 7 days:
+Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client) for the past 7 days:
 - Sends per campaign
 - Reply rate per campaign
 - PRR per campaign
 - Meetings booked
 - Bounce rate
 
-Ask Harry to paste the data if Instantly MCP is unavailable.
+Ask Harry to paste the data if the Instantly API can't be reached (missing/invalid key).
 
 Also confirm from Harry:
 - Any meetings booked from replies this week

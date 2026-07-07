@@ -46,12 +46,12 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## BEFORE YOU DIAGNOSE
 
-Pull from Instantly MCP:
+Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` — see `sops/instantly-api.md`):
 - Campaign sends, reply rate, PRR, bounce rate (last 30 days)
 - Per-step breakdown: which email step is generating replies
 - Subject line performance breakdown
 
-Ask Harry to paste metrics if Instantly MCP is unavailable.
+Ask Harry to paste metrics if the Instantly API can't be reached (missing/invalid key).
 
 Cross-check against `wiki/email-benchmarks.md` to set expectations before diagnosing.
 
