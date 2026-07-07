@@ -33,6 +33,11 @@ writes:
 
 **Why this exists:** running each skill individually for a full-cycle campaign means 6+ explicit invocations and manual context-passing between them. This chain assesses what is missing, invokes only those skills, and threads context through automatically without sacrificing operator visibility (you can pause and edit between stages).
 
+This chain is the cold-email channel's answer to the general 7-step build process in
+`wiki/system-design-process.md` — see that file's Section 8 for exactly which sub-skill answers which
+step. Building a second channel for a client (LinkedIn, ads, organic) means re-deriving that same table
+from scratch for the new channel.
+
 ---
 
 ## STANDARD CONTEXT

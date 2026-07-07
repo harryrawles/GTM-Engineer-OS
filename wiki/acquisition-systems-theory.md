@@ -14,6 +14,10 @@ duplicates what's already built:
   lives in `gtm-skills/campaign-optimiser.md`. This file supplies the *systems-level* method for finding
   which sub-system to point that funnel at in the first place.
 
+**Building a sub-system from nothing, rather than diagnosing one that already exists?** Use
+`wiki/system-design-process.md` — the 7-step build process, which assumes everything in this file as its
+starting theory.
+
 ---
 
 ## How to Use This File
