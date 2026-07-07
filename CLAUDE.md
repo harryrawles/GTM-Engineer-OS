@@ -29,9 +29,7 @@ file ever disagree, this file is correct and the repo should be fixed to match i
 
 ## Core Principles
 
-- **PRR is the north star.** Positive reply rate drives every copy decision. Opens are vanity. (A separate
-  north star, MRR, governs a different decision, how time is allocated across the portfolio - see
-  `sops/client-communication-principles.md`.)
+- **PRR is the north star, always.** Positive reply rate drives every copy decision. Opens are vanity.
 - **Compound, don't improvise.** Reuse proven winners; log the *why* every time.
 - **Signal-based, not spray-and-pray.** Only contact prospects showing intent.
 - **Match the register.** ATL (VP/C-level) = short strategic. BTL (managers/ICs) = operational.

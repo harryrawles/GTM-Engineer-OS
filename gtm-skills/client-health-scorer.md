@@ -22,7 +22,7 @@ writes:
 
 **Trigger:** "Score [client] health", "Health check on [client]", "Which clients are at risk", "Portfolio health"
 
-**Context:** At 20 clients, knowing which ones are at risk is the most important meta-question Harry will face every Monday. This skill computes a structured health score per client and surfaces churn risk early. This is how `sops/client-communication-principles.md`'s "Play Toward Our North Star" principle (high-value and churn-risk accounts first) gets operationalised.
+**Context:** At 20 clients, knowing which ones are at risk is the most important meta-question Harry will face every Monday. This skill computes a structured health score per client and surfaces churn risk early. This is how `sops/client-communication-principles.md`'s "Prioritise by Account Value" principle (high-value and churn-risk accounts first) gets operationalised.
 
 ---
 
