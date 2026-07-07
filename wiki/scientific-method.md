@@ -4,6 +4,10 @@ How we iterate copy, sequences, signals, and any tested stimulus. **Every change
 
 The principle, in one sentence: **define a hypothesis, hold every other variable constant, test it long enough to be real, then iterate one variable toward fitness.**
 
+> **Why we test instead of copying "what's working":** see `wiki/first-principles-client-acquisition.md`
+> Section 5 (Cyclical Stimulus Effectiveness) — any stimulus that's visibly working niche-wide is already
+> partway through its decay curve.
+
 > Used by: `gtm-skills/test-launcher.md`, `gtm-skills/test-readiness-check.md`, `gtm-skills/weekly-reviewer.md`, `gtm-skills/campaign-optimiser.md`, `gtm-skills/cold-email-writer.md`. Test entries live in `clients/{slug}/test-log.md`.
 
 ---

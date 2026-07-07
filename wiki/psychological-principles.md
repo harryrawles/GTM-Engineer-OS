@@ -4,6 +4,11 @@ A working reference of cognitive biases and persuasion heuristics that show up c
 
 **The most important rule is the last one in this file: Overdone-It bias.** If you weaponise every principle in a single piece of copy, the result reads as manipulative and fails. Pick the few that fit. Leave the rest.
 
+> This file is the **Stimuli-Based (Psychological)** fundamentals layer — see
+> `wiki/first-principles-client-acquisition.md` Section 6 for how this fits alongside Strategy-Based
+> fundamentals, and Section 4 (Stimuli Entropy) for why any bias here eventually stops working once a
+> niche is over-exposed to it.
+
 ---
 
 ## How to Use This File
