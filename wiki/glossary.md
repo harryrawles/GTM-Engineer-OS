@@ -8,6 +8,10 @@ When a skill or wiki file uses an unexplained term, look it up here.
 
 ## Performance Metrics
 
+> These map to specific stages of the 6-stage acquisition funnel (Latent Conditions → Attention →
+> Interest → Appointment → Show → Primed Prospect → Closed Deal) — see
+> `wiki/acquisition-systems-theory.md` Section 4.
+
 | Term | Stands for | Definition |
 |------|-----------|------------|
 | **PRR** | Positive Reply Rate | Replies expressing interest, excluding negatives and OOOs. Our primary KPI. |
@@ -17,6 +21,11 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | **Bounce rate** | — | Hard bounces / sends. Must stay below 2%. |
 | **CTR** | Click-Through Rate | Clicks / opens. Rarely used in cold email (no links in body). |
 | **OOO** | Out of Office | Auto-reply during recipient absence. Re-queue, do not count as reply. |
+| **LVR** | Loom View Rate | Loom/video opens / sends. Used for video-first outreach. |
+| **SUR** | Show-Up Rate | Calls attended / appointments booked. Downstream of ABR. |
+| **SCR** | Sales Conversion Rate | Clients closed / calls attended (or / offers made). Downstream of SUR. |
+| **CTOR** | Call-to-Offer Rate | Offers made / calls attended. |
+| **FCR** | Funnel Conversion Rate | Overall macro conversion — clients closed / total top-of-funnel input. |
 
 ## Audience and Targeting
 

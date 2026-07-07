@@ -4,6 +4,11 @@
 
 **Context:** Diagnosing underperforming campaigns and recommending the highest-leverage fix. Always follow the scientific method — one variable at a time.
 
+If the problem spans more than one campaign or looks like a whole-motion stall rather than a single
+underperforming sequence, use `wiki/acquisition-systems-theory.md` Section 5 (bottleneck identification via
+sub-conversion rates) to find which sub-system is actually broken before running the single-campaign
+funnel below.
+
 **Read before diagnosing — primary:**
 - `clients/{slug}/campaign-state.md` — live campaign status and benchmarks
 - `clients/{slug}/icp.md` — ICP and signal accuracy check

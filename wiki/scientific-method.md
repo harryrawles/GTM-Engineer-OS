@@ -7,6 +7,10 @@ The principle, in one sentence: **define a hypothesis, hold every other variable
 > **Why we test instead of copying "what's working":** see `wiki/first-principles-client-acquisition.md`
 > Section 5 (Cyclical Stimulus Effectiveness) — any stimulus that's visibly working niche-wide is already
 > partway through its decay curve.
+>
+> **Why sample size and latency rules exist:** see `wiki/acquisition-systems-theory.md` Section 8
+> (Regression to the Mean) — small samples don't distribute evenly even when the underlying rate is fixed,
+> which is exactly what makes early results misleading.
 
 > Used by: `gtm-skills/test-launcher.md`, `gtm-skills/test-readiness-check.md`, `gtm-skills/weekly-reviewer.md`, `gtm-skills/campaign-optimiser.md`, `gtm-skills/cold-email-writer.md`. Test entries live in `clients/{slug}/test-log.md`.
 
