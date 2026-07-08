@@ -258,6 +258,7 @@ the loop keeps a signal even if a skill forgets; `pattern-detector` dedupes the 
 | "Run pre-launch check" | `gtm-skills/pre-launch-check.md` |
 | "Test-readiness check on T-XXX" | `gtm-skills/test-readiness-check.md` |
 | "Write a cold email sequence" | `gtm-skills/cold-email-writer.md` |
+| "Apply spintax" / "spintax this email" / "spin this copy" | `gtm-skills/spintax-ninja.md` |
 | "Launch the campaign" | `gtm-skills/campaign-launcher.md` |
 | "Diagnose campaign" / "Why is PRR low" | `gtm-skills/campaign-optimiser.md` |
 | "Analyse campaign data" | `gtm-skills/campaign-analyst.md` |

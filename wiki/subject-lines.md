@@ -17,7 +17,7 @@ Subject lines decide whether the email gets opened. Preview text decides whether
 - **Same thread for Email 2.** Email 2 uses `RE:` (same subject). Email 3 gets a new subject on a new thread.
 - **Spintax every 2-3 words.** Vary the subject at that cadence so each send reads as a natural variation,
   not an identical copy. Same principle as the body-copy spintax rule in `wiki/copywriting-101.md` Hard
-  Rules, applied specifically to subjects.
+  Rules, applied specifically to subjects. Format and process: `gtm-skills/spintax-ninja.md`.
 
 ---
 

@@ -161,7 +161,7 @@ Output Instantly setup instructions for Harry:
 5. Verify before launching:
    - Subject and body match the approved variant exactly
    - No HTML formatting added accidentally
-   - Liquid syntax / spintax preserved
+   - Liquid syntax / spintax preserved (format per `gtm-skills/spintax-ninja.md`)
 6. Send a test email to harry@refineflow.co - verify rendering
 7. Launch the split
 

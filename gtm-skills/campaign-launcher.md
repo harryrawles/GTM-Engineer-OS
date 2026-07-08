@@ -80,7 +80,7 @@ Run every item. Each must pass before launch.
 - [ ] Subject lines match approved copy exactly
 - [ ] Body text matches approved copy exactly (verify via Instantly preview)
 - [ ] Threading correct (Email 2 threaded, Email 3 new thread, etc.)
-- [ ] Liquid syntax / spintax variables tested (send a test email and verify rendering)
+- [ ] Liquid syntax / spintax variables tested (send a test email and verify rendering; format per `gtm-skills/spintax-ninja.md`)
 - [ ] Plain text mode confirmed (no HTML formatting in body)
 - [ ] No links in Email 1 body (allowed in Email 3+ if needed)
 

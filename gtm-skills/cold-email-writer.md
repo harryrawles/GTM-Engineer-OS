@@ -30,6 +30,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 - `wiki/email-benchmarks.md` - what good looks like
 - `gtm-skills/personalization-strategist.md` - full personalisation flow
 - `gtm-skills/signal-sourcer.md` - full signal analysis
+- `gtm-skills/spintax-ninja.md` - full spintax application process, once the copy is drafted
 
 ---
 
@@ -177,7 +178,7 @@ Default formula tested + PRR >= 1%
 - PRR is the north star. Not open rate. Not reply rate.
 - No vanity personalisation. "Saw you hired 3 AEs" not "I admire your passion".
 - Each follow-up tests a different cognitive mechanism. Never just bump.
-- Use spintax and liquid syntax for scale variations.
+- Use spintax and liquid syntax for scale variations. See `gtm-skills/spintax-ninja.md` for the exact format and process.
 - **Subject + preview = a complete thought.** First 50 chars of body show in inbox.
 - **Do not mention the signal in the email.** Reference the implication, not the trigger.
 

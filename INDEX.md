@@ -120,6 +120,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | gtm-skills/chain-build-campaign.md | **Use this for full-cycle campaign builds** - smart-routes through up to 7 skills |
 | gtm-skills/chain-diagnose-campaign.md | **Use this for performance diagnostics** - routes to right specialist |
 | gtm-skills/cold-email-writer.md | Writing new email sequences (invoked inside chain-build-campaign) |
+| gtm-skills/spintax-ninja.md | Applying `{{RANDOM|...}}` spintax to drafted copy, once cold-email-writer has produced it |
 | gtm-skills/campaign-launcher.md | Pre-flight checklist before launch (invoked inside chain-build-campaign) |
 | gtm-skills/campaign-optimiser.md | Diagnose underperforming campaigns (invoked inside chain-diagnose-campaign) |
 | gtm-skills/campaign-analyst.md | Performance analysis |

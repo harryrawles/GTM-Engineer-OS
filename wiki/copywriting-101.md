@@ -23,7 +23,7 @@ Core principles for signal-based cold email. Read this before writing any copy.
 - **No question marks except the CTA** - delete every other question mark
 - **2:1 ratio** - more about them than about you
 - **Pattern breaks** - look different to every other cold email they receive
-- **Spintax and liquid syntax** - vary copy at scale to avoid spam filters
+- **Spintax and liquid syntax** - vary copy at scale to avoid spam filters. See `gtm-skills/spintax-ninja.md` for the exact format and process.
 - **No spam words in the body either** - same trigger list as `wiki/subject-lines.md` Hard Rules ("free", "guarantee", "limited time", "act now"), bend only when the client's own offer genuinely requires the word
 
 ---

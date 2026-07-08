@@ -106,7 +106,7 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | **Sequence** | Multi-step email campaign (typically 3-4 emails). |
 | **Variant** | A version of an email used in A/B testing. |
 | **Control** | The current best-performing variant in a test. |
-| **Spintax** | Notation for randomised text variation at send time. |
+| **Spintax** | Notation for randomised text variation at send time. Format and process: `gtm-skills/spintax-ninja.md`. |
 | **Liquid syntax** | Dynamic variable insertion at send time. |
 | **Bar test** | Could you say this out loud at a bar without sounding like a salesperson? |
 
