@@ -1,3 +1,20 @@
+---
+name: campaign-optimiser
+description: Diagnoses underperforming campaigns via an 8-check decision tree (deliverability, list quality, signal, offer, copy, sequence, personalisation, volume/pacing), stopping at the first confirmed root cause, then routes to the right specialist skill or recommends the next split test.
+triggers:
+  - "Diagnose this campaign"
+  - "optimise this campaign"
+  - "why is PRR low"
+  - "what should I test next"
+  - "campaign is underperforming"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/campaign-state.md, icp.md, offer.md, copy-library.md, test-log.md"
+  - "wiki/scientific-method.md, copywriting-101.md, email-benchmarks.md"
+writes:
+  - "clients/{slug}/test-log.md (logged test result after completion)"
+---
+
 # Skill: Campaign Optimiser
 
 **Trigger:** "Diagnose this campaign", "optimise this campaign", "why is PRR low", "what should I test next", "campaign is underperforming"
@@ -132,6 +149,19 @@ If signal is the root cause → route to `gtm-skills/signal-sourcer.md` to ident
 - Is the personalisation the right tier for the volume / deal size?
 - Is the AI-generated component fitting grammatically into the static template?
 - Does the personalisation feel relevant - or sweeping?
+
+### 8. Volume / pacing check
+
+- Sends per mailbox per day - over 50 is risk territory, see `wiki/email-benchmarks.md` Volume Benchmarks
+  (30-50/day recommended, 50-100 max).
+- Is the active lead list large enough to sustain the current send rate without exhausting it mid-sequence?
+- Was warmup turned off or throttled down too early relative to sending volume?
+- Is the campaign pushing volume faster than the list or the mailbox reputation can support, independent
+  of copy or targeting quality?
+
+If pacing is the root cause, this is a campaign-config decision, not an infrastructure fix or a list-quality
+issue - recommend the specific volume/throttle change directly rather than routing to
+`gtm-skills/deliverability-doctor.md` or `gtm-skills/list-builder.md`.
 
 ---
 

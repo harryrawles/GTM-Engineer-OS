@@ -1,3 +1,17 @@
+---
+name: client-report-writer
+description: Generates the weekly client-facing performance report in a fixed, under-300-word format - this week's metrics, campaign breakdown, what's working, what's being tested, and next week's plan.
+triggers:
+  - "Write the weekly report"
+  - "write the client update"
+  - "prepare this week report"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/overview.md, campaign-state.md, test-log.md"
+writes:
+  - "(none - report is presented as a draft for Harry to send)"
+---
+
 # Skill: Client Report Writer
 
 **Trigger:** "Write the weekly report", "write the client update", "prepare this week report"

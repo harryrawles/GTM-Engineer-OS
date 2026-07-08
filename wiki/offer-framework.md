@@ -151,7 +151,7 @@ The first answer likely positions you the same as everyone else. The second answ
 Write a short-form version of the offer (cold email, cold LinkedIn message). Under 100 words.
 
 Apply the 4-part formula from wiki/copywriting-101.md:
-1. Personalization
+1. Personalisation
 2. Who Am I
 3. The Offer
 4. CTA

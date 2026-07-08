@@ -1,3 +1,21 @@
+---
+name: campaign-analyst
+description: Pulls campaign data from Instantly, structures it into a top-level health check, campaign-level breakdown, and signal/copy analysis, then outputs a prioritised action list ranked by expected PRR impact.
+triggers:
+  - "Analyse the campaign data"
+  - "what does the data say"
+  - "performance review"
+  - "how are campaigns performing"
+  - "give me an analysis"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/campaign-state.md"
+  - "clients/{slug}/icp.md"
+  - "clients/{slug}/test-log.md"
+writes:
+  - "(none - analysis is presented for Harry's review)"
+---
+
 # Skill: Campaign Analyst
 
 **Trigger:** "Analyse the campaign data", "what does the data say", "performance review", "how are campaigns performing", "give me an analysis"

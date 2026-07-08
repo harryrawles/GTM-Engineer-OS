@@ -6,6 +6,56 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.2.0] - 2026-07-08
+
+### Changed - Consistency audit fix pass (Medium + Low, closes the [3.1.0] backlog)
+
+Resolves all 13 Medium and 7 Low findings deferred from the [3.1.0] audit pass. Nothing left outstanding
+from the original 5-pass audit.
+
+#### Fixed - wording and cross-reference gaps
+- **M1** - `sops/solving-campaign-issues.md` now draws the same activation-vs-provisioning line as
+  `wiki/deliverability.md`: tapping the pre-warm pile is GTME's, provisioning new capacity is the AM's.
+- **M2** - `gtm-skills/handover-brief-writer.md` now asks planned-vs-unplanned at Step 1 for Temporary
+  Cover, before collecting fields, so brief authorship actually follows `sops/client-handover.md`
+  Scenario 3 instead of defaulting to whoever invokes the skill.
+- **M3** - `wiki/glossary.md`'s acquisition funnel corrected from "6-stage" to "7-stage" (it always listed 7).
+- **M4** - added AI SDR, AI Reply Agent, and Cowork to `wiki/glossary.md` - previously undefined despite
+  being load-bearing, footnote-requiring terms across `sops/`.
+- **M13** - `gtm-skills/signal-sourcer.md`'s action thresholds now match `wiki/signal-sourcing.md` exactly
+  (20-49 = marketing nurture this week, not lumped into "monitor only" with everything under 50).
+- **L1** - `gtm-skills/cold-email-writer.md`'s two ATL title lists now agree (Director/Head of included in
+  both).
+- **L2** - "Personalization" → "Personalisation" in `wiki/copywriting-101.md`'s Formula header and
+  `wiki/offer-framework.md`, matching the OS's British-English default and the rest of both files.
+- **L3** - `wiki/glossary.md`'s BTL list now includes "Coordinator," matching `wiki/atl-btl-messaging.md`
+  and `gtm-skills/cold-email-writer.md`.
+- **L4** - `INDEX.md`'s Tests table now lists `check-em-dash.sh` and correctly counts 4 CI checks (was 3).
+- **L5** - `gtm-skills/client-offboarder.md`'s output template now names the actual single-repo
+  `clients/_archived/{slug}-{{YYYY-MM}}/` path instead of stale per-client-repo rename text.
+
+#### Fixed - built the missing capability rather than trimming the promise
+- **M6** - `gtm-skills/campaign-optimiser.md` gained an 8th diagnosis check, Volume/pacing (sends/mailbox/day,
+  list size vs. send rate, warmup timing), so `gtm-skills/chain-diagnose-campaign.md`'s "Volume/pacing"
+  routing branch is now backed by a real check instead of an undefined category.
+- **M7** - `gtm-skills/list-builder.md` gained a real STEP 6 - Audit Mode (re-score an active list against
+  the current ICP, output % still in-ICP, false-positive count, and a refresh/tighten-ICP recommendation),
+  so the chain's "audit mode" invocation now does what it always claimed to.
+- **M8** - `gtm-skills/deliverability-doctor.md` and `gtm-skills/incident-responder.md` now cross-reference
+  each other with an explicit severity-based handoff: deliverability-doctor is the triage/diagnosis entry
+  point, confirmed-Critical situations (blacklist live, bounce over 5%, platform-wide outage) go straight
+  to incident-responder.
+
+#### Changed - full scaffolding consistency (L7)
+Backfilled YAML frontmatter (`name`/`description`/`triggers`/`reads`/`writes`) onto the 13 skills that were
+inline-Trigger-prose-only: `campaign-analyst.md`, `campaign-optimiser.md`, `client-onboarder.md`,
+`client-report-writer.md`, `cold-email-writer.md`, `deliverability-doctor.md`, `eod-report-writer.md`,
+`icp-builder.md`, `list-builder.md`, `personalization-strategist.md`, `signal-sourcer.md`,
+`spintax-ninja.md`, `weekly-reviewer.md`. Every one of the 31 skills in `gtm-skills/` now has the same
+header shape.
+
+---
+
 ## [3.1.0] - 2026-07-08
 
 ### Changed - Consistency audit fix pass (Critical + High)

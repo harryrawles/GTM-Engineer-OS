@@ -33,7 +33,7 @@ with `gtm-skills/handover-brief-writer.md`, which also produces the Client Intro
 - **Handover date.**
 - **Outgoing GTME, incoming GTME, and AM name.**
 - **Campaign status:** what is currently running, where it is in the testing cycle, and current
-  performance (reply rate, leads generated to date).
+  performance (PRR, leads generated to date).
 - **ICP overview:** who we are targeting, what angles have been tested, what has and has not worked.
 - **Client personality and comms style:** how they communicate, how often they expect updates, any
   sensitivities or preferences to be aware of.

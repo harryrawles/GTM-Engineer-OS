@@ -1,3 +1,23 @@
+---
+name: client-onboarder
+description: Spins up a new client inside the multi-client OS - creates the folder from the template, then runs the full 5-phase conversational intake (identity, offer, ICP, voice, infrastructure), writing answers directly to that client's files.
+triggers:
+  - "Onboard new client"
+  - "Set up the OS for {{client}}"
+  - "Let's fill in the OS"
+  - "Run client onboarder"
+  - "New client just signed"
+  - "Onboard {{client_name}}"
+reads:
+  - "templates/client-template/ (source for the new folder)"
+  - "clients/{slug}/*.md (own files, to detect resume state)"
+  - "wiki/list-building.md, signal-sourcing.md, atl-btl-messaging.md (Phase 3)"
+writes:
+  - "clients/{slug}/_config.md, overview.md, offer.md, icp.md, voice.md, campaign-state.md"
+  - "clients/{slug}/secrets/credentials.md (API key, git-ignored)"
+  - "_state/active-client"
+---
+
 # Skill: Client Onboarder
 
 **Trigger:** "Onboard new client", "Set up the OS for {{client}}", "Let's fill in the OS", "Run client onboarder", "New client just signed", "Onboard {{client_name}}"

@@ -1,3 +1,22 @@
+---
+name: personalization-strategist
+description: Picks the right personalisation tier (decision matrix on deal size/volume/ICP fit), sources the right data bucket from the 6 personalisation buckets, and writes the AI prompts for scaled personalisation.
+triggers:
+  - "Personalise at scale"
+  - "write personalisation prompts"
+  - "build a Clay prompt"
+  - "what should we personalise on"
+  - "personalisation hooks"
+  - "this email feels too generic"
+  - "research the prospect"
+reads:
+  - "wiki/_skill-context.md"
+  - "wiki/personalization-at-scale.md"
+  - "clients/{slug}/icp.md, offer.md"
+writes:
+  - "(none - prompts and hooks are presented for use in cold-email-writer.md or Clay)"
+---
+
 # Skill: Personalization Strategist
 
 **Trigger:** "Personalise at scale", "write personalisation prompts", "build a Clay prompt", "what should we personalise on", "personalisation hooks", "this email feels too generic", "research the prospect"

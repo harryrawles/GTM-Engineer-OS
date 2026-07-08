@@ -8,7 +8,7 @@ When a skill or wiki file uses an unexplained term, look it up here.
 
 ## Performance Metrics
 
-> These map to specific stages of the 6-stage acquisition funnel (Latent Conditions → Attention →
+> These map to specific stages of the 7-stage acquisition funnel (Latent Conditions → Attention →
 > Interest → Appointment → Show → Primed Prospect → Closed Deal) - see
 > `wiki/acquisition-systems-theory.md` Section 4.
 
@@ -36,7 +36,7 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | **ABM** | Account-Based Marketing | 1:1, 1:few, or 1:many approaches tailored to specific accounts. |
 | **TAM** | Total Addressable Market | All companies that could theoretically buy. |
 | **ATL** | Above-the-Line | VP, C-Level, Director, Head of. Strategic messaging. |
-| **BTL** | Below-the-Line | Manager, Specialist, Analyst, IC. Operational messaging. |
+| **BTL** | Below-the-Line | Manager, Specialist, Analyst, Coordinator, IC. Operational messaging. |
 | **DM** | Decision Maker | Person who signs the purchase. |
 
 ## Sales and Channels
@@ -83,6 +83,9 @@ When a skill or wiki file uses an unexplained term, look it up here.
 | **Bombora** | Third-party intent data provider. |
 | **6sense** | Predictive intent platform. |
 | **Common Room** | Community and signal aggregation. |
+| **AI SDR** | The autonomous sending/prospecting agent that runs a client's outbound campaigns. A distinct system from the AI Reply Agent, see `sops/onboarding-24-hour.md`. |
+| **AI Reply Agent** | Handles inbound replies to a client's campaigns. A distinct system from the AI SDR, see `sops/onboarding-24-hour.md`. |
+| **Cowork** | Claude's AI assistant, queried as the first step when stuck on a client per `sops/gtme-unlock-ladder.md`, before escalating to the support channel or `#grill-my-campaigns`. |
 
 ## Services and Engagement
 

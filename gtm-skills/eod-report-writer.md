@@ -1,3 +1,22 @@
+---
+name: eod-report-writer
+description: Produces the portfolio-wide end-of-day report for Slack (MOVED/BLOCKED/NEXT), reconstructed from the day's session trail. Portfolio-wide by nature - does not require an active client.
+triggers:
+  - "EOD report"
+  - "End of day report"
+  - "Wrap up my day"
+  - "Close out the day"
+  - "Daily report"
+  - "What did I get done today"
+  - "Run my EOD"
+reads:
+  - ".claude/sessions/*.jsonl (primary source)"
+  - "clients/{slug}/session-log.md, comms-log.md, decision-log.md, campaign-state.md, test-log.md"
+  - "wiki/_skill-context.md"
+writes:
+  - "clients/{slug}/session-log.md (one row per client touched today)"
+---
+
 # Skill: EOD Report Writer
 
 **Trigger:** "EOD report", "End of day report", "Wrap up my day", "Close out the day", "Daily report", "What did I get done today", "Run my EOD"

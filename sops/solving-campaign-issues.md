@@ -96,9 +96,11 @@ What can we do about it (some of this may not be possible at our client volume):
 - Try a slightly smaller ICP with less security investment, only if the client is comfortable with that
   trade-off.
 
-Mailbox and pre-warm provisioning itself is AM-owned execution (`sops/am-gtme-responsibility-split.md`),
-once the client agrees to fund more capacity, hand the provisioning to the AM rather than doing it
-yourself.
+Tapping into the pre-warm pile above is activating an existing, AM-stocked pile, a GTME software action
+within the sending tool (same distinction as `wiki/deliverability.md`'s "When to Flag the AM" list).
+Provisioning brand new mailbox or domain capacity is different and stays AM-owned execution
+(`sops/am-gtme-responsibility-split.md`), once the client agrees to fund more capacity, hand that
+provisioning to the AM rather than doing it yourself.
 
 Client psychology: because we have automated signals for poor deliverability, we notice this weeks
 before the client does. Being proactive about it, even though the detection itself is mostly automated,

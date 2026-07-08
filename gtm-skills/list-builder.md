@@ -1,3 +1,23 @@
+---
+name: list-builder
+description: Handles ICP scoring, account qualification, ABM tier assignment, contact mapping, list validation/hygiene, and re-auditing an active list against the current ICP when list quality is suspected as an underperformance root cause.
+triggers:
+  - "Build a lead list"
+  - "qualify these accounts"
+  - "score this list"
+  - "build an ABM target list"
+  - "clean the list"
+  - "verify emails"
+  - "look-alike list"
+  - "find more accounts like X"
+reads:
+  - "wiki/_skill-context.md"
+  - "wiki/list-building.md, signal-sourcing.md"
+  - "clients/{slug}/icp.md, offer.md"
+writes:
+  - "clients/{slug}/icp.md (Step 1 output, if adopted)"
+---
+
 # Skill: List Builder
 
 **Trigger:** "Build a lead list", "qualify these accounts", "score this list", "build an ABM target list", "clean the list", "verify emails", "look-alike list", "find more accounts like X"
@@ -30,6 +50,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 | "Map contacts at these accounts" | Step 4 - Contact mapping |
 | "Build a lookalike list from best customers" | Lookalike building section in `wiki/list-building.md` |
 | "Verify these emails / clean the list" | Step 5 - Validation |
+| "Audit this list against ICP" / invoked by `gtm-skills/chain-diagnose-campaign.md` when list quality is the suspected root cause | Step 6 - Audit Mode |
 
 ---
 
@@ -120,6 +141,41 @@ Run before every campaign. Non-negotiable.
 3. **Sub-verify** catch-all with ListKit / Listman.io
 4. **Re-verify** anything older than 30 days
 5. **Target:** bounce rate under 2% (the healthy target, `wiki/deliverability.md`)
+
+---
+
+## STEP 6 - Audit Mode (Re-Verify an Active List Against ICP)
+
+Different from Step 5 (email validity/hygiene). This re-scores an *already-sending* list against the
+*current* ICP, to answer "has this list drifted, or has the ICP moved since the list was built." Triggered
+directly, or by `gtm-skills/chain-diagnose-campaign.md` when campaign-optimiser's diagnosis points to list
+quality as the underperformance root cause.
+
+1. Pull the active lead list for the campaign in question.
+2. Re-score every lead against the current `clients/{slug}/icp.md` using the Step 2 scoring matrix.
+3. Calculate:
+   - **% still in-ICP** - leads still scoring Tier A/B (70+) under the current ICP
+   - **False positives** - count and % of leads that scored well when the list was built but no longer
+     match (ICP refined since, firmographic drift, stale data)
+   - **Driving criteria** - which specific scoring factors (industry, size, geography, etc.) account for
+     most of the mismatch
+4. Recommend one of:
+   - **Refresh** - rebuild the list if in-ICP match has dropped below 50%
+   - **Tighten ICP** - if the list matches an ICP that has since become too broad, fix `clients/{slug}/icp.md`
+     rather than just refreshing the list
+   - **Both** - if the list is stale and the ICP has also drifted
+
+Output:
+```
+=== List Audit - {{campaign_name}} ===
+
+Leads audited: {{n}}
+Still in-ICP: {{n}} ({{%}})
+False positives: {{n}} ({{%}}) - driven by: {{criteria}}
+
+Recommendation: Refresh / Tighten ICP / Both
+{{one-line reasoning}}
+```
 
 ---
 

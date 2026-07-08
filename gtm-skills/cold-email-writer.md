@@ -1,3 +1,19 @@
+---
+name: cold-email-writer
+description: Writes cold email sequences following the 4-part formula and the pre-write protocol (pull Instantly data, surface winning copy, check the graveyard, decide style/register/personalisation), PRR-optimised throughout.
+triggers:
+  - "Write a cold email"
+  - "write me a sequence"
+  - "email copy for [campaign]"
+  - "cold email for [signal]"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/copy-library.md"
+  - "wiki/copywriting-101.md, psychological-principles.md"
+writes:
+  - "(none directly - copy is presented as a draft; confirmed winners are logged by weekly-reviewer.md)"
+---
+
 # Skill: Cold Email Writer
 
 **Trigger:** "Write a cold email", "write me a sequence", "email copy for [campaign]", "cold email for [signal]"
@@ -167,7 +183,7 @@ Default formula tested + PRR >= 1%
 
 ## HARD RULES
 
-- **Word count:** ATL (VP/C-Level) max 60. BTL (Manager/IC) max 90. Default 75 target, 100 ceiling. See `wiki/copywriting-101.md` (canonical).
+- **Word count:** ATL (VP/C-Level/Director/Head of) max 60. BTL (Manager/IC) max 90. Default 75 target, 100 ceiling. See `wiki/copywriting-101.md` (canonical).
 - No question marks except the CTA.
 - Subject line: 2-4 words, lowercase, no spam triggers.
 - No links in the body.

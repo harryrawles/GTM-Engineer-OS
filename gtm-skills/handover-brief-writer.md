@@ -72,6 +72,14 @@ This determines which outputs are needed:
 - **Permanent / Reassignment** - produce both the Handover Brief and the Client Introduction Message.
 - **Temporary Cover** - produce the Handover Brief only. No client message required unless the absence is 2+ weeks.
 
+**If Temporary Cover:** also ask now, before collecting fields: "Is this planned or unplanned?" Per
+`sops/client-handover.md` Scenario 3, this determines who is completing the brief:
+- **Planned** - the outgoing GTME completes the brief before going out. Proceed with them as the source for Step 2.
+- **Unplanned** - the AM completes the brief instead. Collect Step 2's fields from the AM (or from whatever
+  records are available) rather than the absent GTME.
+
+Carry this answer forward to Step 4 - it also determines who sends the client message, so do not ask again.
+
 ---
 
 ## STEP 2 - Collect Information
@@ -148,7 +156,7 @@ Present this as a draft using `message_compose_v1` with kind "other" and label "
 
 Select the correct scenario based on handover type. Present as a separate editable draft after the brief, using a second `message_compose_v1` call with kind "other".
 
-Skip this step entirely for Temporary Cover unless the absence is confirmed as 2+ weeks. For Temporary Cover, ask whether the absence is planned or unplanned, this determines who sends the message.
+Skip this step entirely for Temporary Cover unless the absence is confirmed as 2+ weeks. For Temporary Cover, use the planned/unplanned answer already collected in Step 1, it determines who sends the message.
 
 ### Scenario 1 - Permanent Departure
 

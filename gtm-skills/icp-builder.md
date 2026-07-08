@@ -1,3 +1,21 @@
+---
+name: icp-builder
+description: Builds or refines a client's ICP using the 3-layer framework (firmographic, technographic, behavioural/signal), plus decision-maker mapping and an avoid list. Output feeds clients/{slug}/icp.md.
+triggers:
+  - "Build the ICP"
+  - "refine the ICP"
+  - "who should we target"
+  - "define lead criteria"
+  - "update targeting"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/overview.md, offer.md, icp.md"
+  - "raw/onboarding-intake.md"
+  - "wiki/list-building.md, signal-sourcing.md"
+writes:
+  - "clients/{slug}/icp.md"
+---
+
 # Skill: ICP Builder
 
 **Trigger:** "Build the ICP", "refine the ICP", "who should we target", "define lead criteria", "update targeting"

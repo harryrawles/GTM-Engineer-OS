@@ -1,3 +1,21 @@
+---
+name: weekly-reviewer
+description: The OS's compounding-loop skill. Identifies winners/losers, applies the scientific method to completed tests, updates campaign health, synthesises the week's insight, and promotes Confirmed patterns to the shared layer. Run every Friday per client or as a portfolio sweep.
+triggers:
+  - "Run weekly review for {{client}}"
+  - "Weekly sweep"
+  - "Run weekly review for all clients"
+  - "End of week review"
+  - "Friday review"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/campaign-state.md, icp.md, copy-library.md, test-log.md, decision-log.md"
+  - "wiki/signal-sourcing.md, email-benchmarks.md, scientific-method.md"
+writes:
+  - "clients/{slug}/copy-library.md, decision-log.md, test-log.md, campaign-state.md"
+  - "best-practices/, frameworks/, wiki/objection-library.md (Step 8, de-identified only)"
+---
+
 # Skill: Weekly Reviewer
 
 **Trigger:** "Run weekly review for {{client}}", "Weekly sweep", "Run weekly review for all clients", "End of week review", "Friday review"

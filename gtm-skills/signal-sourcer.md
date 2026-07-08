@@ -1,3 +1,22 @@
+---
+name: signal-sourcer
+description: Designs and scores signal-based campaign strategy - signal selection and ranking, the scoring framework and action thresholds, and signal-to-play design with response SLAs.
+triggers:
+  - "What signals should we target"
+  - "build a signal-based campaign"
+  - "signal scoring"
+  - "which signals work for {{client}}"
+  - "design a signal strategy"
+  - "score these leads"
+  - "what is the next signal to test"
+reads:
+  - "wiki/_skill-context.md"
+  - "wiki/signal-sourcing.md, buying-triggers.md"
+  - "clients/{slug}/icp.md, offer.md"
+writes:
+  - "clients/{slug}/test-log.md (signal experiments logged)"
+---
+
 # Skill: Signal Sourcer
 
 **Trigger:** "What signals should we target", "build a signal-based campaign", "signal scoring", "which signals work for {{client}}", "design a signal strategy", "score these leads", "what is the next signal to test"
@@ -86,11 +105,12 @@ For a client with multiple signals firing per lead:
 1. Read the scoring table in `wiki/signal-sourcing.md`.
 2. Assign point values per signal type (Tier 1: 50-100, Tier 2: 20-49, Tier 3: 5-19).
 3. Apply recency multiplier (1.5x for last 24h, decreasing to 0.3x past 30 days).
-4. Define action thresholds:
+4. Define action thresholds (matches `wiki/signal-sourcing.md`'s action-thresholds table exactly):
    - 150+ = drop everything, manual outreach within 1 hour
    - 100-149 = personalised sequence within 24 hours
    - 50-99 = automated nurture, monitor
-   - Under 50 = monitor only
+   - 20-49 = marketing nurture, this week
+   - Under 20 = monitor only
 
 Output: a scoring rubric in `clients/{slug}/test-log.md` or as a Clay formula.
 

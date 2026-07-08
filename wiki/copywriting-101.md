@@ -95,7 +95,7 @@ Every email follows this structure. No exceptions.
 
 For each part, deliberately leverage 2-3 biases from `wiki/psychological-principles.md` and avoid triggering 1-2.
 
-**Part 1 - Personalization (Why you, why now)**
+**Part 1 - Personalisation (Why you, why now)**
 One sentence proving you looked at them. Must NOT signal a pitch is coming.
 - "Saw you just hired 3 SDRs" - good
 - "I admire your passion for revolutionising the industry" - delete

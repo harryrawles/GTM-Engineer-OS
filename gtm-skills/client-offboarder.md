@@ -336,7 +336,7 @@ Communication:
 - Send when ready: {{command}}
 
 Repo status:
-- Ready for archival rename: client-os-{{client_name}} → archive-client-os-{{client_name}}-{{YYYY-MM}}
+- Ready to archive: clients/{{slug}}/ → clients/_archived/{{slug}}-{{YYYY-MM}}/ (STEP 7)
 - Final commit pending
 
 Total Engagement Outcome:

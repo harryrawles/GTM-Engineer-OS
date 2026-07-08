@@ -28,6 +28,8 @@ writes:
 
 **The incident responder's job is calm, structured action - not heroics.**
 
+**vs. `gtm-skills/deliverability-doctor.md`:** overlapping triggers ("blacklisted," "bounce spike") are shared on purpose - deliverability-doctor is the triage/diagnosis entry point while severity is still being worked out. Once a situation is confirmed Critical (blacklist confirmed live, bounce already over 5%, platform-wide outage), it belongs here, this skill owns severity-gated client notification and the mandatory post-mortem that deliverability-doctor doesn't.
+
 ---
 
 ## STANDARD CONTEXT

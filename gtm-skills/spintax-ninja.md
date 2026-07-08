@@ -1,3 +1,19 @@
+---
+name: spintax-ninja
+description: Applies {{RANDOM|...}} spintax to drafted email copy - what to spin vs lock, word-level vs phrase-level spin, spacing standard, and an 11-item QA checklist before output.
+triggers:
+  - "Apply spintax"
+  - "spintax this email"
+  - "spin this copy"
+  - "add spintax variance"
+reads:
+  - "wiki/_skill-context.md"
+  - "clients/{slug}/voice.md"
+  - "wiki/copywriting-101.md, subject-lines.md"
+writes:
+  - "(none - output is a code block in chat, never saved to a file)"
+---
+
 # Skill: Spintax Ninja
 
 **Trigger:** "Apply spintax", "spintax this email", "spin this copy", "add spintax variance"

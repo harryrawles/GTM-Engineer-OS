@@ -1,8 +1,30 @@
+---
+name: deliverability-doctor
+description: Triages and diagnoses deliverability problems (bounce, blacklist, warmup, spam) before they kill a campaign, and runs recovery protocols. Hands infrastructure-level execution to the AM. Triage/diagnosis entry point - see incident-responder.md for confirmed-Critical situations.
+triggers:
+  - "My emails are going to spam"
+  - "bounce rate is climbing"
+  - "open rate dropped"
+  - "domain is blacklisted"
+  - "deliverability issue"
+  - "DNS not working"
+  - "warmup is failing"
+  - "red flame in Instantly"
+reads:
+  - "wiki/_skill-context.md"
+  - "wiki/deliverability.md, email-benchmarks.md"
+  - "clients/{slug}/campaign-state.md"
+writes:
+  - "clients/{slug}/campaign-state.md (document infrastructure changes)"
+---
+
 # Skill: Deliverability Doctor
 
 **Trigger:** "My emails are going to spam", "bounce rate is climbing", "open rate dropped", "domain is blacklisted", "deliverability issue", "DNS not working", "warmup is failing", "red flame in Instantly"
 
 **Context:** Deliverability is upstream of every metric. If emails are not landing, nothing else matters. This skill diagnoses and recovers deliverability problems before they kill a campaign.
+
+**vs. `gtm-skills/incident-responder.md`:** the two share overlapping triggers ("blacklisted," "bounce spike"). This skill is for triage and diagnosis - use it while severity is still being assessed, or once it's confirmed as High/Medium/Low. The moment a situation is already confirmed Critical (blacklist confirmed live, bounce already over 5%, platform-wide outage), go straight to `gtm-skills/incident-responder.md` instead - it owns severity-gated client notification and post-mortem, this skill doesn't.
 
 ---
 

@@ -91,7 +91,7 @@ Based on the optimiser's root cause:
 **Pause-point:** show Harry the deliverability assessment and recovery plan before any infrastructure change.
 
 ### Cause = List quality
-→ Invoke `gtm-skills/list-builder.md` in audit mode. Re-verify the current list against ICP. Output: % of leads that still match ICP, count of false positives, list refresh recommendation.
+→ Invoke `gtm-skills/list-builder.md` STEP 6 - Audit Mode. Re-verifies the current list against ICP. Output: % of leads that still match ICP, count of false positives, list refresh recommendation.
 
 **Pause-point:** show Harry the audit results. Decide: refresh list, tighten ICP, or both.
 
