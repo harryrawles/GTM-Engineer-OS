@@ -6,6 +6,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.6.0] - 2026-07-08
+
+### Added - find-skills vendored into .claude/skills/
+
+Vendored `find-skills` (source: [vercel-labs/skills](https://github.com/vercel-labs/skills), path
+`skills/find-skills`) into `.claude/skills/find-skills/`, alongside the existing `skill-creator`. Helps
+discover and install skills from the open skills.sh ecosystem (`npx skills find` / `npx skills add`) for
+general-purpose (non-GTM-specific) capability gaps.
+
+**Modified from upstream:** Step 6 ("Offer to Install") originally ran `npx skills add <pkg> -g -y`
+(unattended, global) once the user said go ahead. Changed to always state the exact command and wait for
+an explicit yes, and to install locally to the project rather than machine-wide - matching this OS's
+approval-before-write model (`CLAUDE.md` → *Safety Guard*: nothing writes or installs without asking
+first). No upstream license file was found for this source repo (GitHub reports none); noted in
+`.claude/skills/README.md` in place of a `LICENSE.txt`, since a skill installed through it is third-party
+code from outside this OS's own review.
+
+Updated `.claude/skills/README.md` and `INDEX.md` to list the new skill.
+
+---
+
 ## [3.5.1] - 2026-07-08
 
 ### Fixed - final structure review
