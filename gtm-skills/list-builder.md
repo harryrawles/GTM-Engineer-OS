@@ -179,6 +179,20 @@ Recommendation: Refresh / Tighten ICP / Both
 
 ---
 
+## QA CHECKLIST
+
+Before handing off the list:
+
+- [ ] Every account/lead scored against the current `clients/{slug}/icp.md`, not a stale or assumed ICP?
+- [ ] ABM tier and contact-mapping depth match the Step 3 score bands (6 roles Tier 1, 3-4 Tier 2, decision-maker only Tier 3)?
+- [ ] Step 5 validation actually run: 100% verified, invalid/disposable/role-based/toxic removed, bounce rate under 2%?
+- [ ] Catch-all addresses sub-verified, and anything older than 30 days re-verified?
+- [ ] Accounts scoring under 50 (Tier D) excluded, not carried forward "just in case"?
+- [ ] For Audit Mode: % still in-ICP and false-positive % calculated and reported, not eyeballed?
+- [ ] Source, scoring logic, and any exclusions applied are documented for `clients/{slug}/test-log.md`, not left implicit?
+
+---
+
 ## RULES
 
 - **Specificity beats breadth.** A narrow ICP with high signal beats a broad ICP with low signal every time.

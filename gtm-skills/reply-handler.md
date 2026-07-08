@@ -166,7 +166,7 @@ GTME
 2. Add to client's global do-not-contact in `clients/{slug}/_config.md` if requested
 3. Do NOT reply - escalates risk
 4. If hostile and threatens action (lawyer, complaint) → flag to the GTME immediately, do not auto-respond.
-   The GTME escalates to Aaron (their manager/team lead, `sops/am-gtme-responsibility-split.md`) per
+   The GTME escalates to Aaron (the GTME's manager/team lead, `sops/am-gtme-responsibility-split.md`) per
    `gtm-skills/incident-responder.md` Protocol C, a legal threat isn't their call to handle solo.
 
 **Log:**
@@ -383,9 +383,23 @@ Notes:
 - **Always log to `clients/{slug}/comms-log.md`.** Every reply, every type.
 - **Pattern recognition is key.** If you see the same objection 3+ times, flag it. The OS should adapt.
 - **Hostile replies → no response, immediate suppression.** Escalate to the GTME.
-- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to the GTME, who loops in Aaron (their manager/team lead) per `gtm-skills/incident-responder.md` Protocol E, this isn't a call the GTME makes alone.
+- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to the GTME, who loops in Aaron (the GTME's manager/team lead) per `gtm-skills/incident-responder.md` Protocol E, this isn't a call the GTME makes alone.
 - **Match the voice** in `clients/{slug}/voice.md`. Do not improvise tone.
 - **Track winner patterns.** If a specific response template converts at unusual rate, log it as a candidate winner for the next weekly review.
+
+---
+
+## QA CHECKLIST
+
+Before showing the draft to the GTME:
+
+- [ ] Classification matches the actual reply text, not the closest convenient type (2A-2J)?
+- [ ] Response follows the template for the classified step, with only the documented adjustments applied?
+- [ ] Objection reply: was `wiki/objection-library.md` actually consulted for the matching pattern, not improvised?
+- [ ] Hostile or GDPR-flagged reply: suppressed with no response sent, and escalated to the GTME?
+- [ ] Draft shown to the GTME for approval, not sent automatically?
+- [ ] Entry logged to `clients/{slug}/comms-log.md`, and to `decision-log.md` if a novel or 3+ repeated pattern?
+- [ ] Tone checked against `clients/{slug}/voice.md` rather than improvised?
 
 ---
 

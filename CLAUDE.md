@@ -43,7 +43,10 @@ file ever disagree, this file is correct and the repo should be fixed to match i
 1. **Resolve the ACTIVE CLIENT** before any client-specific work.
 2. **Full isolation.** Never cross a client boundary with data, copy, ICP, or identity. No exceptions.
 3. **Never produce from memory.** Assemble context first (see "How Claude Assembles Context").
-4. **Never commit secrets.** Keys live only in git-ignored per-client secrets files.
+4. **Never commit secrets or raw prospect exports.** Keys live only in git-ignored per-client secrets
+   files. Raw lead-list exports and pasted prospect data belong in the tools that hold them (Instantly,
+   Clay, the CRM) - never pasted directly into a tracked file like `copy-library.md` or a comms-log entry.
+   `git` only enforces this for `secrets/`; for prospect data it's a judgment call every time.
 5. **Match the active client's voice** (`clients/{slug}/voice.md`). Default UK English if unspecified.
 6. **Prefer what already exists.** Check the client's `copy-library.md`, past tests, the wiki, and playbooks
    before creating anything new.

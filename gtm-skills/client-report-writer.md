@@ -16,7 +16,7 @@ writes:
 
 **Trigger:** "Write the weekly report", "write the client update", "prepare this week report"
 
-**Context:** the GTME sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
+**Context:** The GTME sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
 
 ---
 
@@ -132,3 +132,17 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 - If something worked, say specifically why (not just "good results this week").
 - The "What is next" section should make the client feel like there is always a plan.
 - Sign off as Harry, not as the company.
+
+---
+
+## QA CHECKLIST
+
+Before sending the report to the client:
+
+- [ ] Every number pulled from Instantly for the active client, none estimated or carried over from memory?
+- [ ] Report shows "Positive reply rate" only, no bare unlabeled "reply rate" field anywhere?
+- [ ] No internal PRR-tier language (Exceptional/Great/Good/Below standard/Poor) from `sops/campaign-performance-standards.md` leaking into client-facing text?
+- [ ] Any Red campaign names the root cause and the fix, and was already flagged to the client before this report?
+- [ ] Tone is data-led with no corporate filler or padding, per `sops/client-communication-principles.md`?
+- [ ] Under 300 words, and no sections added beyond the fixed format?
+- [ ] Signed off as Harry, not the company?

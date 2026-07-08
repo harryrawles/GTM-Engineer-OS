@@ -67,6 +67,7 @@ Tracks what tooling is configured for this client. Affects which signals can be 
 | Warmup status | {{All warmed / some warming}} | - |
 | Instantly workspace | {{Workspace name / URL}} | Connected |
 | LinkedIn accounts | {{n accounts}} | {{Status}} |
+| Tracking domain | {{Custom tracking domain per sending domain, or "none configured"}} | {{Status}} |
 
 ---
 

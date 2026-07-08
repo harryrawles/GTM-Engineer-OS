@@ -308,6 +308,20 @@ Final entry in `clients/{slug}/decision-log.md`:
 
 ---
 
+## QA CHECKLIST
+
+Run through before telling the GTME offboarding is complete:
+
+- [ ] All Instantly campaigns confirmed paused, not just scheduled, with none still sending?
+- [ ] Billing handed to the AM as a checklist, not processed directly by the GTME (`sops/am-gtme-responsibility-split.md`)?
+- [ ] Every promoted item stripped of client name, numbers, and verbatim copy before it lands in `best-practices/` or `frameworks/`?
+- [ ] Archive path correct and not already taken: `clients/_archived/{{slug}}-{{YYYY-MM}}/`?
+- [ ] FINAL-REPORT.md and the closing email shown to the GTME as drafts, neither auto-sent?
+- [ ] `secrets/` confirmed absent from the archived folder, no live API key left on disk?
+- [ ] Session-log outcome column and decision-log final entry both filled before archiving?
+
+---
+
 ## OUTPUT FORMAT
 
 ```

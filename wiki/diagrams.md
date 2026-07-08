@@ -105,7 +105,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[Campaign underperforming] --> B[Campaign Optimiser]
-    B --> C{Bounce rate > 4%?}
+    B --> C{Bounce rate > 5%?}
     C -->|Yes| D[Deliverability Doctor]
     C -->|No| E{List quality check passes?}
     E -->|No| F[List Builder: re-verify]

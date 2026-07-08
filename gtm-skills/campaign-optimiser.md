@@ -225,3 +225,17 @@ If the default formula has plateaued: recommend switching to a named framework f
 ## ACTIVE-TEST ENFORCEMENT
 
 Before modifying a campaign or its sequence, check `clients/{slug}/campaign-state.md` for a `TEST ACTIVE` flag and apply the rules in `wiki/_active-test-rules.md`. Refuse changes that touch test constants without an explicit override.
+
+---
+
+## QA CHECKLIST
+
+Before presenting the diagnosis:
+
+- [ ] Was the funnel run in order (deliverability, list/ICP, signal, offer, copy, sequence, personalisation, volume/pacing), not skipped straight to a guess?
+- [ ] Did the diagnosis stop at the first confirmed root cause instead of listing unrelated issues further down the funnel?
+- [ ] Does the stated root cause match the specific evidence cited, not just the most familiar or likely-sounding cause?
+- [ ] Was the correct downstream skill cited per `sops/am-gtme-responsibility-split.md` (deliverability-doctor for infra, list-builder for list/ICP, signal-sourcer for signal)?
+- [ ] If the root cause is volume/pacing, was it flagged as a campaign-config decision rather than misrouted to deliverability-doctor or list-builder?
+- [ ] Does the recommended fix change one variable only, per `wiki/scientific-method.md`?
+- [ ] Was `clients/{slug}/test-log.md` checked so the fix does not re-test something already learned?

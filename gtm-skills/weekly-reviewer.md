@@ -479,6 +479,21 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 
 ---
 
+## QA CHECKLIST
+
+Before confirming the review complete (in addition to the six-rule test-validity check in Step 5):
+
+- [ ] Every active campaign for this client actually reviewed, none silently skipped?
+- [ ] Health rating (Green/Amber/Red) matches the PRR and bounce thresholds in `sops/campaign-performance-standards.md` and `wiki/deliverability.md`, not a gut call?
+- [ ] Winner and loser candidates enforced the 300-send sample-size floor before logging?
+- [ ] Winner candidate output shows PRR only, no bare "reply rate" field?
+- [ ] Any Step 8 promotion gated on `Confirmed` confidence (6+ data points, 3+ weeks), not Tentative or Emerging?
+- [ ] Promoted text fully de-identified, no client name, numbers, prospects, or verbatim copy, before it touched `best-practices/`, `frameworks/`, or `wiki/objection-library.md`?
+- [ ] Promotion (or decline) logged as one line in `clients/{slug}/decision-log.md`?
+- [ ] Every write to copy-library, decision-log, test-log, or campaign-state confirmed by the GTME first?
+
+---
+
 ## OUTPUT EXAMPLE - Single Client
 
 ```

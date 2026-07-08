@@ -41,7 +41,7 @@ What we have explicitly committed to this client. Use as the bar for response ti
 - **Reporting cadence:** {{Weekly Friday EOD / Bi-weekly / etc.}}
 - **Optimisation cadence:** {{Every 2 weeks / Monthly / As performance dictates}}
 - **Escalation path:** {{Slack DM to {{Name}} for urgent, email otherwise}}
-- **Pause triggers communicated:** {{e.g. bounce >4% pauses immediately}}
+- **Pause triggers communicated:** {{e.g. bounce >5% pauses immediately}}
 - **Approval required for:** {{e.g. new campaign launches, ICP changes, sending volume increases beyond {{X}}/day}}
 
 ## Success Criteria (O2)

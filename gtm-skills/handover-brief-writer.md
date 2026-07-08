@@ -16,8 +16,7 @@ reads:
   - "clients/{slug}/decision-log.md"
 writes:
   - "clients/{slug}/comms-log.md (log the handover)"
-  - "clients/{slug}/decision-log.md (log the transition)"
-  - "clients/{slug}/MEMORY.md (update owning GTME)"
+  - "clients/{slug}/decision-log.md (log the transition, including outgoing/incoming GTME and AM)"
 ---
 
 # Skill: Handover Brief Writer
@@ -200,9 +199,12 @@ Label: "Cover Notice - AM" (single variant, no follow-up).
 
 ## STEP 5 - Log the Handover
 
-- `clients/{slug}/decision-log.md` - log the transition (type, date, outgoing/incoming GTME, AM).
+- `clients/{slug}/decision-log.md` - log the transition (type, date, outgoing/incoming GTME, AM). This is
+  the durable record of who owns the client going forward - there is no separate "owning GTME" field to
+  update elsewhere. Each GTME runs their own instance of this OS, so within a given repo there is only
+  ever one GTME; a permanent or reassignment handover means the client's folder itself moves to the
+  incoming GTME's instance, and this decision-log entry (plus the Handover Brief) is what travels with it.
 - `clients/{slug}/comms-log.md` - log the client introduction message once the GTME confirms it was sent (this skill does not send it).
-- `clients/{slug}/MEMORY.md` - update the owning GTME so future sessions resolve to the right person.
 
 ---
 
@@ -223,3 +225,17 @@ Label: "Cover Notice - AM" (single variant, no follow-up).
 - If a field genuinely has no content, write "None at this time.", never leave it blank or skip it.
 - The brief is the internal document, the client messages are separate outputs, clearly labelled, never merge them into one draft.
 - For Temporary Cover, always confirm planned vs. unplanned before drafting the Scenario 3 message, the sender differs.
+
+---
+
+## QA CHECKLIST
+
+Before presenting the drafts to the GTME:
+
+- [ ] All 14 required fields present, none blank, "None at this time" used where there is genuinely nothing to report?
+- [ ] For Temporary Cover, was planned vs. unplanned confirmed before drafting the Scenario 3 message?
+- [ ] Handover Brief and Client Introduction Message presented as two separate labelled drafts, never merged into one?
+- [ ] Correct scenario selected for the handover type, with the right sender (GTME or AM) named in Scenario 3?
+- [ ] `decision-log.md` entry captures the outgoing GTME, incoming GTME, and AM names alongside the transition type and date?
+- [ ] No em dashes anywhere in either draft?
+- [ ] MRR and any other monetary amounts written as words, no dollar signs?

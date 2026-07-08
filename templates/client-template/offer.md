@@ -40,6 +40,7 @@ Numbers and named logos beat vague claims. Use these in copy.
 | Case study 3 | {{Client name + result}} |
 | Aggregate stat | {{e.g. "92% of roles filled within 21 days"}} |
 | Volume stat | {{e.g. "70+ funded startups placed with"}} |
+| Approved logos | {{Named client/customer logos approved for use in copy - list none if nothing is approved yet}} |
 
 ---
 

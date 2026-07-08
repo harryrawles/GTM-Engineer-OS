@@ -9,6 +9,7 @@ triggers:
   - "New client just signed"
   - "Onboard {{client_name}}"
 reads:
+  - "wiki/_skill-context.md (once the folder exists)"
   - "templates/client-template/ (source for the new folder)"
   - "clients/{slug}/*.md (own files, to detect resume state)"
   - "wiki/list-building.md, signal-sourcing.md, atl-btl-messaging.md (Phase 3)"
@@ -32,6 +33,14 @@ This skill is the internal data-capture flow. The parallel client-facing message
 
 ---
 
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. It does not apply in full before
+the client folder exists (there is no `MEMORY.md` to load yet) - read it fully once STEP 0 has created the
+folder, and again at the start of every resumed session.
+
+---
+
 ## STEP 0 - Create / Resolve the Client Folder (do this FIRST)
 
 A new client is a folder under `clients/`, created by copying the template. Before anything else:
@@ -40,9 +49,10 @@ A new client is a folder under `clients/`, created by copying the template. Befo
 2. **If `clients/{slug}/` does not exist yet**, create it from the template:
    `cp -r templates/client-template/ clients/{slug}/` (this brings the full file set, including
    `secrets/credentials.template.md`).
-3. **Create the real secrets file:** copy `clients/{slug}/secrets/credentials.template.md` →
-   `clients/{slug}/secrets/credentials.md` (git-ignored). Leave keys blank until Phase 5. **Never** put a
-   real API key in the committed `.template.md`.
+3. **Create the real secrets file:** rename `clients/{slug}/secrets/credentials.template.md` →
+   `clients/{slug}/secrets/credentials.md` (git-ignored) - move it, don't leave a copy behind, otherwise
+   every client's secrets folder permanently carries a stray placeholder file. Leave keys blank until
+   Phase 5. **Never** put a real API key in the committed source template under `templates/client-template/`.
 4. **Set the active client:** write the slug to `_state/active-client` and confirm: "Active client: {Name}."
 5. `{slug}` in every path below now resolves to this client's folder.
 
@@ -119,11 +129,14 @@ Ask in this order:
 9. Contract terms (service type, start date, monthly send target, reporting day) come from the signed
    deal, get these from the AM rather than negotiating them fresh with the client. Confirm them with the
    client here, don't originate them.
-10. Anything else relevant - quirks, sensitivities, preferences, things they care about beyond metrics?
+10. Who is the assigned Account Manager (AM) for this client? (Same person you're getting contract terms
+    from in Q9 - this is who future billing/domain/refund escalations tag, per
+    `sops/am-gtme-responsibility-split.md`.)
+11. Anything else relevant - quirks, sensitivities, preferences, things they care about beyond metrics?
 
 **After Phase 1:**
 - Write `clients/{slug}/overview.md` with all answers
-- Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier`, `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `service_type`, `start_date`, `reporting_day`; set `template_version` from the repo root `VERSION`
+- Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier`, `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `assigned_am`, `service_type`, `start_date`, `reporting_day`; set `template_version` from the repo root `VERSION`
 - Do **not** touch root `CLAUDE.md` or `INDEX.md` - they are shared and client-agnostic
 - Confirm to the GTME: "Phase 1 complete. Identity locked in. Ready for Phase 2 - Offer?"
 
@@ -249,10 +262,14 @@ Ask in this order:
 
 After all phases, run a final check:
 
-1. Verify NO `{{PLACEHOLDER}}` values remain in any `clients/{slug}/*.md` file (root `CLAUDE.md`/`INDEX.md` are shared and are not touched)
-2. Verify no `{{TO CONFIRM}}` entries remain - or list them as outstanding
-3. Verify all `clients/{slug}/*.md` files have non-empty content in every section
-4. Verify `_state/active-client` points to this slug, and `clients/{slug}/secrets/credentials.md` exists (git-ignored)
+1. Verify NO `{{PLACEHOLDER}}` values remain in the 6 files this skill actually writes -
+   `_config.md`, `overview.md`, `offer.md`, `icp.md`, `voice.md`, `campaign-state.md`. Every other file
+   under `clients/{slug}/` (`decision-log.md`, `copy-library.md`, `test-log.md`, `MEMORY.md`,
+   `comms-log.md`, `competitive-intel.md`, `session-log.md`) intentionally keeps its placeholder rows
+   until real entries accrue over time - do not flag those.
+2. Verify no `{{TO CONFIRM}}` entries remain in those same 6 files - or list them as outstanding
+3. Verify those same 6 files have non-empty content in every section
+4. Verify `_state/active-client` points to this slug, and `clients/{slug}/secrets/credentials.md` exists (git-ignored, renamed from `credentials.template.md` per STEP 0.3 - confirm the template file no longer exists alongside it)
 
 Output:
 

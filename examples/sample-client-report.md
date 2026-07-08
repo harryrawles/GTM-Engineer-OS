@@ -14,7 +14,6 @@ Example of what `gtm-skills/client-report-writer.md` produces. Sent to client vi
 | Metric | This week | Last week | Change |
 |--------|-----------|-----------|--------|
 | Emails sent | 3,305 | 3,201 | +104 |
-| Reply rate | 3.8% | 4.2% | -0.4% |
 | Positive reply rate | 1.4% | 1.6% | -0.2% |
 | Meetings booked | 5 | 6 | -1 |
 | Bounce rate | 1.3% | 1.2% | +0.1% |

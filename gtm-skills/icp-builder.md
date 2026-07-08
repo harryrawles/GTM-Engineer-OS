@@ -128,3 +128,17 @@ For a full ICP scoring system and ABM tier assignment, route to `gtm-skills/list
 - The ICP should be narrow enough that you can name 10 companies that fit it right now.
 - If the client says "anyone in X industry", push back. What size? What problem? What signal?
 - Review and update after every 1,000 sends or 30 days of campaign data - whichever comes first.
+
+---
+
+## QA CHECKLIST
+
+Before writing to `clients/{slug}/icp.md`, confirm:
+
+- [ ] Every firmographic criterion is specific (named verticals, size range, geography), not "all of tech" or similarly vague?
+- [ ] Signals are ranked 1-3 and cross-referenced against `wiki/signal-sourcing.md`, not invented, and only rank 1-2 carried into new campaigns?
+- [ ] Each priority title has a stated ATL or BTL angle per `wiki/atl-btl-messaging.md`, not a generic pitch?
+- [ ] The avoid list is populated with competitors, bad-fit industries, title exclusions, and geography exclusions, not left blank?
+- [ ] The lead filter criteria map to actual fields in Instantly or the sourcing tool, not abstract descriptions?
+- [ ] You can name 10 real companies that fit this ICP right now?
+- [ ] If refining an existing ICP, the change is backed by 1,000 sends or 30 days of campaign data, not a hunch?

@@ -242,7 +242,7 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 
 8. **If legal threat:**
    - Notify the GTME immediately, full stop
-   - The GTME escalates to Aaron (their manager/team lead, `sops/am-gtme-responsibility-split.md`) - a legal
+   - The GTME escalates to Aaron (the GTME's manager/team lead, `sops/am-gtme-responsibility-split.md`) - a legal
      threat is not the GTME's call to handle solo
    - Do not respond to prospect
    - Preserve all comms in writing
@@ -324,7 +324,7 @@ GTME
 
 1. **Stop all sends** from affected client immediately
 2. **Notify the GTME within 5 minutes** - no other notifications until the GTME reviews
-3. **The GTME escalates to Aaron (their manager/team lead) immediately** - a GDPR breach notification decision
+3. **The GTME escalates to Aaron (the GTME's manager/team lead) immediately** - a GDPR breach notification decision
    is not the GTME's to make alone
 4. **Do NOT notify the client** until Aaron has assessed legal posture
 5. **Preserve evidence:** screenshots, access logs, the exposed data itself
@@ -375,7 +375,22 @@ Use this when the type doesn't match A-E. Template:
 - **Honest communication.** When notifying clients, be specific about what happened and what we're doing. Vague reassurance damages trust more than honest disclosure.
 - **Never delete evidence.** Even if it's embarrassing. Especially if it's embarrassing.
 - **Post-mortem within 7 days, no exceptions.** If we don't capture the lesson, the incident repeats.
-- **Critical incidents:** GTME first, client second, OS third. People before files.
+- **Critical incidents:** The GTME first, client second, OS third. People before files.
+
+---
+
+## QA CHECKLIST
+
+Before confirming this incident is closed:
+
+- [ ] Severity assessed against STEP 2's table, not eyeballed - and does the classification match the actual symptoms in STEP 1, not the most convenient protocol?
+- [ ] If Protocol C or E: was client notification gated behind Aaron's/the GTME's sign-off, not the general severity-table default?
+- [ ] Did the GTME see the plan (and, for C/E, did Aaron weigh in) before any client notification went out?
+- [ ] Was the affected campaign/sending paused before any fix was attempted?
+- [ ] Is all evidence (screenshots, logs, the original comms, the exposed data itself) still intact - nothing deleted or edited?
+- [ ] Is every action time-stamped in `comms-log.md` and, for material decisions, `decision-log.md`?
+- [ ] Is the post-mortem logged to `clients/{slug}/decision-log.md` within 7 days, with a specific root cause and a specific prevention step (not vague reassurance)?
+- [ ] Was a legal threat, GDPR breach, or billing/contract element ever handled solo instead of escalated to Aaron?
 
 ---
 

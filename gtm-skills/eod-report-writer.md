@@ -89,7 +89,7 @@ For every client with activity today, before deciding what to write, work out wh
 **Is the account stagnant?** A campaign is stagnant if it has crossed **either** threshold below **and** results are weak:
 - Lifetime sends ≥ 10,000, **or**
 - Days live ≥ 14 (today minus Launch date in `campaign-state.md`'s Active Campaigns row)
-- **and** current PRR is Amber or Red (under 1% - per `wiki/email-benchmarks.md`)
+- **and** current PRR is Amber or Red (under 0.5% - per `sops/campaign-performance-standards.md`)
 
 If both conditions hold, this account is a **red flag** - whatever was done on it today must be reported as a diagnosis-and-fix (STEP 3, Template A), not a plain activity line.
 

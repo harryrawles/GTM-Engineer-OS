@@ -53,6 +53,15 @@ Claims the client has explicitly approved for use in outbound copy.
 
 ---
 
+## Industry Vernacular
+
+Sector-specific language to use or avoid (e.g. FinTech says "rails", HR says "people ops").
+
+- {{Term to use}} - {{context}}
+- {{Term to avoid}} - {{why, or what to say instead}}
+
+---
+
 ## Examples
 
 If the client has provided examples of writing they like, or copy that has worked before, add it here for reference.

@@ -6,6 +6,81 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.4.0] - 2026-07-08
+
+### Fixed - pre-onboarding readiness review (all 19 findings)
+
+Full remediation pass on the pre-onboarding readiness review (blocker + 7 high + 9 medium + 2 low). Real
+client onboarding starts after this pass.
+
+**Blocker - safety-guard rewritten to default-deny.** `.claude/hooks/safety-guard.sh`'s block-list had
+drifted behind the live Instantly MCP surface - roughly 13 write operations (custom tags, prompt
+templates, lead labels, inbox placement, workspace members, phone-number delete, and others) were
+executing with no approval gate. Rewrote the matching model: every MCP tool call is now checked against a
+curated exact-match `ALLOWED_READS` list built from the actual connected tool inventory (not a
+prefix/suffix guess - naming isn't consistent enough for that to be safe, e.g. `move_leads_to_campaign_or_list`
+ends in `_list` but is a mutation, `leads_update_interest_status` ends in `_status` but is a mutation).
+Anything not on `ALLOWED_READS` or the categorized `BLOCKED_OPS` list now blocks by default, closing the
+whole class of gap rather than just the specific ops found. `tests/ci/test-safety-guard.sh` extended to
+cover the previously-missing operations, the default-deny fallthrough, and confirms native Claude Code
+tools (Read, Grep, etc.) never touch this logic.
+
+**High - onboarding path.**
+- `gtm-skills/client-onboarder.md`'s Completeness Report checked for zero `{{PLACEHOLDER}}` values across
+  every `clients/{slug}/*.md` file, which can never pass since 7 of the 13 template files intentionally
+  keep placeholders until real entries accrue. Scoped to the 6 files the skill actually writes.
+- STEP 0.3 copied (not moved) `credentials.template.md` into every client's secrets folder, leaving a
+  stray placeholder file behind permanently. Now renames it.
+- Added `## STANDARD CONTEXT` to `client-onboarder.md` - the only one of 31 skills missing it.
+- Added fields with nowhere to land: "Approved logos" row in `offer.md`, "Industry Vernacular" section in
+  `voice.md`, "Tracking domain" row in `campaign-state.md`'s Infrastructure table.
+- Added `assigned_am` to `_config.md`'s Identity table (a real per-client fact) and wired it into
+  onboarder Phase 1. Did not add a persistent "owning GTME" field - each GTME runs their own instance of
+  this OS, so within one repo there is only ever one GTME; `handover-brief-writer.md`'s incorrect claim
+  that it writes "owning GTME" to `MEMORY.md` (no such field existed) is removed. `decision-log.md`
+  (outgoing/incoming GTME + AM, already logged at STEP 5) is the durable record a handover leaves behind.
+
+**High - numeric drift.**
+- `gtm-skills/eod-report-writer.md`'s stagnant-account threshold ("PRR Amber or Red, under 1%") didn't
+  match the real Amber/Red bands (under 0.5%, per `sops/campaign-performance-standards.md`) and cited
+  `wiki/email-benchmarks.md`, which doesn't use Amber/Red terminology at all. Fixed to under 0.5% with the
+  correct citation.
+- Two stray "4%" bounce mentions missed by the v3.1.0 fix pass, now 5%: `wiki/diagrams.md`'s optimisation
+  flowchart, `templates/client-template/overview.md`'s example pause-trigger line.
+
+### Changed - medium/low cleanup
+
+- Fixed 7 capitalization slips left by the v3.3.0 de-branding pass ("**Context:** the GTME..." should read
+  "The GTME" when sentence-initial or immediately after a bold label).
+- Dropped stale unlabeled "reply rate" fields (outside the two named PRR exceptions) from
+  `gtm-skills/chain-diagnose-campaign.md`, `.github/ISSUE_TEMPLATE/optimization-test.md`,
+  `examples/sample-client-report.md`, `examples/sample-weekly-review.md` - these were stale relative to
+  the actual skills, which already produce PRR-only output.
+- Standardized Aaron's possessive phrasing to "the GTME's manager/team lead" in `incident-responder.md`
+  and `reply-handler.md` (previously read "their manager/team lead" in those two files only).
+- Added an anchor definition for "Ammad" (the discount sign-off authority) in `sops/churn-prevention.md`,
+  matching how "Aaron" is anchored in `sops/am-gtme-responsibility-split.md`.
+- Added a Golden Rule 4 extension in `CLAUDE.md`: raw prospect exports never get pasted into a tracked
+  file, only `secrets/` is git-ignored, everything else relies on judgment.
+- Extended `tests/ci/check-secrets.sh` with an Instantly-key/workspace-id field-value pattern, a JWT
+  pattern, and a connection-string-credential pattern (previous coverage was OpenAI/Slack/GitHub/AWS-key
+  shaped only, with nothing for the one credential this repo actually exists to protect).
+- Backfilled `## QA CHECKLIST` sections on the 9 skills that had none: `list-builder.md`, `icp-builder.md`,
+  `handover-brief-writer.md`, `incident-responder.md`, `reply-handler.md`, `campaign-optimiser.md`,
+  `weekly-reviewer.md`, `client-report-writer.md`, `client-offboarder.md`.
+
+### Known, deliberately not changed
+
+- `best-practices/` (outside `playbooks/`) and `frameworks/` (outside its `wiki/` redirect) are empty
+  pending the compounding loop generating real learnings to promote - left as-is, not stubbed.
+- `gtm-skills/pattern-detector.md`'s STEP 0 resolves the active client rather than writing the session-log
+  row (that happens in STEP 4, once it knows the downstream skill) - a labeling deviation from the pattern
+  every other skill follows, but functionally required here, not changed.
+- The two deliberate "Harry" sign-off exceptions from v3.3.0 (`qbr-writer.md`, `client-report-writer.md`)
+  remain untouched.
+
+---
+
 ## [3.3.0] - 2026-07-08
 
 ### Changed - De-branding for multi-GTME template distribution

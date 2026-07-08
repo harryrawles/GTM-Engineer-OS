@@ -115,7 +115,7 @@ The variant regressed from V(n) (regression check fired).
 ### Case C: No completed tests this week
 Skip Step 3 entirely. Move to Step 4.
 
-**Pause-point:** the GTME confirms any test launch before it fires (test-launcher's normal behaviour).
+**Pause-point:** The GTME confirms any test launch before it fires (test-launcher's normal behaviour).
 
 ---
 
@@ -130,7 +130,7 @@ The report should reflect:
 - What worked / what is being tested (from Step 2 Steps 3, 4, 7)
 - Next week plan (informed by Step 3 test launches)
 
-**Pause-point:** the GTME reviews the report before sending. Edits if needed.
+**Pause-point:** The GTME reviews the report before sending. Edits if needed.
 
 After approval → the GTME sends via Slack/email per `clients/{slug}/overview.md` SLA. The chain does not auto-send.
 

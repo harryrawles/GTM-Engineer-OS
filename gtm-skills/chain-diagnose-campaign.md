@@ -53,7 +53,7 @@ Output a quick metric snapshot:
 
 ```
 Campaign: [name]
-Last 7 days: PRR [X]%, reply rate [Y]%, bounce [Z]%, meetings [n]
+Last 7 days: PRR [X]%, bounce [Z]%, meetings [n]
 Last 30 days trend: [improving / flat / declining]
 Health rating per campaign-state.md: [Green/Amber/Red]
 Active test: [yes/no - if yes, note T-ID]

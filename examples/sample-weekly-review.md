@@ -34,7 +34,6 @@ WINNER CANDIDATE - Hiring Signal v4 / Email 1
 - Sends: 1,847 (this week) + 4,012 (prior 3 weeks) = 5,859 lifetime
 - 7-day PRR: 2.4%
 - Lifetime PRR: 2.3%
-- Reply rate: 5.1%
 - Meetings (7-day): 4
 - Signal: 3+ engineering job postings, last 30 days
 - Target ICP: Head of / VP Engineering at Series A-C SaaS
@@ -59,7 +58,6 @@ Writing to clients/{slug}/decision-log.md... done.
 LOSER CANDIDATE - Funding v2 / Email 1
 - Sends: 1,420 this week + 2,470 lifetime = 3,890
 - 7-day PRR: 0.5% (was 1.8% in April)
-- Reply rate: 2.1%
 - Meetings (7-day): 0
 
 Copy:

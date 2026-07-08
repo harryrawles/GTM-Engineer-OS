@@ -41,7 +41,6 @@ assignees: harryrawles
 | Metric | Control | Variant |
 |--------|---------|---------|
 | Sends | | |
-| Reply rate | | |
 | PRR | | |
 | Meetings | | |
 

@@ -18,6 +18,7 @@ Central source of truth for variables used across this OS. Other files reference
 | `geography` | {{GEOGRAPHY}} |
 | `primary_contact_name` | {{NAME}} |
 | `primary_contact_email` | {{EMAIL}} |
+| `assigned_am` | {{AM_NAME}} - the Account Manager for this client, per `sops/am-gtme-responsibility-split.md`. Used for billing/domain escalation and the tagging matrix in `sops/gtme-escalation-to-am.md`. |
 | `service_type` | {{DFY / DWY / Custom}} |
 | `start_date` | {{YYYY-MM-DD}} |
 | `reporting_day` | {{Monday / Friday / etc.}} |

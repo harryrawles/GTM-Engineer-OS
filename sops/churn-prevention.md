@@ -47,10 +47,10 @@ independently. Buy time, stay warm, and flag to the CSM the same day, per
 `sops/client-communication-principles.md`'s "Client wants to cancel" guidance.
 
 If a discount is part of the save, know the boundary even though the save conversation itself is CSM's:
-the discount floor is 20% off next month's VIP MRR, minimum $1k MRR, and Ammad must sign off before
-anything is offered. Never offer a discount yourself, this is a financial commitment
-(`CLAUDE.md` Safety Guard item 4) and Ammad's sign-off is required regardless of who is running the save
-conversation.
+the discount floor is 20% off next month's VIP MRR, minimum $1k MRR, and Ammad (the discount sign-off
+authority for VIP-tier saves) must sign off before anything is offered. Never offer a discount yourself,
+this is a financial commitment (`CLAUDE.md` Safety Guard item 4) and Ammad's sign-off is required
+regardless of who is running the save conversation.
 
 ---
 

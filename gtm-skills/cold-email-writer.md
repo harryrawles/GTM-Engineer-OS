@@ -18,7 +18,7 @@ writes:
 
 **Trigger:** "Write a cold email", "write me a sequence", "email copy for [campaign]", "cold email for [signal]"
 
-**Context:** the GTME manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows clients/{slug}/voice.md. PRR is the only metric that matters.
+**Context:** The GTME manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows clients/{slug}/voice.md. PRR is the only metric that matters.
 
 ---
 
