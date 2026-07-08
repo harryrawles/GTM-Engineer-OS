@@ -37,6 +37,8 @@ to every client.
 - `onboarding-documentation.md` - the client-facing message cadence and call checklists for the standard
   (non-24-hour) onboarding flow, phases 1-7 from client assignment through launch. Runs alongside
   `gtm-skills/client-onboarder.md`'s internal data capture.
+- `onboarding-24-hour.md` - the accelerated flow for clients on the 24-Hour Onboarding upgrade: AI SDR live
+  from the Calendly booking, campaigns built afterward to feed its learning phase rather than stand alone.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

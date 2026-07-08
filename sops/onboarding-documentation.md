@@ -3,8 +3,8 @@
 Owner: GTME.
 
 This is the Standard Onboarding flow. It applies to all clients who have not purchased the 24-Hour
-Onboarding upgrade. For clients on the 24-Hour Onboarding, see `sops/onboarding-24-hour.md` (pending, this
-SOP is a forward reference ahead of that document's arrival).
+Onboarding upgrade. For clients on the 24-Hour Onboarding, see `sops/onboarding-24-hour.md`, the
+`#vip-onboarding-message` channel says which flow applies to a given client.
 
 This SOP is the client-facing message cadence and call checklists for the first two weeks of an
 engagement. It runs alongside `gtm-skills/client-onboarder.md`, which is the internal data-capture flow
@@ -137,6 +137,8 @@ winning recipe."
 - **Phase 7's launch handoff is where `gtm-skills/campaign-launcher.md` and `gtm-skills/pre-launch-
   check.md` take over.** This SOP is the client communication around the launch date, not the launch
   mechanics themselves.
-- **Terminology note:** this SOP uses "AI reply agent" and "AI inbox management", `sops/daily-
-  structure.md` uses "AI SDR configuration". These may be the same Instantly feature described
-  inconsistently across documents, not reconciled here, flag if they're actually distinct.
+- **"AI reply agent" and "AI SDR" are two distinct systems, not two names for one thing**, per
+  `sops/onboarding-24-hour.md`'s Step 1/Step 2 split. "AI inbox management" here and "AI SDR
+  configuration" in `sops/daily-structure.md` both refer to the AI SDR.
+- **For clients on the 24-Hour Onboarding upgrade, this SOP doesn't apply, use
+  `sops/onboarding-24-hour.md` instead.** The `#vip-onboarding-message` channel says which one applies.

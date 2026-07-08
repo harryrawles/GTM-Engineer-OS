@@ -65,6 +65,8 @@ conversation.
 - **Onboarding-call expectation-setting is a different moment to `gtm-skills/client-onboarder.md`.** That
   skill is the internal data-capture flow (Harry answering questions about the client). The Welcome Guide
   walkthrough is the live client-facing call, a separate moment that happens alongside it.
+- **The concrete script lives in `sops/onboarding-documentation.md` (standard) or
+  `sops/onboarding-24-hour.md` (24-Hour Onboarding upgrade)**, whichever applies to the client.
 - **`gtm-skills/client-health-scorer.md`'s churn-risk scoring is the detection half of this SOP.** This SOP
   is the prevention half, onboarding practices that reduce how often a client reaches Amber/Red in the
   first place.

@@ -116,6 +116,10 @@ GDPR-flagged replies (legal language, data requests) escalate to your manager, n
 - Workspace-level sending throttled
 - Mailbox or domain provisioning for a new client or new capacity
 
+Activating an existing pre-warm pile for a client (`sops/onboarding-24-hour.md`,
+`sops/solving-campaign-issues.md`) is a GTME software action within the sending tool, not new
+provisioning, it's not on this list.
+
 See `sops/am-gtme-responsibility-split.md` for the full ownership split.
 
 ---
