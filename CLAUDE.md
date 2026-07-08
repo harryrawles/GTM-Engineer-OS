@@ -132,7 +132,8 @@ gtm-engineer-os/
 │
 ├── .claude/              # Claude Code config - hooks (safety-guard, session-logger,
 │                         #   notify, session-start-context), bin/instantly.sh (Instantly
-│                         #   API wrapper), settings.json, commands/
+│                         #   API wrapper), settings.json, commands/, skills/ (vendored
+│                         #   third-party Claude Skill packages, see .claude/skills/README.md)
 └── examples/ tests/ assets/ raw/ .github/
 ```
 
@@ -169,6 +170,9 @@ clients/{slug}/
 - **best-practices/** - best-practice references, including **best-practices/playbooks/**.
 - **sops/** - standard operating procedures (filled over time).
 - **templates/** - reusable outputs plus the `client-template/` skeleton for new clients.
+- **.claude/skills/** - vendored third-party Claude Skill packages (Anthropic's official `SKILL.md`
+  format), invocable directly rather than loaded as routing context. A different mechanism to
+  `gtm-skills/`, see `.claude/skills/README.md`.
 
 Drop files into any of these and Claude auto-discovers them - reference by path. Nothing here may contain a
 specific client's private data. `INDEX.md` maps the whole OS and must be kept current.

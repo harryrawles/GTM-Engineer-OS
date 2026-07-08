@@ -6,13 +6,18 @@
 # dash character) anywhere in the OS. Use a hyphen, comma, colon, or period
 # instead. This scans every tracked text file for the character and fails CI
 # if one slipped through. git grep -I skips binary files automatically.
+#
+# Scope: everything Harry authors. Excludes .claude/skills/ - vendored
+# third-party Claude Skill packages (e.g. Anthropic's skill-creator) kept
+# verbatim from upstream so they stay diffable against future syncs. See
+# .claude/skills/README.md.
 # =============================================================================
 set -uo pipefail
 cd "$(dirname "$0")/../.." || exit 1
 
 EM_DASH=$(printf '\xe2\x80\x94')
 
-matches=$(git grep -InF "$EM_DASH" -- . 2>/dev/null || true)
+matches=$(git grep -InF "$EM_DASH" -- . ':(exclude).claude/skills/**' 2>/dev/null || true)
 
 if [ -n "$matches" ]; then
   echo "EM DASH FOUND (Harry's rule: never use one; use a hyphen, comma, colon, or period):"
