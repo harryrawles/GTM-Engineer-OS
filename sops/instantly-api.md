@@ -43,7 +43,7 @@ Output ends with a `[HTTP <code>]` line so you can see the status.
 ## Read vs write - what runs automatically vs what needs approval
 
 `safety-guard.sh` gates the wrapper by **HTTP verb**. Reads are automatic; everything else stops and
-asks Harry (CLAUDE.md → Safety Guard, Credentials & Instantly Access).
+asks the GTME (CLAUDE.md → Safety Guard, Credentials & Instantly Access).
 
 | Runs automatically (reads) | Needs explicit approval (writes / sends) |
 |---|---|

@@ -22,7 +22,7 @@ writes:
 
 **Trigger:** "Score [client] health", "Health check on [client]", "Which clients are at risk", "Portfolio health"
 
-**Context:** At 20 clients, knowing which ones are at risk is the most important meta-question Harry will face every Monday. This skill computes a structured health score per client and surfaces churn risk early. This is how `sops/client-communication-principles.md`'s "Prioritise by Account Value" principle (high-value and churn-risk accounts first) gets operationalised. This is the detection half of `sops/churn-prevention.md`, that SOP's onboarding practices are the prevention half, reducing how often a client reaches Amber/Red here in the first place.
+**Context:** At 20 clients, knowing which ones are at risk is the most important meta-question the GTME will face every Monday. This skill computes a structured health score per client and surfaces churn risk early. This is how `sops/client-communication-principles.md`'s "Prioritise by Account Value" principle (high-value and churn-risk accounts first) gets operationalised. This is the detection half of `sops/churn-prevention.md`, that SOP's onboarding practices are the prevention half, reducing how often a client reaches Amber/Red here in the first place.
 
 ---
 
@@ -236,7 +236,7 @@ Before presenting a score:
   - Going from Amber → Red
   - Going from Red → Critical
   - Returning from Amber → Green (recovery - worth understanding why)
-- **Critical band triggers escalation.** Notify Harry separately, do not bury in batch output.
+- **Critical band triggers escalation.** Notify the GTME separately, do not bury in batch output.
 
 ---
 
@@ -245,7 +245,7 @@ Before presenting a score:
 ### Example - single client (Amber)
 
 ```
-Harry: Score {{CLIENT_NAME}} health
+GTME: Score {{CLIENT_NAME}} health
 
 Claude:
 === Client Health Score - {{CLIENT_NAME}} - 2026-05-29 ===
@@ -283,5 +283,5 @@ Recommended interventions:
 - THIS WEEK: run weekly review - restart cadence
 - NEXT 7 DAYS: loop in the AM given renewal is approaching with no positive momentum
 
-Last status: 71 → Change: -19 (significant decline - escalate to Harry)
+Last status: 71 → Change: -19 (significant decline - escalate to the GTME)
 ```

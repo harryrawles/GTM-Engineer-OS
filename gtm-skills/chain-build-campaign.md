@@ -65,13 +65,13 @@ Then read the following and produce an assessment:
 - `clients/{slug}/copy-library.md` - do we have prior winners on the proposed signal?
 - `clients/{slug}/test-log.md` - any active tests on this campaign that would conflict?
 
-Also clarify intent with Harry if not already stated:
+Also clarify intent with the GTME if not already stated:
 - **Signal:** what triggers this campaign? (e.g. hiring, funding, champion job change)
 - **Target ICP slice:** which subset of the client ICP?
 - **Sequence length:** 2-step, 3-step, 4-step (default 3)?
 - **Goal:** new campaign launch OR iterating on existing winner?
 
-Then produce a **chain plan** as the next output. Always show the chain plan first and wait for Harry's confirmation before any sub-skill is invoked. This is the smart-routing decision moment.
+Then produce a **chain plan** as the next output. Always show the chain plan first and wait for the GTME's confirmation before any sub-skill is invoked. This is the smart-routing decision moment.
 
 ---
 
@@ -81,24 +81,24 @@ Then produce a **chain plan** as the next output. Always show the chain plan fir
 - `clients/{slug}/icp.md` has zero placeholder values
 - ICP last reviewed within last 30 days
 - No new evidence in `clients/{slug}/comms-log.md` suggesting ICP drift
-- Harry has not explicitly requested ICP refinement
+- The GTME has not explicitly requested ICP refinement
 
 ### Skip Step 2 (list-builder) if:
 - Existing list for this signal type is verified within last 30 days
 - Existing list size matches campaign volume requirements
 - No bounce-rate flags on previous use of this list
-- Harry has not explicitly requested a new list
+- The GTME has not explicitly requested a new list
 
 ### Skip Step 3 (signal-sourcer) if:
 - Signal strategy for this campaign is already defined in `clients/{slug}/icp.md` signal priority table
 - Signal is in active rotation per `clients/{slug}/campaign-state.md`
-- Harry has not requested a signal pivot
+- The GTME has not requested a signal pivot
 
 ### Skip Step 4 (personalization-strategist) if:
 - Personalisation tier obvious from volume + deal size (see `wiki/personalization-at-scale.md` decision matrix)
 - High volume (>100/day) + strong signal → skip personalisation, the matrix decides
 - Low volume (<50/day) + $25K+ ACV → personalise, matrix decides
-- Harry has not asked for a custom personalisation approach
+- The GTME has not asked for a custom personalisation approach
 
 ### NEVER skip:
 - Step 5 (cold-email-writer) - the core artefact
@@ -111,7 +111,7 @@ Then produce a **chain plan** as the next output. Always show the chain plan fir
 
 If required: invoke `gtm-skills/icp-builder.md`.
 
-**Pause-point:** show Harry the refined ICP. Get confirmation before proceeding.
+**Pause-point:** show the GTME the refined ICP. Get confirmation before proceeding.
 
 **Output to checkpoint:** updates `clients/{slug}/icp.md`. Note the change in `clients/{slug}/decision-log.md` if non-trivial.
 
@@ -121,7 +121,7 @@ If required: invoke `gtm-skills/icp-builder.md`.
 
 If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or current `clients/{slug}/icp.md` if Step 1 skipped).
 
-**Pause-point:** show Harry the list count, tier distribution (A/B/C), and 5 sampled leads for spot-check.
+**Pause-point:** show the GTME the list count, tier distribution (A/B/C), and 5 sampled leads for spot-check.
 
 **Output to checkpoint:** list saved to client's preferred lead storage (Instantly directly, or staged in Notion/Sheets per `clients/{slug}/campaign-state.md` Tools section).
 
@@ -131,7 +131,7 @@ If required: invoke `gtm-skills/list-builder.md` with the ICP from Step 1 (or cu
 
 If required: invoke `gtm-skills/signal-sourcer.md`.
 
-**Pause-point:** show Harry the proposed signal(s), scoring framework, recommended SLA per tier.
+**Pause-point:** show the GTME the proposed signal(s), scoring framework, recommended SLA per tier.
 
 **Output to checkpoint:** updates `clients/{slug}/icp.md` signal priority table if changed.
 
@@ -141,7 +141,7 @@ If required: invoke `gtm-skills/signal-sourcer.md`.
 
 If required: invoke `gtm-skills/personalization-strategist.md`.
 
-**Pause-point:** show Harry the proposed personalisation tier (strong hook / lite hook / none), which bucket to use, and AI prompt if Clay-based.
+**Pause-point:** show the GTME the proposed personalisation tier (strong hook / lite hook / none), which bucket to use, and AI prompt if Clay-based.
 
 **Output to checkpoint:** decision noted in `clients/{slug}/decision-log.md`. AI prompts saved for Instantly / Clay setup.
 
@@ -158,7 +158,7 @@ Invoke `gtm-skills/cold-email-writer.md` with all gathered context:
 
 **Pass 2 fresh-eyes review:** automatically invoke `gtm-skills/fresh-eyes-reviewer.md` on the generated copy if this is a Tier 1 campaign OR a new variant being tested. Skip Pass 2 for routine follow-ups.
 
-**Pause-point:** show Harry the full sequence (Email 1, 2, 3) with QA checklist results.
+**Pause-point:** show the GTME the full sequence (Email 1, 2, 3) with QA checklist results.
 
 ---
 
@@ -169,7 +169,7 @@ Invoke `gtm-skills/pre-launch-check.md`. This is the placeholder gate.
 - If READY: proceed to Step 7.
 - If NOT READY: stop, output gaps, return to relevant prior step.
 
-This step does not pause for Harry's approval - it auto-proceeds on READY and auto-blocks on NOT READY.
+This step does not pause for the GTME's approval - it auto-proceeds on READY and auto-blocks on NOT READY.
 
 ---
 
@@ -177,7 +177,7 @@ This step does not pause for Harry's approval - it auto-proceeds on READY and au
 
 Invoke `gtm-skills/campaign-launcher.md`. Full 10-category pre-flight checklist.
 
-**Pause-point:** Harry confirms the launch checklist results before clicking launch in Instantly.
+**Pause-point:** The GTME confirms the launch checklist results before clicking launch in Instantly.
 
 **On launch:** update `clients/{slug}/campaign-state.md` with new campaign entry, status Active. Update `clients/{slug}/decision-log.md` with launch rationale.
 
@@ -185,7 +185,7 @@ Invoke `gtm-skills/campaign-launcher.md`. Full 10-category pre-flight checklist.
 
 ## RULES
 
-- **Always show the chain plan first.** Never silently invoke 6 sub-skills. Harry needs to see what was assessed.
+- **Always show the chain plan first.** Never silently invoke 6 sub-skills. The GTME needs to see what was assessed.
 - **Skip aggressively but transparently.** If a step is skipped, the assessment block must state why. Vague skips erode trust.
 - **Pause at every meaningful checkpoint.** Operator visibility > automation speed.
 - **Sub-skill calls must inherit context.** When invoking cold-email-writer, pass the signal/persona/personalisation tier explicitly. Do not assume it will re-derive them.

@@ -40,7 +40,7 @@ BLOCKED_OPS=(
 
   # ---------------------------------------------------------------------------
   # 1. INSTANTLY - campaign / lead / account / sequence / workspace MUTATIONS
-  #    Require Harry's explicit approval before executing (spec Safety Guard #2).
+  #    Require the GTME's explicit approval before executing (spec Safety Guard #2).
   #    Reads (list_/get_/analytics_/count_/search_/*_status) are NOT listed and
   #    therefore always pass.
   # ---------------------------------------------------------------------------
@@ -177,7 +177,7 @@ for blocked in "${BLOCKED_OPS[@]}"; do
     echo "Tool: $TOOL_NAME"
     echo "Details: $DETAILS"
     echo ""
-    echo "State exactly what you were about to do, name the client/workspace, then ask Harry for explicit approval before retrying."
+    echo "State exactly what you were about to do, name the client/workspace, then ask the GTME for explicit approval before retrying."
     exit 2
   fi
 done
@@ -197,7 +197,7 @@ if [ "$TOOL_NAME" = "Bash" ]; then
     echo "SAFETY GUARD BLOCKED: raw HTTP call to api.instantly.ai."
     echo "Use .claude/bin/instantly.sh - it loads the active client's key from the git-ignored"
     echo "secrets file and keeps it out of argv/logs. If a mutation is intended, state the action"
-    echo "and workspace, then ask Harry for explicit approval."
+    echo "and workspace, then ask the GTME for explicit approval."
     exit 2
   fi
   # Gate the wrapper by HTTP verb. GET and the read-only 'POST /leads/list' run
@@ -214,7 +214,7 @@ if [ "$TOOL_NAME" = "Bash" ]; then
           echo "SAFETY GUARD BLOCKED: Instantly API mutation via instantly.sh (verb: $VERB)."
           echo "Details: $(printf '%s' "$CMD" | tr -d '\n' | head -c 200)"
           echo ""
-          echo "State exactly what you were about to do, name the client/workspace, then ask Harry for explicit approval before retrying."
+          echo "State exactly what you were about to do, name the client/workspace, then ask the GTME for explicit approval before retrying."
           exit 2
         fi
         ;;
@@ -230,25 +230,25 @@ if [ "$TOOL_NAME" = "Bash" ]; then
   fi
 
   if echo "$CMD" | grep -qE '\bgit\s+push\s+.*(-f|--force)\b'; then
-    echo "SAFETY GUARD BLOCKED: git push --force rewrites remote history. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: git push --force rewrites remote history. Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qE '\bgit\s+push\s+.*\b(origin\s+)?(main|master)\b'; then
-    echo "SAFETY GUARD BLOCKED: git push to main/master bypasses review. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: git push to main/master bypasses review. Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qE '\bgit\s+reset\s+--hard\b'; then
-    echo "SAFETY GUARD BLOCKED: git reset --hard discards uncommitted work permanently. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: git reset --hard discards uncommitted work permanently. Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qE '\brm\s+-(rf|fr)\b'; then
-    echo "SAFETY GUARD BLOCKED: rm -rf is irreversible. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: rm -rf is irreversible. Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qiE '\b(DROP\s+(TABLE|DATABASE|SCHEMA)|TRUNCATE\s+TABLE)\b'; then
-    echo "SAFETY GUARD BLOCKED: Destructive SQL. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: Destructive SQL. Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qE '(curl|wget)\s.*\|\s*(ba)?sh'; then
-    echo "SAFETY GUARD BLOCKED: Remote code execution (curl|sh). Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: Remote code execution (curl|sh). Ask the GTME for approval."; exit 2
   fi
   if echo "$CMD" | grep -qE '\brm\s.*\.(env|pem|key|credentials|secret)'; then
-    echo "SAFETY GUARD BLOCKED: Deleting a credentials/secrets file. Ask Harry for approval."; exit 2
+    echo "SAFETY GUARD BLOCKED: Deleting a credentials/secrets file. Ask the GTME for approval."; exit 2
   fi
 fi
 

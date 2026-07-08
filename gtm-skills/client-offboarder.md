@@ -50,10 +50,10 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## STEP 1 - Confirm Offboarding Scope
 
-Ask Harry:
+Ask the GTME:
 1. **Reason for offboarding:**
    - Voluntary churn (client chose to leave)
-   - Involuntary churn (Instantly chose to end - this decision is made by the AM/leadership, not Harry;
+   - Involuntary churn (Instantly chose to end - this decision is made by the AM/leadership, not the GTME;
      this skill executes it once made)
    - Engagement expired (planned)
    - Pause (will resume) - different workflow, escalate to the AM
@@ -136,7 +136,7 @@ If amicable churn, include 2-3 specific recommendations for the client to contin
 {{Short closing paragraph - match the tone from Step 1}}
 ```
 
-Show the draft to Harry. Confirm before sending.
+Show the draft to the GTME. Confirm before sending.
 
 ---
 
@@ -167,7 +167,7 @@ transferable lesson and write it in the client-agnostic form.
 - [ ] Remove sending domains from active rotation (keep aged for 30 days then evaluate)
 - [ ] Flag any client-specific subscriptions / tools (Clay enrichment, etc.) to the AM for cancellation,
   this is billing-adjacent (`sops/am-gtme-responsibility-split.md`)
-- [ ] Suppress all leads in this client's lists across Harry's other client workspaces (to avoid accidental cross-contamination)
+- [ ] Suppress all leads in this client's lists across the GTME's other client workspaces (to avoid accidental cross-contamination)
 - [ ] Remove client from Slack channels / Notion / shared drives
 - [ ] Update `clients/{slug}/_config.md`:
   ```
@@ -189,7 +189,7 @@ to happen, hand it to the AM to execute rather than processing it yourself.
 - [ ] If retainer credit owed back - process
 - [ ] Mark contract as terminated in 1Password / contract storage
 
-If complex billing situation - loop in the AM and Harry for manual handling. Never auto-process refunds.
+If complex billing situation - loop in the AM and the GTME for manual handling. Never auto-process refunds.
 
 ---
 
@@ -214,7 +214,7 @@ I've paused all sequences. Sending domains will stay live for 30 days in case yo
 
 Thanks for the run.
 
-Harry
+GTME
 ```
 
 **Neutral / planned end template:**
@@ -227,7 +227,7 @@ Final report attached.
 
 All campaigns paused. MCP access revoked. Reach out anytime.
 
-Harry
+GTME
 ```
 
 **Strained / involuntary churn template:**
@@ -242,10 +242,10 @@ All campaigns paused. Sending domains will be decommissioned within 30 days per 
 
 Any final questions, please reply by {{date + 14 days}}.
 
-Harry
+GTME
 ```
 
-Show draft to Harry. Do not auto-send.
+Show draft to the GTME. Do not auto-send.
 
 ---
 
@@ -332,7 +332,7 @@ Billing:
 - {{summary}}
 
 Communication:
-- Draft email ready for Harry's review
+- Draft email ready for the GTME's review
 - Send when ready: {{command}}
 
 Repo status:
@@ -350,9 +350,9 @@ Total Engagement Outcome:
 
 ## RULES
 
-- **Never auto-send the closing email.** Always Harry's review.
+- **Never auto-send the closing email.** Always the GTME's review.
 - **Never auto-process refunds.** Escalate.
 - **Preserve all data.** Pause campaigns, don't delete them. Audit trail matters if a dispute arises later.
 - **Migrate learnings.** This is the most valuable part - what we learned at this client should benefit the next one.
 - **Tone matters.** Even strained offboardings should leave a professional impression. Don't burn bridges.
-- **Log everything.** The decision-log entry is the last thing future-Harry will see about this client. Make it useful.
+- **Log everything.** The decision-log entry is the last thing future-GTME will see about this client. Make it useful.

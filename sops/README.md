@@ -13,7 +13,7 @@ to every client.
 - `client-communication-principles.md` - the baseline standard for every client interaction (document work,
   be proactive, professional language, MRR-weighted prioritisation) plus situational guidance for
   cancellations, refunds, rush demands, and clients wanting to write their own copy.
-- `am-gtme-responsibility-split.md` - who owns what between the GTME (Harry) and the AM: campaigns, lead
+- `am-gtme-responsibility-split.md` - who owns what between the GTME and the AM: campaigns, lead
   lists, and client comms are GTME's; technical setup, domain issues, and billing are the AM's.
 - `campaign-performance-standards.md` - the authoritative PRR/sends-per-reply benchmark tiers, what counts
   as underperforming, and the internal-only figures that don't get shared with clients.

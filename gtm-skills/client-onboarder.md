@@ -22,9 +22,9 @@ writes:
 
 **Trigger:** "Onboard new client", "Set up the OS for {{client}}", "Let's fill in the OS", "Run client onboarder", "New client just signed", "Onboard {{client_name}}"
 
-**Context:** This skill spins up a new client inside the multi-client OS, then runs the full conversational onboarding flow. It creates the client's folder from the template, asks Harry questions phase by phase, writes the answers directly to that client's files, and verifies the client is ready to launch.
+**Context:** This skill spins up a new client inside the multi-client OS, then runs the full conversational onboarding flow. It creates the client's folder from the template, asks the GTME questions phase by phase, writes the answers directly to that client's files, and verifies the client is ready to launch.
 
-**The conversation IS the intake.** Harry should not fill the intake form manually. This skill replaces that workflow.
+**The conversation IS the intake.** The GTME should not fill the intake form manually. This skill replaces that workflow.
 
 Per `sops/daily-structure.md`, onboarding is Block 1 of the working day and takes priority over everything else whenever one is pending.
 
@@ -71,10 +71,10 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 ## RULES (read first)
 
 1. **Run in 5 phases.** Do not jump ahead. Each phase has a clear write target.
-2. **Ask one question at a time.** Wait for the answer. Do not batch unless Harry says "batch the rest."
-3. **Write files as you go.** After each phase, write to the corresponding file. Confirm the write to Harry before moving on.
+2. **Ask one question at a time.** Wait for the answer. Do not batch unless the GTME says "batch the rest."
+3. **Write files as you go.** After each phase, write to the corresponding file. Confirm the write to the GTME before moving on.
 4. **Resumable.** At session start, read all `clients/{slug}/*.md` files. Identify which sections are filled and which still have `{{PLACEHOLDER}}` or blank values. Resume from the first unfilled phase. (Never edit root `CLAUDE.md` - it is the shared, client-agnostic hub.)
-5. **Never invent data.** If Harry does not know an answer, mark it `{{TO CONFIRM}}` and add to the final completeness report.
+5. **Never invent data.** If the GTME does not know an answer, mark it `{{TO CONFIRM}}` and add to the final completeness report.
 6. **Use British spelling by default**, override if client is US-based and prefers American.
 
 ---
@@ -125,7 +125,7 @@ Ask in this order:
 - Write `clients/{slug}/overview.md` with all answers
 - Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier`, `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `service_type`, `start_date`, `reporting_day`; set `template_version` from the repo root `VERSION`
 - Do **not** touch root `CLAUDE.md` or `INDEX.md` - they are shared and client-agnostic
-- Confirm to Harry: "Phase 1 complete. Identity locked in. Ready for Phase 2 - Offer?"
+- Confirm to the GTME: "Phase 1 complete. Identity locked in. Ready for Phase 2 - Offer?"
 
 ---
 
@@ -174,7 +174,7 @@ Ask in this order:
 ### Behavioural / signals
 6. What changes in the prospect's world right before they buy? (This is the signal.)
 7. Cross-reference with `wiki/signal-sourcing.md` - propose 2-3 ranked signals.
-8. For each proposed signal: does it apply? Push back if Harry picks signals that do not match the offer.
+8. For each proposed signal: does it apply? Push back if the GTME picks signals that do not match the offer.
 
 ### Decision makers
 9. Which titles do we target? Rank them.
@@ -285,9 +285,9 @@ Suggested next step: "Build the first lead list for {{client_name}}"
 ## CONVERSATIONAL RULES
 
 - **One question at a time.** Default mode.
-- **If Harry says "batch the rest"** - ask all remaining questions in the current phase together.
-- **If Harry says "I don't know yet"** - mark as `{{TO CONFIRM}}` and move on. Do not stall.
-- **If Harry pastes a brief or call notes** - extract answers from it, then ask only what is missing.
+- **If the GTME says "batch the rest"** - ask all remaining questions in the current phase together.
+- **If the GTME says "I don't know yet"** - mark as `{{TO CONFIRM}}` and move on. Do not stall.
+- **If the GTME pastes a brief or call notes** - extract answers from it, then ask only what is missing.
 - **Push back on vague answers.** Specificity is the whole point. "Faster hiring" is not an outcome. "92% of roles filled in 21 days" is.
 - **No corporate filler in your questions.** Direct, concise, no fluff.
 - **At the end of each phase** - write the file, confirm, and ask permission to proceed.
@@ -298,7 +298,7 @@ Suggested next step: "Build the first lead list for {{client_name}}"
 
 ### Example startup
 ```
-Harry: Run client onboarder for {{CLIENT_NAME}}
+GTME: Run client onboarder for {{CLIENT_NAME}}
 
 Claude:
 Created clients/{slug}/ from templates/client-template/. Active client: {{CLIENT_NAME}}.
@@ -317,7 +317,7 @@ Question 1 of 10: What is the client's company name?
 
 ### Example pushback
 ```
-Harry: They help startups hire engineers faster.
+GTME: They help startups hire engineers faster.
 
 Claude:
 "Faster" needs a number to land in cold copy. Two options:
@@ -329,7 +329,7 @@ Which one fits {{CLIENT_NAME}}? Or do you have a specific stat?
 
 ### Example resume
 ```
-Harry: Continue onboarding {{CLIENT_NAME}}.
+GTME: Continue onboarding {{CLIENT_NAME}}.
 
 Claude:
 OS State Report - 2026-06-02

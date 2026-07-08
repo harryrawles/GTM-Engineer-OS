@@ -20,7 +20,7 @@ writes:
 
 **Context:** A gate. Validates the client OS is complete and consistent before letting campaigns launch. Other skills (cold-email-writer, campaign-launcher, weekly-reviewer) invoke this before producing client-facing output.
 
-**Why this exists:** if the onboarder missed a placeholder, copy can go out with `Hey {{firstName}}, I'm Harry from {{CLIENT_NAME}}` in the body. This skill catches that.
+**Why this exists:** if the onboarder missed a placeholder, copy can go out with `Hey {{firstName}}, I'm the GTME from {{CLIENT_NAME}}` in the body. This skill catches that.
 
 ---
 
@@ -145,12 +145,12 @@ last_pre_launch_check: {{YYYY-MM-DD}}
 
 ## RULES
 
-- **Never run silently.** Always output the full check result to Harry.
+- **Never run silently.** Always output the full check result to the GTME.
 - **Be specific about failures.** "Missing in icp.md" is not enough. "icp.md line 23: '{{Geography}}' is unresolved."
-- **Do not auto-fix.** Surfacing the issue is the job. The fix is Harry's call.
+- **Do not auto-fix.** Surfacing the issue is the job. The fix is the GTME's call.
 - **If invoked by another skill,** return a structured status the calling skill can act on:
   - `verdict: READY` → proceed
-  - `verdict: NOT READY` → calling skill must STOP and instruct Harry to fix.
+  - `verdict: NOT READY` → calling skill must STOP and instruct the GTME to fix.
 - **Log every run** to `clients/{slug}/decision-log.md` as a "Setup verification" entry if verdict changes (e.g. went from NOT READY to READY).
 
 ---
@@ -160,7 +160,7 @@ last_pre_launch_check: {{YYYY-MM-DD}}
 ### Example - pre-launch check during campaign launch
 
 ```
-Harry: Run pre-launch check before launching the hiring campaign
+GTME: Run pre-launch check before launching the hiring campaign
 
 Claude:
 === Pre-Launch Check - {{CLIENT_NAME}} - 2026-05-29 ===

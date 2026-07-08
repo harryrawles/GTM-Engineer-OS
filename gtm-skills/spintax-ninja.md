@@ -98,7 +98,7 @@ Rules:
 ### What to Spin
 
 - **Spin:** words or short phrases with semantic weight, verbs, verb phrases, adjectives, adverbs, non-specific nouns.
-- **Do not spin:** proper nouns, brand names, personal names/merge tags (e.g. `{{firstName}}`), numbers, statistics, URLs, CTAs (e.g. "Book a call"), and any term Harry flags as locked.
+- **Do not spin:** proper nouns, brand names, personal names/merge tags (e.g. `{{firstName}}`), numbers, statistics, URLs, CTAs (e.g. "Book a call"), and any term the GTME flags as locked.
 - Maximum 3 spin instances per sentence.
 - Maximum 3 variants per spin group.
 - If only 1 good variant exists, use 2 options. If no good variant exists, leave the word as-is.

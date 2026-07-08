@@ -64,6 +64,6 @@ Every problem solved here is a call that never needs to happen.
   owns a task (AM, CSM, manager). This ladder is about what to do when the task is still GTME's, the
   campaign is stuck, and you need help solving it rather than handing it off.
 - **`gtm-skills/campaign-optimiser.md`** reads this SOP when its own diagnosis stalls, working the ladder
-  comes before defaulting to a call with Harry's manager.
+  comes before defaulting to a call with the GTME's manager.
 - **This is Step 3 of `sops/client-not-getting-results.md`.** When results are underperforming and a
   client conversation is coming, work this ladder before that conversation, not after.

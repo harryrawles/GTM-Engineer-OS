@@ -175,7 +175,7 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 ## VERDICT RULES
 
 - **READY:** zero blocking issues, zero warnings. Test-launcher can proceed.
-- **READY WITH WARNINGS:** zero blocking issues, 1+ warnings. Harry must explicitly say "proceed with warnings" before test-launcher fires. The warnings get logged to `clients/{slug}/test-log.md` and `clients/{slug}/decision-log.md`.
+- **READY WITH WARNINGS:** zero blocking issues, 1+ warnings. The GTME must explicitly say "proceed with warnings" before test-launcher fires. The warnings get logged to `clients/{slug}/test-log.md` and `clients/{slug}/decision-log.md`.
 - **NOT READY:** any blocking issue present. Test-launcher refuses. Specific gaps listed.
 
 ---
@@ -184,7 +184,7 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 
 - **Block by default.** A NOT READY verdict is the right answer when uncertain - slow tests are better than meaningless tests.
 - **Be specific about failures.** Not "Sample size missing" - "Section 1.3 of T-006 in test-log.md is blank. Set sample size in writing (minimum 300 for cold email)."
-- **Do not auto-fix.** Surface gaps, let Harry resolve them in test-log.md.
+- **Do not auto-fix.** Surface gaps, let the GTME resolve them in test-log.md.
 - **Log every check.** Even passes go to `clients/{slug}/decision-log.md` as a Setup verification entry - the audit trail matters for QBR and weekly review.
 - **Cite scientific-method.md.** When warning on modification level mismatch (e.g. slight modification on dead variant), reference the exact rule from `wiki/scientific-method.md` Step 4.4.
 
@@ -195,7 +195,7 @@ VERDICT: READY / NOT READY / READY WITH WARNINGS
 ### Example - failed check (missing constants)
 
 ```
-Harry: Run test-readiness check on T-006
+GTME: Run test-readiness check on T-006
 
 Claude:
 === Test Readiness Check - T-006 - 2026-05-30 ===

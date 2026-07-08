@@ -37,8 +37,8 @@ an AM or manager handoff, it's `sops/gtme-unlock-ladder.md`: Cowork, then the su
 
 ## Beyond the AM: Manager/Team Lead Owns
 
-Some things aren't the AM's either. Legal threats and GDPR/data-exposure incidents escalate to Harry's
-manager/team lead, not just to Harry, and not to the client until the manager has weighed in. **Aaron is
+Some things aren't the AM's either. Legal threats and GDPR/data-exposure incidents escalate to the GTME's
+manager/team lead, not just to the GTME, and not to the client until the manager has weighed in. **Aaron is
 that manager/team lead** - every other file in this OS that names "Aaron" for a legal, GDPR, public-
 presence, or refund escalation is naming this same role, not a separate contact. See
 `gtm-skills/incident-responder.md` Protocols C and E.
@@ -80,8 +80,8 @@ reinforce it. If it's the relationship itself under strain, not just a scope ask
 
 ## Where this fits in the OS
 
-This corrects a default assumption baked into several existing skills, that GTME (Harry) personally
-executes billing and domain-level technical fixes. He doesn't; the AM does. GTME's job in those situations
+This corrects a default assumption baked into several existing skills, that the GTME personally
+executes billing and domain-level technical fixes. They don't; the AM does. GTME's job in those situations
 is to detect, scope, notify, and manage the client relationship, then hand off execution.
 
 - **Billing.** `gtm-skills/client-request-handler.md` Type J and `gtm-skills/client-offboarder.md` STEP 5
@@ -106,14 +106,14 @@ is to detect, scope, notify, and manage the client relationship, then hand off e
   QBR as GTME building the performance case and the AM leading the terms conversation, per "GTME Owns"
   above.
 - **Legal and compliance escalation.** `gtm-skills/incident-responder.md` (Protocols C and E) and
-  `gtm-skills/reply-handler.md` previously modeled legal threats and GDPR breaches as Harry's call to make
-  with the client directly. Both now escalate to Harry's manager/team lead first; client notification
-  follows the manager's decision, not Harry's own judgment call.
+  `gtm-skills/reply-handler.md` previously modeled legal threats and GDPR breaches as the GTME's call to make
+  with the client directly. Both now escalate to the GTME's manager/team lead first; client notification
+  follows the manager's decision, not the GTME's own judgment call.
 - **Wiki knowledge re-scoped to the GTME job.** `wiki/deliverability.md` was a hands-on infrastructure
   manual (DNS setup, blacklist removal steps); it's now a diagnostic reference (benchmarks, symptom-to-
   cause, list verification) with the AM-execution detail removed. `wiki/system-design-process.md` dropped
-  its "Recruit Team" step and the Refine Flow reference (Harry's own separate business, out of scope for
-  this repo); it's now a 6-step process instead of 7. `wiki/acquisition-systems-theory.md`'s framing no
+  its "Recruit Team" step and a reference to an unrelated outside business, out of scope for
+  this repo; it's now a 6-step process instead of 7. `wiki/acquisition-systems-theory.md`'s framing no
   longer assumes the reader manages team members or hiring capacity.
 - **The relationship layer belongs to CSM, not GTME or the AM.** `sops/tough-client-involve-csm.md` is the
   third handoff this document names, alongside the AM (execution) and the manager (legal/compliance): CSM

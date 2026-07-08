@@ -125,7 +125,7 @@ For each signal, design a play with these 7 components:
 3. **Timing** - response SLA (see `wiki/email-benchmarks.md`)
 4. **Sequence** - channel and step count
 5. **Messaging template** - angle tied to the signal (not the signal itself)
-6. **Owner** - who actions it (Harry vs automated)
+6. **Owner** - who actions it (the GTME vs automated)
 7. **Escalation** - what happens if no response
 
 Use the 11 plug-and-play plays in `wiki/signal-sourcing.md` as starting points.

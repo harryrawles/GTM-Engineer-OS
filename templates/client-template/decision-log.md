@@ -1,6 +1,6 @@
 # Decision Log - {{CLIENT_NAME}}
 
-Captures WHY decisions were made - not just what the data shows. Lets future-Harry (and future-Claude) understand the reasoning behind every winning variant, signal pivot, and campaign change.
+Captures WHY decisions were made - not just what the data shows. Lets future-GTME (and future-Claude) understand the reasoning behind every winning variant, signal pivot, and campaign change.
 
 **Updated automatically by:** `gtm-skills/weekly-reviewer.md` (during weekly review) and `gtm-skills/cold-email-writer.md` (when making framework choices).
 

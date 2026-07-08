@@ -7,7 +7,7 @@ Client names are shown as `{{CLIENT_A}}`…`{{CLIENT_H}}` to keep the template b
 ---
 
 ```
-EOD Report - Harry - Wednesday, July 2, 2026
+EOD Report - GTME - Wednesday, July 2, 2026
 
 MOVED
 

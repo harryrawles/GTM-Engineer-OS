@@ -34,9 +34,9 @@ no MCP server. All access goes through one wrapper:
 - **Reads are automatic:** any `GET` (and the read-only `POST /leads/list`) runs without asking - e.g.
   `.claude/bin/instantly.sh GET /campaigns/ID/analytics`.
 - **Writes are gated:** any `POST`/`PATCH`/`PUT`/`DELETE` (activate, pause, create/update/delete, reply,
-  forward) is blocked by `safety-guard.sh` until Harry approves. State the action + workspace, then wait.
+  forward) is blocked by `safety-guard.sh` until the GTME approves. State the action + workspace, then wait.
 - Never construct raw `curl` to `api.instantly.ai` (blocked, and would leak the key). Never print the key.
-- If a call returns `[HTTP 401]` or the wrapper says no key/active client, tell Harry - do **not**
+- If a call returns `[HTTP 401]` or the wrapper says no key/active client, tell the GTME - do **not**
   fabricate metrics. Where a skill says "pull from Instantly," it means this wrapper.
 
 Full endpoint + read/write reference: `sops/instantly-api.md`.

@@ -24,7 +24,7 @@ How skills use Claude Code's `Agent` tool to spawn isolated agents for specific 
 | Writing the actual email copy | Main thread has all the client context - sub-agent would have to reload it all |
 | Logging to OS files | Main thread should own writes for atomicity |
 | Routine reply categorisation | Pattern matching, doesn't benefit from fresh eyes |
-| Quick clarification questions to Harry | Conversational - sub-agents can't do back-and-forth with Harry |
+| Quick clarification questions to the GTME | Conversational - sub-agents can't do back-and-forth with the GTME |
 
 ---
 

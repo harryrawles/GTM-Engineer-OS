@@ -66,7 +66,7 @@ Full endpoint list + read/write map: **`sops/instantly-api.md`**.
 
 For client briefs, call notes, and context.
 
-1. In Claude Code MCP settings, add `notion` (Type: HTTP / OAuth) and complete the OAuth flow for Harry's
+1. In Claude Code MCP settings, add `notion` (Type: HTTP / OAuth) and complete the OAuth flow for the GTME's
    Notion workspace.
 2. Verify: `Search Notion for {{CLIENT_NAME}} page` → returns the client page.
 3. Optional - pin the client's Notion page URL in `clients/{slug}/overview.md` under "External resources."
@@ -87,13 +87,13 @@ Enables: `personalization-strategist` Clay prompts, `signal-sourcer` Clay detect
 
 ## 4. Slack MCP (optional)
 
-Only if Harry uses Slack for client comms or alerts.
+Only if the GTME uses Slack for client comms or alerts.
 
 1. Add the Slack app to the workspace; authorise via OAuth in Claude Code.
 2. Configure alert channels in `clients/{slug}/overview.md`.
 
 Note: Slack **sends** (`slack_send_message`, `slack_schedule_message`, …) are blocked by
-`safety-guard.sh` until Harry approves - reads are automatic.
+`safety-guard.sh` until the GTME approves - reads are automatic.
 
 ---
 
@@ -130,6 +130,6 @@ Note: Slack **sends** (`slack_send_message`, `slack_schedule_message`, …) are 
 ## What happens if the key is not set
 
 The OS still works in degraded mode:
-- `weekly-reviewer` / `campaign-optimiser` / `client-report-writer` will ask Harry to paste metrics.
+- `weekly-reviewer` / `campaign-optimiser` / `client-report-writer` will ask the GTME to paste metrics.
 
 But friction is high. Setting the per-client Instantly key is the single biggest time-saver after onboarding.

@@ -48,7 +48,7 @@ This will:
 - Allow the requested change to proceed
 ```
 
-4. **If Harry overrides:**
+4. **If the GTME overrides:**
    - Move the test from Running to Reverted in `clients/{slug}/test-log.md` with reason "manually invalidated mid-test by override"
    - Log the override to `clients/{slug}/decision-log.md` with context (why the change could not wait)
    - Remove the `TEST ACTIVE` flag from `clients/{slug}/campaign-state.md`

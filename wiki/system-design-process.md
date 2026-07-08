@@ -193,7 +193,7 @@ done than reading it described - the clearer the instruction, the more reliable 
 5. A visual flow (Step 5)
 6. Tasks deployable by human or machine, with SOPs (Step 6)
 
-Every channel in this OS is run by Harry and Claude together, not a hired operator, so there's no separate
+Every channel in this OS is run by the GTME and Claude together, not a hired operator, so there's no separate
 "recruit a team" step here. Once iterated with `wiki/scientific-method.md`, this is the entire loop this
 OS's own theory files describe: design once (this file), then iterate forever (the scientific method) - the
 same closing point `wiki/scientific-method.md` and `wiki/darwinian-acquisition-theory.md` make about time

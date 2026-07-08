@@ -85,7 +85,7 @@ Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh
 - Per-step breakdown: which email step is generating replies
 - Subject line performance breakdown
 
-Ask Harry to paste metrics if the Instantly API can't be reached (missing/invalid key).
+Ask the GTME to paste metrics if the Instantly API can't be reached (missing/invalid key).
 
 Cross-check against `wiki/email-benchmarks.md` to set expectations before diagnosing.
 

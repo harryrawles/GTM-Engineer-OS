@@ -53,7 +53,7 @@ Index of external assets for this client. Files are stored externally (Google Dr
 
 ## Rules
 
-- All asset URLs must be accessible to Harry's primary Google account
+- All asset URLs must be accessible to the GTME's primary Google account
 - Never commit confidential PDFs to the repo
 - Update "Last verified" annually for case study links (links rot)
 - If an asset is broken, fix or remove from this index immediately

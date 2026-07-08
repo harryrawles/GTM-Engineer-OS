@@ -58,7 +58,7 @@ their contract says $2k" is.
 - Standard AM issue: tag @Talha or @George, whoever owns the account on the AM side.
 - No assigned AM or unsure: tag @Talha or @George.
 - Client MRR $2k+ or situation is serious: tag @Ammad + @Kyra.
-- Legal threat or public defamation: tag Aaron (Harry's manager/team lead,
+- Legal threat or public defamation: tag Aaron (the GTME's manager/team lead,
   `sops/am-gtme-responsibility-split.md`) always, no conditions. Do not respond to the client until you
   have direction from him.
 - Refund demand: tag Aaron only if the client has public presence or a significant following, per

@@ -1,6 +1,6 @@
 ---
 name: incident-responder
-description: Incident protocols for deliverability blacklist, bounce spike, bad reply going public, Instantly outage, client data exposure. Triages severity, runs the right protocol, escalates to Harry, manages client communication, logs post-mortem.
+description: Incident protocols for deliverability blacklist, bounce spike, bad reply going public, Instantly outage, client data exposure. Triages severity, runs the right protocol, escalates to the GTME, manages client communication, logs post-mortem.
 triggers:
   - "Incident: {{description}}"
   - "Domain blacklisted"
@@ -77,10 +77,10 @@ If multiple types active → handle the most severe first.
 
 | Severity | Definition | Notification | Time horizon |
 |----------|-----------|--------------|--------------|
-| **Critical** | Campaigns must stop now. Client risk imminent. | Harry + client (immediately) | Resolve within 4 hours |
-| **High** | Active impact but contained. | Harry (immediately), client (within 24h) | Resolve within 24 hours |
-| **Medium** | Limited impact, investigating. | Harry (within 1 hour) | Resolve within 72 hours |
-| **Low** | Watch only, no action yet | Harry (next morning) | Monitor |
+| **Critical** | Campaigns must stop now. Client risk imminent. | The GTME + client (immediately) | Resolve within 4 hours |
+| **High** | Active impact but contained. | The GTME (immediately), client (within 24h) | Resolve within 24 hours |
+| **Medium** | Limited impact, investigating. | The GTME (within 1 hour) | Resolve within 72 hours |
+| **Low** | Watch only, no action yet | The GTME (next morning) | Monitor |
 
 Default to higher severity if unsure. Easier to step down than escalate late.
 
@@ -93,7 +93,7 @@ apply.
 
 ## PROTOCOL A - Domain Blacklisted
 
-Domain-level issues are AM-owned, not GTME-owned (`sops/am-gtme-responsibility-split.md`). GTME's job is
+Domain-level issues are AM-owned, not GTME-owned (`sops/am-gtme-responsibility-split.md`). The GTME's job is
 the first four steps below (detect, pause, scope, notify) plus client communication; flag the AM
 immediately to own steps 5-6 (the actual removal-request execution and root-cause DNS diagnosis) rather
 than running them solo by default.
@@ -106,7 +106,7 @@ than running them solo by default.
    - Which domain(s)?
    - Which IPs?
    - Which clients affected (if domains shared across clients - they shouldn't be, but check)?
-4. **Notify Harry** with: domain, blacklist name, scope, time first detected
+4. **Notify the GTME** with: domain, blacklist name, scope, time first detected
 
 ### Within 2 hours
 
@@ -132,7 +132,7 @@ I'll send an update tomorrow morning.
 
 Cause investigation in progress. Will share post-mortem after resolution.
 
-Harry
+GTME
 ```
 
 ### Diagnosis decision tree
@@ -185,7 +185,7 @@ Harry
    - New copy launched?
    - DNS records modified?
    - Mailbox quota changed?
-4. **Notify Harry** with bounce rate, scope, suspected cause
+4. **Notify the GTME** with bounce rate, scope, suspected cause
 
 ### Within 1 hour
 
@@ -208,7 +208,7 @@ Harry
 ### Within 24 hours
 
 11. **Resume sends gradually:** start at 25% of normal volume, monitor for 24h, scale to 50%, then 75%, then full
-12. **Notify Harry** of resolution
+12. **Notify the GTME** of resolution
 13. **Notify client** if pause exceeded 24 hours
 
 ### Post-mortem
@@ -224,8 +224,8 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 1. **DO NOT respond** to the original prospect
 2. **DO NOT delete or edit** the original cold email (audit trail)
 3. **Screenshot or save** the public post / threat
-4. **Notify Harry IMMEDIATELY** - this is a brand risk, not a deliverability issue
-5. **Notify client** ONLY after Harry has reviewed and agreed on the response
+4. **Notify the GTME IMMEDIATELY** - this is a brand risk, not a deliverability issue
+5. **Notify client** ONLY after the GTME has reviewed and agreed on the response
 
 ### Within 1 hour
 
@@ -241,9 +241,9 @@ Logged to `clients/{slug}/decision-log.md` per template above.
    - **Public response if:** high engagement OR misrepresentation OR legal threat → coordinate with client, may need formal statement
 
 8. **If legal threat:**
-   - Notify Harry immediately, full stop
-   - Harry escalates to Aaron (his manager/team lead, `sops/am-gtme-responsibility-split.md`) - a legal
-     threat is not Harry's call to handle solo
+   - Notify the GTME immediately, full stop
+   - The GTME escalates to Aaron (their manager/team lead, `sops/am-gtme-responsibility-split.md`) - a legal
+     threat is not the GTME's call to handle solo
    - Do not respond to prospect
    - Preserve all comms in writing
    - Client communication happens only after Aaron has weighed in
@@ -287,7 +287,7 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 
 1. **Verify it's a platform issue:** check status page (status.instantly.ai), Twitter mentions
 2. **Identify scope:** which clients affected
-3. **Notify Harry** with: confirmed outage, expected duration if known, affected clients
+3. **Notify the GTME** with: confirmed outage, expected duration if known, affected clients
 4. **Do NOT switch to backup tool reactively** - most outages resolve in <2 hours and switching causes more harm
 
 ### During outage
@@ -307,7 +307,7 @@ Replies in your inbox are unaffected - they keep coming through as normal.
 
 I'll send an update once resolved.
 
-Harry
+GTME
 ```
 
 ### After resolution
@@ -323,9 +323,9 @@ Harry
 ### CRITICAL - escalate immediately
 
 1. **Stop all sends** from affected client immediately
-2. **Notify Harry within 5 minutes** - no other notifications until Harry reviews
-3. **Harry escalates to Aaron (his manager/team lead) immediately** - a GDPR breach notification decision
-   is not Harry's to make alone
+2. **Notify the GTME within 5 minutes** - no other notifications until the GTME reviews
+3. **The GTME escalates to Aaron (their manager/team lead) immediately** - a GDPR breach notification decision
+   is not the GTME's to make alone
 4. **Do NOT notify the client** until Aaron has assessed legal posture
 5. **Preserve evidence:** screenshots, access logs, the exposed data itself
 6. **Do not attempt to "fix"** by deleting data - preserve for legal
@@ -337,14 +337,14 @@ Harry
    - How many records?
    - Who had access?
    - Was data accessed by unauthorised party (vs just exposed)?
-8. **Aaron decides the legal obligations**, Harry supports with the facts:
+8. **Aaron decides the legal obligations**, the GTME supports with the facts:
    - GDPR breach notification (72 hours from awareness)
    - State-level breach notification (varies)
    - Insurance / liability
 
 ### Decision: client notification
 
-This is Aaron's call, not Harry's and not the OS's. Harry's job is to surface the facts fast and execute
+This is Aaron's call, not the GTME's and not the OS's. The GTME's job is to surface the facts fast and execute
 whatever notification approach Aaron decides on, full transparency and written confirmation once that
 decision is made.
 
@@ -359,7 +359,7 @@ Required. Comprehensive. May involve legal counsel. Stored separately from norma
 Use this when the type doesn't match A-E. Template:
 
 1. Pause active operations affected by the incident
-2. Notify Harry within 30 minutes
+2. Notify the GTME within 30 minutes
 3. Identify scope and severity
 4. Decide on client notification per severity matrix
 5. Execute fix
@@ -369,13 +369,13 @@ Use this when the type doesn't match A-E. Template:
 
 ## RULES
 
-- **No protocol is automatic.** Every incident needs Harry's eyes before client notification.
+- **No protocol is automatic.** Every incident needs the GTME's eyes before client notification.
 - **Pause before fixing.** Stopping the bleed comes first.
 - **Document everything.** Every action, every time. Audit trail matters.
 - **Honest communication.** When notifying clients, be specific about what happened and what we're doing. Vague reassurance damages trust more than honest disclosure.
 - **Never delete evidence.** Even if it's embarrassing. Especially if it's embarrassing.
 - **Post-mortem within 7 days, no exceptions.** If we don't capture the lesson, the incident repeats.
-- **Critical incidents:** Harry first, client second, OS third. People before files.
+- **Critical incidents:** GTME first, client second, OS third. People before files.
 
 ---
 
@@ -384,7 +384,7 @@ Use this when the type doesn't match A-E. Template:
 ### Example - domain blacklisted
 
 ```
-Harry: Incident: {{SENDING_DOMAIN}} just appeared on Spamhaus
+GTME: Incident: {{SENDING_DOMAIN}} just appeared on Spamhaus
 
 Claude:
 === INCIDENT - Severity Critical ===
@@ -410,7 +410,7 @@ Next actions:
 Client notification draft:
 [paste from Protocol A template]
 
-Confirm Harry to proceed with each step.
+Confirm with the GTME to proceed with each step.
 ```
 ---
 

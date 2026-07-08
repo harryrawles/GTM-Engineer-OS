@@ -23,7 +23,7 @@ writes:
 
 **Trigger:** "Launch the next test", "What should I test next", "Run test-launcher", "Queue next test for [client]", "Promote the queued test to live"
 
-**Context:** A test queued in `test-log.md` does nothing until it's launched. This skill closes the gap - picks the next test by priority, generates the variant, updates state, and instructs Harry on the Instantly setup.
+**Context:** A test queued in `test-log.md` does nothing until it's launched. This skill closes the gap - picks the next test by priority, generates the variant, updates state, and instructs the GTME on the Instantly setup.
 
 ---
 
@@ -66,8 +66,8 @@ Run test-readiness check on T-{{XXX}}
 
 Verdict rules:
 - **READY** → proceed to Step 1 below
-- **READY WITH WARNINGS** → require Harry to explicitly say "proceed with warnings"; log warnings to `clients/{slug}/decision-log.md`
-- **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct Harry to fix `clients/{slug}/test-log.md` for that test.
+- **READY WITH WARNINGS** → require the GTME to explicitly say "proceed with warnings"; log warnings to `clients/{slug}/decision-log.md`
+- **NOT READY** → **STOP.** Output the gaps. Refuse to launch. Direct the GTME to fix `clients/{slug}/test-log.md` for that test.
 
 **No exceptions.** The OS does not launch tests that fail this gate. Skipping it means tests get launched with vague hypotheses, drifting constants, and no backtrack plan - the result is unattributable data.
 
@@ -108,7 +108,7 @@ Recommend proceeding? (Y/N)
 
 ## STEP 2 - Generate the Variant
 
-If Harry confirms:
+If the GTME confirms:
 
 1. **Invoke `gtm-skills/cold-email-writer.md`** to generate the variant copy.
 2. Use the variable being tested as the ONE thing that changes - everything else is constant.
@@ -117,7 +117,7 @@ If Harry confirms:
    - PRR moderate gap → moderate modification
    - PRR way off target → complete modification
 
-4. Show Harry both control and variant side-by-side:
+4. Show the GTME both control and variant side-by-side:
 
 ```
 === Side-by-Side ===
@@ -137,7 +137,7 @@ What is the same (constants): {{list}}
 
 5. Run `wiki/copywriting-101.md` QA checklist on the variant.
 
-6. Get Harry's approval on the variant.
+6. Get the GTME's approval on the variant.
 
 ---
 
@@ -145,7 +145,7 @@ What is the same (constants): {{list}}
 
 Before queuing in Instantly:
 
-- [ ] Variant approved by Harry
+- [ ] Variant approved by the GTME
 - [ ] Variant passes QA checklist
 - [ ] Constants verified (lead source, ICP, sending domain, time of day, follow-up sequence - all unchanged)
 - [ ] Sample size and timing realistic (test will hit 300 sends within stated timeframe)
@@ -158,7 +158,7 @@ If anything fails → fix before proceeding.
 
 ## STEP 4 - Launch in Instantly
 
-Output Instantly setup instructions for Harry:
+Output Instantly setup instructions for the GTME:
 
 ```
 === Instantly Setup Instructions - Test T-{{ID}} ===
@@ -175,7 +175,7 @@ Output Instantly setup instructions for Harry:
    - Subject and body match the approved variant exactly
    - No HTML formatting added accidentally
    - Liquid syntax / spintax preserved (format per `gtm-skills/spintax-ninja.md`)
-6. Send a test email to harry@refineflow.co - verify rendering
+6. Send a test email to the GTME's own inbox - verify rendering
 7. Launch the split
 
 Variant copy to paste:
@@ -185,13 +185,13 @@ Subject:
 [paste subject]
 ```
 
-Harry actions this manually in Instantly. The skill does not have write access to Instantly campaigns.
+The GTME actions this manually in Instantly. The skill does not have write access to Instantly campaigns.
 
 ---
 
 ## STEP 5 - Update State
 
-After Harry confirms the test is live in Instantly:
+After the GTME confirms the test is live in Instantly:
 
 1. **Update `clients/{slug}/test-log.md`:**
    - Move T-{{ID}} from Queued to Running
@@ -238,7 +238,7 @@ Launched A/B split between current control and variant.
 
 The next weekly review will check whether the test has hit sample size + latency. The reviewer will surface it for confirmation and update.
 
-If test completes mid-week (rare for high-volume clients) → harry can manually trigger:
+If test completes mid-week (rare for high-volume clients) → the GTME can manually trigger:
 ```
 Run weekly review for {{client}} - focus on tests
 ```
@@ -251,9 +251,9 @@ Run weekly review for {{client}} - focus on tests
 - **300 sends per variant minimum.** Do not call results before sample. Early reads are noise.
 - **Latency:** 7 days post-final-send before judging results.
 - **Constants are sacred.** Do not change anything else during a test. If something changes (new domain, new lead source) → restart the test.
-- **Do not auto-launch.** Show Harry the variant, the side-by-side, the QA checklist. Harry approves, Harry pastes into Instantly.
+- **Do not auto-launch.** Show the GTME the variant, the side-by-side, the QA checklist. The GTME approves, the GTME pastes into Instantly.
 - **Log everything.** test-log update, campaign-state note, decision-log entry. Three writes per launch.
-- **If a test would push the campaign past stop conditions** (e.g. testing a more aggressive subject line that risks bounce spike), warn Harry explicitly before proceeding.
+- **If a test would push the campaign past stop conditions** (e.g. testing a more aggressive subject line that risks bounce spike), warn the GTME explicitly before proceeding.
 
 ---
 
@@ -262,7 +262,7 @@ Run weekly review for {{client}} - focus on tests
 ### Example - launching next queued test
 
 ```
-Harry: Launch the next test for {{CLIENT_NAME}}
+GTME: Launch the next test for {{CLIENT_NAME}}
 
 Claude:
 === Next Test Candidate - T-006 ===
@@ -284,7 +284,7 @@ Stop conditions:
 
 Recommend proceeding? (Y/N)
 
-[Harry: Yes]
+[GTME: Yes]
 
 Generating variant via cold-email-writer...
 

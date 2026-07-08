@@ -4,7 +4,7 @@ Per-industry language guide. What to say, what to avoid, what signals "outsider"
 
 **Used by:** `gtm-skills/cold-email-writer.md` when writing for a sector-specific audience. `gtm-skills/client-onboarder.md` Phase 4 references this when capturing client voice.
 
-**Updated as:** Harry takes on new verticals or learns from in-vertical replies.
+**Updated as:** the GTME takes on new verticals or learns from in-vertical replies.
 
 ---
 

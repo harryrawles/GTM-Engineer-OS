@@ -72,7 +72,7 @@ Run every item. Each must pass before launch.
 - [ ] Copy stored in `clients/{slug}/campaign-state.md` under the campaign's "Sequence" table
 - [ ] No `[TBD]` or open questions remain in the copy
 
-**Ask Harry:** paste the approval link or confirmation message.
+**Ask the GTME:** paste the approval link or confirmation message.
 
 ### 3. Sequence Configuration in Instantly
 
@@ -84,7 +84,7 @@ Run every item. Each must pass before launch.
 - [ ] Plain text mode confirmed (no HTML formatting in body)
 - [ ] No links in Email 1 body (allowed in Email 3+ if needed)
 
-**Action:** request a test send to Harry's own email. Verify rendering before approving.
+**Action:** request a test send to the GTME's own email. Verify rendering before approving.
 
 ### 4. Sending Infrastructure
 
@@ -116,7 +116,7 @@ From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/
 ### 7. Reply Handling Setup
 
 - [ ] Reply alerts routed correctly (Slack, email, or Instantly inbox)
-- [ ] Harry knows where to find replies (Instantly Unibox vs forwarded inbox)
+- [ ] The GTME knows where to find replies (Instantly Unibox vs forwarded inbox)
 - [ ] `gtm-skills/reply-handler.md` familiar and ready to invoke
 - [ ] Calendar link / booking flow tested
 
@@ -142,7 +142,7 @@ Write these explicitly into `clients/{slug}/campaign-state.md` under the campaig
 
 - [ ] Client notified of go-live date and what to expect (use client-report-writer template)
 - [ ] First-week metric expectations communicated
-- [ ] Harry confirms launch readiness explicitly
+- [ ] The GTME confirms launch readiness explicitly
 
 ---
 
@@ -178,7 +178,7 @@ If READY:
 
 ---
 
-## ON LAUNCH (after Harry clicks)
+## ON LAUNCH (after the GTME clicks)
 
 1. Update `clients/{slug}/campaign-state.md`:
    - Set status to "Active"
@@ -212,7 +212,7 @@ Launched after pre-flight check (all 10 categories passed).
 
 3. Schedule first checkpoint: 48 hours post-launch - quick sanity check on opens, bounces, complaints.
 
-4. Inform Harry: "Campaign live. First checkpoint in 48 hours. Weekly review will pick it up Friday."
+4. Inform the GTME: "Campaign live. First checkpoint in 48 hours. Weekly review will pick it up Friday."
 
 ---
 
@@ -222,7 +222,7 @@ Launched after pre-flight check (all 10 categories passed).
 - **No launch without explicit client approval.** Verbal in a call is not enough - must be written (email, Slack, Notion comment).
 - **Stop conditions are mandatory.** A campaign without explicit stop conditions is a campaign that drifts into harm.
 - **Block, do not workaround.** If something fails, fix it. Do not "ship anyway and fix later" - cold email has no take-backs.
-- **Log every launch.** Even if Harry remembers, future-Claude does not.
+- **Log every launch.** Even if the GTME remembers, future-Claude does not.
 
 ---
 
@@ -231,7 +231,7 @@ Launched after pre-flight check (all 10 categories passed).
 ### Example - failed launch (placeholder remaining)
 
 ```
-Harry: Launch the hiring campaign for {{CLIENT_NAME}}
+GTME: Launch the hiring campaign for {{CLIENT_NAME}}
 
 Claude:
 Running pre-flight check...

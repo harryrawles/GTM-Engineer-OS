@@ -23,7 +23,7 @@ day.
 | Don't Over-Communicate | Clients are busy. Update with sincerity and keep it short. Focus on the metrics they care about. Rambling damages trust faster than silence. |
 
 PRR is the north star metric for the OS, always, for every copy and campaign decision (`CLAUDE.md`,
-`wiki/copywriting-101.md`). MRR-weighted prioritisation above is about a separate thing, how Harry spends
+`wiki/copywriting-101.md`). MRR-weighted prioritisation above is about a separate thing, how the GTME spends
 time across the portfolio, and is not a competing north star.
 
 ---
@@ -68,7 +68,7 @@ separate system outside this OS, do not try to resolve them yourself.
 - **Client wants to write their own copy** is the client-facing version of Golden Rule 6 in `CLAUDE.md`
   ("Prefer what already exists") and the never-write-from-memory discipline in `wiki/scientific-method.md`
   and `wiki/copywriting-101.md`. The "testing takes about a week" line for urgency pushback is the same
-  7-day latency rule from `wiki/scientific-method.md` Step 1.4, stated for a client instead of for Harry.
+  7-day latency rule from `wiki/scientific-method.md` Step 1.4, stated for a client instead of for the GTME.
 - **Professional Language** also covers what not to say: `sops/campaign-performance-standards.md`'s
   internal PRR/sends-per-reply tiers never get shared with a client. What they see is their own actual
   performance (`gtm-skills/client-report-writer.md`) and the external "1 per 1,000" framing, not our

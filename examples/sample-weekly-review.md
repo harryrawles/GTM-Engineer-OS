@@ -7,7 +7,7 @@ Example of what `gtm-skills/weekly-reviewer.md` produces during a single-client 
 ## Input
 
 ```
-Harry: Run weekly review for {{CLIENT_NAME}}
+GTME: Run weekly review for {{CLIENT_NAME}}
 ```
 
 ## Output
@@ -43,13 +43,13 @@ Copy:
 Subject: hiring speed
 Saw the senior eng hires coming in. Most VPs of Eng at this stage are losing 10-15 hrs/week interviewing low-signal candidates from outsourcing firms. We only source from VC-backed product companies - {{NAMED_PROOF_COMPANY}}'s VP closed 4 hires this way, saved $100k vs in-house. Want a sample shortlist?
 
-Log this as a winner? [Harry: Yes]
+Log this as a winner? [GTME: Yes]
 
-Why do you think this worked? [Harry: "Saw the senior eng hires coming in" is generic enough to feel personalised without naming the specific roles. Part 2 with the specific 10-15 hr number resonates because it's their daily pain. Closing with "Want a sample shortlist" beats "want a 15-min call" - 0 commitment.]
+Why do you think this worked? [GTME: "Saw the senior eng hires coming in" is generic enough to feel personalised without naming the specific roles. Part 2 with the specific 10-15 hr number resonates because it's their daily pain. Closing with "Want a sample shortlist" beats "want a 15-min call" - 0 commitment.]
 
-What is the most stealable element? [Harry: The "sample shortlist" CTA pattern. Lower friction than time ask. Going to test it on Funding campaign Email 1 too.]
+What is the most stealable element? [GTME: The "sample shortlist" CTA pattern. Lower friction than time ask. Going to test it on Funding campaign Email 1 too.]
 
-Anything you would NOT carry over to another client? [Harry: The $100k {{NAMED_PROOF_COMPANY}} figure. Other clients need their own dollar story.]
+Anything you would NOT carry over to another client? [GTME: The $100k {{NAMED_PROOF_COMPANY}} figure. Other clients need their own dollar story.]
 
 Writing to clients/{slug}/copy-library.md... done.
 Writing to clients/{slug}/decision-log.md... done.
@@ -66,9 +66,9 @@ Copy:
 Subject: runway math
 Saw you raised your Series B in March. Most VPs of Eng I talk to at this stage are mapping out a 30-50% headcount increase over 12 months - but the math gets ugly fast. We helped {{NAMED_PROOF_COMPANY_2}} close 4 senior eng roles in 14 days, saved $80k vs in-house. Worth a quick chat?
 
-Log to graveyard? [Harry: Yes - confirmed it's underperforming.]
+Log to graveyard? [GTME: Yes - confirmed it's underperforming.]
 
-Root cause? [Harry: Offer is generic for post-funding - "hiring strategy" is what every recruiter pitches. We need a different angle. T-006 will test "scale without headcount."]
+Root cause? [GTME: Offer is generic for post-funding - "hiring strategy" is what every recruiter pitches. We need a different angle. T-006 will test "scale without headcount."]
 
 Writing to graveyard... done.
 
@@ -101,5 +101,5 @@ Signal alerts: 1 (Funding declining)
 
 Ready to generate weekly client report. Run client-report-writer? [Y/N]
 
-Harry: Y
+GTME: Y
 ```

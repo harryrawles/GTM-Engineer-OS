@@ -28,7 +28,7 @@ writes:
 
 **Trigger:** "Diagnose [client] [campaign]", "Why is [campaign] underperforming", "Run /diagnose-campaign", "Investigate [campaign] performance"
 
-**Context:** Campaign performance diagnostic chain. Runs the primary `campaign-optimiser` diagnosis first to identify root cause category, then conditionally invokes the right specialist skill - without making Harry manually route between deliverability-doctor, list-builder, signal-sourcer, etc.
+**Context:** Campaign performance diagnostic chain. Runs the primary `campaign-optimiser` diagnosis first to identify root cause category, then conditionally invokes the right specialist skill - without making the GTME manually route between deliverability-doctor, list-builder, signal-sourcer, etc.
 
 **Why this exists:** when a campaign tanks, root cause could be deliverability, list quality, signal saturation, or copy fatigue. Manually invoking each diagnostic in turn wastes time. This chain runs the primary diagnosis once, then routes intelligently.
 
@@ -88,25 +88,25 @@ Based on the optimiser's root cause:
 ### Cause = Deliverability
 → Invoke `gtm-skills/deliverability-doctor.md`. Full triage protocol. Stop the bleed.
 
-**Pause-point:** show Harry the deliverability assessment and recovery plan before any infrastructure change.
+**Pause-point:** show the GTME the deliverability assessment and recovery plan before any infrastructure change.
 
 ### Cause = List quality
 → Invoke `gtm-skills/list-builder.md` STEP 6 - Audit Mode. Re-verifies the current list against ICP. Output: % of leads that still match ICP, count of false positives, list refresh recommendation.
 
-**Pause-point:** show Harry the audit results. Decide: refresh list, tighten ICP, or both.
+**Pause-point:** show the GTME the audit results. Decide: refresh list, tighten ICP, or both.
 
 ### Cause = Signal
 → Invoke `gtm-skills/signal-sourcer.md`. Surface signal performance trend (matches Step 2 of weekly-reviewer). Recommend pivot to alternative signal from `wiki/signal-sourcing.md` plays.
 
-**Pause-point:** show Harry the alternative signal proposal. Decide: pivot signal, refresh current signal angle, or hold.
+**Pause-point:** show the GTME the alternative signal proposal. Decide: pivot signal, refresh current signal angle, or hold.
 
 ### Cause = Offer / Copy / Sequence / Personalisation
 → Diagnose deeper using optimiser's output. If a copy change is needed: invoke `gtm-skills/cold-email-writer.md` to draft a new variant.
 
-**Pause-point:** show Harry the variant proposal.
+**Pause-point:** show the GTME the variant proposal.
 
 ### Cause = Volume / pacing
-→ No specialist invocation. Output recommended pacing change. Harry actions in Instantly directly.
+→ No specialist invocation. Output recommended pacing change. The GTME actions in Instantly directly.
 
 ---
 
@@ -114,7 +114,7 @@ Based on the optimiser's root cause:
 
 If Step 2's specialist recommends a corrective test (e.g. new variant, signal pivot, list segment), invoke `gtm-skills/test-readiness-check.md` on the proposed test.
 
-- If READY → invoke `gtm-skills/test-launcher.md` (subject to Harry confirmation)
+- If READY → invoke `gtm-skills/test-launcher.md` (subject to GTME confirmation)
 - If NOT READY → output gaps, return to Step 2 for re-planning
 
 This ensures any diagnostic-driven fix gets tested under the scientific method, not just deployed by gut feel.
@@ -160,7 +160,7 @@ Files updated:
 - decision-log.md (diagnosis entry)
 - test-log.md (if test queued)
 
-Next: [what Harry should action - manual step in Instantly, await test result, etc.]
+Next: [what the GTME should action - manual step in Instantly, await test result, etc.]
 ```
 
 ---
@@ -171,4 +171,4 @@ Next: [what Harry should action - manual step in Instantly, await test result, e
 - **One specialist per chain run.** If diagnosis surfaces multiple issues, action the highest-confidence one first. Subsequent runs handle the others.
 - **Respect active-test strict block.** If a test is running and the recommended fix touches a constant, surface the override pattern. Do not auto-invalidate tests.
 - **Pause at every specialist invocation.** The chain is decision support, not auto-execution.
-- **Always log to decision-log.** Future-Harry needs to know why X campaign got fixed in Y way at Z date.
+- **Always log to decision-log.** Future-GTME needs to know why X campaign got fixed in Y way at Z date.

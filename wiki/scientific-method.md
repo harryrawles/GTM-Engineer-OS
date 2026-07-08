@@ -245,7 +245,7 @@ Content(V1) - CTA(V1) - Delivery(V1) = Initial Video V1
 
 Out of the key variables, which ONE, if iterated positively, would have the biggest impact on fitness? Pick one. **You can only pick one.**
 
-Use your knowledge of the stimulus and what data the test surfaced. Ask the community / Harry if delivery seems off vs content vs CTA. Do not guess in a vacuum.
+Use your knowledge of the stimulus and what data the test surfaced. Ask the community / the GTME if delivery seems off vs content vs CTA. Do not guess in a vacuum.
 
 **Example:** for the cold email genotype above, after observing the test, you decide Content is the needle-mover. Delivery and CTA are fine.
 
@@ -341,7 +341,7 @@ There is no magic copy variant. There is only the cycle: hypothesis → test →
 
 # Source Material
 
-Synthesised from practitioner methodology (Refine Flow / Harry's iteration process). Cross-referenced with:
+Synthesised from practitioner methodology (Harry's iteration process). Cross-referenced with:
 - `wiki/copywriting-101.md` - the canonical formula being iterated
 - `wiki/email-benchmarks.md` - KPI reference points
 - `clients/{slug}/test-log.md` - where each test is captured

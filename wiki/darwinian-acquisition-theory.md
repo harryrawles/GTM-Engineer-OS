@@ -28,7 +28,7 @@ that aren't in that file.
   actual key variables first; you can't iterate a genotype you haven't defined.
 - **When a winning variable exists in one stimulus but not others** - Section 10 (Stimulus Splicing) is
   the deliberate technique for transplanting it.
-- **When explaining to Harry (or a client) why "just A/B test it" isn't enough** - Section 6 (Playing God)
+- **When explaining to the GTME (or a client) why "just A/B test it" isn't enough** - Section 6 (Playing God)
   and the biology primer give the reasoning that makes the discipline in `scientific-method.md` make sense
   rather than feel arbitrary.
 

@@ -76,9 +76,9 @@ Count matches. Apply these rules:
 
 **Hook-backstop rows (`via:hook`):** the `session-logger.sh` hook writes one deterministic row per user prompt (skill column = `via:hook`) so the log is never empty even if a skill forgets its STEP-0 row. When counting matches, **dedupe skill rows against hook rows** for the same prompt/timestamp - a prompt logged by both a named skill AND `via:hook` is ONE occurrence, not two. Use hook rows only to fill gaps (a prompt with a `via:hook` row but no skill row still counts as one occurrence of that intent). Skill rows remain the richer record for naming what ran.
 
-**Rejected pattern check:** if the matching pattern's signature is in the "Rejected pattern suggestions" table → SKIP this detection. Harry already said no. Do not re-suggest.
+**Rejected pattern check:** if the matching pattern's signature is in the "Rejected pattern suggestions" table → SKIP this detection. The GTME already said no. Do not re-suggest.
 
-**Already-forged check:** if the pattern matches an already-forged skill → SKIP. The skill exists; Harry just hasn't been invoking it. Surface a different note: "FYI, a skill exists for this: `gtm-skills/forged-{name}.md`. You may want to invoke it directly next time."
+**Already-forged check:** if the pattern matches an already-forged skill → SKIP. The skill exists; the GTME just hasn't been invoking it. Surface a different note: "FYI, a skill exists for this: `gtm-skills/forged-{name}.md`. You may want to invoke it directly next time."
 
 ---
 
@@ -119,7 +119,7 @@ Append a new row to `clients/{slug}/session-log.md` Active Log table:
 
 If pattern-detector found a pattern AND surfaced it, also write to `clients/{slug}/MEMORY.md` Active Focus section:
 ```
-- Pattern detection {{date}}: surfaced "{{intent name}}" ({{N}} occurrences). Awaiting Harry's response on forging.
+- Pattern detection {{date}}: surfaced "{{intent name}}" ({{N}} occurrences). Awaiting the GTME's response on forging.
 ```
 
 ---
@@ -148,21 +148,21 @@ User then sees:
 ## RULES
 
 - **Run FIRST every session.** No exceptions. CLAUDE.md mandates this.
-- **Never block work.** Surface and proceed. Harry's response to the pattern is asynchronous - can come this session or later.
+- **Never block work.** Surface and proceed. The GTME's response to the pattern is asynchronous - can come this session or later.
 - **Be specific, not vague.** "You've asked similar things" is useless. "You've asked to diagnose campaign performance 7 times in 30 days" is actionable.
-- **Respect rejections.** Once Harry rejects a pattern, the signature lives in rejected patterns forever. Do not re-suggest.
+- **Respect rejections.** Once the GTME rejects a pattern, the signature lives in rejected patterns forever. Do not re-suggest.
 - **Skip detection for under-10-entry session logs.** Not enough data to be useful.
 - **Cost-conscious.** Pattern matching should be fast. Do not invoke sub-agents for this - pattern-detector itself runs in main thread, every session.
-- **Do not auto-forge.** Never invoke skill-forge without Harry's explicit "forge it" response. This is a safety rail - forged skills land in the OS as files; Harry needs to opt in.
+- **Do not auto-forge.** Never invoke skill-forge without the GTME's explicit "forge it" response. This is a safety rail - forged skills land in the OS as files; the GTME needs to opt in.
 
 ---
 
 ## EXAMPLES
 
-### Example - Pattern detected, surfaced, Harry forges
+### Example - Pattern detected, surfaced, the GTME forges
 
 ```
-Harry: Diagnose {{CLIENT_NAME}}'s hiring campaign
+GTME: Diagnose {{CLIENT_NAME}}'s hiring campaign
 
 [pattern-detector runs first]
 
@@ -180,7 +180,7 @@ Want me to forge a skill that automates this? Reply "forge it" and I'll invoke s
 
 [chain-diagnose-campaign output follows here]
 
-Harry: forge it
+GTME: forge it
 
 [pattern-detector invokes skill-forge with the detected pattern]
 [skill-forge drafts gtm-skills/forged-quick-diagnose.md, surfaces for review]
@@ -189,7 +189,7 @@ Harry: forge it
 ### Example - No pattern, just logs
 
 ```
-Harry: Run pre-launch check for {{CLIENT_NAME}} hiring v5
+GTME: Run pre-launch check for {{CLIENT_NAME}} hiring v5
 
 [pattern-detector runs first]
 [scans session-log: 0 matches for "pre-launch-check" intent in 30 days]
@@ -202,11 +202,11 @@ Harry: Run pre-launch check for {{CLIENT_NAME}} hiring v5
 ### Example - Pattern rejected previously
 
 ```
-Harry: Show me Vector Health's pipeline
+GTME: Show me Vector Health's pipeline
 
 [pattern-detector runs first]
 [scans: 5 matches for "show-pipeline" intent, but signature is in Rejected patterns from 2026-04-10]
-[skips detection - Harry already said no]
+[skips detection - the GTME already said no]
 [proceeds to actual skill]
 [session-log row added with note "pattern matched but rejected previously - skipped"]
 ```

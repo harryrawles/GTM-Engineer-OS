@@ -6,6 +6,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.3.0] - 2026-07-08
+
+### Changed - De-branding for multi-GTME template distribution
+
+This OS is now distributed as a shared template for every GTM Engineer at Instantly.ai, not just its
+original author. Every occurrence of "Harry" used as a generic placeholder for "the person operating this
+OS" is now "the GTME" (or "GTME" for dialogue labels and sign-off name-tags), across ~90 files in
+`gtm-skills/`, `wiki/`, `sops/`, `templates/client-template/`, `examples/`, `tests/`, `raw/`, `.claude/`,
+`.github/`, and the root docs. All 3 "Refine Flow" mentions (Harry's separate, unrelated business) are
+also removed.
+
+**Deliberate exceptions kept as-is** (confirmed with Harry before this pass):
+- **Aaron** stays a named, specific escalation contact everywhere (legal/GDPR/refund routing) - not
+  genericized. Every GTME using this template inherits the same named manager reference.
+- **Copyright/ownership** - `LICENSE`, `CLAUDE.md` ("Managed by: Harry Rawles"), and `README.md`
+  ("Designed for one human (Harry)...", "Built for Harry Rawles") still name Harry Rawles as the
+  repo's owner/author. This is a legal/authorship fact, not an operator placeholder.
+- **Methodology attribution** - the "provided by Harry Rawles" / "provided by Harry" source-material
+  credits in `wiki/acquisition-systems-theory.md`, `wiki/darwinian-acquisition-theory.md`,
+  `wiki/first-principles-client-acquisition.md`, `wiki/offer-creation-theory.md` (x2),
+  `wiki/psychological-principles.md`, `wiki/system-design-process.md`, and the "Harry's iteration
+  process" citation in `wiki/scientific-method.md` stay as real historical authorship credit.
+- **Generated-deliverable sign-off defaults** - `gtm-skills/qbr-writer.md`'s "Prepared by: Harry Rawles"
+  and `gtm-skills/client-report-writer.md`'s "Sign off as Harry, not as the company" instruction are
+  untouched.
+- **GitHub identifiers** - the `harryrawles` issue-template assignees and the `harryrawles/gtm-meta-os`
+  path referenced in this changelog are untouched.
+- **CHANGELOG.md itself** is historical record and was not retroactively edited for either "Harry" or
+  "Refine Flow" mentions in past entries.
+
+Also fixed one item outside strict scope: `gtm-skills/test-launcher.md`'s sample test-email address
+(`harry@refineflow.co`) combined both terms in a live example - replaced with "the GTME's own inbox."
+
+---
+
 ## [3.2.0] - 2026-07-08
 
 ### Changed - Consistency audit fix pass (Medium + Low, closes the [3.1.0] backlog)

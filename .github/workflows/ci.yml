@@ -26,7 +26,7 @@ jobs:
       - name: Link integrity (every referenced .md resolves)
         run: bash tests/ci/check-links.sh
 
-      - name: No em dashes (Harry's writing rule)
+      - name: No em dashes (the GTME's writing rule)
         run: bash tests/ci/check-em-dash.sh
 
       - name: Secret / isolation scan

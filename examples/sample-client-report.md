@@ -56,4 +56,4 @@ Example of what `gtm-skills/client-report-writer.md` produces. Sent to client vi
 
 - Approval needed on T-006 variant copy before Tuesday launch. Will share Monday for sign-off.
 
-Harry
+GTME

@@ -34,7 +34,7 @@ See `wiki/_skill-context.md`.
 
 ## SKILL-SPECIFIC READS
 
-Pull whatever already exists before asking Harry to re-type it:
+Pull whatever already exists before asking the GTME to re-type it:
 - `clients/{slug}/overview.md` - client name, plan, MRR
 - `clients/{slug}/campaign-state.md` - campaign status, current performance
 - `clients/{slug}/icp.md` - ICP overview, angles tested
@@ -201,7 +201,7 @@ Label: "Cover Notice - AM" (single variant, no follow-up).
 ## STEP 5 - Log the Handover
 
 - `clients/{slug}/decision-log.md` - log the transition (type, date, outgoing/incoming GTME, AM).
-- `clients/{slug}/comms-log.md` - log the client introduction message once Harry confirms it was sent (this skill does not send it).
+- `clients/{slug}/comms-log.md` - log the client introduction message once the GTME confirms it was sent (this skill does not send it).
 - `clients/{slug}/MEMORY.md` - update the owning GTME so future sessions resolve to the right person.
 
 ---
@@ -219,7 +219,7 @@ Label: "Cover Notice - AM" (single variant, no follow-up).
 
 ## RULES
 
-- Never send anything. Present all outputs as drafts only, Harry (or the AM/GTME running this) sends manually.
+- Never send anything. Present all outputs as drafts only, the GTME (or the AM/GTME running this) sends manually.
 - If a field genuinely has no content, write "None at this time.", never leave it blank or skip it.
 - The brief is the internal document, the client messages are separate outputs, clearly labelled, never merge them into one draft.
 - For Temporary Cover, always confirm planned vs. unplanned before drafting the Scenario 3 message, the sender differs.

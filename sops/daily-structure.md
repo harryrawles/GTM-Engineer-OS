@@ -1,6 +1,6 @@
 # SOP: GTME Daily Structure
 
-When: every working day. This is the default operating structure for how Harry's time gets split within a
+When: every working day. This is the default operating structure for how the GTME's time gets split within a
 single working day.
 
 This is a guide, not a rigid schedule. If there are no onboards on a given day, use that time for campaign

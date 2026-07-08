@@ -18,7 +18,7 @@ writes:
 
 **Trigger:** "Write a cold email", "write me a sequence", "email copy for [campaign]", "cold email for [signal]"
 
-**Context:** Harry manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows clients/{slug}/voice.md. PRR is the only metric that matters.
+**Context:** the GTME manages signal-based email outreach on behalf of {{CLIENT_NAME}}. Emails target decision-makers at businesses that match the client ICP. The tone follows clients/{slug}/voice.md. PRR is the only metric that matters.
 
 ---
 
@@ -80,7 +80,7 @@ Call the Instantly API for this client (via `.claude/bin/instantly.sh` - see `so
 - Per sequence step: which email step is driving the most replies
 - Top-performing subject lines
 
-If the Instantly API can't be reached (missing/invalid key), ask Harry to paste the metrics before continuing.
+If the Instantly API can't be reached (missing/invalid key), ask the GTME to paste the metrics before continuing.
 
 ### Step 2 - Surface winning copy
 
@@ -232,7 +232,7 @@ For any of these conditions, spawn an `Explore` sub-agent for independent QA bef
 - High-stakes campaign launch (first email to a Tier 1 / A-tier prospect)
 - New variant being tested (T-XXX entering test-log as Running)
 - Copy on a sensitive topic (after a recent objection pattern, after an incident, after client pushback)
-- Any time Harry has explicitly asked for a thorough check
+- Any time the GTME has explicitly asked for a thorough check
 
 **Sub-agent invocation:** see `wiki/_subagent-patterns.md` Pattern 1 (Read-only research) and `gtm-skills/fresh-eyes-reviewer.md` for the template prompt.
 

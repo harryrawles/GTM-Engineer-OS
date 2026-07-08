@@ -67,7 +67,7 @@ Things to remember when working on this account. Patterns that surprised us, edg
 
 ## Open Questions / Pending Items
 
-Things waiting on the client, on Harry, or on a future event.
+Things waiting on the client, on the GTME, or on a future event.
 
 - [ ] {{e.g. "Waiting on {{PRIMARY_CONTACT}} to approve T-006 variant copy by Monday"}}
 - [ ] {{e.g. "Renewal discussion scheduled for 2026-07-01"}}
@@ -114,7 +114,7 @@ Older entries moved here when no longer top of mind but worth keeping searchable
 
 ## How Skills Update This File
 
-- **`weekly-reviewer.md`** - at end of review, prompts Harry to update Active Focus and Recent Learnings
+- **`weekly-reviewer.md`** - at end of review, prompts the GTME to update Active Focus and Recent Learnings
 - **`reply-handler.md`** - when a reply contains a client preference signal, captures to Client Preferences
 - **`client-request-handler.md`** - adds to Open Questions when a request needs client response
 - **`inbound-activator.md`** - adds to Active Inbound Watch

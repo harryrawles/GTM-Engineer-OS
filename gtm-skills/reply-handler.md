@@ -103,7 +103,7 @@ Quick options:
 
 I'll send a short agenda once booked - 20 mins, no slides.
 
-Harry
+GTME
 ```
 
 **Adjustments:**
@@ -136,7 +136,7 @@ Understood - appreciate the reply.
 
 If timing changes, you can find us anytime.
 
-Harry
+GTME
 ```
 
 **Variant if they said "We're happy with [competitor]":**
@@ -147,7 +147,7 @@ Subject: RE: [original subject]
 
 Good to hear. If anything ever shifts on [competitor]'s side, I'll be around.
 
-Harry
+GTME
 ```
 
 **Log:**
@@ -165,9 +165,9 @@ Harry
 1. Add to Instantly suppression list immediately
 2. Add to client's global do-not-contact in `clients/{slug}/_config.md` if requested
 3. Do NOT reply - escalates risk
-4. If hostile and threatens action (lawyer, complaint) → flag to Harry immediately, do not auto-respond.
-   Harry escalates to Aaron (his manager/team lead, `sops/am-gtme-responsibility-split.md`) per
-   `gtm-skills/incident-responder.md` Protocol C, a legal threat isn't his call to handle solo.
+4. If hostile and threatens action (lawyer, complaint) → flag to the GTME immediately, do not auto-respond.
+   The GTME escalates to Aaron (their manager/team lead, `sops/am-gtme-responsibility-split.md`) per
+   `gtm-skills/incident-responder.md` Protocol C, a legal threat isn't their call to handle solo.
 
 **Log:**
 - `clients/{slug}/comms-log.md` - flag as "hostile" if relevant
@@ -208,7 +208,7 @@ Quick ask - who would you point me to on the [function area] side?
 
 Happy to take it directly to them.
 
-Harry
+GTME
 ```
 
 **Or if they named the person:**
@@ -221,7 +221,7 @@ Thanks - I'll reach out to [named person] directly.
 
 Quick favour: mind if I mention you pointed me their way?
 
-Harry
+GTME
 ```
 
 **Then:**
@@ -254,7 +254,7 @@ Two minutes to read.
 
 If anything sparks, happy to dive deeper.
 
-Harry
+GTME
 ```
 
 **Then:**
@@ -275,7 +275,7 @@ Harry
 3. Verify the response biases are right for THIS prospect (e.g. ATL register vs BTL - adjust tone accordingly)
 4. Customise with proof points from `clients/{slug}/offer.md`
 5. Send response
-6. If they respond again → escalate to Harry directly (Claude does not handle 2+ objection cycles automatically)
+6. If they respond again → escalate to the GTME directly (Claude does not handle 2+ objection cycles automatically)
 
 **Bias check before sending:** confirm the response leverages the right biases for objection handling per `wiki/psychological-principles.md` "Biases by Copy Stage" table - primarily Disarming honesty, Frame-based misreaction (hold your frame), Understanding bias, Relatability, Reason-respecting, Polite bias. Avoid triggering Egocentric bias (do not attack their idea directly).
 
@@ -299,7 +299,7 @@ Subject: RE: [original subject]
 
 Worth a quick chat to see if it fits {{company}}?
 
-Harry
+GTME
 ```
 
 **Rules:**
@@ -325,7 +325,7 @@ Short version: [one-sentence offer summary tailored to newName's role].
 
 Open to a quick call to walk through fit?
 
-Harry
+GTME
 ```
 
 **Then:**
@@ -338,7 +338,7 @@ Harry
 
 ## STEP 2J - Unclear
 
-**Action:** ask Harry to clarify. Do not auto-respond.
+**Action:** ask the GTME to clarify. Do not auto-respond.
 
 Output:
 ```
@@ -369,7 +369,7 @@ Logs updated:
 - clients/{slug}/decision-log.md (if novel pattern)
 
 Next action:
-- {{What Harry needs to do - send manually / approve / book meeting}}
+- {{What the GTME needs to do - send manually / approve / book meeting}}
 
 Notes:
 - {{Anything unusual to flag}}
@@ -379,11 +379,11 @@ Notes:
 
 ## RULES
 
-- **Never send the response automatically.** Always show Harry the draft for approval.
+- **Never send the response automatically.** Always show the GTME the draft for approval.
 - **Always log to `clients/{slug}/comms-log.md`.** Every reply, every type.
 - **Pattern recognition is key.** If you see the same objection 3+ times, flag it. The OS should adapt.
-- **Hostile replies → no response, immediate suppression.** Escalate to Harry.
-- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to Harry, who loops in Aaron (his manager/team lead) per `gtm-skills/incident-responder.md` Protocol E, this isn't a call Harry makes alone.
+- **Hostile replies → no response, immediate suppression.** Escalate to the GTME.
+- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to the GTME, who loops in Aaron (their manager/team lead) per `gtm-skills/incident-responder.md` Protocol E, this isn't a call the GTME makes alone.
 - **Match the voice** in `clients/{slug}/voice.md`. Do not improvise tone.
 - **Track winner patterns.** If a specific response template converts at unusual rate, log it as a candidate winner for the next weekly review.
 
@@ -394,7 +394,7 @@ Notes:
 ### Example 1 - Positive reply on {{CLIENT_NAME}} hiring campaign
 
 ```
-Harry: Handle this reply:
+GTME: Handle this reply:
 "Yeah this sounds interesting. We've struggled with the typical agency churn. Send a time."
 
 Claude:
@@ -420,7 +420,7 @@ Or grab any time here: [calendar link]
 
 20 mins, no slides - just the candidate pipeline approach.
 
-Harry
+GTME
 
 Logs updated:
 - clients/{slug}/comms-log.md: positive reply from Jordan Kim, Vector Health, hiring campaign Email 2

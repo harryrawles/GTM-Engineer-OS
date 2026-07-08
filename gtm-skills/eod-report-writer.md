@@ -21,13 +21,13 @@ writes:
 
 **Trigger:** "EOD report", "End of day report", "Wrap up my day", "Close out the day", "Daily report", "What did I get done today", "Run my EOD"
 
-**Context:** Produces the end-of-day report Harry posts to the team Slack. This is the skill for the **Daily - End of Day Wrap** slot in `OPERATING-RHYTHM.md` (previously "manual logging"). It is **portfolio-wide by nature** - it summarises the whole day across every client worked on, so it does **not** require an active client. The report is outcomes-based: every line answers "what actually changed today?" or "what changes next?" - never a narration of process. Three sections: **MOVED** (pushed forward), **BLOCKED** (barriers in the way), **NEXT** (what happens next). Output is a plain-text Slack message - never auto-sent.
+**Context:** Produces the end-of-day report the GTME posts to the team Slack. This is the skill for the **Daily - End of Day Wrap** slot in `OPERATING-RHYTHM.md` (previously "manual logging"). It is **portfolio-wide by nature** - it summarises the whole day across every client worked on, so it does **not** require an active client. The report is outcomes-based: every line answers "what actually changed today?" or "what changes next?" - never a narration of process. Three sections: **MOVED** (pushed forward), **BLOCKED** (barriers in the way), **NEXT** (what happens next). Output is a plain-text Slack message - never auto-sent.
 
 **The lever this report exists to show:** not how many clients got touched (activity theatre), but how many **stagnant** accounts got genuinely fixed and how often **good** accounts got pushed further. "Added leads" and "reworked copy" describe activity, not outcome - they say nothing about whether the account was diagnosed or moved. See STEP 2 and STEP 3 below for the bar every bullet has to clear.
 
 **Cadence:** End of every working day (~5 min). Skipping a day is fine - the raw audit trail in `.claude/sessions/` persists, so a missed day can be reconstructed later.
 
-**Reporter:** Defaults to **Harry** (per `CLAUDE.md`). Only override if someone else is filing.
+**Reporter:** Defaults to **the GTME** (per `CLAUDE.md`). Only override if someone else is filing.
 
 ---
 
@@ -64,14 +64,14 @@ Rules (per `wiki/_skill-context.md` "Session-Log Write"):
 - Skill name only (no path).
 - Outcome column filled at end (e.g. "EOD posted - 6 clients, 0 blockers").
 
-If no client can be resolved (nothing logged today), skip the per-client rows and tell Harry there is no activity to report - do not invent any.
+If no client can be resolved (nothing logged today), skip the per-client rows and tell the GTME there is no activity to report - do not invent any.
 
 ---
 
 ## STEP 1 - Reconstruct the day
 
 1. List `.claude/sessions/` and read every `.jsonl`. Keep only lines whose `ts` is today (the hook writes UTC - allow for the local-day boundary if a session runs late). If a session spans midnight, include only today's portion.
-2. From `user_prompt` events, extract the abstract intent of each prompt (what Harry set out to do).
+2. From `user_prompt` events, extract the abstract intent of each prompt (what the GTME set out to do).
 3. From `tool_start` events, extract the concrete actions - especially:
    - Instantly mutations (activate / pause / create campaign, add / enrich leads, update sequence)
    - Gmail / Slack sends (client comms)
@@ -80,7 +80,7 @@ If no client can be resolved (nothing logged today), skip the per-client rows an
 5. Cross-reference each client's `session-log.md` today rows for the one-line outcomes already recorded.
 6. Attribute every item to a client folder. Cross-client actions go in an **All Clients** bucket.
 
-**Fallback:** if `.claude/sessions/` is empty or the hook is not installed, use the per-client `session-log.md` today rows plus this conversation, and note in your reply that the raw trail was unavailable (so Harry knows the report may be thinner than reality). Never pad the gap with invented work.
+**Fallback:** if `.claude/sessions/` is empty or the hook is not installed, use the per-client `session-log.md` today rows plus this conversation, and note in your reply that the raw trail was unavailable (so the GTME knows the report may be thinner than reality). Never pad the gap with invented work.
 
 ## STEP 2 - Classify each touched account before writing a single bullet
 
@@ -163,13 +163,13 @@ Then present it and offer delivery (see RULES). Fill the STEP 0 outcome column.
 
 ## STEP 5 - Close the loop (one-line nudge)
 
-After presenting, if the trail shows any of the rest of the `OPERATING-RHYTHM.md` EOD wrap is still outstanding, remind Harry in a single line: log any client comms to `comms-log.md`, update `decision-log.md` for decisions made, and commit changed client files. One line, not a lecture.
+After presenting, if the trail shows any of the rest of the `OPERATING-RHYTHM.md` EOD wrap is still outstanding, remind the GTME in a single line: log any client comms to `comms-log.md`, update `decision-log.md` for decisions made, and commit changed client files. One line, not a lecture.
 
 ---
 
 ## RULES
 
-- **Never auto-send.** Posting to Slack / sending external comms is hard-blocked by the Safety Guard (`.claude/hooks/safety-guard.sh`; CLAUDE.md Safety Guard rule 1). Present the report as a draft. Only create a Slack **draft** if Harry approves and names the channel.
+- **Never auto-send.** Posting to Slack / sending external comms is hard-blocked by the Safety Guard (`.claude/hooks/safety-guard.sh`; CLAUDE.md Safety Guard rule 1). Present the report as a draft. Only create a Slack **draft** if the GTME approves and names the channel.
 - **Portfolio, not client-specific.** Do not ask for an active client - report across everyone worked on today.
 - **Never invent** outcomes, numbers, causes, or client names. No activity today - say so plainly.
 - **No bare activity bullets.** "Added leads," "reworked copy," "worked on X," "followed up" are not complete bullets on their own - every bullet pairs the action with a diagnosed cause, a named lever, or a concrete result (STEP 3).
@@ -188,14 +188,14 @@ After presenting, if the trail shows any of the rest of the `OPERATING-RHYTHM.md
 See `examples/sample-eod-report.md` for the full worked example. Abbreviated:
 
 ```
-Harry: wrap up my day
+GTME: wrap up my day
 
 Claude:
 [STEP 0] Portfolio mode - resolving today's clients from .claude/sessions/*.jsonl + session logs... 6 clients touched. Logging invocation to each.
 [STEP 1] Reconstructing the day from the raw trail... done.
 [STEP 2] Classifying: CLIENT_A stagnant (32k sends, 18 days live, PRR 0.4%) - flagged for diagnosis. CLIENT_D Green, volume scaled today - push. Rest routine.
 
-EOD Report - Harry - Friday, July 3, 2026
+EOD Report - GTME - Friday, July 3, 2026
 
 MOVED
 

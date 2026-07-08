@@ -4,7 +4,7 @@ The 15 most common objections in B2B cold email, with pattern recognition, respo
 
 **Used by:** `gtm-skills/reply-handler.md` when a reply contains an objection.
 
-**Why this exists:** the same objections come up across every campaign. Without a library, Harry improvises each time. With one, responses are consistent, tested, and patterns are visible across the portfolio.
+**Why this exists:** the same objections come up across every campaign. Without a library, the GTME improvises each time. With one, responses are consistent, tested, and patterns are visible across the portfolio.
 
 ---
 
@@ -14,7 +14,7 @@ The 15 most common objections in B2B cold email, with pattern recognition, respo
 
 1. **Identify the objection type** - match the reply to one of the 15 patterns below
 2. **Customise the response template** - pull proof points from `clients/{slug}/offer.md`, voice from `clients/{slug}/voice.md`
-3. **Send the response** - always show Harry the draft first
+3. **Send the response** - always show the GTME the draft first
 4. **Log** to `clients/{slug}/comms-log.md` and (if patterned) to `clients/{slug}/decision-log.md`
 5. **Escalate** per the rules below
 
@@ -36,7 +36,7 @@ Two thoughts:
 
 Should I check back when budgets reopen?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names budget as the blocker.
@@ -61,7 +61,7 @@ Most teams using [competitor] tell me they hit a ceiling around [specific pain p
 
 I'll close the loop unless that resonates.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names a competitor.
@@ -86,7 +86,7 @@ Faster: I can record a 2-minute Loom on how we'd approach this for {{company}} s
 
 Want me to send it?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect asks for materials before committing.
@@ -109,7 +109,7 @@ Will do - diaried for [specific date in Q3].
 
 Quick check before then: is there anything specific that would need to be true for this to be a priority?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names a future date.
@@ -137,7 +137,7 @@ Appreciate the redirect.
 
 Mind if I mention you pointed me their way?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names someone else.
@@ -165,7 +165,7 @@ Understood - appreciate the reply.
 
 If timing changes, you can find us anytime.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect says no without naming a reason.
@@ -190,7 +190,7 @@ Fair question - found you via [LinkedIn / company website / public source].
 
 Reaching out because [specific reason tied to ICP / signal]. If it's not relevant, happy to drop.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect asks about data source.
@@ -202,7 +202,7 @@ Harry
 - Never name third-party tools (RB2B, Trigify, etc.) - sounds invasive
 - Reference public source even if data came from enrichment ("found via LinkedIn" is true if the chain started there)
 
-**Escalation:** if reply is hostile / mentions GDPR → check `wiki/deliverability.md` compliance, escalate to Harry (who loops in his manager, this isn't his call alone), do not auto-respond beyond the first reply.
+**Escalation:** if reply is hostile / mentions GDPR → check `wiki/deliverability.md` compliance, escalate to the GTME (who loops in their manager, this isn't their call alone), do not auto-respond beyond the first reply.
 
 ---
 
@@ -239,7 +239,7 @@ Or if you want a ballpark first: we typically work in the [range] for {{ICP_segm
 
 Worth the call?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect asks price directly.
@@ -269,7 +269,7 @@ Two-page write-up here: [link]
 
 If the parallel lands, happy to walk through the specifics for {{company}}.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect asks for case study.
@@ -297,7 +297,7 @@ Hear that often. Usually fails because of [specific common reason - e.g. wrong I
 
 What part broke last time?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect references prior failed attempt.
@@ -327,7 +327,7 @@ Where most {{ICP_function}} teams land is they hit a ceiling at [specific scale 
 
 I'll close the loop unless that hits.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names internal capability.
@@ -352,7 +352,7 @@ Diaried for Q[X].
 
 Quick: what changes in Q[X] vs now? Just want to send the right thing at the right time.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect names a budget planning window.
@@ -380,7 +380,7 @@ Sure - just sent the request.
 
 Quick note attached so it makes sense out of context.
 
-Harry
+GTME
 ```
 
 **When to use:** prospect suggests LinkedIn.
@@ -388,7 +388,7 @@ Harry
 **Biases leveraged:** Reciprocation (responding to their preference), Familiarity bias (LinkedIn = lower-pressure ongoing exposure), Effort perception (custom note).
 
 **Action:**
-- Send LinkedIn connection request from Harry's account
+- Send LinkedIn connection request from the GTME's account
 - Brief context note
 - Continue email sequence in parallel but lower frequency
 - Use LinkedIn for value-add posts and engagement
@@ -411,7 +411,7 @@ Specifically: at [their stage / size], the issue is usually [specific stage-appr
 
 Quick call to scope fit before assuming?
 
-Harry
+GTME
 ```
 
 **When to use:** prospect says they're too small/big.
@@ -439,9 +439,9 @@ Harry
 - Argue with the prospect
 - Repeat the original pitch verbatim
 - Send the same response to 2 different objections
-- Auto-respond to hostile / GDPR-flagged messages without Harry's approval
+- Auto-respond to hostile / GDPR-flagged messages without the GTME's approval
 
-### Escalation triggers (auto-flag to Harry)
+### Escalation triggers (auto-flag to the GTME)
 - Any response involving GDPR, CAN-SPAM, or legal language
 - Any 2nd objection from same prospect (don't enter circular argument)
 - Any "we know your CEO" or "talked to your team" hints (relationship signal worth manual review)

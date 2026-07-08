@@ -77,7 +77,7 @@ flowchart TD
     D -->|No| F[Step 3: Identify Winners]
     E --> F
     F --> G{PRR >= 1% and sample >= 300?}
-    G -->|Yes| H[Confirm with Harry]
+    G -->|Yes| H[Confirm with the GTME]
     G -->|No| I[Step 4: Identify Losers]
     H --> J{Confirmed?}
     J -->|Yes| K[Ask 'why it worked']
@@ -119,7 +119,7 @@ flowchart TD
     M -->|No| N[Adjust sequence]
     M -->|Yes| O{Personalisation tier right?}
     O -->|No| P[Personalization Strategist]
-    O -->|Yes| Q[Diagnose deeper / consult Harry]
+    O -->|Yes| Q[Diagnose deeper / consult the GTME]
 
     style D fill:#F44336,color:#fff
     style Q fill:#9E9E9E,color:#fff
@@ -142,9 +142,9 @@ flowchart TD
     C -->|Objection| J[Objection Library]
     C -->|Question only| K[Concise answer + bridge]
     C -->|Forwarded internally| L[Acknowledge + new contact]
-    C -->|Unclear| M[Flag for Harry]
+    C -->|Unclear| M[Flag for the GTME]
 
-    F --> N[Escalate to Harry]
+    F --> N[Escalate to the GTME]
     J --> O{Pattern recognized?}
     O -->|Yes| P[Use template response]
     O -->|No| Q[Custom response + add to library]

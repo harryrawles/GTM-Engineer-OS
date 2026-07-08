@@ -1,6 +1,6 @@
 # Tests
 
-Scenario-based tests for OS regression. Each file describes a scenario, an input, and the expected output. Harry can run any test manually after OS changes to verify nothing broke.
+Scenario-based tests for OS regression. Each file describes a scenario, an input, and the expected output. The GTME can run any test manually after OS changes to verify nothing broke.
 
 **These are not automated tests.** They are documented scenarios that exercise the OS. Pass/fail is judged by reading Claude's output against the expected output.
 

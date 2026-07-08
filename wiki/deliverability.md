@@ -112,7 +112,7 @@ To opt out, reply "unsubscribe" or click here: [link]
 Privacy policy: [link]
 ```
 
-GDPR-flagged replies (legal language, data requests) escalate to Aaron (Harry's manager/team lead,
+GDPR-flagged replies (legal language, data requests) escalate to Aaron (the GTME's manager/team lead,
 `sops/am-gtme-responsibility-split.md`), not a solo call, see `gtm-skills/reply-handler.md` and
 `gtm-skills/incident-responder.md`.
 

@@ -19,7 +19,7 @@
 #      blocked by safety-guard.sh precisely so the key can never leak that way.
 #   3. Safety - safety-guard.sh gates THIS wrapper by HTTP verb: GET (and the
 #      read-only `POST /leads/list`) run automatically; every other verb
-#      (POST/PATCH/PUT/DELETE = a mutation or send) is blocked pending Harry's
+#      (POST/PATCH/PUT/DELETE = a mutation or send) is blocked pending the GTME's
 #      explicit approval, per CLAUDE.md → Safety Guard.
 #
 # USAGE (what Claude types via the Bash tool):

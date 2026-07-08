@@ -11,7 +11,7 @@ reads:
   - "wiki/_subagent-patterns.md"
   - "(passes target files to sub-agent - does not read them itself)"
 writes:
-  - "(nothing - review is for Harry's evaluation)"
+  - "(nothing - review is for the GTME's evaluation)"
 ---
 
 # Skill: Fresh-Eyes Reviewer
@@ -55,7 +55,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## STEP 1 - Identify the Artefact
 
-Ask Harry:
+Ask the GTME:
 1. **What's being reviewed?** (paste the copy, file content, decision summary, etc.)
 2. **What's the standard?** (e.g. "voice + offer rules", "ICP scoring rubric", "campaign launch checklist")
 3. **What specifically worries you?** (helps focus the sub-agent)
@@ -114,12 +114,12 @@ Use `Explore` agent type:
 
 ## STEP 4 - Present the Result
 
-Show Harry:
+Show the GTME:
 - The sub-agent's structured review (PASS / FAIL items)
-- The original artefact (so Harry can see what the review applies to)
+- The original artefact (so the GTME can see what the review applies to)
 - Any clear next action
 
-**Do NOT auto-rewrite based on FAILs.** The review is information for Harry's judgment. If the review surfaces real issues, Harry can choose to re-invoke the appropriate skill (cold-email-writer, etc.) with the FAIL context.
+**Do NOT auto-rewrite based on FAILs.** The review is information for the GTME's judgment. If the review surfaces real issues, the GTME can choose to re-invoke the appropriate skill (cold-email-writer, etc.) with the FAIL context.
 
 ---
 
@@ -139,7 +139,7 @@ This helps future sessions catch similar issues earlier.
 
 - **Always pass the full artefact to the sub-agent.** Do not assume it knows context - it doesn't.
 - **Always tell the sub-agent what NOT to do.** Otherwise it will try to be helpful by rewriting, which defeats the purpose.
-- **Never override a FAIL silently.** If the review flags something and Harry decides to ship anyway, document the override in MEMORY.md or decision-log.md.
+- **Never override a FAIL silently.** If the review flags something and the GTME decides to ship anyway, document the override in MEMORY.md or decision-log.md.
 - **Cost-conscious.** Use `Explore` (not `general-purpose`) for file-based reviews. Save general-purpose for tasks requiring WebFetch or external lookup.
 - **Single-purpose per invocation.** Don't ask the sub-agent to "review and improve" - review only. Improvements are a separate invocation of the original skill.
 
@@ -150,7 +150,7 @@ This helps future sessions catch similar issues earlier.
 ### Example - Reviewing a cold email before send
 
 ```
-Harry: Fresh-eyes review this email before I push it to {{PRIMARY_CONTACT}} for approval:
+GTME: Fresh-eyes review this email before I push it to {{PRIMARY_CONTACT}} for approval:
 
 Subject: hiring speed
 Saw the senior eng hires coming in. Most VPs of Eng at this stage are losing 10-15 hrs/week interviewing low-signal candidates from outsourcing firms. We only source from VC-backed product companies - {{NAMED_PROOF_COMPANY}}'s VP closed 4 hires this way, saved $100k vs in-house. Want a sample shortlist?

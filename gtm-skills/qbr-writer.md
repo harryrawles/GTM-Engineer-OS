@@ -62,7 +62,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 ## INPUTS REQUIRED
 
-Ask Harry before generating:
+Ask the GTME before generating:
 1. **Quarter being reviewed:** Q1 / Q2 / Q3 / Q4 + year
 2. **Date range:** start and end dates of the quarter
 3. **Deals closed attributable to outbound:** if known
@@ -270,7 +270,7 @@ Also generate a 45-minute agenda for the QBR call:
 # QBR Call Agenda - {{CLIENT_NAME}} - {{date}}
 
 **Duration:** 45 min
-**Attendees:** {{client contact}}, Harry, AM (joining for the renewal segment, or for the whole call if
+**Attendees:** {{client contact}}, GTME, AM (joining for the renewal segment, or for the whole call if
 that's easier to schedule)
 
 ## Agenda
@@ -282,7 +282,7 @@ that's easier to schedule)
 5. (5 min) Performance case for renewal (Section 9), hand off to the AM for terms/pricing
 6. (5 min) Open items and Q&A (Section 10)
 
-## Talking Points (Harry's notes)
+## Talking Points (the GTME's notes)
 
 - Lead with the headline number. Don't bury it.
 - If a campaign underperformed, name it and the fix. Don't dodge. This should already be old news to the client by QBR time, per `sops/client-not-getting-results.md`.
@@ -325,7 +325,7 @@ After the QBR is delivered:
 - **Be specific about Q{{n+1}}.** Plans without specifics are noise.
 - **Always flag renewal and hand off to the AM.** Even if the client doesn't bring it up, you have to raise
   it, but the terms conversation itself is the AM's, not yours.
-- **Log the call.** comms-log + decision-log. Future-Harry will thank you.
+- **Log the call.** comms-log + decision-log. Future-GTME will thank you.
 
 ---
 

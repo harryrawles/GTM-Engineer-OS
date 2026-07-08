@@ -55,7 +55,7 @@ Paste the client message. Capture:
 - **From:** {{contact name}}
 - **Verbatim request:** {{paste}}
 
-Ask Harry to confirm interpretation if ambiguous.
+Ask the GTME to confirm interpretation if ambiguous.
 
 ---
 
@@ -72,9 +72,9 @@ Ask Harry to confirm interpretation if ambiguous.
 | **G - Reporting question** | "What's our PRR this month", "How many meetings did we book", "Send me the data" | `gtm-skills/campaign-analyst.md` or `gtm-skills/client-report-writer.md` |
 | **H - Strategic / Q4 planning** | "Plan Q4", "What should we change", "What's working" | `gtm-skills/qbr-writer.md` or strategic discussion |
 | **I - Performance concern** | "PRR seems low", "Why are we underperforming" | `gtm-skills/campaign-optimiser.md` + diagnostic. If this Type fires at all, `sops/client-not-getting-results.md` Step 1 was missed, the client should already know before they ask. |
-| **J - Contract / billing** | "Renewal terms", "Invoice question", "I want a refund" | Manual - escalate to the AM, not Harry (billing is AM-owned per `sops/am-gtme-responsibility-split.md`), using the channel and format in `sops/gtme-escalation-to-am.md`. Refund requests: follow `sops/client-communication-principles.md` situational guidance (no commitments, escalate immediately to the AM, tag Aaron if the client has public presence) |
+| **J - Contract / billing** | "Renewal terms", "Invoice question", "I want a refund" | Manual - escalate to the AM, not the GTME (billing is AM-owned per `sops/am-gtme-responsibility-split.md`), using the channel and format in `sops/gtme-escalation-to-am.md`. Refund requests: follow `sops/client-communication-principles.md` situational guidance (no commitments, escalate immediately to the AM, tag Aaron if the client has public presence) |
 | **K - Asset request** | "Send the deck", "Share the case study" | Manual - pull from `assets/` and send |
-| **L - Custom / unclear** | Anything else | Capture and flag for Harry |
+| **L - Custom / unclear** | Anything else | Capture and flag for the GTME |
 
 If multiple types → handle the most actionable first, then sequentially.
 
@@ -93,7 +93,7 @@ On it. {{1-line summary of what you understood + ETA}}.
 
 Will update once {{X is done / decision is made / data is pulled}}.
 
-Harry
+GTME
 ```
 
 **Adjust:**
@@ -129,7 +129,7 @@ Based on classification:
 ### Type D - Test Request
 1. Invoke `gtm-skills/test-launcher.md`
 2. Validate the test makes sense (one variable, achievable sample, etc.)
-3. Queue or launch per Harry's go-ahead
+3. Queue or launch per the GTME's go-ahead
 
 ### Type E - Pause Campaign
 1. Update `clients/{slug}/campaign-state.md`:
@@ -158,7 +158,7 @@ Based on classification:
 3. Respond with: root cause + fix + expected impact + timeline
 
 ### Type J - Contract / Billing
-ESCALATE - do not auto-handle. Notify Harry, draft acknowledgement to client.
+ESCALATE - do not auto-handle. Notify the GTME, draft acknowledgement to client.
 
 ### Type K - Asset Request
 1. Pull asset from `assets/README.md` index
@@ -166,8 +166,8 @@ ESCALATE - do not auto-handle. Notify Harry, draft acknowledgement to client.
 3. Log to comms-log
 
 ### Type L - Unclear
-- Output for Harry: "Request type unclear. Suggested classification: {{X}}. Proceed?"
-- Wait for Harry's call
+- Output for the GTME: "Request type unclear. Suggested classification: {{X}}. Proceed?"
+- Wait for the GTME's call
 
 ---
 
@@ -218,7 +218,7 @@ Once the action is done, send a closing message:
 
 Anything else, just shout.
 
-Harry
+GTME
 ```
 
 Update comms-log entry with outcome.
@@ -254,7 +254,7 @@ Before confirming completion to the client:
 ### Example - copy change request
 
 ```
-Harry: Handle client request:
+GTME: Handle client request:
 "{{PRIMARY_CONTACT}} said the Email 2 isn't landing for him. He wants something more about the candidate quality story, not the timeline."
 
 Claude:
@@ -266,7 +266,7 @@ Type: C - Change to copy
 Classification confidence: High
 
 Acknowledgement draft (sending now):
-"{{PRIMARY_CONTACT}} - on it. Reframing Email 2 around candidate quality. Will have a draft for you by EOD tomorrow. - Harry"
+"{{PRIMARY_CONTACT}} - on it. Reframing Email 2 around candidate quality. Will have a draft for you by EOD tomorrow. - GTME"
 
 Routing to cold-email-writer for Email 2 of Hiring Signal v4.
 Reading clients/{slug}/copy-library.md (current Email 2)...
@@ -275,7 +275,7 @@ Reading clients/{slug}/offer.md (proof points around candidate provenance)...
 [Invokes cold-email-writer to draft new Email 2]
 [Shows side-by-side: current Email 2 vs new variant]
 
-After Harry approves:
+After the GTME approves:
 - Reply to {{PRIMARY_CONTACT}} with the new copy for sign-off
 - Once approved by {{PRIMARY_CONTACT}} → run campaign-launcher pre-flight
 - Update in Instantly

@@ -70,7 +70,7 @@ Confirm these before building:
 4. **What signals indicate buying intent?** (cross-reference with `wiki/signal-sourcing.md`)
 5. **Who should we avoid?** (bad-fit clients, competitors, sectors)
 
-If the client has existing customers: ask Harry to list the top 3-5. These are the ICP.
+If the client has existing customers: ask the GTME to list the top 3-5. These are the ICP.
 
 ---
 
@@ -115,7 +115,7 @@ Output specific, actionable filter criteria ready to use in Instantly or a lead 
 
 ## OUTPUT FORMAT
 
-Update `clients/{slug}/icp.md` with the completed ICP. Confirm with Harry before updating the file.
+Update `clients/{slug}/icp.md` with the completed ICP. Confirm with the GTME before updating the file.
 
 For a full ICP scoring system and ABM tier assignment, route to `gtm-skills/list-builder.md`.
 

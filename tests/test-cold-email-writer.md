@@ -15,7 +15,7 @@ Write a cold email for {{CLIENT_NAME}}. Email 1 of a new sequence. Signal: compa
 Claude should:
 
 ### 1. Run Pre-Write Protocol
-- Pull Instantly data (or ask Harry to paste)
+- Pull Instantly data (or ask the GTME to paste)
 - Read clients/{slug}/copy-library.md for prior winners on hiring signal
 - Check graveyard
 - Decide register: VP Engineering → ATL → max 60 words

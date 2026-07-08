@@ -80,7 +80,7 @@ Identify and confirm:
 - **Detection timestamp:** when did the signal fire?
 - **Time since signal:** how much of the optimal window has elapsed?
 
-If signal is older than its optimal window (per freshness rules in `wiki/signal-sourcing.md`), flag and ask Harry whether to still activate or drop to nurture.
+If signal is older than its optimal window (per freshness rules in `wiki/signal-sourcing.md`), flag and ask the GTME whether to still activate or drop to nurture.
 
 ---
 
@@ -100,7 +100,7 @@ Trigger Clay workflow for this signal type. Expected output:
 Manual enrichment via Apollo. Slower but workable.
 
 ### If no enrichment tools connected
-Note the gap. Use public data only. Quality will be lower. Flag to Harry that Clay or Apollo would help for
+Note the gap. Use public data only. Quality will be lower. Flag to the GTME that Clay or Apollo would help for
 this client, new paid tools go through the AM/manager for procurement approval, not connected unilaterally.
 
 ---
@@ -144,11 +144,11 @@ Query `clients/{slug}/decision-log.md`, recent `clients/{slug}/comms-log.md`, an
 Based on tier × signal:
 
 ### Hot (A-tier + strong signal - pricing page, demo no-show, multi-stack)
-- **Action:** Personal outbound by Harry directly
+- **Action:** Personal outbound by the GTME directly
 - **Channel:** Email + LinkedIn DM
 - **SLA:** Within 1 hour (sub-5-min if demo request)
 - **Copy generation:** invoke `gtm-skills/cold-email-writer.md` with maximum personalisation tier
-- **Notification:** Alert Harry via Slack / immediate flag
+- **Notification:** Alert the GTME via Slack / immediate flag
 
 ### Warm (A-tier weaker signal, B-tier strong signal)
 - **Action:** Add to existing premium sequence in Instantly
@@ -275,7 +275,7 @@ Before activating outbound:
 ### Example - Pricing page visitor
 
 ```
-Harry: RB2B picked up someone from Vector Health visiting our pricing page
+GTME: RB2B picked up someone from Vector Health visiting our pricing page
 
 Claude:
 === Inbound Signal Activated - Vector Health ===
@@ -301,7 +301,7 @@ Qualification:
 - Heat: On Fire (multi-signal A-tier)
 
 Action:
-- Personal outbound by Harry within 1 hour (target: 30 min)
+- Personal outbound by the GTME within 1 hour (target: 30 min)
 - Channel: Email PRIMARY, LinkedIn as follow-up 24h later
 - Personalisation tier: Strong hook (reference the implication of recent Series A + scaling)
 

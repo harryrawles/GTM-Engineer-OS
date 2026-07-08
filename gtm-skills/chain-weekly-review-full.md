@@ -57,7 +57,7 @@ Then verify:
 
 Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client): last 7 days of campaign data per active campaign.
 
-If the Instantly API can't be reached (missing/invalid key) → ask Harry to paste the metrics.
+If the Instantly API can't be reached (missing/invalid key) → ask the GTME to paste the metrics.
 
 ---
 
@@ -65,11 +65,11 @@ If the Instantly API can't be reached (missing/invalid key) → ask Harry to pas
 
 Invoke `gtm-skills/client-health-scorer.md`. Produces a 100-point score with breakdown.
 
-**Pause-point:** show Harry the score + breakdown. If score is Amber (40-59) or Red/Critical (under 40), surface intervention recommendations BEFORE proceeding to the deep review.
+**Pause-point:** show the GTME the score + breakdown. If score is Amber (40-59) or Red/Critical (under 40), surface intervention recommendations BEFORE proceeding to the deep review.
 
 **Why first:** the health score frames the rest of the review. A Red client gets prioritised attention. A Green client gets routine logging.
 
-If Red/Critical: flag urgency in `clients/{slug}/MEMORY.md` Active Focus. Optionally Harry can pause the chain here to take immediate action.
+If Red/Critical: flag urgency in `clients/{slug}/MEMORY.md` Active Focus. Optionally the GTME can pause the chain here to take immediate action.
 
 ---
 
@@ -115,7 +115,7 @@ The variant regressed from V(n) (regression check fired).
 ### Case C: No completed tests this week
 Skip Step 3 entirely. Move to Step 4.
 
-**Pause-point:** Harry confirms any test launch before it fires (test-launcher's normal behaviour).
+**Pause-point:** the GTME confirms any test launch before it fires (test-launcher's normal behaviour).
 
 ---
 
@@ -130,9 +130,9 @@ The report should reflect:
 - What worked / what is being tested (from Step 2 Steps 3, 4, 7)
 - Next week plan (informed by Step 3 test launches)
 
-**Pause-point:** Harry reviews the report before sending. Edits if needed.
+**Pause-point:** the GTME reviews the report before sending. Edits if needed.
 
-After approval → Harry sends via Slack/email per `clients/{slug}/overview.md` SLA. The chain does not auto-send.
+After approval → the GTME sends via Slack/email per `clients/{slug}/overview.md` SLA. The chain does not auto-send.
 
 ---
 
@@ -170,7 +170,7 @@ Step 3 - Test Promotion:
   - Tests launched: [n]
   - Tests reverted: [n]
 Step 4 - Report:
-  - Draft generated and ready for Harry review
+  - Draft generated and ready for the GTME's review
 
 Files updated:
 - clients/{slug}/copy-library.md
@@ -179,12 +179,12 @@ Files updated:
 - clients/{slug}/campaign-state.md
 - clients/{slug}/MEMORY.md
 - clients/{slug}/_config.md (last_review_date)
-- clients/{slug}/comms-log.md (report sent entry - pending after Harry sends)
+- clients/{slug}/comms-log.md (report sent entry - pending after the GTME sends)
 
 OS state for [client]: [Green/Amber/Red]
 Next review: Friday [date + 7]
 
-Outstanding: [any client-side actions Harry needs to take this week]
+Outstanding: [any client-side actions the GTME needs to take this week]
 ```
 
 ---
@@ -195,7 +195,7 @@ Outstanding: [any client-side actions Harry needs to take this week]
 
 **Purpose:** Sweep every active client in under 45 minutes and identify which ones need a full review this Friday. Run this first, every Friday. Then run single-client mode (Steps 0-5) only on flagged clients.
 
-**Client list:** enumerate the folders under `clients/` - each folder is one active client (slug = folder name), skipping any whose name starts with `_` or `.` (e.g. `clients/_archived/`). No manual list needed; the `clients/` directory is the source of truth. Harry can still scope it explicitly ("Portfolio triage for: acme, vector-health") to run a subset.
+**Client list:** enumerate the folders under `clients/` - each folder is one active client (slug = folder name), skipping any whose name starts with `_` or `.` (e.g. `clients/_archived/`). No manual list needed; the `clients/` directory is the source of truth. the GTME can still scope it explicitly ("Portfolio triage for: acme, vector-health") to run a subset.
 
 ### Phase 1 - Triage Sweep (~2 min per client)
 
@@ -248,6 +248,6 @@ This compares to 5-6 hours running full reviews on every client. The efficiency 
 - **Use Portfolio Triage Mode for 20 clients.** Run quick-review triage on all clients first (see Portfolio Triage Mode above), then run single-client mode only on flagged clients. Do not run full review on all 20 clients sequentially - that is 5-6 hours, not 2.5-4 hours.
 - **Never skip Step 2.** The deep review IS the compounding loop. If you skip it, the OS does not learn anything from this week.
 - **Always run the synthesis step.** That is weekly-reviewer Step 7 - the meta-takeaway that turns individual entries into compounding patterns. Without it, the entries pile up without ever connecting.
-- **Pause at every meaningful checkpoint.** This chain is decision support - Harry confirms winners, losers, test launches, and the report before send.
+- **Pause at every meaningful checkpoint.** This chain is decision support - the GTME confirms winners, losers, test launches, and the report before send.
 - **Update `last_review_date`.** Skipped weeks = broken compounding loop. The date tracking surfaces drift.
 - **If chain is interrupted mid-flow.** Resume from the last completed step on next invocation. The OS state files (copy-library, decision-log, test-log) are appended to as each step completes - no all-or-nothing risk.

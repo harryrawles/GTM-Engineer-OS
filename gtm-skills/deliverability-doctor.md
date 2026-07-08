@@ -68,7 +68,7 @@ Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh
 - Raw reply rate trend (the one deliverability exception to PRR, see `wiki/deliverability.md`)
 - Warmup status (red / amber / green per mailbox)
 
-Ask Harry to paste if MCP unavailable.
+Ask the GTME to paste if MCP unavailable.
 
 ### Severity assessment
 
@@ -175,13 +175,13 @@ stay GTME's, they're campaign decisions, not infrastructure ones.
 - **Plain text only.** Always. No HTML for cold outreach. Ever.
 - **Never stop warmup.** 10-20/day per mailbox even during active campaigns.
 - **Re-verify lists every 30 days.** Email decays 2.1% per month.
-- **Document infrastructure changes** in `clients/{slug}/campaign-state.md` so future-Harry knows what changed.
+- **Document infrastructure changes** in `clients/{slug}/campaign-state.md` so the next GTME knows what changed.
 
 ---
 
 ## QA CHECKLIST
 
-Before handing the diagnosis to Harry:
+Before handing the diagnosis to the GTME:
 
 - [ ] Severity assessment matches the actual pulled data, not an assumption?
 - [ ] Every recommended step is labelled GTME-owned or AM-owned (`sops/am-gtme-responsibility-split.md`)?

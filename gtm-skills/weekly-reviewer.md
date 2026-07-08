@@ -89,7 +89,7 @@ Before running any review, determine which mode applies:
 - Escalates automatically to full review if any triage gate fires
 
 **Full review (deep review):**
-- Use when: triage flagged this client, OR Harry explicitly invokes full review, OR client is Red/Critical
+- Use when: triage flagged this client, OR the GTME explicitly invokes full review, OR client is Red/Critical
 - Time: 15-20 min per client
 
 The portfolio triage pattern: run quick-review on every client first, collect the flagged list, then run full review only on flagged clients. See `gtm-skills/chain-weekly-review-full.md` Portfolio Triage Mode.
@@ -104,7 +104,7 @@ The portfolio triage pattern: run quick-review on every client first, collect th
 
 ### Pull data
 
-Pull last 7 days from the Instantly API (via `.claude/bin/instantly.sh`). If it can't be reached (missing/invalid key), read `clients/{slug}/campaign-state.md` last-known health and ask Harry for a headline PRR figure.
+Pull last 7 days from the Instantly API (via `.claude/bin/instantly.sh`). If it can't be reached (missing/invalid key), read `clients/{slug}/campaign-state.md` last-known health and ask the GTME for a headline PRR figure.
 
 ### Four triage gates
 
@@ -155,7 +155,7 @@ For the past 7 days, per campaign:
 - Per-sequence-step breakdown (Email 1 / 2 / 3 PRR)
 - Top subject lines by open rate
 
-If the Instantly API can't be reached (missing/invalid key) → ask Harry to paste the data. Continue from Step 2.
+If the Instantly API can't be reached (missing/invalid key) → ask the GTME to paste the data. Continue from Step 2.
 
 ### Step 2 - Surface signal performance trends
 
@@ -196,7 +196,7 @@ Subject: {{subject}}
 
 2. Ask: **"Log this as a winner?"** Wait for confirmation.
 
-3. If yes, ask Harry the decision-log questions:
+3. If yes, ask the GTME the decision-log questions:
    - **Why do you think this worked?** (1-3 specific reasons)
    - **What is the most stealable element?** (the pattern to replicate)
    - **Anything you would NOT carry over to another client?**
@@ -205,7 +205,7 @@ Subject: {{subject}}
 
 5. **Write to `clients/{slug}/decision-log.md`** with the rationale (see decision-log template below).
 
-6. Confirm both writes to Harry.
+6. Confirm both writes to the GTME.
 
 ### Step 4 - Identify losers (PRR < 0.5%, sample ≥ 300 sends)
 
@@ -300,7 +300,7 @@ Update the "current metrics" and "health" fields per campaign. Add a state note 
 
 After all individual winners, losers, and tests are logged, zoom out and capture the meta-takeaway.
 
-Ask Harry one question:
+Ask the GTME one question:
 > "What pattern emerged this week? What did this week tell us that the individual entries don't?"
 
 Then classify the pattern type:
@@ -368,14 +368,14 @@ This is the **system-wide** half of the compounding loop (root `CLAUDE.md` → *
    - Graveyard **anti-pattern** (the structural mistake to avoid) → `best-practices/`.
    - Strategic **mental model** / signal-health / offer-framing / register insight → `frameworks/`.
    - Reusable **objection + response** → `wiki/objection-library.md`.
-3. Show Harry the exact de-identified text and target file. **Ask: "Promote this to `{path}`? (Y/N)"** Wait for confirmation (per the RULES below - never write without confirmation).
+3. Show the GTME the exact de-identified text and target file. **Ask: "Promote this to `{path}`? (Y/N)"** Wait for confirmation (per the RULES below - never write without confirmation).
 4. On yes: write the abstracted entry to the target file. If a *new* shared file was created, add it to `INDEX.md`.
 5. Record the promotion in `clients/{slug}/decision-log.md` (one line: what was promoted, to where, on what date) for traceability - so the client folder shows what left it, without the shared file ever pointing back to the client.
 
 **Output:**
 ```
 Step 8 - Shared-layer promotions this week: {{n}}
-- "{{pattern name}}" → {{best-practices/frameworks/wiki path}} (de-identified) [pending Harry Y/N]
+- "{{pattern name}}" → {{best-practices/frameworks/wiki path}} (de-identified) [pending the GTME's Y/N]
 ```
 
 If a promotion is declined, leave the learning in the client folder and note the decline in `decision-log.md`.
@@ -467,8 +467,8 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 
 ## RULES
 
-- **Never write without confirmation.** Every log to copy-library, decision-log, test-log, or campaign-state must be confirmed by Harry.
-- **Never invent metrics.** If the Instantly API fails or numbers are missing, ask Harry to paste them. Do not estimate.
+- **Never write without confirmation.** Every log to copy-library, decision-log, test-log, or campaign-state must be confirmed by the GTME.
+- **Never invent metrics.** If the Instantly API fails or numbers are missing, ask the GTME to paste them. Do not estimate.
 - **Sample size is non-negotiable.** Do not log a winner or loser with fewer than 300 sends per variant. Flag as "pending sample size" instead.
 - **Latency rule.** Do not call a test complete until 7 days post-send. Reply latency can rescue a "loser" verdict.
 - **Decision log is non-skippable for winners.** Every winner logged must have a why captured. Otherwise the OS does not compound - it just stores artefacts.
@@ -482,7 +482,7 @@ After all reviews complete, ask: "Generate client reports for all clients?" If y
 ## OUTPUT EXAMPLE - Single Client
 
 ```
-Harry: Run weekly review for {{CLIENT_NAME}}
+GTME: Run weekly review for {{CLIENT_NAME}}
 
 Claude:
 === Weekly Review - {{CLIENT_NAME}} - Week ending 2026-05-29 ===
@@ -516,22 +516,22 @@ Want me to send a sample shortlist?
 
 Log this as a winner?
 
-Harry: Yes
+GTME: Yes
 
 Claude:
 Why do you think this worked?
 
-Harry: The specific number (5 roles), the named client + $ saved, and the "send a sample shortlist" CTA - much lower friction than asking for a call.
+GTME: The specific number (5 roles), the named client + $ saved, and the "send a sample shortlist" CTA - much lower friction than asking for a call.
 
 Claude:
 What is the most stealable element?
 
-Harry: The "specific signal number + named client + dollar saved" structure for Part 1 and 2.
+GTME: The "specific signal number + named client + dollar saved" structure for Part 1 and 2.
 
 Claude:
 Anything you would NOT carry over to another client?
 
-Harry: The dollar figure is {{CLIENT_NAME}}-specific. Other clients need their own proof number.
+GTME: The dollar figure is {{CLIENT_NAME}}-specific. Other clients need their own proof number.
 
 Claude:
 Writing to clients/{slug}/copy-library.md... done.

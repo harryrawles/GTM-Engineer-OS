@@ -72,7 +72,7 @@ that supports it.
 
 ## Context Notes
 
-{{Any additional context Harry needs to manage this account well. Quirks, sensitivities, preferences, things they care about beyond metrics. Examples:
+{{Any additional context the GTME needs to manage this account well. Quirks, sensitivities, preferences, things they care about beyond metrics. Examples:
 - Primary contact is data-driven - always cite specific numbers
 - They are sensitive about [X] because of past experience
 - They prefer async Slack over calls

@@ -2,7 +2,7 @@
 
 ## Scenario
 
-A fresh clone of the template. Harry runs the onboarder for a fictitious client "Acme Health" (HR tech for healthcare).
+A fresh clone of the template. The GTME runs the onboarder for a fictitious client "Acme Health" (HR tech for healthcare).
 
 ## Input
 

@@ -2,7 +2,7 @@
 
 **Purpose:** send this to the client BEFORE the kickoff call so they can prepare. The onboarder reads filled answers from this file when running and skips already-answered questions.
 
-**Status:** [ ] Sent to client | [ ] Filled by client | [ ] Reviewed by Harry | [ ] Ingested by onboarder
+**Status:** [ ] Sent to client | [ ] Filled by client | [ ] Reviewed by the GTME | [ ] Ingested by onboarder
 
 **Method:** {{Email / Notion / Shared doc / etc.}}
 **Completed by:** {{Name and title}}
@@ -13,9 +13,9 @@
 
 ## How to use this file
 
-1. **Harry:** copy this template, send to the client before the kickoff call.
+1. **GTME:** copy this template, send to the client before the kickoff call.
 2. **Client:** fills in as much as they can. No question is mandatory - skip what you do not know.
-3. **Harry:** review answers before the call. Identify gaps.
+3. **GTME:** review answers before the call. Identify gaps.
 4. **Onboarder:** during Phase 1 startup, reads this file. Already-filled answers populate the company files directly. Gaps become questions in the conversational flow.
 
 If this file is empty, the onboarder runs in pure conversational mode.

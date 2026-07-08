@@ -13,7 +13,7 @@ reads:
   - "clients/{slug}/icp.md"
   - "clients/{slug}/test-log.md"
 writes:
-  - "(none - analysis is presented for Harry's review)"
+  - "(none - analysis is presented for the GTME's review)"
 ---
 
 # Skill: Campaign Analyst
@@ -63,7 +63,7 @@ Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh
 - Subject line performance
 - Reply categorisation (positive, negative, OOO)
 
-Ask Harry to paste data if MCP is unavailable.
+Ask the GTME to paste data if MCP is unavailable.
 
 ---
 
@@ -136,4 +136,4 @@ Before presenting the analysis:
 - [ ] Every recommended action is specific, not generic ("test a shorter CTA in Email 2", not "improve copy")?
 - [ ] Every observation is tied to a data point, not a hunch?
 - [ ] Recommendations are ranked by expected PRR impact, highest first?
-- [ ] No metric stated without its source (Instantly pull vs Harry-provided)?
+- [ ] No metric stated without its source (Instantly pull vs GTME-provided)?

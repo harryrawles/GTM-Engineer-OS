@@ -39,7 +39,7 @@ The daily, weekly, monthly, and quarterly cadence for managing GTM accounts. Fol
 2. Update any decision log entries if a decision was made
 3. Commit changes if any client files changed (one repo holds every client)
 
-**Why:** prevents drift. Future-Harry remembers what happened today only if today-Harry writes it down.
+**Why:** prevents drift. Future-GTME remembers what happened today only if today-GTME writes it down.
 
 ---
 
@@ -208,7 +208,7 @@ conversation.
 
 | Skipped | First week | After 2 weeks | After 4 weeks |
 |---------|-----------|---------------|---------------|
-| Daily morning check | Replies pile up | Hostile reply slips through | Client questions Harry's responsiveness |
+| Daily morning check | Replies pile up | Hostile reply slips through | Client questions the GTME's responsiveness |
 | Friday weekly review | OS stops compounding | Test log goes stale | Same mistakes repeat across clients |
 | Monthly ICP review | OK | ICP drift unnoticed | Targeting waste compounds |
 | Quarterly QBR | OK | Renewal conversation reactive | Client churns without warning |

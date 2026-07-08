@@ -64,7 +64,7 @@ Match the tier and signal to the right outbound motion:
 
 | Lead profile | Action | Channel | SLA |
 |-------------|--------|---------|-----|
-| **A-tier + hot signal** (pricing page, demo no-show) | Slack alert to Harry, personalised same-day outreach | Email + LinkedIn | <1 hour |
+| **A-tier + hot signal** (pricing page, demo no-show) | Slack alert to the GTME, personalised same-day outreach | Email + LinkedIn | <1 hour |
 | **A-tier + warm signal** | Premium sequence (cold-email-writer with full personalisation) | Email | <24 hours |
 | **B-tier + any signal** | Automated sequence (cold-email-writer with lite hook) | Email | <48 hours |
 | **C-tier** | Content drip, LinkedIn connection, long-term nurture | Multi-channel | Ongoing |

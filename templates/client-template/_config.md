@@ -55,4 +55,4 @@ This way: rename a client once (here), and the rest of the OS stays consistent.
 
 - [ ] All placeholders resolved
 - [ ] Instantly API key configured and verified (`.claude/bin/instantly.sh GET /campaigns`)
-- [ ] Reviewed by Harry before first campaign launch
+- [ ] Reviewed by the GTME before first campaign launch

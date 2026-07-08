@@ -124,15 +124,15 @@ winning recipe."
 
 - **This is a different track to `gtm-skills/client-onboarder.md`.** That skill is the internal
   conversational Q&A that fills `clients/{slug}/overview.md`, `icp.md`, `offer.md`, `voice.md`, and
-  `campaign-state.md`, Harry answering questions about the client. This SOP is the client-facing message
+  `campaign-state.md`, the GTME answering questions about the client. This SOP is the client-facing message
   cadence and call checklists that run over the same two weeks, alongside it, not instead of it.
   `sops/daily-structure.md`'s Onboarding block covers the internal work; this SOP covers what the client
   actually sees and hears.
 - **Phases 2 and 3 are the concrete version of `sops/churn-prevention.md`'s "Prevention Starts at
   Onboarding".** Setting clear timeline expectations and walking the client through the AI reply agent are
   named there as churn prevention; this SOP is exactly how and when that happens.
-- **Mailbox/domain provisioning stays AM's.** Phase 4's "confirm the mailbox and domain order" is Harry
-  asking the client to confirm, not Harry provisioning anything himself, and it explicitly routes AM
+- **Mailbox/domain provisioning stays AM's.** Phase 4's "confirm the mailbox and domain order" is the GTME
+  asking the client to confirm, not the GTME provisioning anything themselves, and it explicitly routes AM
   questions to the AM, consistent with `sops/am-gtme-responsibility-split.md`.
 - **Phase 7's launch handoff is where `gtm-skills/campaign-launcher.md` and `gtm-skills/pre-launch-
   check.md` take over.** This SOP is the client communication around the launch date, not the launch

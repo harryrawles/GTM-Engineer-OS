@@ -30,11 +30,11 @@ Format rules:
 
 ## Pattern Detection State
 
-Populated by `gtm-skills/pattern-detector.md`. Helps the detector avoid re-suggesting patterns Harry already rejected.
+Populated by `gtm-skills/pattern-detector.md`. Helps the detector avoid re-suggesting patterns the GTME already rejected.
 
 ### Rejected pattern suggestions
 
-Patterns the detector previously surfaced that Harry chose NOT to forge into skills. Detector skips these in future runs.
+Patterns the detector previously surfaced that the GTME chose NOT to forge into skills. Detector skips these in future runs.
 
 | Pattern signature | First detected | Rejected on | Reason (optional) |
 |-------------------|----------------|-------------|-------------------|
@@ -42,7 +42,7 @@ Patterns the detector previously surfaced that Harry chose NOT to forge into ski
 
 ### Forged skills (created by pattern-detector → skill-forge flow)
 
-Skills that were auto-forged from detected patterns. Lives here for traceability - the skill itself lives at `gtm-skills/forged-{name}.md` until Harry promotes it (renames to drop the `forged-` prefix).
+Skills that were auto-forged from detected patterns. Lives here for traceability - the skill itself lives at `gtm-skills/forged-{name}.md` until the GTME promotes it (renames to drop the `forged-` prefix).
 
 | Skill name | Forged from pattern | Date forged | Status | Promoted on |
 |-----------|---------------------|-------------|--------|-------------|
@@ -64,5 +64,5 @@ Append-only archive of session-log entries past the 90-day window. Kept for long
 
 - **Auto-prune monthly:** entries older than 90 days move to Archive. Done during weekly-reviewer (OS Hygiene section) or chain-weekly-review-full (STEP 5 - Update OS Hygiene).
 - **Never delete entries.** The log is the substrate that makes the OS exponentially improving.
-- **Rejected patterns are sticky.** Once Harry rejects a pattern suggestion, the detector never re-suggests the SAME pattern signature. If Harry wants to reverse a rejection, delete that row.
+- **Rejected patterns are sticky.** Once the GTME rejects a pattern suggestion, the detector never re-suggests the SAME pattern signature. If the GTME wants to reverse a rejection, delete that row.
 - **Privacy:** prompt summaries should not contain raw client data (specific prospect names, emails, sensitive details). Paraphrase to the abstract intent.

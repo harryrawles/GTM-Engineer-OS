@@ -14,9 +14,9 @@ Captures every meaningful interaction with the client. Used by:
 Each entry:
 - **Date** - when it happened
 - **Channel** - email / call / Slack / Notion / in-person
-- **Direction** - inbound (from client) / outbound (from Harry)
+- **Direction** - inbound (from client) / outbound (from GTME)
 - **Summary** - 1-3 lines, what was said
-- **Action needed** - what Harry has to do next, with deadline
+- **Action needed** - what the GTME has to do next, with deadline
 - **Outcome** - filled in once resolved
 
 ---
@@ -59,7 +59,7 @@ Items still requiring action.
 
 | Date raised | Action needed | Owner | Due |
 |-------------|---------------|-------|-----|
-| {{date}} | {{action}} | Harry | {{date}} |
+| {{date}} | {{action}} | GTME | {{date}} |
 
 ## SLA Tracking
 

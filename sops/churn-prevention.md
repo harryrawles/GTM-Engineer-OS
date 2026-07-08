@@ -63,7 +63,7 @@ conversation.
   `sops/client-communication-principles.md`'s "Client wants a refund" row and `CLAUDE.md` Safety Guard item
   4, no GTME-side financial commitment happens without the AM/Ammad sign-off named there.
 - **Onboarding-call expectation-setting is a different moment to `gtm-skills/client-onboarder.md`.** That
-  skill is the internal data-capture flow (Harry answering questions about the client). The Welcome Guide
+  skill is the internal data-capture flow (the GTME answering questions about the client). The Welcome Guide
   walkthrough is the live client-facing call, a separate moment that happens alongside it.
 - **The concrete script lives in `sops/onboarding-documentation.md` (standard) or
   `sops/onboarding-24-hour.md` (24-Hour Onboarding upgrade)**, whichever applies to the client.

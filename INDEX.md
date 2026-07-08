@@ -174,7 +174,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | tests/test-cold-email-writer.md | Copy quality |
 | tests/ci/check-links.sh | CI: every referenced `.md` path resolves (link integrity) |
 | tests/ci/check-secrets.sh | CI: no tracked secrets, credentials, or key material |
-| tests/ci/check-em-dash.sh | CI: no em dashes anywhere in the OS (Harry's writing rule), excludes vendored `.claude/skills/**` |
+| tests/ci/check-em-dash.sh | CI: no em dashes anywhere in the OS (the GTME's writing rule), excludes vendored `.claude/skills/**` |
 | tests/ci/test-safety-guard.sh | CI: safety-guard block/allow matrix |
 | .github/workflows/ci.yml | CI runner - shellcheck + the four checks above, on every push/PR |
 

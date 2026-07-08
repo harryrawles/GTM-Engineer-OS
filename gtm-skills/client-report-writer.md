@@ -9,14 +9,14 @@ reads:
   - "wiki/_skill-context.md"
   - "clients/{slug}/overview.md, campaign-state.md, test-log.md"
 writes:
-  - "(none - report is presented as a draft for Harry to send)"
+  - "(none - report is presented as a draft for the GTME to send)"
 ---
 
 # Skill: Client Report Writer
 
 **Trigger:** "Write the weekly report", "write the client update", "prepare this week report"
 
-**Context:** Harry sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
+**Context:** the GTME sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
 
 ---
 
@@ -59,9 +59,9 @@ Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active clien
 - Meetings booked
 - Bounce rate
 
-Ask Harry to paste the data if the Instantly API can't be reached (missing/invalid key).
+Ask the GTME to paste the data if the Instantly API can't be reached (missing/invalid key).
 
-Also confirm from Harry:
+Also confirm from the GTME:
 - Any meetings booked from replies this week
 - Any notable positive or negative replies worth mentioning
 - Any changes made to campaigns this week
@@ -118,7 +118,7 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 
 **Anything you need from me**
 
-{{If Harry needs something from the client - approval, assets, contacts. Leave blank if nothing needed.}}
+{{If the GTME needs something from the client - approval, assets, contacts. Leave blank if nothing needed.}}
 
 ---
 
