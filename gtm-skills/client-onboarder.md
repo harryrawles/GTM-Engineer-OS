@@ -8,6 +8,8 @@
 
 Per `sops/daily-structure.md`, onboarding is Block 1 of the working day and takes priority over everything else whenever one is pending.
 
+This skill is the internal data-capture flow. The parallel client-facing message cadence and call checklists for the same two weeks are `sops/onboarding-documentation.md`.
+
 ---
 
 ## STEP 0 - Create / Resolve the Client Folder (do this FIRST)

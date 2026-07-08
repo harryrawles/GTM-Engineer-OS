@@ -24,6 +24,9 @@ The best churn prevention happens before a client is ever at risk:
 A client who understands the process is far less likely to panic when week 1 does not deliver instant
 results.
 
+`sops/onboarding-documentation.md` is exactly how and when this happens, its Phase 2/3 checklists and
+message scripts are the concrete instantiation of this section.
+
 ---
 
 ## Early Signal, At-Risk Intervention

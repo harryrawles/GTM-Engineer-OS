@@ -34,6 +34,9 @@ to every client.
 - `churn-prevention.md` - onboarding-time churn prevention, the early at-risk trigger (see
   `tough-client-involve-csm.md`), and the cancellation-save discount boundary (20% off next month's VIP
   MRR, minimum $1k MRR, Ammad sign-off required).
+- `onboarding-documentation.md` - the client-facing message cadence and call checklists for the standard
+  (non-24-hour) onboarding flow, phases 1-7 from client assignment through launch. Runs alongside
+  `gtm-skills/client-onboarder.md`'s internal data capture.
 
 A growing staging area. When you write another runbook (e.g. a domain-warmup procedure or a
 deliverability-recovery checklist), drop it here and reference it by path; Claude auto-discovers it. List

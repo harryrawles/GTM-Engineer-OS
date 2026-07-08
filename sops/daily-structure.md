@@ -18,7 +18,9 @@ Time: 2-3 hours. Priority: first.
 
 New client onboards always come first. Set up campaigns, lead lists, and AI SDR configurations before
 anything else. Run via `gtm-skills/client-onboarder.md`. Mailbox and domain provisioning is a separate,
-parallel track owned by the AM, not part of this block (`sops/am-gtme-responsibility-split.md`).
+parallel track owned by the AM, not part of this block (`sops/am-gtme-responsibility-split.md`). The
+client-facing message cadence and call checklists that run alongside this internal work are
+`sops/onboarding-documentation.md`.
 
 ---
 
