@@ -66,6 +66,23 @@ Returns: independent assessment.
 
 Use for any non-trivial code or script that lands in the OS.
 
+### Pattern 4 - Structurally read-only QA (`fresh-eyes-reviewer` agent)
+
+```
+Spawn fresh-eyes-reviewer agent with:
+- description: "Fresh-eyes review of {{artefact type}}"
+- prompt: "The artefact + the specific rubric to judge it against + any file paths it should read first."
+
+Returns: structured PASS/FAIL per rubric item, plus an OVERALL verdict.
+```
+
+Defined in `.claude/agents/fresh-eyes-reviewer.md`. Unlike `Explore`, its tool access is limited at the
+agent-definition level to Read/Grep/Glob only - it cannot write, edit, or run shell commands, so it is
+incapable of side effects rather than merely instructed to avoid them. Its "never rewrite, never explain
+the rule, PASS/FAIL only" behaviour is baked into its own system prompt, so any skill spawning it doesn't
+need to re-state those constraints every time. Use this instead of `Explore` for any pass/fail-style
+review where the answer should carry zero risk of the sub-agent quietly fixing what it was asked to judge.
+
 ---
 
 ## Cost and latency trade-offs
@@ -100,7 +117,7 @@ Good prompt: `"Read clients/{slug}/voice.md and clients/{slug}/offer.md. Then re
 | `cold-email-writer.md` | After draft, before final output | `Explore` | Fresh-eyes QA against voice + offer rules |
 | `incident-responder.md` | During Protocol A (blacklist) and D (outage) | `general-purpose` | External fact lookup (blacklist status, platform status) |
 | `weekly-reviewer.md` | During Step 7 (synthesis) | `general-purpose` | Optional - research industry-wide trends if pattern is unclear |
-| `fresh-eyes-reviewer.md` | The skill itself IS the sub-agent invocation | `Explore` | Explicit manual request for review |
+| `fresh-eyes-reviewer.md` | The skill itself IS the sub-agent invocation | `fresh-eyes-reviewer` (custom, Read/Grep/Glob only) | Explicit manual request for review |
 
 ---
 

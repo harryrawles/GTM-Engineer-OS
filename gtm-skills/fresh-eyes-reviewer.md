@@ -1,6 +1,6 @@
 ---
 name: fresh-eyes-reviewer
-description: Explicit manual fresh-eyes review on any artefact - cold email copy, ICP definition, offer positioning, campaign launch decision, client response draft. Spawns an Explore sub-agent that reads only what is passed to it, returns a structured pass/fail review with no context bias from the main session.
+description: Explicit manual fresh-eyes review on any artefact - cold email copy, ICP definition, offer positioning, campaign launch decision, client response draft. Spawns the dedicated fresh-eyes-reviewer sub-agent (.claude/agents/fresh-eyes-reviewer.md, Read/Grep/Glob only - cannot write) that reads only what is passed to it, returns a structured pass/fail review with no context bias from the main session.
 triggers:
   - "Fresh-eyes review this"
   - "Get a fresh-eyes review on {{X}}"
@@ -18,7 +18,7 @@ writes:
 
 **Trigger:** "Fresh-eyes review this", "Get a fresh-eyes review on [X]", "Run independent QA on this", "Review this without bias"
 
-**Context:** Sometimes the main session has rationalised something into existence. This skill explicitly spawns an isolated `Explore` sub-agent to evaluate the artefact with no context bias. The sub-agent reads only what is passed to it and returns a structured pass/fail review.
+**Context:** Sometimes the main session has rationalised something into existence. This skill explicitly spawns the isolated `fresh-eyes-reviewer` sub-agent (`.claude/agents/fresh-eyes-reviewer.md`) to evaluate the artefact with no context bias. The sub-agent reads only what is passed to it, cannot write or run commands (Read/Grep/Glob only), and returns a structured pass/fail review.
 
 **Use this when:**
 - About to send copy that feels right but you're not sure
@@ -104,10 +104,12 @@ Email to review:
 
 ## STEP 3 - Spawn the Sub-Agent
 
-Use `Explore` agent type:
-- **Read-only** (cannot modify files - safe for QA)
-- **Faster** (lower latency than general-purpose)
-- **Lower cost** (cheaper model)
+Use the `fresh-eyes-reviewer` agent type (`.claude/agents/fresh-eyes-reviewer.md`):
+- **Structurally read-only** - tools limited to Read/Grep/Glob only, so it cannot write, edit, or run
+  shell commands, not just instructed not to
+- **No prior context** - starts with nothing but the prompt template below
+- **Purpose-built system prompt** - the "never rewrite, never explain the rule, PASS/FAIL only" behaviour
+  is baked into the agent itself, not just this skill's instructions
 - Description: "Fresh-eyes review of [artefact type]"
 
 ---
@@ -140,7 +142,7 @@ This helps future sessions catch similar issues earlier.
 - **Always pass the full artefact to the sub-agent.** Do not assume it knows context - it doesn't.
 - **Always tell the sub-agent what NOT to do.** Otherwise it will try to be helpful by rewriting, which defeats the purpose.
 - **Never override a FAIL silently.** If the review flags something and the GTME decides to ship anyway, document the override in MEMORY.md or decision-log.md.
-- **Cost-conscious.** Use `Explore` (not `general-purpose`) for file-based reviews. Save general-purpose for tasks requiring WebFetch or external lookup.
+- **Use the dedicated agent, not a generic one.** `fresh-eyes-reviewer` (Read/Grep/Glob only) is purpose-built for this; don't substitute `Explore` or `general-purpose`, both of which retain broader tool access this review never needs.
 - **Single-purpose per invocation.** Don't ask the sub-agent to "review and improve" - review only. Improvements are a separate invocation of the original skill.
 
 ---
@@ -156,7 +158,7 @@ Subject: hiring speed
 Saw the senior eng hires coming in. Most VPs of Eng at this stage are losing 10-15 hrs/week interviewing low-signal candidates from outsourcing firms. We only source from VC-backed product companies - {{NAMED_PROOF_COMPANY}}'s VP closed 4 hires this way, saved $100k vs in-house. Want a sample shortlist?
 
 Claude:
-Spawning Explore sub-agent for independent review against voice + offer rules...
+Spawning fresh-eyes-reviewer sub-agent for independent review against voice + offer rules...
 
 [~20 seconds]
 

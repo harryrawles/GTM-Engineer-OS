@@ -6,6 +6,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.7.0] - 2026-07-08
+
+### Added - dedicated fresh-eyes-reviewer sub-agent
+
+Added `.claude/agents/fresh-eyes-reviewer.md`, this OS's first custom Claude Code sub-agent type: a
+structurally read-only QA reviewer (tools limited to Read/Grep/Glob - cannot write, edit, or run shell
+commands) with "never rewrite, never explain the rule, PASS/FAIL only" baked into its own system prompt.
+
+Repointed `gtm-skills/fresh-eyes-reviewer.md` STEP 3 from the generic `Explore` agent type to this
+dedicated one. `Explore` retained Bash access (theoretically capable of a write, even though nothing
+instructed it to); the dedicated agent closes that off at the tool-definition level instead of relying on
+prompt instructions alone. The rubric itself stays dynamic, passed in per-invocation as before, since
+fresh-eyes reviews five different artefact types with five different standards - only the constant
+meta-behaviour moved into the agent definition.
+
+No effect on the compounding loop: the sub-agent only reads and returns a review, never writes to
+`copy-library.md`, `test-log.md`, `decision-log.md`, or `session-log.md` - those writes stay in the parent
+skill exactly as before.
+
+Updated `wiki/_subagent-patterns.md` (new Pattern 4, corrected the `fresh-eyes-reviewer.md` row),
+`CLAUDE.md` (repo structure diagram + Shared Brain list), and `INDEX.md` to document `.claude/agents/`.
+
+---
+
 ## [3.6.0] - 2026-07-08
 
 ### Added - find-skills vendored into .claude/skills/

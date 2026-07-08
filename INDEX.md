@@ -59,6 +59,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 | best-practices/ | Best-practice references & checklists |
 | best-practices/playbooks/ | Reusable client-agnostic campaign playbooks (e.g. funding) - start-points for any client's campaign |
 | .claude/skills/ | Vendored third-party Claude Skill packages (Anthropic's official format), invocable directly - see `.claude/skills/README.md`. Currently: `skill-creator/` (draft/iterate new skills) and `find-skills/` (discover and install skills from the open skills.sh ecosystem, install step tightened to always ask first). Distinct from `gtm-skills/`, which is this OS's own markdown routing convention. |
+| .claude/agents/ | Custom Claude Code sub-agent types this OS defines itself, spawned via the `Agent` tool from within a `gtm-skills/` skill - see `wiki/_subagent-patterns.md`. Currently: `fresh-eyes-reviewer` (Read/Grep/Glob only, structurally cannot write - used by `gtm-skills/fresh-eyes-reviewer.md` for independent QA on any artefact). |
 | templates/ | Reusable output templates + `client-template/` skeleton |
 
 ## Shared Knowledge - Copywriting
