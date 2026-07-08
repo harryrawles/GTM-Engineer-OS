@@ -4,7 +4,15 @@
 
 **Context:** Pulling campaign data from Instantly, structuring it, identifying what is working, what is not, and making strategic recommendations. The goal is a clear view of performance and a prioritised action list.
 
-**Read before analysing:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `clients/{slug}/campaign-state.md` - current benchmarks and infrastructure
 - `clients/{slug}/icp.md` - ICP to sanity-check list quality
 - `clients/{slug}/test-log.md` - what has been tested and what is currently running
@@ -32,7 +40,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 ## BEFORE YOU ANALYSE
 
 Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`):
-- All campaigns: sends, reply rate, PRR, bounce rate (last 30 days)
+- All campaigns: sends, PRR, bounce rate (last 30 days)
 - Per-campaign and per-step breakdown
 - Subject line performance
 - Reply categorisation (positive, negative, OOO)
@@ -47,9 +55,8 @@ Ask Harry to paste data if MCP is unavailable.
 
 | Metric | This period | Benchmark | Status |
 |--------|-------------|-----------|--------|
-| PRR | {{%}} | 1%+ | Green / Amber / Red |
-| Reply rate | {{%}} | 3%+ | Green / Amber / Red |
-| Bounce rate | {{%}} | Under 2% | Green / Amber / Red |
+| PRR | {{%}} | Per `sops/campaign-performance-standards.md` | Green / Amber / Red |
+| Bounce rate | {{%}} | Under 2% (5%+ critical, `wiki/deliverability.md`) | Green / Amber / Red |
 | Meetings booked | {{n}} | Client target | Green / Amber / Red |
 
 ### 2. Campaign-level breakdown
@@ -57,7 +64,7 @@ Ask Harry to paste data if MCP is unavailable.
 Rank all active campaigns by PRR. Identify:
 - Top performer: highest PRR - what is driving it?
 - Bottom performer: lowest PRR - what is the root cause?
-- Any campaign with bounce rate over 4% - flag as deliverability issue
+- Any campaign with bounce rate over 5% - flag as deliverability issue (critical threshold, `wiki/deliverability.md`)
 
 ### 3. Signal analysis
 
@@ -101,3 +108,14 @@ Output a prioritised list of 3 recommended actions. Each action should be:
 3. {{Third priority}}
 
 **Metrics to watch next week:** {{What to track as an early indicator of improvement}}
+
+---
+
+## QA CHECKLIST
+
+Before presenting the analysis:
+
+- [ ] Every recommended action is specific, not generic ("test a shorter CTA in Email 2", not "improve copy")?
+- [ ] Every observation is tied to a data point, not a hunch?
+- [ ] Recommendations are ranked by expected PRR impact, highest first?
+- [ ] No metric stated without its source (Instantly pull vs Harry-provided)?

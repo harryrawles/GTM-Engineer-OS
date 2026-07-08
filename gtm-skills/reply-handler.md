@@ -118,7 +118,7 @@ Harry
 - Flag the source campaign / email for **winner consideration** in next weekly-reviewer
 
 **Stop conditions:**
-- If positive reply rate >2% on this campaign → consider promoting Email 1 to canonical variant
+- If this campaign's PRR reaches the Exceptional tier (over 1.67%, `sops/campaign-performance-standards.md`) → consider promoting Email 1 to canonical variant
 
 ---
 
@@ -166,8 +166,8 @@ Harry
 2. Add to client's global do-not-contact in `clients/{slug}/_config.md` if requested
 3. Do NOT reply - escalates risk
 4. If hostile and threatens action (lawyer, complaint) → flag to Harry immediately, do not auto-respond.
-   Harry escalates to his manager per `gtm-skills/incident-responder.md` Protocol C, a legal threat isn't
-   his call to handle solo.
+   Harry escalates to Aaron (his manager/team lead, `sops/am-gtme-responsibility-split.md`) per
+   `gtm-skills/incident-responder.md` Protocol C, a legal threat isn't his call to handle solo.
 
 **Log:**
 - `clients/{slug}/comms-log.md` - flag as "hostile" if relevant
@@ -383,7 +383,7 @@ Notes:
 - **Always log to `clients/{slug}/comms-log.md`.** Every reply, every type.
 - **Pattern recognition is key.** If you see the same objection 3+ times, flag it. The OS should adapt.
 - **Hostile replies → no response, immediate suppression.** Escalate to Harry.
-- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to Harry, who loops in his manager per `gtm-skills/incident-responder.md` Protocol E, this isn't a call Harry makes alone.
+- **GDPR-flagged replies** (mentions data, opt-out rights, legal language) → check `wiki/deliverability.md` compliance section, escalate to Harry, who loops in Aaron (his manager/team lead) per `gtm-skills/incident-responder.md` Protocol E, this isn't a call Harry makes alone.
 - **Match the voice** in `clients/{slug}/voice.md`. Do not improvise tone.
 - **Track winner patterns.** If a specific response template converts at unusual rate, log it as a candidate winner for the next weekly review.
 

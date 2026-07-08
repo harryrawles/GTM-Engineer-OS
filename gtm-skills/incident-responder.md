@@ -61,7 +61,7 @@ Identify the type:
 | Type | Symptoms | Protocol |
 |------|---------|---------|
 | **A: Domain blacklisted** | MXToolbox shows listing, sending drops, bounces spike | Protocol A |
-| **B: Bounce rate spike** | Bounce >4% suddenly, no DNS change explanation | Protocol B |
+| **B: Bounce rate spike** | Bounce >5% suddenly, no DNS change explanation | Protocol B |
 | **C: Bad reply going public** | Prospect threatens legal, screenshots on social, GDPR complaint | Protocol C |
 | **D: Sender platform outage** | Instantly / Smartlead / HeyReach down | Protocol D |
 | **E: Client data exposure** | Lead list leaked, unauthorised access, GDPR breach | Protocol E |
@@ -81,6 +81,11 @@ If multiple types active → handle the most severe first.
 | **Low** | Watch only, no action yet | Harry (next morning) | Monitor |
 
 Default to higher severity if unsure. Easier to step down than escalate late.
+
+**Exception:** Protocols C and E are always Critical, but their own client-notification timing overrides
+the "client (immediately)" default above - both gate client contact behind Aaron's (the manager/team lead's)
+sign-off first. This table sets the general default; Protocols C and E are the specific rule where they
+apply.
 
 ---
 
@@ -171,7 +176,7 @@ Harry
 
 ### Immediate (first 15 minutes)
 
-1. **Pause campaigns with bounce >4%** immediately
+1. **Pause campaigns with bounce >5%** immediately
 2. **Identify scope:** which campaigns, which mailboxes, which lists
 3. **Check: did anything change in last 24h?**
    - New list loaded?
@@ -235,10 +240,11 @@ Logged to `clients/{slug}/decision-log.md` per template above.
 
 8. **If legal threat:**
    - Notify Harry immediately, full stop
-   - Harry escalates to his manager/team lead - a legal threat is not Harry's call to handle solo
+   - Harry escalates to Aaron (his manager/team lead, `sops/am-gtme-responsibility-split.md`) - a legal
+     threat is not Harry's call to handle solo
    - Do not respond to prospect
    - Preserve all comms in writing
-   - Client communication happens only after the manager has weighed in
+   - Client communication happens only after Aaron has weighed in
 
 ### Same day
 
@@ -316,9 +322,9 @@ Harry
 
 1. **Stop all sends** from affected client immediately
 2. **Notify Harry within 5 minutes** - no other notifications until Harry reviews
-3. **Harry escalates to his manager/team lead immediately** - a GDPR breach notification decision is not
-   Harry's to make alone
-4. **Do NOT notify the client** until the manager has assessed legal posture
+3. **Harry escalates to Aaron (his manager/team lead) immediately** - a GDPR breach notification decision
+   is not Harry's to make alone
+4. **Do NOT notify the client** until Aaron has assessed legal posture
 5. **Preserve evidence:** screenshots, access logs, the exposed data itself
 6. **Do not attempt to "fix"** by deleting data - preserve for legal
 
@@ -329,16 +335,16 @@ Harry
    - How many records?
    - Who had access?
    - Was data accessed by unauthorised party (vs just exposed)?
-8. **Manager decides the legal obligations**, Harry supports with the facts:
+8. **Aaron decides the legal obligations**, Harry supports with the facts:
    - GDPR breach notification (72 hours from awareness)
    - State-level breach notification (varies)
    - Insurance / liability
 
 ### Decision: client notification
 
-This is the manager's call, not Harry's and not the OS's. Harry's job is to surface the facts fast and
-execute whatever notification approach the manager decides on, full transparency and written confirmation
-once that decision is made.
+This is Aaron's call, not Harry's and not the OS's. Harry's job is to surface the facts fast and execute
+whatever notification approach Aaron decides on, full transparency and written confirmation once that
+decision is made.
 
 ### Post-mortem
 

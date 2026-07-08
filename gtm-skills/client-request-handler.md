@@ -237,6 +237,18 @@ Update comms-log entry with outcome.
 
 ---
 
+## QA CHECKLIST
+
+Before confirming completion to the client:
+
+- [ ] Acknowledgement sent within SLA (24h default)?
+- [ ] Classification type matches the actual request, not a convenient guess?
+- [ ] Every action logged to `comms-log.md`, and to `decision-log.md` if non-trivial?
+- [ ] Billing, contract, and legal requests escalated, never auto-handled?
+- [ ] Closing message ties back to the specific thing the client asked for?
+
+---
+
 ## EXAMPLES
 
 ### Example - copy change request

@@ -4,7 +4,15 @@
 
 **Context:** Lead quality is upstream of every metric. A bad list means even perfect copy fails. This skill handles ICP definition, account qualification, ABM tier assignment, contact mapping, and list hygiene.
 
-**Read before responding:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `wiki/list-building.md` - full methodology: ICP framework, scoring, ABM tiers, contact mapping, hygiene
 - `wiki/signal-sourcing.md` - for intent data layering during qualification
 - `clients/{slug}/icp.md` - current client ICP
@@ -111,7 +119,7 @@ Run before every campaign. Non-negotiable.
 2. **Remove** invalid, unknown, disposable, role-based, toxic
 3. **Sub-verify** catch-all with ListKit / Listman.io
 4. **Re-verify** anything older than 30 days
-5. **Target:** bounce rate under 1%
+5. **Target:** bounce rate under 2% (the healthy target, `wiki/deliverability.md`)
 
 ---
 

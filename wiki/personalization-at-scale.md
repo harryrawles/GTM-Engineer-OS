@@ -1,8 +1,9 @@
 # Personalization at Scale
 
-> **PRR conversion:** ColdIQ benchmarks use `reply rate` broadly. Our primary KPI is **PRR**. Rough conversion: `reply rate × 30-50% ≈ PRR`. So "22% reply rate" ≈ "6-11% PRR."
-
-Personalisation is the difference between 6% and 22% reply rate. But over-personalisation kills scale. This file is the framework for personalising at volume without sounding like a robot or a stalker.
+Personalisation is the difference between finishing near the bottom and near the top of the PRR scale in
+`sops/campaign-performance-standards.md` - roughly the gap between 500+ sends per positive reply and under
+200. But over-personalisation kills scale. This file is the framework for personalising at volume without
+sounding like a robot or a stalker.
 
 **Core rule:** Use AI for ONE specific part of the email, not the whole thing. Control messaging for split testing - static template + dynamic personalisation insert.
 

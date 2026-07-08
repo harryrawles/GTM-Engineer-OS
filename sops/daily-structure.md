@@ -47,8 +47,8 @@ in the middle of other blocks, it kills your productivity.
 ## Friday Rule
 
 Use Fridays (the quieter day) to batch campaign updates. Depending on urgency, updates can be pushed to
-Friday so clients receive everything by end of week or Monday, still within the 5-7 day expectation window.
-Internally the target is 4 days.
+Friday so clients receive everything by end of week, but never past the 3-day campaign-update target in
+Block 2 above - batching is for convenience within that window, not an extension of it.
 
 ---
 

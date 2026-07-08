@@ -38,7 +38,9 @@ an AM or manager handoff, it's `sops/gtme-unlock-ladder.md`: Cowork, then the su
 ## Beyond the AM: Manager/Team Lead Owns
 
 Some things aren't the AM's either. Legal threats and GDPR/data-exposure incidents escalate to Harry's
-manager/team lead, not just to Harry, and not to the client until the manager has weighed in. See
+manager/team lead, not just to Harry, and not to the client until the manager has weighed in. **Aaron is
+that manager/team lead** - every other file in this OS that names "Aaron" for a legal, GDPR, public-
+presence, or refund escalation is naming this same role, not a separate contact. See
 `gtm-skills/incident-responder.md` Protocols C and E.
 
 ---

@@ -4,7 +4,15 @@
 
 **Context:** Harry sends a weekly performance update to the client. The report should be concise, data-led, and make the client feel informed and confident. No padding. No corporate filler.
 
-**Read before writing:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `clients/{slug}/overview.md` - client name and reporting day
 - `clients/{slug}/campaign-state.md` - active campaigns and benchmarks
 - `clients/{slug}/test-log.md` - what is currently being tested (to include in "what is next")
@@ -33,7 +41,6 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 Pull from the Instantly API (via `.claude/bin/instantly.sh` for the active client) for the past 7 days:
 - Sends per campaign
-- Reply rate per campaign
 - PRR per campaign
 - Meetings booked
 - Bounce rate
@@ -63,7 +70,6 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 | Metric | This week | Last week | Change |
 |--------|-----------|-----------|--------|
 | Emails sent | {{n}} | {{n}} | {{+/-n}} |
-| Reply rate | {{%}} | {{%}} | {{+/-%}} |
 | Positive reply rate | {{%}} | {{%}} | {{+/-%}} |
 | Meetings booked | {{n}} | {{n}} | {{+/-n}} |
 | Bounce rate | {{%}} | {{%}} | {{+/-%}} |
@@ -86,7 +92,7 @@ Output the report exactly in this format. Do not add sections. Do not add paddin
 
 **What we are watching / testing**
 
-{{1-2 bullets. What is underperforming and what is being done about it. e.g. "Email 2 reply rate is low. Testing a shorter CTA this week - will have data by [date]."}}
+{{1-2 bullets. What is underperforming and what is being done about it. e.g. "Email 2 PRR is low. Testing a shorter CTA this week - will have data by [date]."}}
 
 ---
 

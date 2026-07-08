@@ -87,7 +87,7 @@ Required fields:
 - **Outgoing GTME Name** - who is handing over
 - **Incoming GTME Name** - who is taking over
 - **AM Name** - Account Manager overseeing the handover
-- **Campaign Status** - what is currently running, where it is in the testing cycle, current performance (reply rate, leads generated to date)
+- **Campaign Status** - what is currently running, where it is in the testing cycle, current performance (PRR, leads generated to date)
 - **ICP Overview** - who is being targeted, what angles have been tested, what has and has not worked
 - **Client Personality and Comms Style** - how they communicate, how often they expect updates, any sensitivities or preferences
 - **Open Action Items** - everything in progress or outstanding (campaigns being built, approvals pending, Looms due)

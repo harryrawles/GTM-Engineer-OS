@@ -77,10 +77,10 @@ Obvious signs:
 Less obvious signs (Proofpoint / Barracuda / Mimecast specifically):
 - The same email structure and sentiment, even once every line is personalised and spintaxed.
 
-You can measure deliverability via reply rate. The floor you want is 2.8%+, if reply rate is below that
-and falling, mailboxes are beginning to decay or fall into spam (this refines the "Under 3%: Danger zone"
-line already in `wiki/email-benchmarks.md` and `wiki/deliverability.md`, treat 2.8% as the precise cutoff
-going forward).
+You can measure deliverability via raw reply rate (not PRR - this is the one deliverability exception, see
+`wiki/deliverability.md`). The floor you want is 2.8%+, if raw reply rate is below that and falling,
+mailboxes are beginning to decay or fall into spam - this is the exact "Danger zone" cutoff in
+`wiki/deliverability.md`'s raw reply rate table.
 
 Why this happens:
 - Mailboxes reaching the end of their lifecycle.

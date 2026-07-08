@@ -100,8 +100,8 @@ break. Combine with the spintax rule above so a whole send isn't identical.
 ## A/B Testing Subject Lines
 
 - Test **2 subject lines at a time** (not more)
-- Minimum **100 sends per variant** before judging
-- Measure **open rate AND reply rate** - high opens with low replies = clickbait
+- Minimum **200 sends per variant** before judging (matches `wiki/scientific-method.md`'s sample-size table)
+- Measure **open rate AND PRR** - high opens with low PRR = clickbait
 - Test contrasting styles: personalised vs curiosity, short vs slightly longer
 - Run **3 subject lines per campaign** in rotation if testing more broadly
 

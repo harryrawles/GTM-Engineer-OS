@@ -6,6 +6,87 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.1.0] - 2026-07-08
+
+### Changed - Consistency audit fix pass (Critical + High)
+
+A 5-pass audit across `gtm-skills/`, `wiki/`, `sops/`, and their neighbors found 6 Critical, 7 High (one
+missed on the first pass, see below), 13 Medium, and 7 Low findings - contradictions, gaps, and structural
+inconsistencies working against the goal of a controlled, repeatable system. This pass fixes every
+Critical and High finding; Medium/Low are documented below as a known-issues backlog for a later pass, per
+the same staging approach used for the [3.0.0] CLAUDE.md audit.
+
+#### Fixed - numeric contradictions
+- **PRR benchmark scale** (`sops/campaign-performance-standards.md`) is now the single source of truth
+  everywhere PRR is mentioned. Purged or relabeled every raw-reply-rate figure that had been mislabeled as
+  PRR (`wiki/email-benchmarks.md`'s ColdIQ table, `wiki/copywriting-frameworks.md`, `wiki/signal-sourcing.md`'s
+  signal-lift figures, `gtm-skills/reply-handler.md`'s promotion threshold). Raw reply rate is no longer
+  tracked as an operative benchmark anywhere except one named exception.
+- **Raw reply rate as a deliberate, labeled exception**: `wiki/deliverability.md` and
+  `sops/solving-campaign-issues.md` keep raw reply rate for inbox-placement diagnosis (a different question
+  to PRR), now explicitly labeled as the exception rather than left ambiguous. Removed the redundant raw
+  "Reply rate" row/field from `templates/client-template/campaign-state.md`, `gtm-skills/campaign-analyst.md`,
+  `gtm-skills/client-report-writer.md`, and `gtm-skills/weekly-reviewer.md`'s winner-candidate output.
+- **Bias count per email**: deleted the orphaned "3-5 total" rule in `wiki/copywriting-101.md` that
+  contradicted its own Formula section and `gtm-skills/cold-email-writer.md`'s 12-15/floor-6 rule.
+- **Bounce rate**: adopted Harry's authoritative scale (under 2% healthy, 2-5% acceptable but investigate,
+  over 5% critical/pause) everywhere - `gtm-skills/incident-responder.md`, `campaign-optimiser.md`,
+  `campaign-launcher.md`, `client-health-scorer.md`, `weekly-reviewer.md`, `deliverability-doctor.md`
+  (which had disagreed with itself), and `list-builder.md`'s recovery target (1% → 2%).
+- **Campaign-update SLA**: `sops/daily-structure.md` collapsed to 3 days everywhere - it had contradicted
+  itself between Block 2 and its own Friday Rule paragraph.
+- **Subject-line test sample size**: `wiki/subject-lines.md` now matches `wiki/scientific-method.md`'s
+  canonical 200 sends/variant (was 100).
+- **Refund-demand escalation**: `sops/gtme-escalation-to-am.md` now tags Aaron only if the client has
+  public presence, matching `sops/client-communication-principles.md` - was previously unconditional.
+
+#### Fixed - escalation hierarchy
+- **Aaron is Harry's manager/team lead** - this is now stated explicitly and canonically in
+  `sops/am-gtme-responsibility-split.md`. Every legal/GDPR escalation path (`gtm-skills/incident-responder.md`
+  Protocols C and E, `gtm-skills/reply-handler.md`, `wiki/deliverability.md`) now names Aaron directly
+  instead of a generic "manager/team lead" that read as a separate, undefined contact.
+- **Incident severity table carve-out**: `gtm-skills/incident-responder.md`'s Critical-tier default
+  ("client immediately") now explicitly notes that Protocols C and E override it with Aaron's sign-off
+  gating client contact - the table and the protocols no longer disagree on timing.
+- **"AI inbox management" ambiguity removed**: `sops/onboarding-documentation.md`'s Phase 1 client message
+  now says "AI SDR setup" directly instead of the ambiguous "AI inbox management setup," which read like
+  the AI Reply Agent's job.
+
+#### Fixed - skill scaffolding (repeatability)
+Retrofitted every flagged skill to the same standard shape - no tiering, per Harry's call. Added a
+`STANDARD CONTEXT` reference (inheriting `MEMORY.md`/`voice.md`/active-client resolution from
+`wiki/_skill-context.md`) to: `weekly-reviewer.md`, `client-report-writer.md`, `campaign-analyst.md`,
+`campaign-optimiser.md`, `deliverability-doctor.md`, `icp-builder.md`, `list-builder.md`,
+`personalization-strategist.md`, `signal-sourcer.md`. Added a QA checklist to: `campaign-analyst.md`,
+`client-health-scorer.md`, `client-request-handler.md`, `icp-builder.md` (via list-builder handoff),
+`inbound-activator.md`, `personalization-strategist.md`, `qbr-writer.md`, `signal-sourcer.md`,
+`deliverability-doctor.md`. Fixed `skill-forge.md`'s missing STEP 0 Active Log row (direct invocations
+were invisible to `pattern-detector.md`) and `test-launcher.md`'s STEP 0 heading (was folded into another
+step's heading, breaking the scan pattern).
+
+#### Known issues (deferred - Medium/Low, documented not fixed this pass)
+- **M1** - `sops/solving-campaign-issues.md`'s "tap into the pre-warm pile" sits next to "pre-warm
+  provisioning" without the activation-vs-provisioning distinction drawn in `wiki/deliverability.md`.
+- **M2** - `gtm-skills/handover-brief-writer.md` doesn't ask planned-vs-unplanned at brief-creation time,
+  though `sops/client-handover.md` Scenario 3 assigns authorship differently for each.
+- **M3** - `wiki/glossary.md`'s "6-stage acquisition funnel" lists 7 stages.
+- **M4** - AI SDR, AI Reply Agent, and Cowork are load-bearing terms absent from `wiki/glossary.md`.
+- **M6** - `gtm-skills/chain-diagnose-campaign.md` routes to a "Volume/pacing" root cause that
+  `campaign-optimiser.md`'s diagnosis framework doesn't define.
+- **M7** - the same chain invokes an "audit mode" on `list-builder.md` that doesn't exist.
+- **M8** - `deliverability-doctor.md` and `incident-responder.md` share near-identical triggers
+  ("blacklisted," "bounce spike") with no rule for which fires first.
+- **M13** - `gtm-skills/signal-sourcer.md` collapses signal scores under 50 into "monitor only";
+  `wiki/signal-sourcing.md`'s own action-threshold table gives the 20-49 band an active nurture task.
+- **L1** - `gtm-skills/cold-email-writer.md` gives two slightly different ATL title lists in one file.
+- **L2** - "Personalization" vs "Personalisation" spelling drift against the OS's British-English default.
+- **L3** - `wiki/glossary.md`'s BTL title list omits "Coordinator," present in two other files.
+- **L4** - `INDEX.md`'s Tests table is missing `check-em-dash.sh` and undercounts the CI check total.
+- **L5** - `gtm-skills/client-offboarder.md`'s output template has leftover per-client-repo rename text
+  from an earlier architecture; STEP 7's actual instructions are already correct.
+
+---
+
 ## [3.0.0] - 2026-07-07
 
 ### Changed - BREAKING: Instantly access moves from MCP to the direct API v2, per client

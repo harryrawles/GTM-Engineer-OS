@@ -4,15 +4,23 @@
 
 **Context:** Building or refining the ICP for this client. The output is a completed or updated `clients/{slug}/icp.md` - specific enough to source leads, write copy, and set up signal targeting.
 
-**Read before starting:**
+**Related skill:** `gtm-skills/list-builder.md` handles ICP scoring, account qualification, and ABM tier assignment in depth.
+
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `clients/{slug}/overview.md` - what the client does and who they serve
 - `clients/{slug}/offer.md` - what is being sold and what problem it solves
 - `clients/{slug}/icp.md` - current ICP (if updating, not building from scratch)
 - `raw/onboarding-intake.md` - intake answers from the client
 - `wiki/list-building.md` - 3-layer ICP framework, scoring matrix, ABM tiers
 - `wiki/signal-sourcing.md` - to identify which signals are relevant for this ICP
-
-**Related skill:** `gtm-skills/list-builder.md` handles ICP scoring, account qualification, and ABM tier assignment in depth.
 
 ---
 

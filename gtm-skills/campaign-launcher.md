@@ -130,7 +130,7 @@ From `clients/{slug}/campaign-state.md` and the Instantly API (via `.claude/bin/
 
 Define BEFORE launch - not in the heat of the moment.
 
-- [ ] Bounce rate threshold: stop if > {{X}}% (default: 4%)
+- [ ] Bounce rate threshold: stop if > {{X}}% (default: 5%, per `wiki/deliverability.md`)
 - [ ] PRR floor: stop if < {{X}}% after {{n}} sends (default: 0.3% after 500 sends)
 - [ ] Spam complaint threshold: stop if > 0.3%
 - [ ] Negative reply threshold: pause if > 20% of replies (audit copy)

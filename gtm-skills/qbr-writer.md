@@ -326,3 +326,15 @@ After the QBR is delivered:
 - **Always flag renewal and hand off to the AM.** Even if the client doesn't bring it up, you have to raise
   it, but the terms conversation itself is the AM's, not yours.
 - **Log the call.** comms-log + decision-log. Future-Harry will thank you.
+
+---
+
+## QA CHECKLIST
+
+Before presenting the QBR:
+
+- [ ] Every underperformer is named with its root cause, not glossed over?
+- [ ] Every number traces to `copy-library.md`, `test-log.md`, or an Instantly pull, not memory?
+- [ ] Section 9 (Performance Case for the AM) makes the case but does not recommend renewal terms?
+- [ ] Q{{n+1}} plan has specific initiatives, not vague direction?
+- [ ] Renewal is flagged even if the client hasn't raised it?

@@ -80,14 +80,15 @@ Tracks what tooling is configured for this client. Affects which signals can be 
 
 ## Benchmarks for This Client
 
-| Metric | Target | Acceptable | Needs attention |
+| Metric | Great or better | Good | Below standard or worse |
 |--------|--------|-----------|-----------------|
 | PRR | 0.5%+ | 0.2-0.5% | Under 0.2% |
-| Reply rate | 3%+ | 1-3% | Under 1% |
-| Bounce rate | Under 2% | 2-4% | Over 4% |
+| Bounce rate | Under 2% | 2-5% | Over 5% |
 | LinkedIn acceptance | 35%+ | 20-35% | Under 20% |
 
-PRR bands per `sops/campaign-performance-standards.md`.
+PRR bands per `sops/campaign-performance-standards.md`. Bounce bands per `wiki/deliverability.md`. Raw
+reply rate is not tracked as a separate benchmark - PRR is the only reply-based metric judged against a
+target, see `sops/campaign-performance-standards.md` for why.
 
 ---
 

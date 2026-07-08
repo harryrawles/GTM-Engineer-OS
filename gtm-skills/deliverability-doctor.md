@@ -4,7 +4,15 @@
 
 **Context:** Deliverability is upstream of every metric. If emails are not landing, nothing else matters. This skill diagnoses and recovers deliverability problems before they kill a campaign.
 
-**Read before diagnosing:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `wiki/deliverability.md` - benchmarks, symptom-to-cause diagnosis, list verification, and what to flag the AM for
 - `wiki/email-benchmarks.md` - what deliverability metrics should look like
 - `clients/{slug}/campaign-state.md` - current infrastructure status
@@ -35,7 +43,7 @@ Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh
 - Current bounce rate (last 7 days)
 - Spam complaint rate
 - Open rate trend (last 30 days vs prior 30)
-- Reply rate trend
+- Raw reply rate trend (the one deliverability exception to PRR, see `wiki/deliverability.md`)
 - Warmup status (red / amber / green per mailbox)
 
 Ask Harry to paste if MCP unavailable.
@@ -88,7 +96,7 @@ Check:
 - Plain text only? (HTML triggers spam filters)
 - Links in body? (Should be zero in cold email)
 - Spam trigger words in subject?
-- Reply rate (over 5% protects deliverability)
+- Raw reply rate (over 5% protects deliverability)
 
 ---
 
@@ -117,7 +125,7 @@ stay GTME's, they're campaign decisions, not infrastructure ones.
 3. Identify list source - flag for review or remove entirely
 4. Pause new sends for 7 days, warmup only at 10-20/day
 5. Resume slowly at 5-10 cold per mailbox per day
-6. Monitor daily until back under 1%
+6. Monitor daily until back under 2% (the healthy target, `wiki/deliverability.md`)
 
 ### Protocol C - Warmup disabled (red flame in Instantly)
 
@@ -141,8 +149,20 @@ stay GTME's, they're campaign decisions, not infrastructure ones.
 ## RULES
 
 - **Always check deliverability before touching copy.** Bad deliverability looks identical to bad copy.
-- **Bounce rate first.** Over 4% = stop the campaign now.
+- **Bounce rate first.** Over 5% = stop the campaign now, per the Critical row in the severity table above.
 - **Plain text only.** Always. No HTML for cold outreach. Ever.
 - **Never stop warmup.** 10-20/day per mailbox even during active campaigns.
 - **Re-verify lists every 30 days.** Email decays 2.1% per month.
 - **Document infrastructure changes** in `clients/{slug}/campaign-state.md` so future-Harry knows what changed.
+
+---
+
+## QA CHECKLIST
+
+Before handing the diagnosis to Harry:
+
+- [ ] Severity assessment matches the actual pulled data, not an assumption?
+- [ ] Every recommended step is labelled GTME-owned or AM-owned (`sops/am-gtme-responsibility-split.md`)?
+- [ ] If any step is AM-owned, it's framed as "flag to the AM," not "do this yourself"?
+- [ ] Root cause (infrastructure / list quality / volume / content) is stated, not just symptoms?
+- [ ] If severity is Critical, campaigns are paused before anything else is recommended?

@@ -55,13 +55,7 @@ three styles above onto an offer that's already sharp.
 
 ## Bias Application
 
-Every piece of copy can leverage cognitive biases. The structured mapping lives in `wiki/psychological-principles.md` - see the "Biases by Copy Stage" table.
-
-**The rule:** pick 3-5 biases per email to deliberately leverage. Leave the rest. Overloading triggers Overdone-It bias - copy reads as manipulative, rejection rises.
-
-When in doubt: which 3 biases are most relevant to this specific signal × persona × offer combination? Lead with those.
-
-
+Every piece of copy can leverage cognitive biases. The structured mapping lives in `wiki/psychological-principles.md` - see the "Biases by Copy Stage" table. See "The Formula" below for the per-part breakdown (2-3 biases per part) and `gtm-skills/cold-email-writer.md`'s "Overdone-It bias" rule for the total ceiling (12-15 biases across the whole email, minimum 6) - overloading triggers Overdone-It bias, copy reads as manipulative and rejection rises.
 
 ---
 

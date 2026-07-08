@@ -41,9 +41,22 @@ See `wiki/_skill-context.md`.
 
 ---
 
-## STEP 0 - Run Test Readiness Check (MANDATORY)
+## STEP 0 - Log Invocation (mandatory)
 
-**Log this invocation first.** Append a row to `clients/{slug}/session-log.md` Active Log per `wiki/_skill-context.md` "Session-Log Write" rules. Format: `| YYYY-MM-DD HH:MM | {{paraphrased prompt}} | test-launcher | (filled at end) |`. Then proceed with the readiness check below.
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
+
+```
+| YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | test-launcher | (filled at end) |
+```
+
+Rules (per `wiki/_skill-context.md` "Session-Log Write"):
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
+- Outcome column filled at end of execution
+
+Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts and the auto-improvement loop breaks.
+
+## STEP 0.1 - Run Test Readiness Check (MANDATORY)
 
 Before proceeding with any test launch, invoke `gtm-skills/test-readiness-check.md` on the candidate test in `clients/{slug}/test-log.md`.
 
@@ -265,7 +278,7 @@ Estimated time to complete: 6 days at current 240/day rate, plus 7 days latency 
 Modification level: Moderate (close to "complete" given 4-week decline)
 
 Stop conditions:
-- Bounce >4% on either variant
+- Bounce >5% on either variant
 - Variant complaints >0.3%
 - PRR on variant <0.3% after 300 sends
 

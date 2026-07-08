@@ -9,7 +9,15 @@ underperforming sequence, use `wiki/acquisition-systems-theory.md` Section 5 (bo
 sub-conversion rates) to find which sub-system is actually broken before running the single-campaign
 funnel below.
 
-**Read before diagnosing - primary:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `clients/{slug}/campaign-state.md` - live campaign status and benchmarks
 - `clients/{slug}/icp.md` - ICP and signal accuracy check
 - `clients/{slug}/offer.md` - offer and proof point check
@@ -18,7 +26,7 @@ funnel below.
 - `clients/{slug}/copy-library.md` - winning variants and graveyard
 - `clients/{slug}/test-log.md` - what has already been tested
 
-**Read before diagnosing - extended:**
+**REFERENCE (consult when needed):**
 - `wiki/email-benchmarks.md` - symptom-to-cause diagnostic table and benchmark calibration
 - `sops/campaign-performance-standards.md` - the authoritative PRR tiers, and the escalation path at 1,000+ sends per positive reply
 - `sops/solving-campaign-issues.md` - the tactical fix playbook once a root cause is found below (low-risk CTA plays, deliverability recovery, ICP-miss recovery including the lookalike play)
@@ -56,7 +64,7 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 ## BEFORE YOU DIAGNOSE
 
 Pull from the Instantly API for the active client (via `.claude/bin/instantly.sh` - see `sops/instantly-api.md`):
-- Campaign sends, reply rate, PRR, bounce rate (last 30 days)
+- Campaign sends, PRR, bounce rate (last 30 days)
 - Per-step breakdown: which email step is generating replies
 - Subject line performance breakdown
 
@@ -72,7 +80,7 @@ Work through these in order. Stop at the first confirmed root cause and recommen
 
 ### 1. Deliverability check (always first)
 
-- Bounce rate over 4%? → Route to `gtm-skills/deliverability-doctor.md`. Fix before touching copy.
+- Bounce rate over 5%? → Route to `gtm-skills/deliverability-doctor.md`. Fix before touching copy.
 - Are emails landing in spam? Check sending domain health, SPF/DKIM/DMARC.
 - Are mailboxes properly warmed? Minimum 20 days warmup before any campaign.
 

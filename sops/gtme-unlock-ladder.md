@@ -15,7 +15,7 @@ Before anything else, ask Cowork. Describe the client situation, the campaign pe
 you've already tried.
 
 Be specific:
-- What's the reply rate?
+- What's the PRR?
 - What copy and ICP have been tested?
 - What's the deliverability looking like?
 - What have you already tried, and why didn't it work?

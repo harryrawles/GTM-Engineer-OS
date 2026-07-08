@@ -37,6 +37,25 @@ See `wiki/_skill-context.md`.
 
 ---
 
+## STEP 0 - Log Invocation (mandatory)
+
+Before any other step, append one row to `clients/{slug}/session-log.md` Active Log table:
+
+```
+| YYYY-MM-DD HH:MM | {{paraphrased prompt summary, ~60 chars}} | skill-forge | (filled at end) |
+```
+
+Rules (per `wiki/_skill-context.md` "Session-Log Write"):
+- Write at START, not end - captures the attempt even if the skill fails mid-execution
+- Paraphrase the prompt - no raw prospect names, emails, or sensitive data
+- Outcome column filled at end of execution (e.g. "Forged: forged-quick-diagnose", "Declined: 80%+ overlap with existing skill")
+
+This is separate from the STEP 5 Forged skills table below - that table tracks what got forged, this row
+is what makes a direct "/skill-forge" invocation visible to `gtm-skills/pattern-detector.md` at all. Without
+it, invocations that don't result in a forged skill (declined for scope overlap, etc.) leave no trace.
+
+---
+
 ## INPUTS
 
 From pattern-detector or direct invocation:

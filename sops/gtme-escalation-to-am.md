@@ -58,9 +58,11 @@ their contract says $2k" is.
 - Standard AM issue: tag @Talha or @George, whoever owns the account on the AM side.
 - No assigned AM or unsure: tag @Talha or @George.
 - Client MRR $2k+ or situation is serious: tag @Ammad + @Kyra.
-- Legal threat, public defamation, or refund demand: tag Aaron, per the existing rule in
-  `sops/client-communication-principles.md` for public-presence situations. Do not respond to the client
-  until you have direction.
+- Legal threat or public defamation: tag Aaron (Harry's manager/team lead,
+  `sops/am-gtme-responsibility-split.md`) always, no conditions. Do not respond to the client until you
+  have direction from him.
+- Refund demand: tag Aaron only if the client has public presence or a significant following, per
+  `sops/client-communication-principles.md`. Otherwise this is a standard AM issue, tag @Talha or @George.
 
 ---
 
@@ -79,9 +81,11 @@ their contract says $2k" is.
 - **This is the concrete "how" behind every "flag / bring in the AM" instruction in
   `sops/am-gtme-responsibility-split.md`.** That document establishes who owns what; this SOP is the
   channel, message format, and tagging mechanics for actually doing it.
-- **Refund and public-presence tagging stays exactly as `sops/client-communication-principles.md` and
-  `gtm-skills/client-request-handler.md` Type J already state it: tag Aaron.** This SOP's channel and
-  message format apply on top of that, the "who" for that specific situation doesn't change.
+- **Refund tagging matches `sops/client-communication-principles.md` and `gtm-skills/client-request-handler.md`
+  Type J exactly: Aaron only if the client has public presence, otherwise the standard AM.** This SOP's
+  channel and message format apply on top of that, the "who" doesn't change. Legal threat and public
+  defamation are a separate, unconditional trigger, both go to Aaron every time, since he is the manager/
+  team lead this SOP's own "Beyond the AM" escalation resolves to (`sops/am-gtme-responsibility-split.md`).
 - **Cancellation still flags CSM first**, per `sops/client-communication-principles.md` and
   `sops/tough-client-involve-csm.md`. This SOP adds the AM side: billing and contract mechanics run in
   parallel to, not instead of, the CSM save attempt.

@@ -136,7 +136,7 @@ If Email 2 or 3 outperforms Email 1, the Email 1 offer needs work.
 3. Verify deliverability (DNS, blacklists)
 4. Test send times
 
-### If reply rate is low (under 2%)
+### If PRR is Below standard or Poor (500+ sends per positive reply, see PRR Benchmarks above)
 1. Improve relevance / personalisation
 2. Shorten the message
 3. Strengthen the CTA
@@ -168,11 +168,14 @@ If Email 2 or 3 outperforms Email 1, the Email 1 offer needs work.
 | Metric | Target |
 |--------|--------|
 | Open rate | 50%+ |
-| Positive reply rate | 5-8% |
+| Raw reply rate | 5-8% |
 | Meeting book rate | 2-4% |
 | Variance between worst/best variant | 13x gap |
 
-Aggressive but achievable with strong signals + personalisation + tight copy.
+ColdIQ's "5-8%" figure is raw reply rate (includes negatives and OOOs), not PRR - do not read it against the
+PRR Benchmarks table above, they are different metrics. For the actual PRR target, use the authoritative
+scale in `sops/campaign-performance-standards.md`. Aggressive but achievable with strong signals +
+personalisation + tight copy.
 
 ---
 

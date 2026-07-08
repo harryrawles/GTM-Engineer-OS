@@ -2,13 +2,25 @@
 
 **Trigger:** "Personalise at scale", "write personalisation prompts", "build a Clay prompt", "what should we personalise on", "personalisation hooks", "this email feels too generic", "research the prospect"
 
-**Context:** Personalisation is the difference between 6% and 22% reply rate. Over-personalisation kills scale. This skill picks the right tier of personalisation, sources the right data bucket, and writes the prompts.
+**Context:** Personalisation is the difference between finishing near the bottom and near the top of the PRR
+scale in `sops/campaign-performance-standards.md`. Over-personalisation kills scale. This skill picks the
+right tier of personalisation, sources the right data bucket, and writes the prompts.
 
-**Read before responding:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `wiki/personalization-at-scale.md` - 6 buckets, hook types, playbooks by category, 6 AI prompts
 - `clients/{slug}/icp.md` - to know who is being personalised to
 - `clients/{slug}/offer.md` - to know what the personalisation should connect to
-- `wiki/atl-btl-messaging.md` - for register-appropriate personalisation
+
+**READ IF CONDITION:**
+- `wiki/atl-btl-messaging.md` - if register-appropriate personalisation needs deciding
 
 ---
 
@@ -108,3 +120,16 @@ For custom prompts, follow the structure:
 - **Cite sources** when using data ("According to SimilarWeb, you get 50K visitors a month"). If the data is wrong, the source takes the blame.
 - **Do not reference the signal directly.** "I saw you raised your Series A" reads like every other email. Reference the implication.
 - **Test personalisation vs no personalisation as A/B** before assuming personalisation wins. At high volume, no-personalisation often wins on ROI.
+
+---
+
+## QA CHECKLIST
+
+Before handing off the prompt or hook:
+
+- [ ] Uses AI for exactly one component, not the whole email?
+- [ ] No generic AI compliments ("Love your work!", "Impressive growth!")?
+- [ ] Does not reference the signal directly (implication only)?
+- [ ] Sourced where it cites data ("According to SimilarWeb...")?
+- [ ] Bucket 4 (junk drawer) used only if rapport-building is the explicit goal?
+- [ ] Hook tier (Strong/Lite) matches the deal-size table in Step 3?

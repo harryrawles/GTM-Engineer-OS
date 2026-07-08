@@ -17,11 +17,16 @@ workspace-level throttling.
 ## Healthy Benchmarks (diagnose against these)
 
 - Bounce rate under 2%
-- Reply rate above 5% to sustain sending
+- Raw reply rate above 5% to sustain sending (see "Raw reply rate" note below - this is the one place in
+  the OS that tracks raw reply rate rather than PRR)
 - 100% email verification before every campaign
 - Plain text only, no HTML, no images
 
 ### Bounce rate
+
+The authoritative standard: regardless of industry, keep bounce rate at 2% or less. 2-5% is still
+acceptable but may signal list hygiene issues worth checking. Anything over 5% is detrimental to sending
+reputation long-term - ESPs may start treating the domain as untrustworthy.
 
 | Type | Definition | What it usually means |
 |------|-----------|----------------------|
@@ -30,17 +35,21 @@ workspace-level throttling.
 
 | Rate | Status | Likely cause |
 |------|--------|--------------|
-| Under 1% | Excellent | - |
-| 1-2% | Acceptable | Monitor |
-| 2-3% | Warning | Usually list quality, re-verify |
-| 3-5% | Dangerous | Could be list quality or infrastructure, pause and diagnose which before assuming either |
+| Under 2% | Healthy | - |
+| 2-3% | Acceptable, monitor | Usually list quality, re-verify |
+| 3-5% | Acceptable but investigate | Could be list quality or infrastructure, diagnose which before assuming either |
 | Over 5% | Critical | Pause immediately, flag the AM in case it's infrastructure-side |
 
-Bounce rate is one signal. Reply rate is the other, see the table below.
+Bounce rate is one signal. Raw reply rate is the other, see the note below.
 
-### Reply rate
+### Raw reply rate (the one deliberate exception to PRR)
 
-| Reply rate | Status |
+Every other benchmark in this OS is PRR (`sops/campaign-performance-standards.md`). This table is the one
+exception: it diagnoses inbox placement (is the mailbox landing at all), a different question to PRR (is
+the copy working). PRR near-zero doesn't distinguish "bad copy" from "mailbox in spam" - total reply rate
+does, so it stays tracked here specifically for that purpose. Do not read this table against the PRR scale.
+
+| Raw reply rate | Status |
 |-----------|--------|
 | Over 15% | Excellent |
 | Over 10% | Good |
@@ -103,8 +112,9 @@ To opt out, reply "unsubscribe" or click here: [link]
 Privacy policy: [link]
 ```
 
-GDPR-flagged replies (legal language, data requests) escalate to your manager, not a solo call, see
-`gtm-skills/reply-handler.md` and `gtm-skills/incident-responder.md`.
+GDPR-flagged replies (legal language, data requests) escalate to Aaron (Harry's manager/team lead,
+`sops/am-gtme-responsibility-split.md`), not a solo call, see `gtm-skills/reply-handler.md` and
+`gtm-skills/incident-responder.md`.
 
 ---
 

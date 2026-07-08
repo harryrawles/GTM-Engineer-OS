@@ -2,13 +2,25 @@
 
 **Trigger:** "What signals should we target", "build a signal-based campaign", "signal scoring", "which signals work for {{client}}", "design a signal strategy", "score these leads", "what is the next signal to test"
 
-**Context:** Signal-based outbound is the highest lever on PRR. Cold lists = 6-8% reply. Single-signal = 18-22%. Multi-signal (3+) = 35-40%. This skill designs and scores signal strategy for a client.
+**Context:** Signal-based outbound is the highest lever on PRR (raw reply rate lift is roughly 2-3x for
+single-signal, 3-4x for multi-signal, over cold - see `wiki/signal-sourcing.md`). This skill designs and
+scores signal strategy for a client.
 
-**Read before responding:**
+---
+
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads. Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
+
+**MUST READ (every time):**
 - `wiki/signal-sourcing.md` - the 6 core signals, scoring framework, freshness rules, 11 GTM plays
-- `wiki/buying-triggers.md` - 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
 - `clients/{slug}/icp.md` - client ICP to filter which signals apply
 - `clients/{slug}/offer.md` - what the client sells to map signal → angle
+
+**REFERENCE (consult when needed):**
+- `wiki/buying-triggers.md` - 137-trigger taxonomy across inbound/postbound/bridgebound/outbound
 - `best-practices/playbooks/` - check for a reusable playbook matching the client's offer/angle to start the campaign from (adapt per client; never use verbatim)
 - `wiki/email-benchmarks.md` - response time SLAs and performance benchmarks
 
@@ -107,3 +119,14 @@ Use the 11 plug-and-play plays in `wiki/signal-sourcing.md` as starting points.
 - **Stack signals for heat scoring.** 3+ signals firing = reach out same day.
 - **Use 0-credit detection first** (Serper, Claygent). Only spend enrichment credits on accounts that pass qualification.
 - **Log every signal experiment** in `clients/{slug}/test-log.md`. Signal sourcing is iterative.
+
+---
+
+## QA CHECKLIST
+
+Before handing off the signal strategy:
+
+- [ ] Each signal ranked with a stated reason (predictive value, detection cost, saturation)?
+- [ ] Response SLA assigned per signal matches its Tier in `wiki/signal-sourcing.md`?
+- [ ] Copy angle references the implication of the signal, not the signal itself?
+- [ ] Signals cross-checked against `clients/{slug}/icp.md`, not applied generically?

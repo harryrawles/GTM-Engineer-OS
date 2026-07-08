@@ -82,7 +82,7 @@ Compare last 4 weeks against prior 4 weeks.
 
 | Sub-metric | Weight | Scoring |
 |-----------|--------|---------|
-| Bounce rate | 5 | <2% = 5, 2-3% = 3, 3-4% = 1, >4% = 0 |
+| Bounce rate | 5 | <2% = 5, 2-3% = 3, 3-5% = 1, >5% = 0 |
 | Warmup status | 3 | All green = 3, Any amber = 1, Any red = 0 |
 | Blacklist status | 2 | Clean = 2, Any listing = 0 |
 
@@ -209,6 +209,19 @@ Suggested order of attention:
 2. {{Amber client}} - {{specific action}}
 3. ...
 ```
+
+---
+
+## QA CHECKLIST
+
+Before presenting a score:
+
+- [ ] Every sub-metric score traces to an actual data point, not an estimate?
+- [ ] Trend (Section 2) compares against real prior-period data, not assumed?
+- [ ] Key risks are specific (named campaign/signal/issue), not generic ("performance is down")?
+- [ ] Recommended interventions are specific and actionable this week?
+- [ ] Status changes (Green→Amber, Amber→Red, etc.) are logged to `decision-log.md`?
+- [ ] Red/Critical bands checked against `sops/tough-client-involve-csm.md`'s CSM-flag trigger?
 
 ---
 

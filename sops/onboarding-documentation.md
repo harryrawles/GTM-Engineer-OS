@@ -21,7 +21,7 @@ On Day 1 of being assigned to a client, message into the client's channel:
 Here is what we will be doing over the next 2 weeks to launch:
 
 Week 1: onboarding call, post-call breakdown, campaign strategy breakdown, campaigns setup, lead lists
-setup, AI inbox management setup.
+setup, AI SDR setup.
 
 Week 2: confirmed campaigns, confirmed lead lists, campaign scheduled to go live. The launch is 14 days
 once your mailboxes have been sent into warmup.
@@ -138,7 +138,8 @@ winning recipe."
   check.md` take over.** This SOP is the client communication around the launch date, not the launch
   mechanics themselves.
 - **"AI reply agent" and "AI SDR" are two distinct systems, not two names for one thing**, per
-  `sops/onboarding-24-hour.md`'s Step 1/Step 2 split. "AI inbox management" here and "AI SDR
-  configuration" in `sops/daily-structure.md` both refer to the AI SDR.
+  `sops/onboarding-24-hour.md`'s Step 1/Step 2 split. The Phase 1 client message says "AI SDR setup"
+  directly now (it used to say "AI inbox management setup," which read like the reply agent's job and
+  wasn't). "AI SDR configuration" in `sops/daily-structure.md` refers to the same system.
 - **For clients on the 24-Hour Onboarding upgrade, this SOP doesn't apply, use
   `sops/onboarding-24-hour.md` instead.** The `#vip-onboarding-message` channel says which one applies.

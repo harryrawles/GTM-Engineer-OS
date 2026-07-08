@@ -258,6 +258,18 @@ Follow-up: re-check {{date}}
 
 ---
 
+## QA CHECKLIST
+
+Before activating outbound:
+
+- [ ] Signal age checked against the freshness window in `wiki/signal-sourcing.md`?
+- [ ] Multi-signal stack actually queried, not assumed single-signal?
+- [ ] Tier assignment matches the ICP score, not a gut call?
+- [ ] Copy generation brief does not mention the signal directly?
+- [ ] SLA matches signal type (demo <5min, pricing page <1hr, funding <72hr)?
+
+---
+
 ## EXAMPLES
 
 ### Example - Pricing page visitor

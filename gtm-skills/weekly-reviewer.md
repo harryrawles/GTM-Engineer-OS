@@ -12,7 +12,13 @@
 
 ---
 
-## READS
+## STANDARD CONTEXT
+
+Read `wiki/_skill-context.md` for the standard files every skill loads (including `MEMORY.md`, `voice.md`,
+`overview.md`, `offer.md`, and the active-client resolution rules - portfolio mode below runs that
+resolution once per client, in full isolation). Then add the skill-specific reads below.
+
+## SKILL-SPECIFIC READS
 
 - Instantly API (via `.claude/bin/instantly.sh`) - last 7 days per campaign per client
 - `clients/{slug}/campaign-state.md` - current campaign list and health
@@ -161,7 +167,6 @@ For each campaign / variant hitting the winner threshold AND not already in `cli
 WINNER CANDIDATE - {{campaign_name}} / Email {{n}}
 - Sends: {{n}}
 - PRR: {{pct}}
-- Reply rate: {{pct}}
 - Meetings: {{n}}
 - Signal: {{signal}}
 - Target ICP: {{title / company type}}
@@ -265,10 +270,11 @@ Winner: {{Control / Variant / Inconclusive}}
 
 ### Step 6 - Update campaign health in `clients/{slug}/campaign-state.md`
 
-For each active campaign, set health (PRR bands per `sops/campaign-performance-standards.md`):
+For each active campaign, set health (PRR bands per `sops/campaign-performance-standards.md`, bounce bands
+per `wiki/deliverability.md`):
 - **Green** - PRR ≥ 0.5%, bounce < 2%, all sequence steps performing
-- **Amber** - PRR 0.2-0.5%, OR bounce 2-3%, OR signal declining
-- **Red** - PRR < 0.2%, OR bounce > 3%, OR warmup disabled
+- **Amber** - PRR 0.2-0.5%, OR bounce 2-5%, OR signal declining
+- **Red** - PRR < 0.2%, OR bounce > 5%, OR warmup disabled
 
 Update the "current metrics" and "health" fields per campaign. Add a state note if anything changed materially.
 
@@ -480,7 +486,6 @@ Tech change         | 1.2%      | 1.1%       | ↔      | Stable
 WINNER CANDIDATE - Hiring Signal v4 / Email 1
 - Sends: 423
 - PRR: 2.4%
-- Reply rate: 5.1%
 - Meetings: 6
 - Signal: 5+ engineering job postings in 30 days
 - Target ICP: Head of Engineering at Series B-C SaaS
