@@ -76,7 +76,10 @@ it, and Claude must state the action + name the client/workspace and wait for a 
 | List / get emails (replies) | `GET /emails` · `GET /emails/:id` |
 | Reply / forward email | `POST /emails/reply` · `POST /emails/forward` *(write / send)* |
 
-Full surface is in the OpenAPI spec: `https://api.instantly.ai/openapi/api_v2.json`.
+Full surface (every endpoint, every resource, rate limits, gotchas, undocumented-area warnings) is
+vendored in `wiki/instantly-api-reference.md` - read that before wiring in anything beyond the common
+endpoints above. Raw spec, if it ever needs re-checking against the live source:
+`https://api.instantly.ai/openapi/api_v2.json`.
 
 ## Rate limits (known)
 

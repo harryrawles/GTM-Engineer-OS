@@ -6,6 +6,35 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.5.0] - 2026-07-08
+
+### Added - full Instantly v2 API reference
+
+`sops/instantly-api.md` covered only the auth model and ~14 common endpoints, then punted to the raw
+OpenAPI URL for everything else. Vendored a comprehensive reference instead: `wiki/instantly-api-reference.md`
+covers all ~150 endpoints across every resource (campaigns, leads/lists/subsequences, accounts/warmup,
+inbox/email/verification, workspace/members/billing/API keys, webhooks, audit logs/background jobs,
+enrichment, custom tags, lead labels, inbox placement testing, DFY orders, CRM actions, blocklist), sourced
+directly from the live OpenAPI spec and developer docs, not summarized from memory. Each entry has method,
+path, key parameters, response shape, read/write classification, and known gotchas (rate limits, batch
+caps, async job patterns, credit costs).
+
+Notable findings worth knowing before building against this API:
+- No native bulk-activate/bulk-pause endpoint for campaigns exists server-side, despite tool names implying
+  one - bulk behaviour is a client-side loop.
+- `/leads/move` and `/leads/bulk-assign` are async background jobs (202/job-id), not synchronous.
+- **Webhooks have no signature verification mechanism** - only a caller-defined static header. A skill
+  that needs to trust inbound webhook payloads must implement its own shared-secret check.
+- DFY email account orders charge a card immediately on a real (non-`simulation:true`) call, with no
+  separate confirm step.
+- Bare `DELETE /block-lists-entries` (no ID) wipes the entire blocklist.
+- Email templates and Custom Prompt Templates have no public documentation despite being usable as MCP
+  tools - flagged as undocumented/unstable surface.
+
+`sops/instantly-api.md` now points to the new reference instead of the raw spec URL. `INDEX.md` updated.
+
+---
+
 ## [3.4.0] - 2026-07-08
 
 ### Fixed - pre-onboarding readiness review (all 19 findings)

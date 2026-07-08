@@ -98,6 +98,7 @@ Content catalog for the multi-client OS. The hub is [CLAUDE.md](./CLAUDE.md); th
 |------|----------------|
 | wiki/deliverability.md | Benchmarks, symptom-to-cause diagnosis, list verification (GTME-owned), what to flag the AM for |
 | wiki/email-benchmarks.md | Industry benchmarks + the authoritative PRR tier table (`sops/campaign-performance-standards.md`) |
+| wiki/instantly-api-reference.md | Full Instantly v2 API reference (every endpoint, rate limits, gotchas, undocumented areas) - `sops/instantly-api.md` is the "how the OS calls it" SOP, this is the deep reference |
 | wiki/glossary.md | All acronyms defined |
 | wiki/diagrams.md | Mermaid flowcharts of OS workflows |
 | wiki/_subagent-patterns.md | When and how skills spawn isolated sub-agents |
