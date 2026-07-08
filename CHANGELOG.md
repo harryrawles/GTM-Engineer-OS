@@ -6,6 +6,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.5.1] - 2026-07-08
+
+### Fixed - final structure review
+
+Reviewed the whole repo's folder/file structure for how well it supports Claude's actual navigation
+pattern (explicit path references via `CLAUDE.md`'s routing table and `INDEX.md`, not directory browsing).
+Verdict: structurally sound, no reorganization needed - `gtm-skills/` and `wiki/` staying flat is correct
+given how they're actually discovered, `frameworks/README.md`'s index-plus-promotion-destination pattern
+is working as designed, and `INDEX.md` already documents every directory including small utility folders.
+
+One real gap found: `best-practices/README.md` said "content is uploaded later" without mentioning that
+`best-practices/playbooks/` already holds 26 real files - anyone landing on that README specifically would
+think the folder was empty. Fixed to match `frameworks/README.md`'s better pattern (index what's here,
+state what lands here next).
+
+---
+
 ## [3.5.0] - 2026-07-08
 
 ### Added - full Instantly v2 API reference
