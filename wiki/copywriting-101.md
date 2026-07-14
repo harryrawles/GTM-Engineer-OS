@@ -11,6 +11,8 @@ Core principles for signal-based cold email. Read this before writing any copy.
   - ATL (VP / C-Level / Director): **max 60 words**
   - BTL (Manager / IC): **max 90 words**
   - Default cold: **75 words target, 100 hard ceiling**
+  - **Threaded follow-ups (same subject, reply to a prior email): max 50 words, regardless of ATL/BTL** - the prospect already has thread context, so it does not need to re-establish the mechanism or restate the offer in full. If a threaded follow-up is running the same length as Email 1, that is the signal it is re-pitching instead of following up. (Confirmed 2026-07-13 - on one client's test, Step 2 was drafted at near-Email-1 length and read as repetitive; the fix was cutting restated offer/trial details, not just trimming words.)
+  - **Net-new-thread follow-ups (new subject line, fresh angle, no reply context): full word count, same ceiling as Email 1** - a new subject line resets the prospect's context to zero, so it is a second full pitch, not a nudge. Do not apply the 50-word threaded ceiling here. (Corrected 2026-07-13 - the same test's Step 3 was over-shortened to match Step 2's threaded-reply length despite opening a new thread with a new angle; the GTME flagged this distinction.)
   - Every word earns its place
 - **Subject lines: 2-4 words** - curiosity-led, not descriptive
 - **No vanity personalisation** - "saw you hired 3 SDRs" not "I admire your passion for revolutionising the industry"
@@ -20,7 +22,8 @@ Core principles for signal-based cold email. Read this before writing any copy.
 - **Every single word must earn its place** - cut anything that doesn't move the reader forward
 - **Passes the bar test** - could you read this out loud to someone at a bar?
 - **PRR is the north star metric** - positive reply rate, not open rate
-- **No question marks except the CTA** - delete every other question mark
+- **No question marks except the CTA and, optionally, one opening hook question** - a direct "Is {{company}} doing X yet?" style opener is allowed as Part 1, since it functions as the pattern-break/hook rather than a mid-body aside. Every other question mark gets deleted. (Confirmed 2026-07-13 - one client's own copy consistently opens this way.)
+- **Paragraph grain: group 2-3 related sentences into one paragraph, split only on a genuinely new idea** - do not atomise every clause onto its own line. A paragraph covering one part of the formula (e.g. the mechanism + what it replaces) can run 2 sentences; start a new paragraph only when moving to a different part (proof, risk reversal, CTA). Splitting every single clause reads as choppy, not scannable - the goal is short paragraphs, not one-line staccato. (Confirmed 2026-07-13.)
 - **2:1 ratio** - more about them than about you
 - **Pattern breaks** - look different to every other cold email they receive
 - **Spintax and liquid syntax** - vary copy at scale to avoid spam filters. See `gtm-skills/spintax-ninja.md` for the exact format and process.
@@ -185,11 +188,11 @@ already has the decision tree for what happens when a prospect takes that option
 | Email | Day | Thread | Purpose |
 |-------|-----|--------|---------|
 | 1 | Day 0 | Net new | Best angle, strongest offer, full pitch |
-| 2 | Day 3 | Threaded to #1 | Different value prop, shorter, add what you cut from Email 1 |
-| 3 | Day 7 | Net new thread | Completely different angle, lower friction CTA |
-| 4 | Optional | Threaded to #3 | Hail mary: "is this even your responsibility?" |
+| 2 | Day 3 | Threaded to #1 | Different value prop, max 50 words, add what you cut from Email 1 |
+| 3 | Day 7 | Net new thread | Completely different angle, full pitch length (same ceiling as Email 1) - new subject resets context |
+| 4 | Optional | Threaded to #3 | Hail mary: "is this even your responsibility?", max 50 words |
 
-Never just bump. Every follow-up takes a different angle and tests a different cognitive mechanism.
+Never just bump. Every follow-up takes a different angle and tests a different cognitive mechanism. A **threaded** follow-up (same subject as the email before it) should read like a short nudge referencing an existing thread - do not restate the full offer or trial terms already covered earlier. A **net-new-thread** follow-up (new subject line) has no thread context to lean on, so it earns full pitch length - treat it like a second Email 1, not a nudge.
 
 ---
 

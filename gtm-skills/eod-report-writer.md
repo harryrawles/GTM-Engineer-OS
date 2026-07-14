@@ -169,7 +169,8 @@ After presenting, if the trail shows any of the rest of the `OPERATING-RHYTHM.md
 
 ## RULES
 
-- **Never auto-send.** Posting to Slack / sending external comms is hard-blocked by the Safety Guard (`.claude/hooks/safety-guard.sh`; CLAUDE.md Safety Guard rule 1). Present the report as a draft. Only create a Slack **draft** if the GTME approves and names the channel.
+- **Default delivery channel: `{{eod-slack-channel}}`** (set this once the GTME confirms which channel the portfolio EOD report always goes to - no need to ask each time once it's set here).
+- **Never send without asking first, every time.** Present the report and ask for explicit approval before posting - even though the channel is now known by default, approval is per-report, not standing. Posting to Slack is hard-blocked by the Safety Guard (`.claude/hooks/safety-guard.sh`; CLAUDE.md Safety Guard rule 1) regardless of chat approval - once the GTME approves, use the scoped one-time carve-out pattern already established for gated writes in this OS (add the specific op to the allow-list, send, then immediately revert and verify via `git diff`). Confirmed 2026-07-13: an actual send is fine post-approval - it does not need to stop at a Slack draft.
 - **Portfolio, not client-specific.** Do not ask for an active client - report across everyone worked on today.
 - **Never invent** outcomes, numbers, causes, or client names. No activity today - say so plainly.
 - **No bare activity bullets.** "Added leads," "reworked copy," "worked on X," "followed up" are not complete bullets on their own - every bullet pairs the action with a diagnosed cause, a named lever, or a concrete result (STEP 3).

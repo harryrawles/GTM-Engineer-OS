@@ -2,6 +2,8 @@
 
 What {{CLIENT_NAME}} sells, how it is positioned, and the proof points that make it credible. This is the primary source of truth for copy.
 
+Built via the 9-step worksheet in `wiki/offer-framework.md` (the theory behind each step lives in `wiki/offer-creation-theory.md`). **The offer is the highest-leverage lever a client has** - a strong offer improves every downstream metric at once, so this file is not a quick one-liner, it is worked through properly during onboarding.
+
 ---
 
 ## The Offer in One Line
@@ -21,11 +23,95 @@ What {{CLIENT_NAME}} sells, how it is positioned, and the proof points that make
 
 ---
 
-## The Outcome Promise
+## Who This Is For (Step 1 - Define Who)
+
+The psychology behind the ICP - not the firmographic filters (those live in `clients/{slug}/icp.md`), but
+what is actually driving this person.
+
+- **Niche / specific problem:** {{Which niche, and the specific problem this client solves for them}}
+- **Goals facing this problem:** {{What they are trying to achieve}}
+- **Consequences of the problem:** {{What happens if it stays unsolved}}
+- **What they've tried before:** {{Past attempts to solve this - and why those fell short}}
+- **Current situation → desired situation:** {{The gap this offer needs to bridge}}
+- **What they truly want (heart of hearts):** {{The unconscious driver beneath the stated goal}}
+- **What they believe / think:** {{Beliefs and assumptions that shape how they'll receive this offer}}
+- **Known truths to use in messaging:** {{Anything true about their day-to-day that resonates}}
+
+**Conclusion:** {{One-paragraph summary of who this is for and what is driving them}}
+
+---
+
+## The Outcome Promise (Step 2 - Define Outcome)
 
 **Big claim:** {{The bold outcome they deliver - specific and measurable}}
+**Made tangible (numbers):** {{How the promise is quantified}}
+**End state / how they'll feel:** {{Where the prospect is, and how they feel, once this outcome is delivered}}
+**Why it matters to them:** {{What this outcome unlocks - doors it opens, unconscious drives it satisfies}}
+
+**Conclusion:** {{State the outcome in one sentence, with a specific number attached}}
+
+---
+
+## Timeframe (Step 3)
+
 **Timeframe:** {{How long it takes to get the result}}
-**Guarantee / risk reversal:** {{What happens if it does not work}}
+**Why it takes this long:** {{The honest reason}}
+**Could it be shorter:** {{What would need to change to compress it - only if honest}}
+
+---
+
+## Methodology (Step 4 - Establish Methodology)
+
+The steps that get followed (DFY) or that the client follows (DWY/coaching) to achieve the outcome. Trim
+to the most important steps only, then rewrite each in 6-9 words - simple enough a 10-year-old could
+follow it.
+
+1. {{Step 1, ≤6-9 words}}
+2. {{Step 2}}
+3. {{Step 3}}
+
+---
+
+## Factors of Value (Step 5)
+
+For each methodology step above, predict the objection/obstacle a prospect would raise, then invert it
+into a proof point.
+
+| Methodology step | Objection / obstacle | Factor of value (the inversion) |
+|-------------------|----------------------|----------------------------------|
+| {{Step}} | {{What a sceptical prospect would think}} | {{How this client solves/removes it - in simple terms}} |
+| {{Step}} | {{Objection}} | {{Factor of value}} |
+
+---
+
+## Risk Reversal & Guarantee (Step 6)
+
+**Do they guarantee the outcome if the methodology is followed?** {{Yes / No}}
+**If no:** {{Why not - this usually means another factor of value is missing above}}
+**If yes, the guarantee:** {{Refund? Working for free if it fails? Performance-basis pay? An apology
+offer? How are incentives aligned so the client is motivated to make it actually work?}}
+
+**Guarantee, stated boldly:** {{XYZ Guarantee - the actual wording to use in copy}}
+**Guarantee name:** {{e.g. "Profuse Apology Guarantee", "No Win No Fee Guarantee" - give it a name, it makes it memorable}}
+
+---
+
+## Polarisation (Step 7)
+
+Excluding the wrong-fit prospect makes the right-fit prospect feel more qualified, not less served.
+
+- **Who can't this client help:** {{}}
+- **Who the outcome is not for:** {{}}
+- **The mindset that disqualifies someone:** {{}}
+
+---
+
+## Ultimatum (Step 8)
+
+Contrast the upside and downside of taking the offer - infinite upside, minimal downside.
+
+**Best case:** {{What happens if this goes right}}
+**Worst case:** {{What is the absolute worst that happens - and why it's still not that bad}}
 
 ---
 
@@ -76,10 +162,13 @@ Every B2B offer does one of three things. Assign each value prop a specific angl
 
 ---
 
-## Positioning
+## Packaging & Positioning (Step 9)
 
+**Bare bones (what's actually being sold):** {{Strip it back - this answer usually sounds like every
+competitor}}
+**Packaged (how it's positioned to sound aligned with what they want):** {{The sexy, in-alignment version,
+in as few words as possible - this is the real positioning}}
 **Against the market:** {{How they are positioned vs. alternatives - what category do they own?}}
-**Who they are not for:** {{Who they explicitly exclude - polarisation makes the offer stronger}}
 
 ---
 

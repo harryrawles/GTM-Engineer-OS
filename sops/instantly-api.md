@@ -56,6 +56,25 @@ asks the GTME (CLAUDE.md → Safety Guard, Credentials & Instantly Access).
 **The rule of thumb:** if it changes the workspace or sends anything, it's a write - the guard blocks
 it, and Claude must state the action + name the client/workspace and wait for a yes.
 
+### When the GTME approves a write the guard has no bypass for
+
+`safety-guard.sh` gates by HTTP verb with a **fixed list of carve-outs written into the script** - there
+is no in-chat "approved, go ahead" bypass. Approval in the conversation doesn't make the call succeed;
+the script still blocks it. Two ways to handle this, matching how the carve-out was actually built for
+SuperSearch's `count`/`preview` endpoints:
+
+1. **Genuinely free and non-mutating (a read that happens to be POST)** - add a permanent, narrowly-
+   scoped carve-out to `safety-guard.sh` itself (exact endpoint path match, not a verb-wide exemption),
+   with a comment explaining why it's safe. This is a standing change to a safety mechanism - ask the
+   GTME before editing the hook, even though the endpoint itself is harmless.
+2. **A real credit-spend or mutation, approved for one specific action** - add a scoped temporary
+   carve-out (matched to the exact endpoint, and ideally `--client {slug}`), run the approved call, then
+   **revert the carve-out immediately after** so the hook returns to its stricter default. Don't leave a
+   one-time write permanently unblocked.
+
+Either way, get explicit approval before editing `safety-guard.sh` at all - it's the safety mechanism
+CLAUDE.md's own Safety Guard section relies on.
+
 ---
 
 ## Common endpoints (from the v2 spec)
@@ -75,6 +94,10 @@ it, and Claude must state the action + name the client/workspace and wait for a 
 | Bulk add / delete leads | `POST /leads/bulk-add` · `POST /leads/bulk-delete` *(write)* |
 | List / get emails (replies) | `GET /emails` · `GET /emails/:id` |
 | Reply / forward email | `POST /emails/reply` · `POST /emails/forward` *(write / send)* |
+| Count SuperSearch matches (free, no import) | `POST /supersearch-enrichment/count-leads-from-supersearch` *(read)* |
+| Preview SuperSearch matches (free, no import) | `POST /supersearch-enrichment/preview-leads-from-supersearch` *(read)* |
+| Pull + enrich leads from SuperSearch | `POST /supersearch-enrichment/enrich-leads-from-supersearch` *(write - spends credits)* |
+| Move/copy leads between list and campaign | `POST /leads/move` *(write)* |
 
 Full surface (every endpoint, every resource, rate limits, gotchas, undocumented-area warnings) is
 vendored in `wiki/instantly-api-reference.md` - read that before wiring in anything beyond the common

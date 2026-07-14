@@ -12,6 +12,7 @@ reads:
   - "wiki/_skill-context.md (once the folder exists)"
   - "templates/client-template/ (source for the new folder)"
   - "clients/{slug}/*.md (own files, to detect resume state)"
+  - "wiki/offer-framework.md, offer-creation-theory.md (Phase 2)"
   - "wiki/list-building.md, signal-sourcing.md, atl-btl-messaging.md (Phase 3)"
 writes:
   - "clients/{slug}/_config.md, overview.md, offer.md, icp.md, voice.md, campaign-state.md"
@@ -126,46 +127,136 @@ Ask in this order:
 6. Who is the primary contact? Name, title, email.
 7. Are there other key contacts I should know about?
 8. Why did they hire Instantly.ai? What were they doing before?
-9. Contract terms (service type, start date, monthly send target, reporting day) come from the signed
-   deal, get these from the AM rather than negotiating them fresh with the client. Confirm them with the
-   client here, don't originate them.
-10. Who is the assigned Account Manager (AM) for this client? (Same person you're getting contract terms
-    from in Q9 - this is who future billing/domain/refund escalations tag, per
-    `sops/am-gtme-responsibility-split.md`.)
-11. Anything else relevant - quirks, sensitivities, preferences, things they care about beyond metrics?
+9. Who is the assigned Account Manager (AM) for this client? This is who future billing/domain/refund
+   escalations tag, per `sops/am-gtme-responsibility-split.md`.
+10. Anything else relevant - quirks, sensitivities, preferences, things they care about beyond metrics?
+
+**Do not chase contract terms (start date, monthly send target, reporting day, renewal date) during
+onboarding.** Per standing GTME preference (confirmed 2026-07-10) these are not tracked as part of this
+skill - leave the corresponding `_config.md`/`overview.md` fields out or marked not tracked rather than
+asking the GTME to chase them from the AM. `service_type`/`tier` can still be
+recorded if the GTME already knows it (e.g. from a pre-call brief) - just don't treat it as a required,
+must-confirm field.
 
 **After Phase 1:**
 - Write `clients/{slug}/overview.md` with all answers
-- Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier`, `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `assigned_am`, `service_type`, `start_date`, `reporting_day`; set `template_version` from the repo root `VERSION`
+- Fill `clients/{slug}/_config.md` Identity block: `slug`, `client_name`, `tier` (if known), `industry`, `website`, `geography`, `primary_contact_name`, `primary_contact_email`, `assigned_am`; set `template_version` from the repo root `VERSION`
 - Do **not** touch root `CLAUDE.md` or `INDEX.md` - they are shared and client-agnostic
 - Confirm to the GTME: "Phase 1 complete. Identity locked in. Ready for Phase 2 - Offer?"
 
 ---
 
-## PHASE 2 - Offer (15 minutes)
+## PHASE 2 - Offer (30-40 minutes)
 
 **Target file:** `clients/{slug}/offer.md`
 
-Ask in this order:
+**This is the most important phase.** Per `CLAUDE.md` Core Principles, the offer is the highest-leverage
+lever a client has - it improves every downstream metric at once (reply rate, show-up rate, close rate)
+for a one-time input of effort. Do not shortcut this into a quick one-liner. Read `wiki/offer-framework.md`
+(the 9-step worksheet) before starting this phase - if any step below feels arbitrary, the reasoning is in
+`wiki/offer-creation-theory.md`.
 
-1. **One-line offer:** Can you write the offer as a single sentence - [outcome] for [ICP] in [timeframe] - [risk reversal / guarantee]?
-2. **What they sell:** product/service name, category, delivery model, pricing range
-3. **Big claim:** what specific, measurable outcome do they deliver?
-4. **Timeframe:** how long does it take to get the result?
-5. **Guarantee / risk reversal:** what happens if it does not work?
-6. **Case studies:** name 3 real case studies - client name, specific result, timeframe. Push back if vague.
-7. **Aggregate stats:** are there portfolio-wide numbers we can use? ("92% of clients see X within Y days")
-8. **Approved client logos:** which named logos are approved for use in copy?
-9. **Differentiators:** what makes this offer different from every other option the prospect has? Give me 3.
-10. **3 value props:** for each - make money, save time, save money - what is this client's specific angle?
-11. **CTA options:** give me 3 CTA variations across the sequence (soft / medium / hail-mary).
-12. **Positioning:** how are they positioned against alternatives? Who are they NOT for?
+Run the 9 steps below in order. Each step ends with a **Conclusion** the GTME confirms before moving on -
+write it to the matching section of `offer.md` as you go, don't wait until the end of the phase.
 
-**Push back if answers are vague.** Specifics beat clichés. "Significant cost savings" is not approved - "40-70% cost saving vs local US hires" is.
+### Step 2.1 - Who (niche psychology)
+
+Not firmographics (that's Phase 3 / `icp.md`) - the psychology driving this specific prospect.
+
+1. Which niche are you in, and what specific problem does this client solve for them?
+2. What are the goals of someone facing this problem? What are the consequences of not solving it?
+3. What have they tried before to solve it? Why did that fall short?
+4. What is their current situation? What is their desired situation? (This gap is what the offer bridges.)
+5. What do they truly want, in their heart of hearts? What do they believe or think?
+6. What do you know to be true about their day-to-day that we can use in messaging?
+
+**Conclusion:** one-paragraph summary of who this is for and what's driving them → `Who This Is For`.
+
+### Step 2.2 - Outcome
+
+7. **Big claim:** what specific, measurable outcome do they deliver? What's the bold claim?
+8. How is this made tangible with numbers? Where will the prospect be, and how will they feel, once solved?
+9. Why does this outcome matter to them? What does it unlock?
+
+**Conclusion:** the outcome in one sentence, with a specific number attached → `The Outcome Promise`.
+
+### Step 2.3 - Timeframe
+
+10. What's a realistic timeframe to achieve the outcome? Why does it take this long?
+11. Could it be shorter - honestly?
+
+**Conclusion:** state the timeframe → `Timeframe`.
+
+### Step 2.4 - Methodology
+
+12. What are the core components of the product? List every step needed to achieve the outcome, in order.
+13. Which steps are most important? Which are least important - can those be cut and still deliver the outcome?
+14. Rewrite the trimmed list so each step is 6-9 words max. Could a 10-year-old follow it?
+
+**Conclusion:** the trimmed, simplified step list → `Methodology`.
+
+### Step 2.5 - Factors of Value
+
+For each methodology step: what objection, obstacle, or doubt would a sceptical prospect raise? Invert
+each one into a proof point (a factor of value) stated simply.
+
+15. Walk through each methodology step and surface the objection, then the inversion.
+
+**Conclusion:** objection → factor-of-value table → `Factors of Value`.
+
+### Step 2.6 - Risk Reversal / Guarantee
+
+16. Do you guarantee the outcome if the methodology is followed? If not, why not - that usually means a
+    factor of value is still missing from Step 2.5.
+17. If yes: refund? Work for free if it fails? Performance-basis pay? An apology offer? How are incentives
+    aligned so you're motivated to make it actually work?
+18. State the guarantee boldly, then give it a name (e.g. "No Win No Fee Guarantee").
+
+**Conclusion:** the guarantee, stated and named → `Risk Reversal & Guarantee`.
+
+### Step 2.7 - Polarise
+
+19. Who can't this client help? Who is the outcome not for? What mindset disqualifies someone?
+
+**Conclusion:** the exclusion list → `Polarisation`.
+
+### Step 2.8 - Ultimatum
+
+20. Best case if a prospect takes the offer? Worst case - and why even the worst case isn't that bad?
+
+**Conclusion:** best case / worst case → `Ultimatum`.
+
+### Step 2.9 - Supporting proof and copy assets
+
+21. **Case studies:** name 3 real case studies - client name, specific result, timeframe. Push back if vague.
+22. **Aggregate stats:** portfolio-wide numbers? ("92% of clients see X within Y days")
+23. **Approved client logos:** which named logos are approved for use in copy?
+24. **Differentiators:** what makes this offer different from every other option the prospect has? Give 3.
+25. **3 value props:** for each - make money, save time, save money - what is this client's specific angle?
+26. **CTA options:** 3 CTA variations across the sequence (soft / medium / hail-mary).
+
+**Conclusion:** → `Proof Points`, `Key Differentiators`, `The 3 Value Props`, `CTA Options`.
+
+### Step 2.10 - Packaging (Step 9 of the worksheet)
+
+27. Stripped to bare bones, what is actually being sold? (This answer usually sounds like every competitor.)
+28. How do you make that sound aligned with what the prospect truly wants, in as few words as possible?
+29. How are they positioned against the market - what category do they own?
+
+**Conclusion:** the packaged positioning → `Packaging & Positioning`.
+
+### Step 2.11 - Synthesise the one-liner
+
+30. Combine the above into the offer's one-line summary: [outcome] for [ICP] in [timeframe] - [risk
+    reversal / guarantee] → `The Offer in One Line`.
+31. **What they sell:** product/service name, category, delivery model, pricing range → `What They Sell`.
+
+**Push back if answers are vague at any step.** Specifics beat clichés. "Significant cost savings" is not
+approved - "40-70% cost saving vs local US hires" is.
 
 **After Phase 2:**
-- Write `clients/{slug}/offer.md`
-- Confirm: "Phase 2 complete. Offer captured. Ready for Phase 3 - ICP?"
+- Write `clients/{slug}/offer.md` in full (all sections above should already be filled step by step)
+- Confirm: "Phase 2 complete. Offer built through the full 9-step worksheet. Ready for Phase 3 - ICP?"
 
 ---
 
@@ -253,7 +344,17 @@ Ask in this order:
 - Seed `clients/{slug}/campaign-state.md` with infrastructure detail
 - Write the Instantly workspace URL/ID and `instantly_api_configured` into `clients/{slug}/_config.md`
 - Write the Instantly **API key** into `clients/{slug}/secrets/credentials.md` only (git-ignored) - never into `_config.md` or any committed file. Never print the full key in chat.
-- Leave campaign performance metrics blank - populate after first campaign runs
+- **Once the key is in place, check for a pre-existing workspace before assuming this is a blank slate.**
+  `GET /campaigns` (read, runs automatically). If any campaigns already exist - this is a handover or an
+  already-live account, not a true net-new signing - pull `GET /campaigns/analytics`, `GET /accounts`
+  (mailboxes/warmup), and `GET /campaigns/analytics/steps` for each, and seed `campaign-state.md` with the
+  *real* current state (sends, replies, bounce rate, health) instead of leaving it blank. Read the actual
+  live sequence copy too (it's needed context for any future diagnosis or rewrite). Note in
+  `overview.md` Context Notes and `decision-log.md` that this is an existing account, not a fresh start -
+  a GTME handover (`sops/client-handover.md`) may also be in play and worth surfacing to the GTME to confirm.
+  (Added 2026-07-13 after an onboarding revealed a live campaign only once the API key was loaded -
+  Phase 5's original "leave metrics blank" instruction assumed net-new every time.)
+- If no campaigns exist yet, leave campaign performance metrics blank - populate after first campaign runs
 - Confirm: "Phase 5 complete. Infrastructure captured."
 
 ---

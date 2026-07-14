@@ -30,10 +30,12 @@ Claude should:
   - clients/{slug}/_config.md
 - Confirm Phase 1 complete
 
-### 3. Continue Phase 2 - Offer (15 min)
-- Ask 12 offer questions
+### 3. Continue Phase 2 - Offer (30-40 min)
+- Run the full 9-step worksheet (`wiki/offer-framework.md`) - who, outcome, timeframe, methodology,
+  factors of value, risk reversal/guarantee (with a name), polarisation, ultimatum, packaging - plus
+  proof points, differentiators, value props, and CTA options
 - Push back if answers are vague ("better hiring" → "by how much, by what date?")
-- Write to clients/{slug}/offer.md
+- Write to clients/{slug}/offer.md, one section per step as it's confirmed
 
 ### 4. Continue Phase 3 - ICP (15 min)
 - Ask 13 ICP questions

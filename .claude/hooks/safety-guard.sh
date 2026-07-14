@@ -365,12 +365,20 @@ if [ "$TOOL_NAME" = "Bash" ]; then
   # automatically; POST/PATCH/PUT/DELETE are mutations/sends and need approval
   # (CLAUDE.md → Safety Guard #2). A bare mention (e.g. cat'ing the script, no
   # verb) is ignored - only an actual verbed invocation is gated.
+  #
+  # Two SuperSearch endpoints are also carved out below: count-leads-from-supersearch
+  # and preview-leads-from-supersearch. Confirmed via Instantly's developer docs
+  # (2026-07-10) that neither spends credits nor mutates/imports data - they only
+  # return a count or a preview of matching leads. enrich-leads-from-supersearch and
+  # supersearch-enrichment/run DO spend credits and stay gated.
   if echo "$CMD" | grep -qE 'instantly\.sh[[:space:]]'; then
     VERB=$(echo "$CMD" | sed -nE 's|.*instantly\.sh[[:space:]]+(--client[[:space:]]+[^[:space:]]+[[:space:]]+)?([A-Za-z]+).*|\2|p' | tr '[:lower:]' '[:upper:]')
     case "$VERB" in
       POST|PATCH|PUT|DELETE)
         if echo "$CMD" | grep -qE 'instantly\.sh([[:space:]]+--client[[:space:]]+[^[:space:]]+)?[[:space:]]+[Pp][Oo][Ss][Tt][[:space:]]+/leads/list([[:space:]]|$)'; then
           : # read-only list endpoint (POST by API design) - allow
+        elif echo "$CMD" | grep -qE 'instantly\.sh([[:space:]]+--client[[:space:]]+[^[:space:]]+)?[[:space:]]+[Pp][Oo][Ss][Tt][[:space:]]+/supersearch-enrichment/(count|preview)-leads-from-supersearch([[:space:]]|$)'; then
+          : # no credit cost, no data mutation/import - count/preview only - allow
         else
           echo "SAFETY GUARD BLOCKED: Instantly API mutation via instantly.sh (verb: $VERB)."
           echo "Details: $(printf '%s' "$CMD" | tr -d '\n' | head -c 200)"

@@ -146,7 +146,7 @@ respecting the global rate limit.
 | Field | Type | Notes |
 |---|---|---|
 | `id` | string | UUID |
-| `name` | string | required |
+| `name` | string | required. **Naming convention (all clients): always prefix with `Instantly \| `** - e.g. `Instantly \| {{Client}} \| Checkout Sequence V2`. Confirmed 2026-07-13. |
 | `status` | number enum | see Global field conventions above |
 | `not_sending_status` | number\|null enum | `1`=out of schedule, `2`=waiting for lead to process, `3`=daily send limit hit, `4`=all sending accounts hit their limit, `99`=error, contact support. Read-only. |
 | `campaign_schedule` | object, required | `{ start_date, end_date, schedules: [{ name, timing: {from, to} (HH:MM), days: {"0".."6": bool, 0=Sun}, timezone (IANA) }] }`, min 1 schedule |
@@ -187,6 +187,13 @@ respecting the global rate limit.
 | `POST /campaigns/{id}/from-export` | Create a new campaign from a shared/exported one | WRITE | 403 "requested campaign not shared" if the share lapsed |
 | `POST /campaigns/{id}/export` | Export to JSON | READ | POST verb, but read-only |
 | `POST /campaigns/{id}/variables` | Set campaign-level variables | WRITE | Body `variables` (array\<string\>) |
+
+**Don't trust `custom_variables`/available-variables metadata on a campaign as the source of truth for
+what actually populates.** Observed returning two different variable sets for the same campaign across
+separate `GET`/`PATCH` calls in the same session (once sparse, once far richer) with no change made in
+between. If the metadata and the GTME's direct knowledge of the lead list disagree, treat the GTME's word
+as authoritative and verify with a test send rather than the API response. (Confirmed 2026-07-13.) See
+also `gtm-skills/campaign-launcher.md` Section 3 pre-flight check.
 
 ### Campaign analytics
 
@@ -510,6 +517,71 @@ Key gotchas:
   spends SuperSearch credits based on `limit` x enrichment types selected, and can spawn a recurring
   `live_list` automation.
 - `preview-leads-from-supersearch` returns `number_of_redacted_results` for trial-plan accounts.
+
+### `search_filters` body schema (not in the OpenAPI spec or Instantly's help center - sourced from
+`developer.instantly.ai`'s per-endpoint reference pages, 2026-07-10)
+
+Every SuperSearch query endpoint (`count-leads-from-supersearch`, `preview-leads-from-supersearch`,
+`enrich-leads-from-supersearch`) takes the same `search_filters` object. Guessed field names are silently
+ignored rather than erroring, so use these exact keys:
+
+```json
+{
+  "search_filters": {
+    "locations": [{ "place_id": "string", "label": "string" }],
+    "location_mode": "contact|company",
+    "department": ["Engineering", "Finance & Administration", "Human Resources", "IT & IS", "Marketing", "Operations", "Sales", "Support", "Other"],
+    "level": ["C-Level", "VP-Level", "Director-Level", "Manager-Level", "Staff", "Entry level", "Mid-Senior level", "Director", "Associate", "Owner", "Executive", "Manager", "Senior", "Chief X Officer (CxO)", "Internship", "Vice President (VP)", "Unpaid / Internship", "Partner"],
+    "employeeCount": ["0 - 25", "25 - 100", "100 - 250", "250 - 1000", "1K - 10K", "10K - 50K", "50K - 100K", "> 100K"],
+    "revenue": ["$0 - 1M", "$1 - 10M", "$10 - 50M", "$50 - 100M", "$100 - 250M", "$250 - 500M", "$500M - 1B", "> $1B"],
+    "title": { "include": ["string"], "exclude": ["string"] },
+    "name": ["string"],
+    "company_name": { "include": ["string"], "exclude": ["string"] },
+    "industry": { "include": ["string"], "exclude": ["string"] },
+    "subIndustry": { "include": ["string"], "exclude": ["string"] },
+    "look_alike": "string",
+    "keyword_filter": { "include": "string", "exclude": "string" },
+    "domains": ["string"],
+    "news": ["launches", "expands_offices_to", "hires", "partners_with", "receives_financing", "acquires", "merges_with"],
+    "funding_type": ["pre_seed", "angel", "seed", "series_a", "series_b", "series_c", "..."],
+    "signals": ["job_change"],
+    "skip_owned_leads": true,
+    "show_one_lead_per_company": true
+  },
+  "skip_owned_leads": true,
+  "show_one_lead_per_company": true
+}
+```
+
+- `employeeCount`/`revenue` accept the listed preset bands - a custom `{op, min, max}` object was also
+  reported for `employeeCount` but not independently confirmed here.
+- `industry`/`subIndustry`/`title`/`company_name` are all `{include, exclude}` shape, not flat arrays -
+  this was the gotcha that made prior guesses (flat arrays) get silently ignored.
+- `count-leads-from-supersearch` and `preview-leads-from-supersearch` don't spend credits or mutate
+  anything, safe to iterate on filters with either before running `enrich-leads-from-supersearch`.
+- `safety-guard.sh` carves both of these out as reads (alongside `POST /leads/list`) - they run
+  automatically, no approval needed. `enrich-leads-from-supersearch` and `.../run` still spend credits
+  and stay gated.
+- **Email yield is not guaranteed and can be well under the pull count.** `enrich-leads-from-supersearch`
+  returns leads matching the query, but a meaningful share can come back with no resolvable email at all
+  (name/title/company/LinkedIn only, `payload.email` and top-level `email` both absent) - Instantly found
+  the person, not an inbox for them. Observed on one real pull: 1,000 requested → only 404 had an email
+  and could subsequently be moved into a sending campaign (596 stayed emailless). Treat this as a rough
+  planning heuristic, not a fixed ratio - it will vary by ICP/geography/seniority. **Before committing to
+  a target campaign-load size, pull first, then count how many of the enriched leads actually have an
+  email** (see troubleshooting note below), rather than assuming pull count = usable count. If you need
+  the campaign to land at N, budget for pulling meaningfully more than N and confirm with the GTME before
+  spending the credits on a bigger pull.
+- **Recovering the query behind an existing list:** `GET /supersearch-enrichment/{resource_id}` against
+  a lead-list's ID returns the actual saved `search_filters` that built it - useful for root-causing why
+  an existing SuperSearch-built list underperforms (e.g. a missing `subIndustry`/`employeeCount`
+  constraint) before rebuilding blind against a freshly-written filter.
+- **Troubleshooting a lead-count mismatch after `enrich` + `leads/move`:** don't assume the move job is
+  broken just because the destination campaign has fewer leads than were enriched. Paginate the source
+  (`POST /leads/list` with `list_id`) and the destination (`POST /leads/list` with `campaign`) fully,
+  diff by `email` (not `id` - a copy can get a new id), then `GET /leads/{id}` on a sample "missing" lead
+  to confirm whether it genuinely has no email in its record. A lead with no email cannot be added to a
+  sending campaign - `leads/move` correctly skips it, that's not a bug.
 
 ---
 

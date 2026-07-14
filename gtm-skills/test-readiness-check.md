@@ -128,6 +128,15 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 **11. Single variable confirmation**
 - Re-confirm only ONE variable changes between control and variant (manual review of copy diff)
+- **Exception - Complete modification level:** when 1.6's modification level is Complete (control is
+  "dead in the water" per `wiki/scientific-method.md` 4.4), the genotype should be framed as a single
+  `Stimulus(Vn)` unit being replaced wholesale, not decomposed into separately-tracked variables (Content,
+  CTA, Structure, etc.) that each appear to be changing independently. Framed as one Stimulus, this check
+  passes cleanly - Complete rewrite means the whole thing changes together by definition. If the genotype
+  in 1.1 lists multiple named variables all moving to a new version at once, that's usually a framing
+  problem to fix (collapse to one Stimulus variable), not a genuine multi-variable violation to warn on.
+  (Confirmed 2026-07-13 - a client's T-001 first framing tripped this warning unnecessarily; reframing
+  as a single Stimulus resolved it with zero design change.)
 
 **12. Modification level appropriateness**
 - Slight modification on a dead variant (PRR <0.5% vs 1% target) → warn, recommend complete
@@ -138,6 +147,21 @@ Without this row, `gtm-skills/pattern-detector.md` cannot find repeating prompts
 
 **14. Polaris (secondary) currently above KPI**
 - If secondary (ABR) is currently at or above KPI, warn - Step 3.2 Q2 says do NOT iterate primary while Polaris is hitting
+
+**15. Variants actually differ on the declared needle-mover**
+- Diff the control/variant copy pasted in 1.6 against the variable named as the needle-mover. A common
+  failure mode: 2-3 "variants" are built that share an identical hook/body and only differ in a
+  low-priority element (usually the CTA line), while the genotype claims to be testing something higher
+  up the priority order (`wiki/scientific-method.md` Section on test priority: Offer > ICP/targeting >
+  icebreaker/personalisation > CTA > subject line). That's a CTA test wearing an Offer-test's genotype -
+  warn and recommend either reframing the genotype honestly as a CTA test, or rewriting the variants so
+  they actually differ on the stated variable. (Confirmed 2026-07-13 - caught on a client's T-001 before
+  any data accumulated, redesigned as 3 genuinely Offer-led arms.)
+- If the sequence has a later step (e.g. day+3 follow-up) with its own multiple variants, don't assume
+  Instantly can pair "which step-2 variant a lead sees" to "which step-1 arm they got" - it can't thread
+  conditional logic across sequence steps. Later-step variants in a multi-arm test should either be kept
+  generic/interchangeable across all arms, or the test should be restructured as fully separate campaigns
+  per arm if true step-2 pairing is required.
 
 ---
 
