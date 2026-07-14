@@ -76,11 +76,19 @@ Run every item. Each must pass before launch.
 
 ### 3. Sequence Configuration in Instantly
 
+- [ ] Campaign name starts with `Instantly | ` (e.g. `Instantly | {{Client}} | {{Campaign description}}`) - standing naming convention across every client, confirmed 2026-07-13
 - [ ] Sequence loaded in Instantly with correct step timing (Day 0, 3, 7, etc.)
 - [ ] Subject lines match approved copy exactly
 - [ ] Body text matches approved copy exactly (verify via Instantly preview)
 - [ ] Threading correct (Email 2 threaded, Email 3 new thread, etc.)
 - [ ] Liquid syntax / spintax variables tested (send a test email and verify rendering; format per `gtm-skills/spintax-ninja.md`)
+- [ ] Every merge variable used in copy - across ALL steps and variants, not just Email 1 - confirmed to
+      actually populate for this lead list. Don't trust Instantly's `custom_variables` API metadata alone;
+      it has been observed returning different variable sets for the same campaign across separate calls.
+      Verify against a test send or the lead list's actual populated fields, and treat the GTME's direct
+      knowledge of what the list contains as authoritative over the API metadata if they conflict.
+      (Confirmed 2026-07-13 - on one live sequence's sign-off, `{{industry}}` and
+      `{{sendingAccountFirstName}}` were used throughout but never populated for that lead source.)
 - [ ] Plain text mode confirmed (no HTML formatting in body)
 - [ ] No links in Email 1 body (allowed in Email 3+ if needed)
 

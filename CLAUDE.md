@@ -31,6 +31,11 @@ file ever disagree, this file is correct and the repo should be fixed to match i
 
 ## Core Principles
 
+- **The offer is the highest-leverage lever a client has.** A strong offer improves every downstream
+  metric at once - reply rate, show-up rate, close rate - for a one-time input of effort (see
+  `wiki/offer-creation-theory.md` Section 7, Offer Power). Every client's `offer.md` must be built through
+  the full 9-step worksheet in `wiki/offer-framework.md` (Steps 1-9) during onboarding, not filled in with
+  a quick one-liner - see `gtm-skills/client-onboarder.md` Phase 2.
 - **PRR is the north star, always.** Positive reply rate drives every copy decision. Opens are vanity.
 - **Compound, don't improvise.** Reuse proven winners; log the *why* every time.
 - **Signal-based, not spray-and-pray.** Only contact prospects showing intent.
@@ -285,6 +290,8 @@ the loop keeps a signal even if a skill forgets; `pattern-detector` dedupes the 
 | "Diagnose deliverability" | `gtm-skills/deliverability-doctor.md` |
 | "Incident" / "Blacklisted" / "Bounce spike" | `gtm-skills/incident-responder.md` |
 | "Write the weekly report" | `gtm-skills/client-report-writer.md` |
+| "Weekly report for [client]" / "deep report for [client]" / "proactive report for [client]" | `gtm-skills/workspace-deep-report.md` |
+| "Monday/Wednesday/Friday check-in for [client]" / "... for all clients" / "weekly check-in" | `gtm-skills/client-checkin-writer.md` |
 | "EOD report" / "Wrap up my day" / "Close out the day" | `gtm-skills/eod-report-writer.md` |
 | "Generate QBR for [client]" | `gtm-skills/qbr-writer.md` |
 | "Offboard [client]" | `gtm-skills/client-offboarder.md` |

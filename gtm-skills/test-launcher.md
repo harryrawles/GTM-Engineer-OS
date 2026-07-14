@@ -158,34 +158,39 @@ If anything fails → fix before proceeding.
 
 ## STEP 4 - Launch in Instantly
 
-Output Instantly setup instructions for the GTME:
+The OS calls the Instantly API v2 directly via `.claude/bin/instantly.sh` (see `sops/instantly-api.md`) - it is
+not limited to manual instructions. Reads and campaign creation are the skill's to execute; anything that
+mutates a live, already-sending campaign (activating, adding leads, pausing) is a gated write per `CLAUDE.md`
+Safety Guard and needs the GTME's explicit go-ahead before the call is made, stated plainly (the action, the
+workspace, the campaign name) immediately beforehand.
 
-```
-=== Instantly Setup Instructions - Test T-{{ID}} ===
+For a **new variant inside an existing running campaign**:
+1. `GET /campaigns/{id}` to pull the current `sequences[0].steps` array.
+2. Add the new variant to the relevant step's `variants` array (or add a new step), preserving every
+   existing variant untouched - `PATCH /campaigns/{id}` replaces the whole `sequences` field, so the full
+   array must be resent, not just the delta.
+3. State the diff explicitly to the GTME before calling PATCH: what's new, what's unchanged.
+4. `PATCH /campaigns/{id}` with the updated `sequences`. This is a gated write - confirm with the GTME first.
+5. Verify by re-fetching the campaign and confirming variant count / subjects match what was intended.
 
-1. Open campaign: {{campaign_name}}
-2. Duplicate the existing Email {{step}}:
-   - Right-click sequence step → Duplicate
-   - Rename copy: "Email {{step}} VARIANT - T-{{ID}}"
-3. Edit the duplicate with the new variant copy (paste below)
-4. Configure split:
-   - Set to A/B split 50/50
-   - Set sample size: 300 sends per variant
-5. Verify before launching:
-   - Subject and body match the approved variant exactly
-   - No HTML formatting added accidentally
-   - Liquid syntax / spintax preserved (format per `gtm-skills/spintax-ninja.md`)
-6. Send a test email to the GTME's own inbox - verify rendering
-7. Launch the split
+For a **full-rewrite test replacing a dead campaign** (Complete modification level, see
+`wiki/scientific-method.md` 4.4): build the sequence as a new campaign via `POST /campaigns` (get `name`,
+`campaign_schedule`, `sequences`, `email_list`, and pacing/tracking fields from the schema in
+`wiki/instantly-api-reference.md` Section 2), created as Draft (do not set `status` to Active). Loading
+leads and activating are separate gated actions from creating the Draft - do not bundle them into the same
+approval unless the GTME explicitly asked for all three.
 
-Variant copy to paste:
-[paste body]
+**Naming convention - every new campaign name starts with `Instantly | `.** e.g. `Instantly | {{Client}}
+| Checkout Sequence V2`. This applies to every client, not just one - confirmed 2026-07-13 after a
+client's GTME renamed a campaign that had been created without the prefix. Get the prefix right the first
+time rather than relying on the GTME to rename after the fact.
 
-Subject:
-[paste subject]
-```
-
-The GTME actions this manually in Instantly. The skill does not have write access to Instantly campaigns.
+QA before any write, same as before:
+- Subject and body match the approved variant exactly
+- No HTML formatting added accidentally
+- Liquid syntax / spintax preserved (format per `gtm-skills/spintax-ninja.md`) - the `{{RANDOM|...}}` syntax
+  passes straight into the JSON body as literal text; Instantly parses it at send time
+- Word counts / question-mark rule / register match the version the GTME approved
 
 ---
 

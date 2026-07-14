@@ -51,6 +51,7 @@ Read `wiki/_skill-context.md` for the standard files every skill loads. Then add
 | "Build a lookalike list from best customers" | Lookalike building section in `wiki/list-building.md` |
 | "Verify these emails / clean the list" | Step 5 - Validation |
 | "Audit this list against ICP" / invoked by `gtm-skills/chain-diagnose-campaign.md` when list quality is the suspected root cause | Step 6 - Audit Mode |
+| "Rebuild/refresh the list via SuperSearch" / "pull leads from Instantly directly" | Step 7 - Rebuild via Instantly SuperSearch |
 
 ---
 
@@ -176,6 +177,42 @@ False positives: {{n}} ({{%}}) - driven by: {{criteria}}
 Recommendation: Refresh / Tighten ICP / Both
 {{one-line reasoning}}
 ```
+
+---
+
+## STEP 7 - Rebuild via Instantly SuperSearch (API)
+
+When Step 6 recommends **Refresh** or **Both**, and the client's own Instantly workspace is a viable
+source (not every client needs an external list vendor), SuperSearch can pull and enrich leads directly
+via the API against the tightened ICP. Full endpoint/schema reference: `wiki/instantly-api-reference.md`
+Section 9 - read it before building the filter, the `search_filters` shape has gotchas (e.g.
+`industry`/`title` are `{include, exclude}` objects, not flat arrays; guessed keys are silently ignored,
+not rejected).
+
+**Standing rule: every SuperSearch build goes through this API workflow, never the manual UI.** The
+`search_filters` schema is known and documented (Section 9 above) - there is no schema gap left to route
+around. If you find yourself about to hand a filter spec to the GTME to type into the SuperSearch UI by
+hand, stop - run it through `count-leads-from-supersearch` / `enrich-leads-from-supersearch` instead and
+only ask the GTME for the approval Step 3 requires.
+
+1. **If refreshing an existing list, recover its actual query first.** `GET
+   /supersearch-enrichment/{resource_id}` against the existing list's ID (not a guess from the ICP doc)
+   returns the real saved filters - this is usually the fastest way to find the exact missing constraint
+   causing drift.
+2. **Count before spending anything.** `count-leads-from-supersearch` is free and runs automatically (no
+   approval needed). Iterate the filter until the count looks right for the ICP.
+3. **Get the GTME's explicit approval before enriching** - `enrich-leads-from-supersearch` spends
+   SuperSearch credits and is gated by `safety-guard.sh`. State the filter, the count, and how many
+   leads you want to pull; wait for a yes.
+4. **Budget for email-yield loss, not just pull count.** A meaningful share of enriched leads can come
+   back with no resolvable email at all - only leads with an email can later be moved into a sending
+   campaign. Don't assume pull count = usable count; after enriching, count how many actually have an
+   email before deciding the campaign is short and re-pulling.
+5. **Move (don't delete) into the target campaign** via `POST /leads/move` with `copy_leads:true` -
+   keeps the enriched master list intact while loading the campaign. Also gated, needs approval.
+6. **If the campaign's lead count doesn't match what you enriched, diagnose before re-running anything**
+   - see the troubleshooting note in `wiki/instantly-api-reference.md` Section 9 (paginate list vs.
+   campaign, diff by email, spot-check a "missing" lead's raw record).
 
 ---
 

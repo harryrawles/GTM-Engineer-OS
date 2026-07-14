@@ -6,6 +6,62 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 
 ---
 
+## [3.8.1] - 2026-07-13
+
+### Added - standing campaign-naming convention: `Instantly | ` prefix
+
+Every campaign created via the OS must now be named starting with `Instantly | ` (e.g. `Instantly |
+{{Client}} | {{Campaign description}}`). Documented in `wiki/instantly-api-reference.md` (Campaign object
+`name` field), `gtm-skills/test-launcher.md` (campaign creation process), and `gtm-skills/campaign-launcher.md`
+(pre-flight checklist, item 3) so it's enforced both at creation time and at the launch gate. Surfaced when
+a client's GTME had to rename a campaign the OS created without the prefix - applies to all clients, not
+just the one that surfaced it.
+
+---
+
+## [3.8.0] - 2026-07-13
+
+### Added - copy density guidance and the opening-hook-question exception
+
+`wiki/copywriting-101.md` Hard Rules gained two refinements surfaced during a client copy review:
+a paragraph-grain rule ("group 2-3 related sentences into one paragraph, split only on a genuinely new
+idea" - the fix for copy that reads as either one dense block or, over-corrected, one clause per line),
+and an explicit exception to "no question marks except the CTA" allowing one opening hook question
+("Is {{company}} doing X yet?") as Part 1, since it functions as the pattern-break rather than a mid-body
+aside. Both are general copywriting principles, not client-specific, so they went to the shared wiki
+rather than staying in that client's `voice.md` alone (which also documents the client-specific Good/Bad
+examples that prompted the change).
+
+### Fixed - test-launcher.md STEP 4 described manual-only Instantly setup
+
+`gtm-skills/test-launcher.md` STEP 4 said "the skill does not have write access to Instantly campaigns"
+and walked the GTME through pasting copy into the UI by hand. This was stale relative to `CLAUDE.md`'s
+actual architecture (the OS calls the Instantly API v2 directly via `.claude/bin/instantly.sh`, with writes
+gated by explicit GTME approval, not routed around entirely). Replaced with the real process: pulling the
+existing `sequences` array before a `PATCH` (which replaces the whole field, not just a delta), creating a
+Draft campaign via `POST /campaigns` for a full-rewrite test, and treating lead-loading/activation as
+separate gated actions from campaign creation.
+
+### Added - Complete-modification framing note in test-readiness-check.md
+
+Check #11 (single-variable confirmation) now notes the Complete-modification-level exception: when a
+control is confirmed dead and the rewrite is total, the genotype should be framed as one `Stimulus(Vn)`
+unit, not decomposed into separately-tracked variables (Content, CTA, Structure) that each look like they
+are independently changing. Framed as a single Stimulus, the check passes cleanly, which is what Complete
+modification means by definition. Discovered when a client's T-001 tripped this warning unnecessarily on
+first framing.
+
+### Added - client-onboarder.md Phase 5 checks for a pre-existing Instantly workspace
+
+Phase 5 previously assumed every onboarding is a blank slate ("leave campaign performance metrics blank -
+populate after first campaign runs"). A client's onboarding revealed a live, already-running campaign only
+once the API key was loaded - this was a GTME handover, not a net-new signing, and the old instruction
+would have left `campaign-state.md` blank instead of seeded with real, already-existing performance data.
+Phase 5 now checks `GET /campaigns` once the key is in place and, if any campaigns already exist, pulls
+analytics/accounts/step data and flags the account as pre-existing rather than treating it as a fresh start.
+
+---
+
 ## [3.7.0] - 2026-07-08
 
 ### Added - dedicated fresh-eyes-reviewer sub-agent
